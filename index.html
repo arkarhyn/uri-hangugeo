@@ -665,7 +665,7 @@ const STATUS_TXT={new:"Not started",started:"In progress",done:"Done"};
 
 /* ---------------- shared log (Google Sheet via Apps Script) ---------------- */
 // Paste the Apps Script web app URL here (see README.md). Empty = progress stays on this device only.
-const SHEET_URL = "";
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbz-7LsOwsXd_lPF03K0-2QqE6ZgazCKT0m56-64j2to6QmrnyT2S8Qefr7dPSryPkGA/exec";
 const NAME_KEY="uri-hangugeo.name", PEND_KEY="uri-hangugeo.pending";
 let myName=""; try{ myName=localStorage.getItem(NAME_KEY)||""; }catch(e){}
 let sync="local", sheetRows=null, sheetErr=false, flushing=false, retryTimer=0;
