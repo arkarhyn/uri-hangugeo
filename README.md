@@ -1,6 +1,6 @@
 # 우리 한국어 교실
 
-Seven Korean lessons that pick up where the KSM textbook ended: polite and formal endings, honorific and humble speech, 에서, 있다/없다 with position words, 에 / (으)로 direction, Sino vs native numbers, and counters. Each lesson has slides, a practice quiz, flashcards and a lesson plan. There's also a Number Gym, a mixed review and a shared Progress page.
+Korean lessons for after the KSM textbook. **New lessons** (Unit 2) pick up where class stopped: the past tense, plans and suggestions, ordering and shopping, and joining sentences with -고 / -지만 / -아서. **Review from class** (Unit 1) keeps the seven class topics: polite and formal endings, honorific and humble speech, 에서, 있다/없다 with position words, 에 / (으)로 direction, Sino vs native numbers, and counters. Each lesson has slides, a practice quiz, flashcards and a lesson plan. There's also a Number Gym, a mixed review and a shared Progress page.
 
 The lesson text is original. Each lesson links to the matching free lesson on [How to Study Korean](https://www.howtostudykorean.com/).
 
@@ -26,4 +26,4 @@ The repo is served from the `main` branch root. After pushing, the site is at `h
 
 ## Adding lessons
 
-Add an entry to the `LESSONS` array in `index.html` with the same shape as the others (slides, vocab, ex, plan, talk, after, src). Practice items are `{k:"mc", q, c:[correct, ...wrong], why}` or `{k:"build", q, ok:[accepted sentences], x:[extra wrong tiles]}`.
+Add an entry to the `LESSONS` array in `index.html` with the same shape as the others (slides, vocab, ex, plan, talk, after, src). Practice items are `{k:"mc", q, c:[correct, ...wrong], why}` or `{k:"build", q, ok:[accepted sentences], x:[extra wrong tiles]}`. Set `unit:2` for a new lesson (unit 1 is review). Optional `pool:[...]` plus `poolN` adds that many random extra questions to each practice run. Lesson ids must be lowercase letters, digits or dashes (2-24 characters); the Sheet script accepts any id of that shape, so new lessons need no script change.

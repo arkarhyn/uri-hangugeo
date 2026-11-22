@@ -105,6 +105,8 @@ main{padding-block:28px 64px}
 .tool h3{font-size:17px}
 .tool p{margin:0;color:var(--ink-2);font-size:15px}
 .section-h{margin:36px 0 10px;font-size:15px}
+.unit-h{margin:34px 0 10px;font:700 12px/1.4 var(--f-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--seal-text)}
+.ptable tr.grp td{font:700 11px/1.4 var(--f-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--seal-text);background:rgba(0,0,0,.12)}
 
 /* lesson */
 .crumb{font:14px/1.4 var(--f-ui);color:var(--ink-2);text-decoration:none}
@@ -250,6 +252,13 @@ const SRC = {
   L11:{n:"Lesson 11",t:"Time words",u:HT+"/unit1/unit-1-lessons-9-16/lesson-11/"},
   L12:{n:"Lesson 12",t:"에서, 까지, (으)로",u:HT+"/?page_id=943"},
   L13:{n:"Lesson 13",t:"에게, 한테, 께",u:HT+"/?page_id=965"},
+  L9:{n:"Lesson 9",t:"Future tense",u:HT+"/?page_id=502"},
+  L17:{n:"Lesson 17",t:"~고 and ~고 싶다",u:HT+"/?page_id=1255"},
+  L37:{n:"Lesson 37",t:"~아/어서",u:HT+"/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-37/"},
+  L40:{n:"Lesson 40",t:"~세요 requests",u:HT+"/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-40/"},
+  L41:{n:"Lesson 41",t:"주다 and -아/어 주다",u:HT+"/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-41/"},
+  L44:{n:"Lesson 44",t:"Suggestions",u:HT+"/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-44/"},
+  L47:{n:"Lesson 47",t:"~지만",u:HT+"/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-47/"},
   L39:{n:"Lesson 39",t:"-시- and honorific words",u:HT+"/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-34-41/lesson-39/"}
 };
 
@@ -594,9 +603,271 @@ const LESSONS = [
   ],
   talk:[["몇 살이에요?","How old are you?"],["지금 몇 시예요?","What time is it now?"],["고양이가 몇 마리 있어요?","How many cats do you have?"]],
   after:"HTSK Lesson 10 lists the common counters, and Lesson 11 covers time."
+},
+/* ---- Unit 2: new material, past where the KSM class stopped ---- */
+{
+  id:"past", unit:2, ko:"했어요", title:"Talking about the past",
+  blurb:"Say what you did with -았어요/-었어요. It uses the same vowel rule you already know from 해요.",
+  src:["L5"],
+  goals:["Make the past tense of any regular verb or adjective","Use 했어요 for every 하다 verb","Say what something was with 이었어요/였어요","Say what you didn't or couldn't do with 안 and 못"],
+  slides:[
+    {h:"If you can say it now, you can say it in the past", p:"Take the 해요 form, drop 요, put ㅆ under the last syllable and add 어요. That's the whole trick.",
+     t:[["Now","Past","Meaning"],["가요","갔어요","went"],["먹어요","먹었어요","ate"],["봐요","봤어요","saw, watched"],["마셔요","마셨어요","drank"],["해요","했어요","did"]],
+     note:"Under the hood it's the vowel rule from Review 1 again: ㅏ or ㅗ takes 았, everything else takes 었."},
+    {h:"Consonant stems: 았어요 or 었어요", p:"When the stem ends in a consonant, nothing merges. Look at the last vowel: ㅏ or ㅗ takes 았어요, anything else takes 었어요. Adjectives work exactly the same way.",
+     ex:[["앉다 → 앉[았어요]","sat"],["받다 → 받[았어요]","received"],["먹다 → 먹[었어요]","ate"],["읽다 → 읽[었어요]","read"],["있다 → 있[었어요]","was there, had"],["재미있다 → 재미있[었어요]","was fun"]]},
+    {h:"Vowel stems merge, just like the present", p:"If you know the 해요 form, the past is one step away.",
+     t:[["Verb","Present","Past"],["오다","와요","왔어요"],["만나다","만나요","만났어요"],["배우다","배워요","배웠어요"],["기다리다","기다려요","기다렸어요"],["보내다","보내요","보냈어요"],["되다","돼요","됐어요"]]},
+    {h:"하다 is always 했어요", p:"Every 하다 verb ends in 했어요, and there are hundreds of them. In formal speech it's 했습니다, and any past form takes 습니다: 갔습니다, 먹었습니다.",
+     ex:[["어제 한국어를 공부[했어요].","I studied Korean yesterday."],["주말에 뭐 [했어요]?","What did you do on the weekend?"],["청소[했어요]. 그리고 요리[했어요].","I cleaned. And I cooked."],["너무 피곤[했어요].","I was so tired."]]},
+    {h:"Nouns: 이었어요 / 였어요", p:"이에요 (after a consonant) becomes 이었어요, and 예요 (after a vowel) becomes 였어요. 아니에요 becomes 아니었어요.",
+     ex:[["어제는 제 생일[이었어요].","Yesterday was my birthday. (생일 ends in a consonant)"],["어제는 휴가[였어요].","I was on leave yesterday. (휴가 ends in a vowel)"],["그건 농담[이었어요].","That was a joke."],["제 잘못이 [아니었어요].","It wasn't my fault."]]},
+    {h:"Didn't and couldn't: 안 and 못", p:"안 and 못 work the same way in the past. Put them right before the verb. With noun + 하다 verbs, they go between the noun and 했어요.",
+     ex:[["아침을 [안] 먹었어요.","I didn't eat breakfast."],["어젯밤에 [못] 잤어요.","I couldn't sleep last night."],["숙제를 [안] 했어요.","I didn't do the homework."],["운동 [안] 했어요.","I didn't work out. (not 안 운동했어요)"]]},
+    {h:"When it happened", p:"Time words usually come first in the sentence.",
+     t:[["Korean","Meaning"],["어제","yesterday"],["어젯밤","last night"],["그저께","the day before yesterday"],["지난주","last week"],["지난 주말","last weekend"],["작년","last year"],["아까","a little while ago"],["방금","just now"]],
+     ex:[["지난 주말에 영화를 봤어요.","I saw a movie last weekend."],["아까 전화했어요.","I called a little while ago."]],
+     note:"어제, 아까 and 방금 never take 에. 지난 주말에 and 작년에 usually do."},
+    {h:"밥 먹었어요?", p:"\"Have you eaten?\" is a common way to check in on someone, a bit like \"how are you?\". It's a real question, but nobody minds if you haven't.",
+     ex:[["밥 먹었어요?","Have you eaten?"],["네, 먹었어요.","Yes, I have."],["아직이요.","Not yet."]]}
+  ],
+  vocab:[["어제","yesterday"],["어젯밤","last night"],["지난주","last week"],["주말","weekend"],["아까","a little while ago"],["방금","just now"],["작년","last year"],["자다","to sleep"],["일어나다","to get up"],["받다","to receive"],["청소하다","to clean"],["요리하다","to cook"],["운동하다","to work out"],["전화하다","to call"],["생일","birthday"],["피곤하다","to be tired"],["재미있다","to be fun"],["그리고","and, and then"]],
+  ex:[
+    {k:"mc",q:"가다 in the past (polite style)",c:["갔어요","가았어요","가었어요","갈어요"],why:"가 + ㅆ어요 merges into 갔어요."},
+    {k:"mc",q:"먹다 in the past",c:["먹었어요","먹았어요","먹어었요","먹했어요"],why:"The last vowel is ㅓ, so it takes 었어요."},
+    {k:"mc",q:"보다 in the past",c:["봤어요","보았요","봈어요","보었어요"],why:"ㅗ + 았 merges into 봤어요. (보았어요 is also correct in writing.)"},
+    {k:"mc",q:"마시다 in the past",c:["마셨어요","마시었요","마싰어요","마셔어요"],why:"ㅣ + 었 merges into 셨: 마셨어요."},
+    {k:"mc",q:"공부하다 in the past",c:["공부했어요","공부하았어요","공부해었어요","공부핬어요"],why:"Every 하다 verb becomes 했어요."},
+    {k:"mc",q:"앉다 in the past",c:["앉았어요","앉었어요","앉아요","앉했어요"],why:"The last vowel is ㅏ, so it takes 았어요. 앉아요 is the present."},
+    {k:"mc",q:"배우다 in the past",c:["배웠어요","배왔어요","배우았어요","배워요"],why:"ㅜ + 었 merges into ㅝ: 배웠어요. 배워요 is the present."},
+    {k:"mc",q:"어제는 제 생일___.",c:["이었어요","였어요","이에요","했어요"],why:"생일 ends in a consonant, so it takes 이었어요."},
+    {k:"mc",q:"어제는 휴가___.",c:["였어요","이었어요","예요","했어요"],why:"휴가 ends in a vowel, so it takes 였어요."},
+    {k:"mc",q:"\"I didn't eat breakfast.\"",c:["아침을 안 먹었어요.","안 아침을 먹었어요.","아침을 먹었어요 안.","아침을 안 먹어요."],why:"안 goes right before the verb. The last one is present tense."},
+    {k:"mc",q:"\"I didn't work out yesterday.\"",c:["어제 운동 안 했어요.","어제 안 운동했어요.","어제 운동했어요 안.","어제 운동 안 해요."],why:"With noun + 하다 verbs, 안 goes between the noun and 했어요."},
+    {k:"mc",q:"\"I couldn't sleep last night.\"",c:["어젯밤에 못 잤어요.","어젯밤에 안 잤어요.","어젯밤에 못 자요.","어젯밤에 잤어요 못."],why:"못 says you were unable to; 안 just says you didn't."},
+    {k:"mc",q:"\"What did you do on the weekend?\"",c:["주말에 뭐 했어요?","주말에 뭐 해요?","주말에 뭐 있었어요?","주말에 뭐 하세요?"],why:"했어요 is the past of 해요."},
+    {k:"mc",q:"Someone greets you with 밥 먹었어요? What are they asking?",c:["Have you eaten?","Are you going to eat?","Do you like rice?","Shall we eat now?"],why:"It's a friendly check-in. 네, 먹었어요 or 아직이요 are both normal answers."},
+    {k:"build",q:"I saw a movie last weekend.",ok:["지난 주말에 영화를 봤어요","영화를 지난 주말에 봤어요"],x:["봐요"]},
+    {k:"build",q:"I studied Korean yesterday.",ok:["어제 한국어를 공부했어요","한국어를 어제 공부했어요"],x:["공부해요"]}
+  ],
+  pool:[
+    {k:"mc",q:"만나다 in the past",c:["만났어요","만나었어요","만낫어요","만나았어요"],why:"ㅏ + 았 merges: 만났어요."},
+    {k:"mc",q:"오다 in the past",c:["왔어요","오았요","옸어요","와어요"],why:"ㅗ + 았 merges into ㅘ: 왔어요."},
+    {k:"mc",q:"기다리다 in the past",c:["기다렸어요","기다리었요","기다랐어요","기다려요"],why:"ㅣ + 었 merges into ㅕ: 기다렸어요."},
+    {k:"mc",q:"읽다 in the past",c:["읽었어요","읽았어요","읽어요","일었어요"],why:"The last vowel is ㅣ, so it takes 었어요."},
+    {k:"mc",q:"받다 in the past",c:["받았어요","받었어요","받아요","밨어요"],why:"The last vowel is ㅏ, so it takes 았어요."},
+    {k:"mc",q:"보내다 in the past",c:["보냈어요","보내었요","보났어요","보내요"],why:"ㅐ + 었 merges into 냈."},
+    {k:"mc",q:"있다 in the past",c:["있었어요","있았어요","있어요","있었요"],why:"The last vowel is ㅣ, so it takes 었어요."},
+    {k:"mc",q:"피곤하다 in the past",c:["피곤했어요","피곤하았어요","피곤해요","피곤핬어요"],why:"하다 adjectives also become 했어요."},
+    {k:"mc",q:"일어나다 in the past",c:["일어났어요","일어나었어요","일어나요","일어낫어요"],why:"ㅏ + 았 merges: 일어났어요."}
+  ],
+  poolN:4,
+  plan:[
+    ["5","Warm-up","Ask each other 밥 먹었어요? and 어제 뭐 했어요? Answering in English is fine; the point is to hear the questions."],
+    ["10","Teach","Slides 1 to 4. Take ten verbs from the Words tab: say the present (가요), then the past (갔어요)."],
+    ["8","Yesterday story","Each person tells three things they did yesterday, joined with 그리고 (일어났어요. 그리고 운동했어요. 그리고…). The listener asks one question back."],
+    ["5","Didn't and couldn't","Slide 6. Each person names one thing they didn't do (안) and one thing they couldn't do (못) this week."],
+    ["5","Check","Practice tab."]
+  ],
+  talk:[["어제 뭐 했어요?","What did you do yesterday?"],["주말에 어디에 갔어요?","Where did you go on the weekend?"],["아침 먹었어요?","Did you have breakfast?"]],
+  after:"HTSK Lesson 5 covers past-tense conjugation in more depth."
+},
+{
+  id:"plans", unit:2, ko:"할 거예요", title:"Plans and suggestions",
+  blurb:"Say what you're going to do with -(으)ㄹ 거예요, and suggest doing things together with -(으)ㄹ까요?",
+  src:["L9","L44"],
+  goals:["Say what you're going to do with -(으)ㄹ 거예요","Pick ㄹ or 을 correctly, including stems that end in ㄹ","Suggest something with -(으)ㄹ까요?","Say yes, or a soft no, to a suggestion"],
+  slides:[
+    {h:"Future: -(으)ㄹ 거예요", p:"Attach it to the stem. A vowel stem gets ㄹ under the last syllable, then 거예요. A consonant stem gets 을 거예요.",
+     t:[["Verb","Stem","Future"],["가다","가","갈 거예요"],["하다","하","할 거예요"],["보다","보","볼 거예요"],["먹다","먹","먹을 거예요"],["읽다","읽","읽을 거예요"]],
+     ex:[["내일 영화를 [볼 거예요].","I'm going to watch a movie tomorrow."]],
+     note:"It's spelled 거예요, never 거에요. In formal speech it's 갈 겁니다."},
+    {h:"Stems ending in ㄹ just add 거예요", p:"If the stem already ends in ㄹ, don't add another ㄹ or 을.",
+     ex:[["만들다 → 만들 [거예요]","will make"],["놀다 → 놀 [거예요]","will hang out"],["열다 → 열 [거예요]","will open"],["살다 → 살 [거예요]","will live"]],
+     note:"사다 (to buy) also becomes 살 거예요. Context tells you whether it's buying or living."},
+    {h:"Asking and answering about plans", p:"Future time words: 내일 (tomorrow), 모레 (the day after), 이따가 (later today), 이번 주말 (this weekend), 다음 주 (next week). 안 goes before the verb as usual.",
+     ex:[["주말에 뭐 [할 거예요]?","What are you going to do on the weekend?"],["집에서 [쉴 거예요].","I'm going to rest at home."],["친구를 [만날 거예요].","I'm going to meet a friend."],["내일은 일 안 [할 거예요].","I'm not going to work tomorrow."]]},
+    {h:"Shall we? -(으)ㄹ까요?", p:"Same ㄹ / 을 rule, then 까요? It suggests doing something together, or offers to do something for the other person.",
+     ex:[["같이 [갈까요]?","Shall we go together?"],["뭐 [먹을까요]?","What shall we eat?"],["몇 시에 [만날까요]?","What time shall we meet?"],["제가 [할까요]?","Shall I do it?"],["창문을 [열까요]?","Shall I open the window? (ㄹ stem: 열까요)"]]},
+    {h:"Saying yes, or a soft no", p:"The plain 해요 form can also mean \"let's\": 같이 가요! means \"Let's go together!\"",
+     ex:[["좋아요!","Sounds good!"],["네, 그래요.","Yes, let's."],["치킨 먹을까요? 좋아요, 치킨 먹어요!","Shall we have chicken? Sounds good, let's have chicken!"],["미안해요, 내일은 바빠요.","Sorry, I'm busy tomorrow."],["다음에 해요.","Let's do it another time."]]},
+    {h:"거예요 or 까요?", p:"거예요 says what's going to happen. 까요? asks what the other person thinks.",
+     t:[["Sentence","Meaning"],["주말에 등산할 거예요.","I'm going hiking on the weekend."],["주말에 등산할까요?","Shall we go hiking on the weekend?"],["내일 비가 올 거예요.","It's going to rain tomorrow."],["내일 비가 올까요?","Do you think it'll rain tomorrow?"]],
+     note:"With weather and other things nobody controls, 까요? means \"do you think…?\""}
+  ],
+  vocab:[["내일","tomorrow"],["모레","the day after tomorrow"],["이따가","later (today)"],["이번 주말","this weekend"],["다음 주","next week"],["쉬다","to rest"],["놀다","to hang out, play"],["만들다","to make"],["사다","to buy"],["열다","to open"],["등산하다","to go hiking"],["같이","together"],["좋아요","sounds good"],["다음에","next time"],["비가 오다","to rain"]],
+  ex:[
+    {k:"mc",q:"가다 in the future (-(으)ㄹ 거예요)",c:["갈 거예요","가을 거예요","갈 거에요","가 거예요"],why:"A vowel stem takes ㄹ under 가. It's spelled 거예요, not 거에요."},
+    {k:"mc",q:"먹다 in the future",c:["먹을 거예요","먹을 거에요","먹일 거예요","먹 거예요"],why:"A consonant stem takes 을 거예요."},
+    {k:"mc",q:"만들다 in the future",c:["만들 거예요","만들을 거예요","만드를 거예요","만들 거에요"],why:"The stem already ends in ㄹ, so just add 거예요."},
+    {k:"mc",q:"하다 in the future",c:["할 거예요","하을 거예요","해 거예요","핼 거예요"],why:"A vowel stem takes ㄹ: 할 거예요."},
+    {k:"mc",q:"\"What are you going to do this weekend?\"",c:["이번 주말에 뭐 할 거예요?","이번 주말에 뭐 했어요?","이번 주말에 뭐 할까요?","지난 주말에 뭐 할 거예요?"],why:"할 거예요 asks about plans. 했어요 is past, and 할까요 would mean \"what shall we do?\""},
+    {k:"mc",q:"\"Shall we go together?\"",c:["같이 갈까요?","같이 갈 거예요?","같이 갔어요?","같이 가을까요?"],why:"-(으)ㄹ까요? makes a suggestion. 갈 거예요? asks about someone's plan."},
+    {k:"mc",q:"\"What shall we eat?\"",c:["뭐 먹을까요?","뭐 먹을 거예요?","뭐 먹까요?","뭐 먹었어요?"],why:"A consonant stem takes 을까요."},
+    {k:"mc",q:"\"Shall I open the window?\"",c:["창문을 열까요?","창문을 열을까요?","창문을 여을까요?","창문을 열 거예요?"],why:"열다 is an ㄹ stem, so just add 까요."},
+    {k:"mc",q:"Someone asks 커피 마실까요? You want to say yes.",c:["좋아요!","아니요, 안 마셔요.","마실 거예요?","다음에 해요."],why:"좋아요 accepts. 다음에 해요 is a soft no."},
+    {k:"mc",q:"A friend suggests a movie tonight, but you're busy. Which is the kindest no?",c:["미안해요, 오늘은 바빠요. 다음에 해요.","싫어요.","안 볼 거예요.","바빠요."],why:"Apologize, give the reason, and offer another time. 싫어요 is blunt."},
+    {k:"mc",q:"내일 비가 올까요? means…",c:["Do you think it'll rain tomorrow?","Shall we go out in the rain tomorrow?","It rained yesterday.","It will definitely rain tomorrow."],why:"With weather, 까요? asks what the other person thinks."},
+    {k:"mc",q:"\"I'm going to rest at home tomorrow.\"",c:["내일 집에서 쉴 거예요.","내일 집에 쉴 거예요.","내일 집에서 쉬을 거예요.","내일 집에서 쉬었어요."],why:"에서 marks where you do something (Review 3), and 쉬다 has a vowel stem: 쉴."},
+    {k:"mc",q:"\"I'm not going to work tomorrow.\"",c:["내일 일 안 할 거예요.","내일 안 일할 거예요.","내일 일 할 안 거예요.","내일 일 안 했어요."],why:"With 일하다, 안 goes between 일 and 하다."},
+    {k:"build",q:"Shall we eat together?",ok:["같이 먹을까요?"],x:["먹었어요?"]},
+    {k:"build",q:"I'm going to meet a friend tomorrow.",ok:["내일 친구를 만날 거예요","친구를 내일 만날 거예요"],x:["만났어요"]}
+  ],
+  pool:[
+    {k:"mc",q:"보다 in the future",c:["볼 거예요","보을 거예요","봘 거예요","볼 거에요"],why:"A vowel stem takes ㄹ: 볼."},
+    {k:"mc",q:"읽다 in the future",c:["읽을 거예요","읽 거예요","읽울 거예요","읽을 거에요"],why:"A consonant stem takes 을 거예요."},
+    {k:"mc",q:"놀다 in the future",c:["놀 거예요","놀을 거예요","노를 거예요","놀 거에요"],why:"An ㄹ stem just adds 거예요."},
+    {k:"mc",q:"만나다 in the future",c:["만날 거예요","만나을 거예요","만낫 거예요","만날 거에요"],why:"A vowel stem takes ㄹ: 만날."},
+    {k:"mc",q:"앉다 in the future",c:["앉을 거예요","앉 거예요","안즐 거예요","앉을 거에요"],why:"A consonant stem takes 을 거예요."},
+    {k:"mc",q:"마시다 in the future",c:["마실 거예요","마시을 거예요","마셔 거예요","마실 거에요"],why:"A vowel stem takes ㄹ: 마실."},
+    {k:"mc",q:"놀다 as a suggestion: \"Shall we hang out?\"",c:["같이 놀까요?","같이 놀을까요?","같이 노까요?","같이 놀을 거예요?"],why:"An ㄹ stem just adds 까요."},
+    {k:"mc",q:"만나다 as a suggestion: \"Shall we meet?\"",c:["만날까요?","만나을까요?","만나까요?","만날 거예요?"],why:"A vowel stem takes ㄹ까요."}
+  ],
+  poolN:4,
+  plan:[
+    ["5","Warm-up","Ask 어제 뭐 했어요? (last lesson), then 내일 뭐 할 거예요? Notice how the ending changes."],
+    ["8","Teach","Slides 1 to 3. Take turns: one says a verb, the other says it with 거예요. Throw in ㄹ stems (만들다, 놀다, 살다)."],
+    ["10","Plan a date","Slides 4 and 5. Plan a real weekend together using only 까요? questions: 어디에 갈까요? 뭐 먹을까요? 몇 시에 만날까요? Answer with 좋아요 or a soft no."],
+    ["5","Plan or suggestion?","Slide 6. One person says a sentence with 거예요 or 까요?; the other says whether it's a plan or a suggestion."],
+    ["5","Check","Practice tab."]
+  ],
+  talk:[["이번 주말에 뭐 할 거예요?","What are you going to do this weekend?"],["저녁에 뭐 먹을까요?","What shall we have for dinner?"],["다음 휴가에 어디에 갈 거예요?","Where are you going on your next vacation?"]],
+  after:"HTSK Lesson 9 covers the future tense, and Lesson 44 covers more ways to suggest things."
+},
+{
+  id:"shopping", unit:2, ko:"이거 주세요", title:"Ordering and shopping",
+  blurb:"Point at what you want, ask the price, ask staff to do things for you with -아/어 주세요, and answer what they ask you.",
+  src:["L41","L40"],
+  goals:["Point at things with 이거, 그거 and 저거","Ask 얼마예요? and understand the price","Ask for a service with -아/어 주세요","Answer the questions café and shop staff ask"],
+  slides:[
+    {h:"This, that, that over there", p:"이 is near me, 그 is near you (or something already mentioned), and 저 is far from both of us. Add 거 for \"thing\".",
+     t:[["Near me","Near you","Over there"],["이거","그거","저거"],["이 사람","그 사람","저 사람"],["여기","거기","저기"]],
+     ex:[["[이거] 주세요.","This one, please."],["[저거] 뭐예요?","What's that over there?"],["[그거] 얼마예요?","How much is that one? (the one you're holding)"]],
+     note:"이거 is the spoken form of 이것. With 이/가 it becomes 이게: 이게 뭐예요?"},
+    {h:"How much is it?", p:"얼마예요? asks the price. Prices use Sino numbers and 원 (Review 6). Big prices are counted in 만 (10,000).",
+     ex:[["이거 얼마예요?","How much is this?"],["오천 원이에요.","It's 5,000 won."],["다 해서 얼마예요?","How much is it altogether?"],["만 이천 원입니다.","That's 12,000 won. (formal, what staff say)"]]},
+    {h:"Ordering", p:"Item, then number and counter, then 주세요 (Review 7). 하고 joins two nouns: A하고 B.",
+     ex:[["아이스 아메리카노 한 잔 주세요.","One iced Americano, please."],["이거 하나하고 저거 하나 주세요.","One of these and one of those, please."],["메뉴판 좀 주세요.","Could I have a menu?"],["물 좀 주세요.","Some water, please."]],
+     note:"좀 (a little) softens any request. 물 좀 주세요 sounds friendlier than 물 주세요."},
+    {h:"Please do it for me: -아/어 주세요", p:"Take the 해요 form, drop 요, and add 주세요. It asks someone to do something for you.",
+     t:[["Verb","해요 form","Request"],["포장하다 (pack to go)","포장해요","포장해 주세요"],["데우다 (heat up)","데워요","데워 주세요"],["바꾸다 (change)","바꿔요","바꿔 주세요"],["계산하다 (settle the bill)","계산해요","계산해 주세요"],["말하다 (speak)","말해요","말해 주세요"]],
+     ex:[["포장해 [주세요].","To go, please."],["천천히 말해 [주세요].","Please speak slowly."],["다른 색 보여 [주세요].","Please show me a different color."]]},
+    {h:"What staff will ask you", p:"Staff use honorific forms (Review 2) because you're the customer. You answer in plain polite speech.",
+     t:[["They say","It means","You answer"],["어서 오세요!","Welcome!","안녕하세요."],["몇 분이세요?","How many of you?","두 명이요."],["드시고 가세요?","Eating here?","네. / 아니요, 포장해 주세요."],["결제는 어떻게 하시겠어요?","How would you like to pay?","카드로 할게요."],["봉투 필요하세요?","Do you need a bag?","네, 주세요. / 아니요, 괜찮아요."]],
+     note:"A noun + (이)요 is a quick, polite answer: 두 명이요, 카드요. 괜찮아요 is the polite \"no thanks\"."},
+    {h:"Making a choice: (으)로 할게요", p:"(으)로 할게요 means \"I'll go with…\". It's how you settle on a choice. Same 로 / 으로 rule as Review 5.",
+     ex:[["이걸로 할게요.","I'll take this one."],["저는 비빔밥[으로] 할게요.","I'll have the bibimbap."],["카드[로] 할게요.","I'll pay by card."],["큰 걸로 주세요.","The big one, please."]],
+     note:"이걸로 is short for 이것으로, and 큰 걸로 for 큰 것으로."},
+    {h:"Handy extras", p:"A few lines that cover most small problems.",
+     ex:[["카드 돼요?","Do you take card?"],["영수증 주세요.","Receipt, please."],["이거 안 시켰어요.","I didn't order this."],["화장실 어디에 있어요?","Where's the restroom?"],["잘 먹었습니다!","Thank you for the meal! (said when leaving)"]]}
+  ],
+  vocab:[["이거","this"],["그거","that (near you)"],["저거","that (over there)"],["얼마예요?","how much is it?"],["원","won"],["주세요","please give me"],["좀","a little (softens a request)"],["포장","takeout, wrapping"],["계산하다","to pay, settle the bill"],["카드","card"],["현금","cash"],["영수증","receipt"],["봉투","bag"],["괜찮아요","no thanks, it's OK"],["시키다","to order (food)"],["메뉴판","menu (the physical one)"]],
+  ex:[
+    {k:"mc",q:"\"How much is this?\"",c:["이거 얼마예요?","이거 몇 개예요?","이거 뭐예요?","얼마 이거예요?"],why:"이거 (this) + 얼마예요? (how much is it?)."},
+    {k:"mc",q:"Pointing at a bag on a shelf across the shop: \"What's that?\"",c:["저거 뭐예요?","이거 뭐예요?","저거 얼마예요?","그거 몇 개예요?"],why:"저거 is far from both of you. 얼마예요 would ask the price."},
+    {k:"mc",q:"\"To go, please.\"",c:["포장해 주세요.","포장 주세요해.","포장하 주세요.","포장해요 주세요."],why:"Take the 해요 form, drop 요, then add 주세요: 포장해 주세요."},
+    {k:"mc",q:"\"Please speak slowly.\"",c:["천천히 말해 주세요.","천천히 말하 주세요.","천천히 말해요 주세요.","천천히 말했어 주세요."],why:"말해요 minus 요, plus 주세요."},
+    {k:"mc",q:"바꾸다 (change): \"Please change it for me.\"",c:["바꿔 주세요.","바꾸 주세요.","바꿨 주세요.","바꿔요 주세요."],why:"바꿔요 minus 요, plus 주세요."},
+    {k:"mc",q:"The cashier asks 드시고 가세요? You want it to go.",c:["아니요, 포장해 주세요.","네, 드시고 가세요.","네, 괜찮아요.","네, 주세요."],why:"드시고 가세요? asks if you're eating here. For takeout, say no and ask them to pack it."},
+    {k:"mc",q:"봉투 필요하세요? You don't need a bag.",c:["아니요, 괜찮아요.","아니요, 없어요.","봉투 주세요.","네, 필요해요."],why:"괜찮아요 is the polite \"no thanks\"."},
+    {k:"mc",q:"\"I'll have the bibimbap.\"",c:["비빔밥으로 할게요.","비빔밥로 할게요.","비빔밥에 할게요.","비빔밥을 할게요."],why:"비빔밥 ends in ㅂ, so it takes 으로."},
+    {k:"mc",q:"\"I'll pay by card.\"",c:["카드로 할게요.","카드으로 할게요.","카드에서 할게요.","카드를 할게요."],why:"카드 ends in a vowel, so it takes 로."},
+    {k:"mc",q:"\"One of these and one of those, please.\"",c:["이거 하나하고 저거 하나 주세요.","이거 하나 저거 하나하고 주세요.","이거 한하고 저거 한 주세요.","이거 하나하고 저거 하나 있어요."],why:"하고 joins the two nouns, and 하나 stands alone without a counter."},
+    {k:"mc",q:"\"Some water, please.\" (friendly)",c:["물 좀 주세요.","물 좀 있어요.","물 좀 마셔요.","물 좀 줬어요."],why:"좀 softens the request."},
+    {k:"mc",q:"몇 분이세요? means…",c:["How many people are in your group?","How many minutes?","What time is it?","How much is it?"],why:"분 here is the honorific counter for people (Review 7), not minutes."},
+    {k:"mc",q:"만 오천 원이에요. How much is it?",c:["15,000 won","5,000 won","50,000 won","10,500 won"],why:"만 is 10,000 and 오천 is 5,000."},
+    {k:"mc",q:"\"I didn't order this.\"",c:["이거 안 시켰어요.","이거 못 시켜요.","이거 시켰어요 안.","이거 안 시킬 거예요."],why:"안 + the past of 시키다: 시켰어요."},
+    {k:"build",q:"Please heat this up.",ok:["이거 데워 주세요"],x:["데우"]},
+    {k:"build",q:"Please show me a different color.",ok:["다른 색 보여 주세요"],x:["봐"]}
+  ],
+  pool:[
+    {k:"mc",q:"기다리다: \"Please wait for me.\"",c:["기다려 주세요.","기다리 주세요.","기다려요 주세요.","기다렸 주세요."],why:"기다려요 minus 요, plus 주세요."},
+    {k:"mc",q:"찍다 (take a photo): \"Could you take a photo for us?\"",c:["사진 좀 찍어 주세요.","사진 좀 찍 주세요.","사진 좀 찍어요 주세요.","사진 좀 찍었 주세요."],why:"찍어요 minus 요, plus 주세요."},
+    {k:"mc",q:"카드 돼요? means…",c:["Do you take card?","Is this my card?","Can I have a card?","The card is broken."],why:"되다 here means \"work, be possible\"."},
+    {k:"mc",q:"영수증 주세요 means…",c:["Receipt, please.","Bag, please.","Menu, please.","Change, please."],why:"영수증 is a receipt."},
+    {k:"mc",q:"어서 오세요! means…",c:["Welcome!","Please hurry!","Come again!","Goodbye!"],why:"Shops and restaurants greet you with 어서 오세요."},
+    {k:"mc",q:"\"I'll take this one.\"",c:["이걸로 할게요.","이거에 할게요.","이걸로 했어요.","이게 할게요."],why:"(으)로 할게요 settles your choice. 이걸로 is short for 이것으로. (You'll also hear 이거로 in casual speech.)"}
+  ],
+  poolN:3,
+  plan:[
+    ["5","Warm-up","Put three things around the room: one near each of you and one far away. Point and say 이거, 그거, 저거."],
+    ["10","Teach","Slides 1 to 4. Turn five verbs into requests: say the 해요 form first, then drop 요 and add 주세요."],
+    ["10","Café role-play","Slides 5 and 6. One person runs a café with a written menu and prices. The customer orders two things, asks the price, picks eat-in or takeout, and pays by card. Then swap."],
+    ["3","Real-world mission","Pick one sentence to use the next time you're at a Korean restaurant or market, and say it out loud now."],
+    ["5","Check","Practice tab."]
+  ],
+  talk:[["이거 얼마예요?","How much is this?"],["뭐 마실 거예요?","What are you going to drink?"],["카드 돼요?","Do you take card?"]],
+  after:"HTSK Lesson 41 covers 주다 and -아/어 주다, and Lesson 40 covers -세요 requests."
+},
+{
+  id:"linking", unit:2, ko:"-고 -지만 -아서", title:"And, but, so",
+  blurb:"Join two sentences into one with -고 (and), -지만 (but) and -아서/어서 (so, because).",
+  src:["L17","L47","L37"],
+  goals:["Join two facts or actions with -고","Contrast two things with -지만","Give a reason with -아서/어서","Remember that -아서 never takes the past tense"],
+  slides:[
+    {h:"Two sentences into one", p:"You can already join sentences with separate words: 그리고 (and), 하지만 (but), 그래서 (so). Korean usually glues the link onto the first verb instead.",
+     t:[["Two sentences","One sentence"],["밥을 먹어요. 그리고 커피를 마셔요.","밥을 먹고 커피를 마셔요."],["비싸요. 하지만 맛있어요.","비싸지만 맛있어요."],["피곤해요. 그래서 자요.","피곤해서 자요."]]},
+    {h:"-고: and", p:"Stem + 고. No vowel rule and no batchim rule. It lists facts, or actions in order.",
+     ex:[["밥을 먹[고] 커피를 마셔요.","I eat, then I have coffee."],["이 식당은 싸[고] 맛있어요.","This restaurant is cheap and good."],["저는 커피를 마시[고] 친구는 차를 마셔요.","I drink coffee and my friend drinks tea."],["샤워하[고] 잘 거예요.","I'm going to shower and go to bed."]],
+     note:"Usually the tense goes only on the last verb: 어제 밥을 먹고 잤어요 means \"Yesterday I ate and went to sleep.\""},
+    {h:"-지만: but", p:"Stem + 지만. Unlike -고, it very often carries the past tense itself: 했지만, 갔지만.",
+     ex:[["비싸[지만] 맛있어요.","It's expensive, but it's good."],["한국어는 어렵[지만] 재미있어요.","Korean is hard but fun."],["어제 전화했[지만] 안 받았어요.","I called yesterday, but they didn't pick up."],["저는 고기를 좋아하[지만] 친구는 안 좋아해요.","I like meat, but my friend doesn't."]]},
+    {h:"-아서/어서: so, because", p:"Take the 해요 form, drop 요 and add 서. 하다 becomes 해서. The reason comes first and the result second.",
+     t:[["Verb","해요 form","Reason form"],["늦다 (be late)","늦어요","늦어서"],["좋다 (be good)","좋아요","좋아서"],["맛있다 (be tasty)","맛있어요","맛있어서"],["피곤하다 (be tired)","피곤해요","피곤해서"],["비가 오다 (rain)","비가 와요","비가 와서"]],
+     ex:[["늦[어서] 미안해요.","Sorry I'm late."],["피곤[해서] 일찍 잤어요.","I was tired, so I went to bed early."],["비가 [와서] 집에 있었어요.","It rained, so I stayed home."]]},
+    {h:"No past tense before -아서", p:"With -아서, the tense goes only on the last verb. Even when the reason happened in the past, the -아서 part stays plain.",
+     ex:[["어제 피곤[해서] 일찍 잤어요.","I was tired yesterday, so I went to bed early. ✓"],["어제 피곤했어서 일찍 잤어요.","✗ Never put 았/었 before 서."]],
+     note:"When -아서 gives a reason, the sentence can't end in a request or a suggestion (-세요, -(으)ㄹ까요). That needs -(으)니까, which comes in a later lesson."},
+    {h:"-아서 as \"and then, there\"", p:"With verbs like 가다, 오다, 만나다 and 앉다, -아서 also means \"and then, in that place or with that person\". Use -고 when the two actions aren't connected.",
+     ex:[["친구를 만나[서] 영화를 봤어요.","I met a friend and we watched a movie."],["학교에 가[서] 공부했어요.","I went to school and studied there."],["밥을 먹[고] 영화를 봤어요.","I ate, then I watched a movie. (two separate things)"]]},
+    {h:"Which one?", p:"Same two facts, three different links.",
+     t:[["You want to say","Use"],["A and B, or A then B","-고"],["A, but B","-지만"],["A, so B (because A, B)","-아서/어서"]],
+     ex:[["맛있[고] 싸요.","It's tasty and cheap."],["맛있[지만] 비싸요.","It's tasty but expensive."],["맛있[어서] 또 왔어요.","It was tasty, so I came again."]]}
+  ],
+  vocab:[["그리고","and"],["하지만","but"],["그래서","so"],["싸다","to be cheap"],["비싸다","to be expensive"],["맛있다","to be tasty"],["어렵다","to be difficult"],["재미있다","to be fun"],["늦다","to be late"],["일찍","early"],["미안하다","to be sorry"],["피곤하다","to be tired"],["좋아하다","to like"],["또","again"],["샤워하다","to shower"]],
+  ex:[
+    {k:"mc",q:"\"It's cheap and good.\"",c:["싸고 맛있어요.","싸지만 맛있어요.","싸서 맛있어요.","싸요고 맛있어요."],why:"Two facts side by side: -고."},
+    {k:"mc",q:"\"It's expensive, but it's good.\"",c:["비싸지만 맛있어요.","비싸고 맛있어요.","비싸서 맛있어요.","비싸요지만 맛있어요."],why:"A contrast: -지만, attached to the stem."},
+    {k:"mc",q:"\"Sorry I'm late.\"",c:["늦어서 미안해요.","늦고 미안해요.","늦었어서 미안해요.","늦지만 미안해요."],why:"Being late is the reason, so it takes -어서. 늦었어서 is wrong: no past tense before 서."},
+    {k:"mc",q:"피곤하다 as a reason (\"because I'm tired…\")",c:["피곤해서","피곤하서","피곤했어서","피곤해요서"],why:"하다 becomes 해서."},
+    {k:"mc",q:"늦다 as a reason",c:["늦어서","늦아서","늦서","늦었어서"],why:"늦어요 minus 요, plus 서."},
+    {k:"mc",q:"\"Yesterday I ate and went to sleep.\"",c:["어제 밥을 먹고 잤어요.","어제 밥을 먹었어요고 잤어요.","어제 밥을 먹지만 잤어요.","어제 밥을 먹고 자요."],why:"Join with -고 and put the past tense on the last verb."},
+    {k:"mc",q:"\"It rained, so I stayed home.\"",c:["비가 와서 집에 있었어요.","비가 왔어서 집에 있었어요.","비가 오지만 집에 있었어요.","비가 오고 집에 있었어요."],why:"The rain is the reason: 와서, with no past tense before 서."},
+    {k:"mc",q:"\"Korean is hard but fun.\"",c:["한국어는 어렵지만 재미있어요.","한국어는 어렵고 재미있어요.","한국어는 어렵요지만 재미있어요.","한국어는 어렵지만서 재미있어요."],why:"A contrast: stem + 지만."},
+    {k:"mc",q:"\"I called, but they didn't pick up.\"",c:["전화했지만 안 받았어요.","전화해서 안 받았어요.","전화하고 안 받았어요.","전화했어서 안 받았어요."],why:"-지만 can carry the past: 했지만."},
+    {k:"mc",q:"Which sentence is wrong?",c:["어제 늦었어서 미안해요.","어제 늦어서 미안해요.","싸고 맛있어요.","비쌌지만 샀어요."],why:"No past tense before -아서: it should be 늦어서."},
+    {k:"mc",q:"\"I met a friend and we watched a movie.\"",c:["친구를 만나서 영화를 봤어요.","친구를 만나지만 영화를 봤어요.","친구를 만났어서 영화를 봤어요.","친구를 만나요서 영화를 봤어요."],why:"With 만나다, -아서 means \"and then, with them\"."},
+    {k:"mc",q:"\"I like coffee, but my friend doesn't.\"",c:["저는 커피를 좋아하지만 친구는 안 좋아해요.","저는 커피를 좋아해서 친구는 안 좋아해요.","저는 커피를 좋아하고 친구는 좋아해요.","저는 커피를 좋아하지만 친구는 좋아해요."],why:"A contrast with -지만, and 안 makes the second part negative."},
+    {k:"build",q:"I was tired, so I went to bed early.",ok:["피곤해서 일찍 잤어요"],x:["피곤했어서"]},
+    {k:"build",q:"I'm going to shower and go to bed.",ok:["샤워하고 잘 거예요"],x:["샤워해서"]}
+  ],
+  pool:[
+    {k:"mc",q:"좋다 as a reason",c:["좋아서","좋어서","좋서","좋았어서"],why:"The last vowel is ㅗ, so 아서."},
+    {k:"mc",q:"오다 as a reason (비가 ___)",c:["와서","오서","오아서","왔어서"],why:"와요 minus 요, plus 서."},
+    {k:"mc",q:"공부하다 + -고",c:["공부하고","공부해고","공부하요고","공부학고"],why:"-고 attaches straight to the stem."},
+    {k:"mc",q:"싸다 + -지만",c:["싸지만","싸요지만","싸서지만","싸아지만"],why:"-지만 attaches straight to the stem."},
+    {k:"mc",q:"그래서 means…",c:["so","but","and","or"],why:"그래서 = so, therefore."},
+    {k:"mc",q:"하지만 means…",c:["but","so","and","if"],why:"하지만 = but."}
+  ],
+  poolN:3,
+  plan:[
+    ["5","Warm-up","Each person says two short sentences about today with 그리고 or 하지만 between them (오늘 바빠요. 하지만 행복해요.)."],
+    ["10","Teach","Slides 1 to 3. Take the warm-up sentences and glue them together with -고 and -지만 instead."],
+    ["8","Excuses game","Slides 4 and 5. One person invites (같이 영화 볼까요?). The other says no with a reason using -아서/어서 (미안해요, 피곤해서 못 가요). Keep going until someone runs out of excuses."],
+    ["5","Which one?","Slide 7. Describe a restaurant you both know three ways: with -고, with -지만 and with -아서."],
+    ["5","Check","Practice tab."]
+  ],
+  talk:[["한국어 공부는 어때요?","How's studying Korean going?"],["어제 왜 늦게 잤어요?","Why did you go to bed late last night?"],["이 식당 어때요?","How's this restaurant?"]],
+  after:"HTSK Lesson 17 covers -고, Lesson 47 covers -지만, and Lesson 37 covers -아서/어서."
 }
 ];
 const LMAP = Object.fromEntries(LESSONS.map(l=>[l.id,l]));
+// Unit 2 = new lessons (shown first); unit 1 = what the KSM class covered, kept as review.
+const UNITS = [{u:2, name:"New lessons", short:"New"}, {u:1, name:"Review from class", short:"Review"}];
+const unitOf = L => L.unit || 1;
+const inUnit = u => LESSONS.filter(l=>unitOf(l)===u);
+const lnum = L => inUnit(unitOf(L)).indexOf(L) + 1;
+const unitInfo = L => UNITS.find(x=>x.u===unitOf(L));
 
 /* ---------------- Korean helpers ---------------- */
 const hasBatchim = w => { const c=w.charCodeAt(w.length-1); return c>=0xAC00 && c<=0xD7A3 && (c-0xAC00)%28!==0; };
@@ -692,7 +963,9 @@ function updateWho(){
     : !myName && n ? "Set your name to send your scores to the shared sheet"
     : "Scores go to the shared sheet";
 }
-function setName(n){ myName=String(n).trim().slice(0,30); try{ localStorage.setItem(NAME_KEY,myName); }catch(e){} updateWho(); flushLog(); }
+const normName = n => String(n||"").replace(/\s+/g," ").trim();
+const nameKey = n => normName(n).toLowerCase();
+function setName(n){ myName=normName(n).slice(0,30); try{ localStorage.setItem(NAME_KEY,myName); }catch(e){} updateWho(); flushLog(); }
 function loadPending(){ try{ const p=JSON.parse(localStorage.getItem(PEND_KEY)||"[]"); return Array.isArray(p)?p:[]; }catch(e){ return []; } }
 function savePending(p){ try{ localStorage.setItem(PEND_KEY, JSON.stringify(p.slice(-200))); }catch(e){} }
 // Every event gets an id. The Sheet skips ids it already has, so resending is always safe.
@@ -747,7 +1020,7 @@ async function fetchSheet(){
 function aggregate(rows){
   const by={};
   for(const r of rows){
-    const name=String(r.who||"").trim(); if(!name) continue;
+    const name=normName(r.who); if(!name) continue;
     const k=name.toLowerCase(), p=by[k]||(by[k]={name, data:{lessons:{},gym:{},review:{best:0}}, last:0});
     const ts=+new Date(r.when)||0; if(ts>p.last) p.last=ts;
     const right=+r.right||0, total=+r.total||0, pct=total?right/total:0;
@@ -784,27 +1057,28 @@ const wg = s => `<div class="wg" aria-label="${esc(s)}">${[...s].map(ch=>ch===" 
 
 /* ---------------- home ---------------- */
 function renderHome(){
-  const next = LESSONS.find(l=>status(l.id)!=="done");
+  const next = inUnit(2).find(l=>status(l.id)!=="done") || inUnit(1).find(l=>status(l.id)!=="done");
   const doneN = LESSONS.filter(l=>status(l.id)==="done").length;
   app.innerHTML = `
   <section class="hero">
-    <div class="eyebrow">After the KSM textbook · ${LESSONS.length} lessons · ${doneN} done</div>
+    <div class="eyebrow">After the KSM textbook · ${inUnit(2).length} new · ${inUnit(1).length} review · ${doneN} done</div>
     ${wg("우리 한국어")}
-    <p class="lede">Seven lessons on the grammar we covered at the end of class: speech levels, honorifics, 에서, 있다 and position words, direction with 에 and (으)로, both number systems, and counters. Each lesson has slides to teach from, a practice quiz, flashcards and a lesson plan.</p>
+    <p class="lede">New lessons that pick up where class stopped: the past tense, plans and suggestions, ordering and shopping, and joining sentences. The lessons from class are below as review. Each lesson has slides to teach from, a practice quiz, flashcards and a lesson plan.</p>
     <div class="continue">
-      ${next ? `<a class="btn primary" href="#lesson-${next.id}">${status(next.id)==="new"?"Start":"Continue"}: Lesson ${LESSONS.indexOf(next)+1}</a>` : `<a class="btn primary" href="#review">All lessons done. Mixed review</a>`}
+      ${next ? `<a class="btn primary" href="#lesson-${next.id}">${status(next.id)==="new"?"Start":"Continue"}: ${esc(next.title)}</a>` : `<a class="btn primary" href="#review">All lessons done. Mixed review</a>`}
       <a class="btn" href="#gym">Number Gym</a>
     </div>
   </section>
   ${!myName?`<a class="card nameprompt" href="#who"><span><b>Who's studying?</b> Set your name so your scores show up on the Progress page.</span><span class="btn">Set name</span></a>`:""}
+  ${UNITS.map(U=>`<h2 class="unit-h">${U.name}</h2>
   <div class="list">
-    ${LESSONS.map((l,i)=>{ const st=status(l.id), r=state.lessons[l.id];
+    ${inUnit(U.u).map((l,i)=>{ const st=status(l.id), r=state.lessons[l.id];
       return `<a class="row" href="#lesson-${l.id}">
         <div class="num">${i+1}</div>
         <div><h3>${esc(l.title)} <span class="k">${esc(l.ko)}</span></h3><p>${esc(l.blurb)}</p></div>
         <span class="chip ${st}">${STATUS_TXT[st]}${r&&r.best?` · ${Math.round(r.best*100)}%`:""}</span>
       </a>`;}).join("")}
-  </div>
+  </div>`).join("")}
   <div class="tools">
     <a class="tool" href="#gym"><h3>Number Gym</h3><p>Endless drills: Sino and native numbers, clock times, counters, ages and prices.</p></a>
     <a class="tool" href="#review"><h3>Mixed review</h3><p>Twelve questions drawn from every lesson. Good for warming up before class time together.</p></a>
@@ -814,11 +1088,11 @@ function renderHome(){
 
 /* ---------------- lesson ---------------- */
 function renderLesson(id){
-  const L=LMAP[id], n=LESSONS.indexOf(L)+1;
+  const L=LMAP[id], n=lnum(L), U=unitInfo(L);
   app.innerHTML = `
   <a class="crumb" href="#home">← All lessons</a>
   <div class="lhead">
-    <div class="eyebrow">Lesson ${n} of ${LESSONS.length}</div>
+    <div class="eyebrow">${U.short} · Lesson ${n} of ${inUnit(U.u).length}</div>
     ${wg(L.ko)}
     <h1>${esc(L.title)}</h1>
     <div class="src">Full explanation on How to Study Korean: ${L.src.map(k=>`<a href="${SRC[k].u}" target="_blank" rel="noopener">${SRC[k].n} (${esc(SRC[k].t)})</a>`).join(" · ")}</div>
@@ -967,6 +1241,7 @@ function buildQ(body,it,finish){
 }
 function practiceItems(L){
   const items=L.ex.slice();
+  if(L.pool) items.push(...shuffle(L.pool.slice()).slice(0, L.poolN||3));
   for(let s=0;s<(L.scenes||0);s++) items.push(makeScene());
   return shuffle(items);
 }
@@ -976,7 +1251,7 @@ function renderPractice(L,pane){
   quiz($("#qz",pane), practiceItems(L), (right,total)=>{
     const pct=right/total, prev=rec.best;
     rec.tries++; rec.best=Math.max(rec.best,pct); rec.at=Date.now(); save(); logEvent("lesson", L.id, right, total);
-    const nextL=LESSONS[LESSONS.indexOf(L)+1];
+    const nextL=inUnit(unitOf(L))[lnum(L)];
     $("#qz",pane).innerHTML = `<div class="score"><div class="eyebrow">Score</div><div class="big">${right} / ${total}</div>
       <p class="muted" style="margin:0">${pct>=0.8?(rec.slides?"Lesson complete.":"Passed. Go through the slides to finish the lesson."):"80% completes the lesson. Look over the slides and try again."}${prev&&pct>prev?" New best.":""}</p>
       <div class="brow"><button class="btn" id="again">Practise again</button>${nextL&&pct>=0.8?`<a class="btn primary" href="#lesson-${nextL.id}">Next lesson →</a>`:""}</div></div>`;
@@ -988,7 +1263,7 @@ function renderPractice(L,pane){
 function renderReview(){
   app.innerHTML = `<div class="lhead"><div class="eyebrow">All lessons</div>${wg("복습")}<h1>Mixed review</h1>
     <p class="lede" style="margin:0">Twelve questions from across every lesson, different each time. Best score: ${Math.round((state.review.best||0)*100)}%.</p></div><div id="qz"></div>`;
-  const pool=[]; LESSONS.forEach(L=>L.ex.forEach(x=>pool.push(x)));
+  const pool=[]; LESSONS.forEach(L=>L.ex.concat(L.pool||[]).forEach(x=>pool.push(x)));
   const items=shuffle(pool).slice(0,11); items.push(makeScene());
   quiz($("#qz"), shuffle(items), (right,total)=>{
     const pct=right/total; state.review.best=Math.max(state.review.best||0,pct); save(); logEvent("review", "mixed", right, total);
@@ -1082,14 +1357,17 @@ function renderGym(){
 /* ---------------- who's studying ---------------- */
 async function renderWho(){
   app.innerHTML = `<div class="lhead"><div class="eyebrow">Your name</div>${wg("이름")}<h1>Who's studying?</h1>
-    <p class="lede" style="margin:0">Your name goes next to your scores on the Progress page. Use the same name on every phone or computer you study on, so the scores add up.</p></div>
+    <p class="lede" style="margin:0">Your name goes next to your scores on the Progress page. Use the same name on every phone or computer you study on, so the scores add up. Capitals don't matter: min and Min count as the same person.</p></div>
     <form class="card namef" id="namef">
       <label for="nameIn">First name or nickname</label>
       <div class="brow"><input id="nameIn" maxlength="30" autocomplete="nickname" placeholder="Your name"><button class="btn primary" type="submit">Save</button></div>
       <div class="brow" id="known"></div>
     </form>`;
   $("#nameIn").value = myName;
-  $("#namef").addEventListener("submit", e=>{ e.preventDefault(); const v=$("#nameIn").value.trim(); if(!v){ toast("Type a name first."); return; } setName(v); toast("Saved. Studying as "+myName); location.hash="#home"; });
+  $("#namef").addEventListener("submit", e=>{ e.preventDefault(); let v=normName($("#nameIn").value); if(!v){ toast("Type a name first."); return; }
+    // "min" and "Min" are the same person: reuse the spelling already on the sheet
+    const known = sheetRows ? aggregate(sheetRows).map(p=>p.name) : [];
+    v = known.find(k=>nameKey(k)===nameKey(v)) || v; setName(v); toast("Saved. Studying as "+myName); location.hash="#home"; });
   if(SHEET_URL){
     if(sheetRows===null) await fetchSheet();
     if(view!=="who" || !sheetRows) return;
@@ -1110,8 +1388,8 @@ async function renderProgress(){
     if(view!=="progress") return;
   }
   const people = sheetRows ? aggregate(sheetRows) : [];
-  const meKey = myName.trim().toLowerCase();
-  let me = meKey ? people.find(p=>p.name.toLowerCase()===meKey) : null;
+  const meKey = nameKey(myName);
+  let me = meKey ? people.find(p=>nameKey(p.name)===meKey) : null;
   if(me){ me.data = mergeState(me.data, state); me.last = Math.max(me.last, lastLocal()); me.isMe = true; }
   else people.unshift({name: myName || "You", data: state, last: lastLocal(), isMe: true});
   people.sort((a,b)=>(b.isMe?1:0)-(a.isMe?1:0));
@@ -1126,7 +1404,7 @@ async function renderProgress(){
   <div class="tw card" style="padding:0"><table class="ptable">
     <thead><tr><th>Lesson</th>${people.map((p,i)=>`<th class="nm" data-i="${i}"></th>`).join("")}</tr></thead>
     <tbody>
-      ${LESSONS.map((l,i)=>`<tr><td>${i+1}. ${esc(l.title)}</td>${people.map(p=>`<td>${cell(p.data,l.id)}</td>`).join("")}</tr>`).join("")}
+      ${UNITS.map(U=>`<tr class="grp"><td colspan="${people.length+1}">${U.name}</td></tr>`+inUnit(U.u).map((l,i)=>`<tr><td>${i+1}. ${esc(l.title)}</td>${people.map(p=>`<td>${cell(p.data,l.id)}</td>`).join("")}</tr>`).join("")).join("")}
       <tr><td>Mixed review (best)</td>${people.map(p=>`<td>${p.data.review&&p.data.review.best?Math.round(p.data.review.best*100)+"%":'<span class="muted">·</span>'}</td>`).join("")}</tr>
       <tr><td>Number Gym (best streak)</td>${people.map(p=>{ const b=Math.max(0,...Object.values(p.data.gym||{}).map(x=>+x.best||0)); return `<td>${b||'<span class="muted">·</span>'}</td>`; }).join("")}</tr>
       <tr><td>Lessons done</td>${people.map(p=>`<td><b>${LESSONS.filter(l=>{const x=(p.data.lessons||{})[l.id]; return x&&x.slides&&x.best>=0.8;}).length} / ${LESSONS.length}</b></td>`).join("")}</tr>
@@ -1134,7 +1412,7 @@ async function renderProgress(){
     </tbody></table></div>
   <div class="brow" style="margin-top:12px">${SHEET_URL?'<button class="btn" id="refresh">Refresh</button>':""}<a class="btn" href="#who">Change name</a></div>
   <p class="muted" style="font-size:14px">A lesson counts as done after the last slide and a practice score of 80% or more.</p>`;
-  $$(".nm").forEach(el=>{ const p=people[+el.dataset.i]; el.textContent = p.name + (p.isMe?" (you)":""); });
+  $$(".nm").forEach(el=>{ const p=people[+el.dataset.i]; el.textContent = p.name + (p.isMe && myName ? " (you)" : ""); });
   const rb=$("#refresh"); if(rb) rb.onclick=()=>{ sheetRows=null; renderProgress(); };
 }
 

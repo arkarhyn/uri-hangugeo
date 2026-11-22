@@ -22,13 +22,17 @@
 const TAB = "Log";
 const HEAD = ["When", "Who", "Activity", "Item", "Right", "Total", "Percent", "Id"];
 
-// Keep in step with LESSONS ids and GYM_MODES keys in index.html.
+// Lesson ids are checked by shape, so adding a lesson to index.html needs no
+// script update. Keep the fixed lists in step with GYM_MODES in index.html.
+const LESSON_RE = /^[a-z][a-z0-9-]{1,23}$/;
 const ITEMS = {
-  lesson: ["endings", "honorifics", "eseo", "itda", "direction", "numbers", "counting"],
-  slides: ["endings", "honorifics", "eseo", "itda", "direction", "numbers", "counting"],
   review: ["mixed"],
   gym: ["sino", "native", "time", "count", "money", "mix"]
 };
+function itemOk_(kind, item) {
+  if (kind === "lesson" || kind === "slides") return LESSON_RE.test(item);
+  return Object.prototype.hasOwnProperty.call(ITEMS, kind) && ITEMS[kind].indexOf(item) >= 0;
+}
 const MAX_BODY = 50000;   // characters per request
 const MAX_EVENTS = 200;   // events per request
 const MAX_NAME = 30;
@@ -92,8 +96,8 @@ function doPost(e) {
       if (seen[id]) return;
       const kind = String(ev.kind || "");
       const item = String(ev.item || "");
-      const who = String(ev.who || "").trim().slice(0, MAX_NAME);
-      if (!who || !ITEMS[kind] || ITEMS[kind].indexOf(item) < 0) { skipped++; return; }
+      const who = String(ev.who || "").replace(/\s+/g, " ").trim().slice(0, MAX_NAME);
+      if (!who || !itemOk_(kind, item)) { skipped++; return; }
       const right = num_(ev.right), total = num_(ev.total);
       const at = Number(ev.at);
       const when = at > 1.7e12 && at < now + 864e5 ? new Date(at) : new Date();

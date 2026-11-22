@@ -94,9 +94,11 @@ E:\Study\Korean\
 
 ## 6. Adding content after Unit 1
 
-### 6.1 Roadmap (kept in GUIDE.md)
-- It's built from the KSM table of contents (**needed from Austin**) so it skips covered topics and assumes the right prerequisites.
-- Draft Unit 2 candidates, in HTSK order, to check against KSM: past and future tense (HTSK 5, 9), irregulars (7), 안/못 negation (8), time and 동안 (11), 부터/까지/만 (12), 하고/와/과 and 에게/한테 (13), -고 / -고 싶다 (17), -고 있다 (18), 더/보다/가장 (19), 잘하다/못하다 (20), question words (21, 22).
+### 6.1 Roadmap
+- **KSM coverage (Austin's checklist, 2026-11-22):** the class covered the 7 Unit 1 topics plus 안/못, days and dates, 도, -고 싶어요, 만, question words, 의, and -(으)ㄹ 수 있어요. Everything else on the 53-topic checklist is new. The checklist is https://claude.ai/artifact/TAoGwBczDb8WNhDWmg7EQK (read its `marks` collection).
+- **Order: most useful in real conversation first.** Unit 1 stays on the site as "Review from class"; Unit 2 lessons show first.
+- **Unit 2, batch 1 (built 2026-11-22):** past tense (`past`), future and -(으)ㄹ까요 (`plans`), ordering and shopping (`shopping`, Austin's pick), -고 / -지만 / -아서 (`linking`).
+- **Batch 2 candidates, in order:** 반말 casual speech; -고 있어요; -(으)세요 and -지 마세요 requests; 하고 / (이)랑 and 에게 / 한테; -아야/어야 해요 and -아도/어도 돼요; irregulars (ㅂ, ㄷ, 르, ㅡ, ㄹ); 보다 / 더 / 제일; -(으)면; -(으)러 가요; -기 전에 / -(으)ㄴ 후에; -(으)니까; -는데; noun modifiers (-(으)ㄴ / -는 / -(으)ㄹ).
 - Ad-hoc "notes" lessons: vocab and examples from something he picked up elsewhere, with practice optional and no lesson plan needed.
 
 ### 6.2 Routine for one new lesson
@@ -117,12 +119,12 @@ Cadence: about one lesson a week, matched to their actual pace.
 | 1, go live | Fix the sync bugs (§3.4), harden the script (§3.5), noindex, PNG icon and manifest, pagehide save. GitHub: install `gh`, log in, create repo, push, turn on Pages. Deploy the Sheet script and set `SHEET_URL`. Test on both phones. Send her the link. | GitHub sign-in, Sheet deploy, phone test, answers in §8 |
 | 2, grow and teach | Split into app.js, styles.css and lesson files; `gen` items; check.mjs plus pre-commit hook; GUIDE.md; wrong-answer and flag logging; "What to reteach"; restore and export/import; reviewed tag; print views | review |
 | 3, only if needed | Offline (service worker and font fallback), presenter view, flashcard review queue | decide when it comes up |
-| 4, Unit 2 onward | Roadmap from the KSM table of contents, about a lesson a week (§6.2) | KSM TOC, topic picks, approvals |
+| 4, Unit 2 onward | Batch 1 built (§6.1). Then about a lesson a week (§6.2) | topic picks, approvals |
 
 Deferred on purpose: spaced repetition, listening drills on synthetic audio, separate roadmap and content-guide docs, and the service worker. These are not needed to transfer knowledge to one person.
 
 ## 8. Open questions for Austin
-1. The KSM textbook's table of contents (what's already covered).
+1. ~~The KSM textbook's table of contents~~ Answered by the checklist (§6.1).
 2. Her phone and browser: iPhone with Safari or Chrome, or Android?
 3. Does she need it offline, or is it mostly used on Wi-Fi?
 4. Is she OK with her nickname and scores sitting on a public-link Sheet, and with Austin seeing her missed answers?
