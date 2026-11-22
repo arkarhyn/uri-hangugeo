@@ -1,0 +1,15 @@
+{
+  "name": "우리 한국어 교실",
+  "short_name": "우리 한국어",
+  "description": "Korean lessons with slides, practice, flashcards and number drills.",
+  "start_url": "./#home",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#15665A",
+  "theme_color": "#15665A",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -7,6 +7,11 @@
 <meta name="description" content="Seven Korean lessons with slides, practice, flashcards, lesson plans and number drills.">
 <meta name="apple-mobile-web-app-title" content="우리 한국어">
 <meta name="theme-color" content="#15665A">
+<meta name="robots" content="noindex,nofollow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2315665A'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='white' font-family='sans-serif'%3E%ED%95%9C%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -663,32 +668,64 @@ const STATUS_TXT={new:"Not started",started:"In progress",done:"Done"};
 const SHEET_URL = "";
 const NAME_KEY="uri-hangugeo.name", PEND_KEY="uri-hangugeo.pending";
 let myName=""; try{ myName=localStorage.getItem(NAME_KEY)||""; }catch(e){}
-let sync="local", sheetRows=null, sheetErr=false, flushing=false;
+let sync="local", sheetRows=null, sheetErr=false, flushing=false, retryTimer=0;
 function setSync(s){ sync=s; $("#sync").dataset.s=s; updateWho(); }
 function updateWho(){
-  const el=$("#sync");
-  el.lastElementChild.textContent = myName ? "Studying as "+myName : "Who's studying?";
-  el.title = !SHEET_URL ? "Progress saves on this device" : sync==="cloud" ? "Scores sent to the shared sheet" : sync==="offline" ? "Couldn't reach the shared sheet. It will retry." : "Scores go to the shared sheet";
+  const el=$("#sync"), n=SHEET_URL ? loadPending().length : 0;
+  el.lastElementChild.textContent = (myName ? "Studying as "+myName : "Who's studying?") + (sync==="offline" && n ? ` · ${n} not sent` : "");
+  el.title = !SHEET_URL ? "Progress saves on this device"
+    : sync==="cloud" ? "Scores sent to the shared sheet"
+    : sync==="offline" ? `Couldn't reach the shared sheet. ${n} score${n===1?"":"s"} not sent yet; they're kept on this device and will be sent later.`
+    : !myName && n ? "Set your name to send your scores to the shared sheet"
+    : "Scores go to the shared sheet";
 }
 function setName(n){ myName=String(n).trim().slice(0,30); try{ localStorage.setItem(NAME_KEY,myName); }catch(e){} updateWho(); flushLog(); }
-function loadPending(){ try{ return JSON.parse(localStorage.getItem(PEND_KEY)||"[]"); }catch(e){ return []; } }
+function loadPending(){ try{ const p=JSON.parse(localStorage.getItem(PEND_KEY)||"[]"); return Array.isArray(p)?p:[]; }catch(e){ return []; } }
 function savePending(p){ try{ localStorage.setItem(PEND_KEY, JSON.stringify(p.slice(-200))); }catch(e){} }
+// Every event gets an id. The Sheet skips ids it already has, so resending is always safe.
+function newId(){
+  const b=new Uint8Array(12);
+  try{ crypto.getRandomValues(b); }catch(e){ for(let i=0;i<b.length;i++) b[i]=Math.random()*256|0; }
+  return Date.now().toString(36)+"-"+Array.from(b,x=>x.toString(16).padStart(2,"0")).join("");
+}
 function logEvent(kind, item, right, total){
   if(!SHEET_URL) return;
-  const p=loadPending(); p.push({who:myName, kind, item, right, total, at:Date.now()}); savePending(p);
+  const p=loadPending(); p.push({id:newId(), who:myName, kind, item, right, total, at:Date.now()}); savePending(p);
   flushLog();
 }
-async function flushLog(){
+// Sends queued events and drops only the ones the Sheet confirms (saved, already there, or rejected).
+// Anything unconfirmed stays queued and is retried later.
+async function flushLog(opts){
   if(!SHEET_URL || !myName || flushing) return;
-  const p=loadPending().map(e=>Object.assign(e,{who:e.who||myName}));
-  if(!p.length) return;
-  flushing=true; setSync("connecting");
+  let p=loadPending();
+  if(!p.length){ if(sync==="offline") setSync("cloud"); return; }
+  let fixed=false;
+  p.forEach(e=>{ if(!e.id){ e.id=newId(); fixed=true; } if(!e.who){ e.who=myName; fixed=true; } });
+  if(fixed) savePending(p);
+  flushing=true; clearTimeout(retryTimer); setSync("connecting");
+  let ok=true;
   try{
-    await fetch(SHEET_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({events:p})});
-    savePending(loadPending().slice(p.length)); sheetRows=null; setSync("cloud");
-  }catch(e){ setSync("offline"); }
-  flushing=false;
+    for(let i=0;i<p.length;i+=50){
+      const batch=p.slice(i,i+50);
+      const r=await fetch(SHEET_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({events:batch}),keepalive:!!(opts&&opts.keepalive)});
+      const j=await r.json();
+      if(!j || !j.ok || !Array.isArray(j.done)) throw new Error("sheet said no");
+      const done=new Set(j.done.map(String));
+      savePending(loadPending().filter(e=>!done.has(String(e.id))));
+      if(done.size<batch.length) ok=false;
+    }
+  }catch(e){ ok=false; }
+  flushing=false; sheetRows=null;
+  if(ok && !loadPending().length) setSync("cloud");
+  else { setSync("offline"); retryTimer=setTimeout(flushLog, 60000); }
 }
+// Leaving or hiding the page (phone locked, tab closed, app switched): queue the running
+// Number Gym streak and try to send. Whatever doesn't get through is sent on the next visit.
+// leaveHook (the Gym's logRun) is safe to call twice: it resets the run after queueing it.
+function onHide(){ if(leaveHook) leaveHook(); flushLog({keepalive:true}); }
+window.addEventListener("pagehide", onHide);
+document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState==="hidden") onHide(); else flushLog(); });
+window.addEventListener("online", ()=>flushLog());
 async function fetchSheet(){
   if(!SHEET_URL) return;
   try{ const r=await fetch(SHEET_URL+"?t="+Date.now()); const j=await r.json(); sheetRows=Array.isArray(j.rows)?j.rows:[]; sheetErr=false; }

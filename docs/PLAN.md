@@ -15,7 +15,7 @@ Draft 2, 2026-11-21. Draft 1 was reviewed by a separate agent for gaps; its find
 - `E:\Study\Korean`, git branch `main`, commit `1e49d7b`. One file, `index.html`, holds all the content and code. `apps-script/Code.gs` (the Sheet logger) is written but not deployed.
 - Unit 1 has 7 lessons: 해요/합니다 · honorific and humble speech · 에서 · 있다/없다 and position words · 에 / (으)로 · Sino and native numbers · counters.
 - Each lesson has Slides (with a full-screen Present button), Practice, Words and a Lesson plan. Site-wide: Number Gym, Mixed review, Progress, and the "Who's studying?" name.
-- **Known bugs, fixed in Phase 1:** a failed Sheet write still shows "synced" and deletes the queued scores; the Sheet accepts formula text from anyone; scores in progress are lost if the phone closes the tab.
+- **Phase 1 code work done (branch `phase1-go-live`, 2026-11-21):** sync reads the Sheet's reply and keeps anything unconfirmed; event ids plus server-side dedupe; formula-text guard, item allowlist and size caps in `Code.gs`; pagehide/visibility save and retry; noindex + `robots.txt`; PNG icons and `manifest.webmanifest`. Still open in Phase 1: GitHub repo and Pages, Sheet deploy and `SHEET_URL`, phone test.
 
 ## 3. Architecture
 
