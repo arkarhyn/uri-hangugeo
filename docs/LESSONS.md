@@ -57,7 +57,7 @@ Aim for about 12 multiple-choice items and 2 builders in `ex`, plus 6 to 9 in `p
 ## Conventions
 
 - Refer back to earlier lessons by name: "Review 2" for unit 1 lessons, "the linking lesson" for unit 2.
-- Use only grammar that's already been taught in examples and drills. Leave irregular verbs (ㅂ, ㄷ, 르, ㅡ, ㄹ) out of drills until the irregulars lesson exists.
+- Use only grammar that's already been taught in examples and drills. Irregular verbs (ㅡ, ㄹ, ㅂ, ㄷ, 르) are taught in `irregulars1` and `irregulars2`, so lessons after them can use irregulars in drills. ㅅ and ㅎ irregulars aren't taught yet.
 - Keep the lesson plan to about 30 minutes, ending with "Check: Practice tab."
 - Mark wrong examples with ✗ and right ones with ✓ inside the `ex` English.
 

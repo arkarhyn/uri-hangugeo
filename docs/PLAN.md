@@ -99,7 +99,8 @@ E:\Study\Korean\
 - **Order: most useful in real conversation first.** Unit 1 stays on the site as "Review from class"; Unit 2 lessons show first.
 - **Unit 2, batch 1 (built 2026-11-22):** past tense (`past`), future and -(으)ㄹ까요 (`plans`), ordering and shopping (`shopping`, Austin's pick), -고 / -지만 / -아서 (`linking`).
 - **Unit 2, batch 2 (built 2026-11-22):** 반말 (`banmal`), -고 있어요 (`ing`), -(으)세요 / -지 마세요 (`requests`), 하고 / (이)랑 / 한테 (`with`), -아/어야 해요 / -아/어도 돼요 / -(으)면 안 돼요 (`must`). How-to guide: `docs/LESSONS.md`; checker: `tools/check.mjs`.
-- **Batch 3 candidates, in order:** irregulars (ㅂ, ㄷ, 르, ㅡ, ㄹ); 보다 / 더 / 제일; -(으)면; -(으)러 가요; -기 전에 / -(으)ㄴ 후에; -(으)니까; -는데; noun modifiers (-(으)ㄴ / -는 / -(으)ㄹ).
+- **Unit 2, batch 3 (built 2026-11-22):** irregulars in two lessons, ㅡ and ㄹ (`irregulars1`) then ㅂ, ㄷ and 르 (`irregulars2`); 보다 / 더 / 제일 (`compare`); -(으)면 and -(으)면 좋겠어요 (`if`); -(으)러 가요 / 와요 (`purpose`). Drills from here on may use irregular verbs.
+- **Batch 4 candidates, in order:** -기 전에 / -(으)ㄴ 후에; -(으)니까; -는데; noun modifiers (-(으)ㄴ / -는 / -(으)ㄹ); -(으)려고; -아/어 보다; -(으)ㄹ 수 있다 / 없다 and 못.
 - Ad-hoc "notes" lessons: vocab and examples from something he picked up elsewhere, with practice optional and no lesson plan needed.
 
 ### 6.2 Routine for one new lesson
@@ -120,7 +121,7 @@ Cadence: about one lesson a week, matched to their actual pace.
 | 1, go live | Fix the sync bugs (§3.4), harden the script (§3.5), noindex, PNG icon and manifest, pagehide save. GitHub: install `gh`, log in, create repo, push, turn on Pages. Deploy the Sheet script and set `SHEET_URL`. Test on both phones. Send her the link. | GitHub sign-in, Sheet deploy, phone test, answers in §8 |
 | 2, grow and teach | Split into app.js, styles.css and lesson files; `gen` items; check.mjs plus pre-commit hook; GUIDE.md; wrong-answer and flag logging; "What to reteach"; restore and export/import; reviewed tag; print views | review |
 | 3, only if needed | Offline (service worker and font fallback), presenter view, flashcard review queue | decide when it comes up |
-| 4, Unit 2 onward | Batches 1 and 2 built (§6.1). Then about a lesson a week (§6.2) | topic picks, approvals |
+| 4, Unit 2 onward | Batches 1 to 3 built (§6.1). Then about a lesson a week (§6.2) | topic picks, approvals |
 
 Deferred on purpose: spaced repetition, listening drills on synthetic audio, separate roadmap and content-guide docs, and the service worker. These are not needed to transfer knowledge to one person.
 
