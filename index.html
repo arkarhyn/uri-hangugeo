@@ -26,6 +26,9 @@
   --accent:#8FBFA8; --accent-ink:#171512; --accent-soft:#2A3630;
   --seal:#C4573E; --seal-ink:#F4E9D8; --seal-text:#DC7D62;
   --blue:#A3B5DA; --mark:#D7B46C; --mark-soft:#3A3122; --grid:#7E4A3B;
+  /* word-part roles: strong and far apart in hue so they survive screenshare compression */
+  --r-s:#7DB4FF; --r-e:#FFA64D; --r-c:#FF6F9F; --r-c-ink:#1B1916; --r-x:#8C8476; --r-x-line:#FF5C4D;
+  --warn-soft:#3A2A1C;
   --good:#A6C98F; --good-soft:#283222; --bad:#E3977F; --bad-soft:#3B2620;
   --f-display:"Gowun Batang","Noto Serif KR","Nanum Myeongjo",serif;
   --f-body:"Literata","Gowun Batang",Georgia,serif;
@@ -120,6 +123,7 @@ main{padding-block:28px 64px}
 .goals{margin:0 0 18px;padding-left:20px;color:var(--ink-2)}
 
 .slide{border:1px solid var(--line);border-radius:var(--r);padding:clamp(18px,4vw,36px);min-height:360px;display:grid;align-content:start;gap:14px}
+.slide>*{min-width:0} /* grid children may shrink, so a wide table scrolls inside .tw instead of widening the slide */
 .slide:fullscreen{min-height:100%;border-radius:0;padding:5vw 8vw;font-size:22px;overflow:auto}
 .slide .count{font:700 12px/1.4 var(--f-ui);color:var(--ink-2);letter-spacing:.06em;text-transform:uppercase;font-weight:700}
 .slide h2{font-family:var(--f-display);font-weight:700;font-size:clamp(22px,3.4vw,30px)}
@@ -136,6 +140,26 @@ th{font:700 12px/1.4 var(--f-ui);text-transform:uppercase;letter-spacing:.06em;c
 .say{width:32px;height:32px;border-radius:50%;border:1px solid var(--line-2);background:var(--raised);display:grid;place-items:center;flex:none;padding:0}
 .say svg{width:12px;height:12px;fill:var(--accent)}
 .note{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 var(--r) var(--r) 0;padding:10px 14px;font-size:.95em}
+.note .nlab{font:700 12px/1.4 var(--f-ui);letter-spacing:.1em;text-transform:uppercase;margin-right:8px;color:var(--accent)}
+.note.warn{background:var(--warn-soft);border-left:5px solid var(--r-e);font-size:1em}
+.note.warn .nlab{color:var(--r-e)}
+.note.see{background:transparent;border-left-color:var(--line-2);color:var(--ink-2)}
+.note.see .nlab{color:var(--ink-2)}
+/* word-part roles: [s:stem] [e:ending] [c:changed] [x:dropped]. Each has a non-colour cue too. */
+.r-s{color:var(--r-s);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.22em}
+.r-e{color:var(--r-e);font-weight:700}
+.r-c{background:var(--r-c);color:var(--r-c-ink);font-weight:700;padding:0 .12em;border-radius:3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.r-x{color:var(--r-x);text-decoration:line-through;text-decoration-color:var(--r-x-line);text-decoration-thickness:3px;outline:1.5px dashed var(--r-x-line);outline-offset:-1px;border-radius:3px;padding:0 .12em}
+.slidetop{display:flex;justify-content:space-between;align-items:center;gap:8px 16px;flex-wrap:wrap}
+.legend{display:flex;gap:6px 14px;flex-wrap:wrap;font:500 13px/1.4 var(--f-ui);color:var(--ink-2)}
+.legend .r-s,.legend .r-e,.legend .r-x{font-weight:700}
+/* change chains: 춥 → 추우 + 어요 → 추워요 */
+.steps{display:grid;gap:12px}
+.chain{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.stp{font-family:var(--f-ko);font-size:1.45em;line-height:1.3;padding:6px 14px;border:1px solid var(--line-2);border-radius:var(--r);background:var(--raised);white-space:nowrap}
+.stp.fin{border:2px solid var(--ink-2)}
+.arr{color:var(--ink-2);font:700 1.3em/1 var(--f-ui)}
+.arr::before{content:"→"}
 .snav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap}
 .dots{display:flex;gap:6px;flex-wrap:wrap}
 .dots button{width:10px;height:10px;border-radius:50%;border:0;background:var(--line);padding:0}
@@ -210,11 +234,13 @@ th{font:700 12px/1.4 var(--f-ui);text-transform:uppercase;letter-spacing:.06em;c
 .card{border:1px solid var(--line);border-radius:var(--r);padding:18px}
 footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--ink-2);font-size:14px}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--raised);color:var(--ink);border:1px solid var(--line-2);box-shadow:var(--sheet-shadow);padding:8px 14px;border-radius:var(--r);font:14px/1.4 var(--f-ui);z-index:20}
-@media (max-width:560px){.row{grid-template-columns:2.4rem minmax(0,1fr)}.row .chip{grid-column:2;justify-self:start}.step{grid-template-columns:3.4rem minmax(0,1fr)}}
+@media (max-width:560px){.row{grid-template-columns:2.4rem minmax(0,1fr)}.row .chip{grid-column:2;justify-self:start}.step{grid-template-columns:3.4rem minmax(0,1fr)}
+  .chain{flex-direction:column;align-items:flex-start;gap:4px}.arr{padding-left:18px}.arr::before{content:"↓"}.stp{font-size:1.3em}}
 @media (prefers-reduced-motion:no-preference){.choice,.btn,.tile{transition:background .15s,border-color .15s}}
 @media print{
   :root{color-scheme:light;--bg:#fff;--surface:#fff;--raised:#fff;--ink:#1d1b18;--ink-2:#555048;--line:#cfc8bb;--line-2:#cfc8bb;
-    --accent:#2f6b57;--accent-soft:#eef4f0;--mark-soft:#f6edd5;--grid:#c98a78;--seal-text:#a9442e;--good-soft:#eef5e9;--bad-soft:#f8e9e4}
+    --accent:#2f6b57;--accent-soft:#eef4f0;--mark-soft:#f6edd5;--grid:#c98a78;--seal-text:#a9442e;--good-soft:#eef5e9;--bad-soft:#f8e9e4;
+    --r-s:#1d5bbf;--r-e:#b45400;--r-c:#c2185b;--r-c-ink:#fff;--r-x:#8a8378;--r-x-line:#c62828;--warn-soft:#fbefe2}
   body{background:#fff}
   header,footer,.tabs,.snav,.say,.toast{display:none!important}
   .slide,.quiz,.card,.tool,.fc-face{box-shadow:none;background-image:none}
@@ -1127,40 +1153,45 @@ const LESSONS = [
   src:["L46","L49"],
   goals:["Say what you have to do with -아/어야 해요 (or 돼요)","Ask for and give permission with -아/어도 돼요","Say something isn't allowed with -(으)면 안 돼요","Say you don't have to with 안 -아/어도 돼요"],
   slides:[
-    {h:"One base for both", p:"Both endings start from the 해요 form with 요 taken off. It's the same base as -아서 and -아/어 주세요.",
-     t:[["Verb","Base","Have to","Allowed to"],["가다","가","가야 해요","가도 돼요"],["먹다","먹어","먹어야 해요","먹어도 돼요"],["앉다","앉아","앉아야 해요","앉아도 돼요"],["하다","해","해야 해요","해도 돼요"]]},
+    {h:"One base for both",
+     steps:[["[먹어]요","[먹어][x:요]","[먹어][e:야 해요]"],["[먹어]요","[먹어][x:요]","[먹어][e:도 돼요]"]],
+     p:"Both endings start from the 해요 form with 요 taken off.",
+     t:[["Verb","Base","Have to","Allowed to"],["가다","[가]","[가][e:야 해요]","[가][e:도 돼요]"],["먹다","[먹어]","[먹어][e:야 해요]","[먹어][e:도 돼요]"],["앉다","[앉아]","[앉아][e:야 해요]","[앉아][e:도 돼요]"],["하다","[해]","[해][e:야 해요]","[해][e:도 돼요]"]],
+     note:"See also: it's the same base as -아서 in the linking lesson and -아/어 주세요 in the requests lesson."},
     {h:"Have to: -아/어야 해요", p:"Base + 야 해요. In speech, 돼요 at the end is just as common as 해요: 가야 돼요.",
-     ex:[["내일 일찍 일어나[야 해요].","I have to get up early tomorrow."],["숙제를 해[야 돼요].","I have to do my homework."],["지금 가[야 해요]?","Do you have to go now?"],["어제 일해[야 했어요].","I had to work yesterday."]],
-     note:"For the past, put the tense on the last word: 해야 했어요 or 해야 됐어요."},
+     ex:[["내일 일찍 일어나[e:야 해요].","I have to get up early tomorrow."],["숙제를 해[e:야 돼요].","I have to do my homework."],["지금 가[e:야 해요]?","Do you have to go now?"],["어제 일해[e:야 했어요].","I had to work yesterday."]],
+     note:"Watch out: the past goes on the last word only: 해야 했어요 (or 해야 됐어요), never 했야 해요."},
     {h:"Allowed to: -아/어도 돼요", p:"Base + 도 돼요 means \"it's okay to\". As a question, it asks for permission.",
-     ex:[["여기 앉아[도 돼요]?","May I sit here?"],["사진 찍어[도 돼요]?","Can I take a picture?"],["네, 찍어[도 돼요].","Yes, go ahead."],["이거 먹어 봐[도 돼요]?","Can I try this?"]],
+     ex:[["여기 앉아[e:도 돼요]?","May I sit here?"],["사진 찍어[e:도 돼요]?","Can I take a picture?"],["네, 찍어[e:도 돼요].","Yes, go ahead."],["이거 먹어 봐[e:도 돼요]?","Can I try this?"]],
      note:"A quick yes: 네, 돼요 or 네, 그러세요. A soft no: 죄송해요, 안 돼요."},
-    {h:"Not allowed: -(으)면 안 돼요", p:"To say something isn't allowed, use stem + (으)면 안 돼요: 면 after a vowel, 으면 after a consonant. Learn it as a chunk for now; -(으)면 (if) gets its own lesson later.",
-     ex:[["여기서 담배를 피우[면 안 돼요].","You can't smoke here."],["늦[으면 안 돼요].","You mustn't be late."],["아직 먹[으면 안 돼요].","You can't eat yet."],["이거 만지[면 안 돼요]?","Am I not allowed to touch this?"]],
-     note:"-지 마세요 tells a person not to. -(으)면 안 돼요 states the rule."},
+    {h:"Not allowed: -(으)면 안 돼요",
+     steps:[["[s:피우] + [e:(으)면 안 돼요]","[s:피우][e:면 안 돼요]"],["[s:늦] + [e:(으)면 안 돼요]","[s:늦][e:으면 안 돼요]"]],
+     p:"Stem + 면 after a vowel or ㄹ, or 으면 after any other consonant. Learn it as a chunk for now; the -(으)면 lesson explains the 면 part.",
+     ex:[["여기서 담배를 피우[e:면 안 돼요].","You can't smoke here."],["늦[e:으면 안 돼요].","You mustn't be late."],["아직 먹[e:으면 안 돼요].","You can't eat yet."],["이거 만지[e:면 안 돼요]?","Can't I touch this?"]],
+     note:"See also: -지 마세요 from the requests lesson tells a person not to. -(으)면 안 돼요 states the rule."},
     {h:"Don't have to: 안 -아/어도 돼요", p:"Put 안 in front of the allowed-to form: it's okay not to do it.",
-     ex:[["안 와[도 돼요].","You don't have to come."],["걱정 안 해[도 돼요].","You don't need to worry."],["내일은 일 안 해[도 돼요].","I don't have to work tomorrow."]],
-     note:"With noun + 하다 verbs, 안 goes right before 해, as in the past-tense lesson: 걱정 안 해도 돼요."},
+     ex:[["[안] 와[e:도 돼요].","You don't have to come."],["걱정 [안] 해[e:도 돼요].","You don't need to worry."],["내일은 일 [안] 해[e:도 돼요].","I don't have to work tomorrow."]],
+     note:"Watch out: with noun + 하다 verbs, 안 goes right before 해, as in the past-tense lesson: 걱정 안 해도 돼요, not 안 걱정해도 돼요."},
     {h:"The four together",
-     t:[["Meaning","Pattern","Example"],["have to","-아/어야 해요","가야 해요"],["may, it's okay to","-아/어도 돼요","가도 돼요"],["mustn't","-(으)면 안 돼요","가면 안 돼요"],["don't have to","안 -아/어도 돼요","안 가도 돼요"]]},
+     t:[["Meaning","Pattern","Example"],["have to","-아/어야 해요","가[e:야 해요]"],["may, it's okay to","-아/어도 돼요","가[e:도 돼요]"],["mustn't","-(으)면 안 돼요","가[e:면 안 돼요]"],["don't have to","안 -아/어도 돼요","[안] 가[e:도 돼요]"]]},
     {h:"돼요 on its own", p:"되다 shows up everywhere as a short answer.",
      ex:[["돼요?","Is that okay?"],["네, 돼요.","Yes, that's fine."],["안 돼요!","No! / You can't!"],["카드 돼요?","Do you take cards?"]]}
   ],
   vocab:[["내일","tomorrow"],["일찍","early"],["숙제","homework"],["일어나다","to get up"],["앉다","to sit"],["찍다","to take (a photo)"],["담배","cigarette"],["피우다","to smoke"],["만지다","to touch"],["걱정하다","to worry"],["아직","yet"],["되다","to be okay, to be allowed"],["안 되다","to not be allowed"],["카드","card"],["죄송하다","to be sorry (formal)"]],
   ex:[
-    {k:"mc",q:"가다 + \"have to\"",c:["가야 해요","가어야 해요","갔야 해요","가요야 해요"],why:"Base 가 + 야 해요."},
-    {k:"mc",q:"먹다 + \"have to\"",c:["먹어야 해요","먹아야 해요","먹야 해요","먹으야 해요"],why:"The base is 먹어 (먹어요 minus 요)."},
+    {k:"mc",q:"가다 + \"have to\"",c:["가야 해요","가어야 해요","갔야 해요","가요야 해요"],why:"Base 가 + 야 해요: [가][e:야 해요]."},
+    {k:"mc",q:"먹다 + \"have to\"",c:["먹어야 해요","먹아야 해요","먹야 해요","먹으야 해요"],why:"The base is 먹어 (먹어요 minus 요): [먹어][e:야 해요]."},
     {k:"mc",q:"공부하다 + \"have to\"",c:["공부해야 해요","공부하야 해요","공부해서 해요","공부했야 해요"],why:"하다 becomes 해, then 야 해요."},
     {k:"mc",q:"\"May I sit here?\"",c:["여기 앉아도 돼요?","여기 앉아야 해요?","여기 앉지 마세요?","여기 앉도 돼요?"],why:"Asking permission: -아/어도 돼요?"},
     {k:"mc",q:"\"Can I take a picture?\"",c:["사진 찍어도 돼요?","사진 찍도 돼요?","사진 찍어야 돼요?","사진 찍지 마세요?"],why:"찍어 + 도 돼요."},
     {k:"mc",q:"\"You can't smoke here.\"",c:["여기서 담배를 피우면 안 돼요.","여기서 담배를 피워도 돼요.","여기서 담배를 피워야 해요.","여기서 담배를 피우지 돼요."],why:"Not allowed: -(으)면 안 돼요."},
-    {k:"mc",q:"먹다 + \"mustn't\"",c:["먹으면 안 돼요","먹면 안 돼요","먹어면 안 돼요","먹어도 안 돼요"],why:"Consonant stem, so 으면."},
+    {k:"mc",q:"먹다 + \"mustn't\"",c:["먹으면 안 돼요","먹면 안 돼요","먹어면 안 돼요","먹어도 안 돼요"],why:"Consonant stem, so 으면: 먹[e:으면 안 돼요]."},
     {k:"mc",q:"\"You don't have to come.\"",c:["안 와도 돼요.","오면 안 돼요.","안 와야 해요.","와도 안 돼요."],why:"안 + -아/어도 돼요 = don't have to. 오면 안 돼요 means you mustn't come."},
     {k:"mc",q:"\"You don't need to worry.\"",c:["걱정 안 해도 돼요.","안 걱정해도 돼요.","걱정해야 해요.","걱정해도 안 돼요."],why:"With noun + 하다, 안 goes right before 해."},
     {k:"mc",q:"\"I had to work yesterday.\"",c:["어제 일해야 했어요.","어제 일했야 해요.","어제 일해야 해요.","어제 일해도 했어요."],why:"The past tense goes on the last word: 해야 했어요."},
     {k:"mc",q:"At a café you ask 카드 돼요? You're asking…",c:["Do you take cards?","Do I have to pay by card?","Is this your card?","Can I get a card?"],why:"돼요? asks whether something is okay or possible."},
     {k:"mc",q:"Which one means \"have to\"?",c:["가야 돼요","가도 돼요","가면 안 돼요","안 가도 돼요"],why:"-아/어야 돼요 is the spoken \"have to\"."},
-    {k:"build",q:"I have to get up early tomorrow.",ok:["내일 일찍 일어나야 해요","내일 일찍 일어나야 돼요"],x:["일어나도","돼요"]},
+    {k:"build",q:"I have to get up early tomorrow.",ok:["내일 일찍 일어나야 해요"],x:["일어나도"]},
     {k:"build",q:"May I sit here?",ok:["여기 앉아도 돼요"],x:["앉아야"]}
   ],
   pool:[
@@ -1189,37 +1220,52 @@ const LESSONS = [
   src:["L7"],
   goals:["Conjugate ㅡ stems like 바쁘다, 아프다 and 크다 in the 해요 form and the past","Pick 아 or 어 for a ㅡ stem by looking one syllable back","Know that ㄹ stems never take the extra 으","Drop the ㄹ before ㄴ, ㅂ and ㅅ: 사세요, 삽니다"],
   slides:[
-    {h:"What \"irregular\" means here", p:"A few groups of verbs change their stem when certain endings are added. Each group follows its own rule, so once you know the rule, the whole group behaves. This lesson covers stems ending in ㅡ and stems ending in ㄹ. The next lesson covers ㅂ, ㄷ and 르.",
-     note:"You've met both already: 바빠요 in the plans lesson, and 사세요 in Review 2."},
-    {h:"ㅡ stems: the ㅡ drops", p:"When 아/어 is added, the ㅡ at the end of the stem disappears and the new vowel takes its place: 바쁘 + 아요 → [바빠요].",
-     t:[["Verb","Meaning","해요 form","Past"],["바쁘다","to be busy","바[빠]요","바[빴]어요"],["아프다","to hurt, to be sick","아[파]요","아[팠]어요"],["배고프다","to be hungry","배고[파]요","배고[팠]어요"],["예쁘다","to be pretty","예[뻐]요","예[뻤]어요"],["슬프다","to be sad","슬[퍼]요","슬[펐]어요"]]},
-    {h:"아 or 어? Look one syllable back", p:"The ㅡ itself doesn't count. Look at the vowel of the syllable before it: ㅏ or ㅗ takes 아, anything else takes 어.",
-     t:[["Verb","Syllable before ㅡ","Takes","해요 form"],["바쁘다","[바] (ㅏ)","아","바빠요"],["배고프다","[고] (ㅗ)","아","배고파요"],["예쁘다","[예] (ㅖ)","어","예뻐요"],["슬프다","[슬] (ㅡ)","어","슬퍼요"]]},
-    {h:"One-syllable ㅡ stems take 어", p:"When there's no syllable before the ㅡ, it's always 어.",
-     t:[["Verb","Meaning","해요 form","Past"],["크다","to be big","[커]요","[컸]어요"],["쓰다","to write; to use","[써]요","[썼]어요"],["끄다","to turn off","[꺼]요","[껐]어요"]],
-     ex:[["오늘 너무 바[빠]요.","I'm really busy today."],["머리가 아[파서] 일찍 잤어요.","I had a headache, so I went to bed early."],["이 가방 정말 예[뻐]요!","This bag is really pretty!"],["불 좀 [꺼] 주세요.","Please turn off the light."]]},
-    {h:"Only 아/어 triggers it", p:"Endings that start with a consonant leave the ㅡ alone, and so does -(으)세요, because a ㅡ stem already ends in a vowel.",
-     ex:[["바쁘[고] 피곤해요.","I'm busy and tired."],["바쁘[지만] 괜찮아요.","I'm busy, but I'm okay."],["요즘 바쁘[세요]?","Are you busy these days? (honorific)"],["아프[지 마세요].","Don't be sick. (= Take care of yourself.)"]]},
-    {h:"ㄹ stems: treat the ㄹ like a vowel", p:"Stems ending in ㄹ never take the extra 으. Wherever a vowel stem adds 면 or ㄹ, a ㄹ stem does the same.",
-     t:[["Ending","After a consonant","After a vowel","ㄹ stem"],["-(으)면","먹[으면]","가면","살면"],["-(으)ㄹ 거예요","먹[을] 거예요","갈 거예요","만들 거예요"],["-(으)ㄹ까요","먹[을]까요","갈까요","만들까요"]],
-     note:"만들 거예요 from the plans lesson works this way: the stem already ends in ㄹ, so nothing is added."},
-    {h:"…and the ㄹ drops before ㄴ, ㅂ, ㅅ", p:"When the ending starts with ㄴ, ㅂ or ㅅ, the ㄹ disappears. The 해요 form stays completely regular.",
-     t:[["Verb","-(으)세요","-ㅂ니다","해요 form"],["살다 (to live)","[사]세요","[삽]니다","살아요"],["만들다 (to make)","만[드]세요","만[듭]니다","만들어요"],["알다 (to know)","[아]세요","[압]니다","알아요"],["놀다 (to play)","[노]세요","[놉]니다","놀아요"],["열다 (to open)","[여]세요","[엽]니다","열어요"]]},
-    {h:"ㄹ verbs in sentences",
-     ex:[["어디 [사]세요?","Where do you live? (polite, to someone older)"],["저는 서울에 살아요.","I live in Seoul."],["이 노래 [아]세요?","Do you know this song?"],["창문 좀 열어 주세요.","Could you open the window?"],["주말에 친구들하고 놀 거예요.","I'm going to hang out with friends this weekend."]]}
+    {h:"Verbs that change shape",
+     steps:[["[s:바쁘] + [e:아요]","[s:바ㅃ][x:ㅡ] + [e:아요]","[s:바][c:빠][e:요]"],["[s:살] + [e:세요]","[s:사][x:ㄹ] + [e:세요]","[s:사][e:세요]"]],
+     p:"Some verbs change their stem when certain endings are added, but each group follows one rule. This lesson covers stems ending in ㅡ and ㄹ; the next one covers ㅂ, ㄷ and 르.",
+     note:"See also: you've met both already: 바빠요 in the plans lesson, and 사세요 in Review 2."},
+    {h:"ㅡ stems: the ㅡ drops",
+     steps:[["[s:아프] + [e:아요]","[s:아ㅍ][x:ㅡ] + [e:아요]","[s:아][c:파][e:요]"]],
+     p:"Before 아/어, the ㅡ at the end of the stem drops and the new vowel takes its place.",
+     t:[["Verb","Meaning","해요 form","Past"],["바쁘다","to be busy","[s:바][c:빠][e:요]","[s:바][c:빴][e:어요]"],["아프다","to hurt, to be sick","[s:아][c:파][e:요]","[s:아][c:팠][e:어요]"],["배고프다","to be hungry","[s:배고][c:파][e:요]","[s:배고][c:팠][e:어요]"],["예쁘다","to be pretty","[s:예][c:뻐][e:요]","[s:예][c:뻤][e:어요]"],["슬프다","to be sad","[s:슬][c:퍼][e:요]","[s:슬][c:펐][e:어요]"]]},
+    {h:"아 or 어? Look one syllable back",
+     p:"Skip the ㅡ syllable and look at the one before it: ㅏ or ㅗ takes 아, and anything else takes 어.",
+     t:[["Verb","Look at","Takes","해요 form"],["바쁘다","[바] (ㅏ)","아","[s:바][c:빠][e:요]"],["배고프다","배[고] (ㅗ)","아","[s:배고][c:파][e:요]"],["예쁘다","[예] (ㅖ)","어","[s:예][c:뻐][e:요]"],["슬프다","[슬] (ㅡ)","어","[s:슬][c:퍼][e:요]"]],
+     note:"Watch out: ㅖ isn't ㅏ or ㅗ, so 예쁘다 takes 어: 예뻐요, not 예빠요."},
+    {h:"One-syllable ㅡ stems take 어",
+     steps:[["[s:크] + [e:어요]","[s:ㅋ][x:ㅡ] + [e:어요]","[c:커][e:요]"]],
+     p:"With no syllable before the ㅡ to look at, it's always 어.",
+     t:[["Verb","Meaning","해요 form","Past"],["크다","to be big","[c:커][e:요]","[c:컸][e:어요]"],["쓰다","to write; to use","[c:써][e:요]","[c:썼][e:어요]"],["끄다","to turn off","[c:꺼][e:요]","[c:껐][e:어요]"]],
+     ex:[["오늘 너무 바[c:빠]요.","I'm really busy today."],["머리가 아[c:파]서 일찍 잤어요.","I had a headache, so I went to bed early."],["이 신발은 좀 [c:커]요.","These shoes are a bit big."],["불 좀 [c:꺼] 주세요.","Please turn off the light."]]},
+    {h:"Only 아/어 triggers it",
+     steps:[["[s:바쁘] + [e:아요]","[s:바][c:빠][e:요]"],["[s:바쁘] + [e:고]","[s:바쁘][e:고]"]],
+     p:"Endings that start with a consonant leave the ㅡ alone. So does -(으)세요, because a ㅡ stem already ends in a vowel.",
+     ex:[["바쁘[e:고] 피곤해요.","I'm busy and tired."],["바쁘[e:지만] 괜찮아요.","I'm busy, but I'm okay."],["요즘 바쁘[e:세요]?","Are you busy these days? (honorific)"],["아프[e:지 마세요].","Don't be sick. (= Take care of yourself.)"]]},
+    {h:"ㄹ stems: treat the ㄹ like a vowel",
+     steps:[["[s:먹] + [e:(으)면]","[s:먹][e:으면]"],["[s:살] + [e:(으)면]","[s:살][e:면]"]],
+     p:"A ㄹ stem never takes the extra 으. It takes 면 like a vowel stem, and its own ㄹ covers -(으)ㄹ: 만들면, 만들 거예요.",
+     t:[["Ending","After a consonant","After a vowel","ㄹ stem"],["-(으)면","먹[e:으면]","가[e:면]","[s:살][e:면]"],["-(으)ㄹ 거예요","먹[e:을] 거예요","갈 거예요","[s:만들] 거예요"],["-(으)ㄹ까요","먹[e:을까요]","갈까요","[s:만들]까요"]],
+     note:"See also: 만들 거예요 from the plans lesson works this way: the stem already ends in ㄹ, so nothing is added."},
+    {h:"…and the ㄹ drops before ㄴ, ㅂ, ㅅ",
+     steps:[["[s:살] + [e:세요]","[s:사][x:ㄹ] + [e:세요]","[s:사][e:세요]"],["[s:만들] + [e:ㅂ니다]","[s:만드][x:ㄹ] + [e:ㅂ니다]","[s:만][c:듭][e:니다]"]],
+     p:"When the ending starts with ㄴ, ㅂ or ㅅ, the ㄹ drops. The 해요 form stays regular.",
+     t:[["Verb","-(으)세요","-ㅂ니다","해요 form"],["살다 (to live)","[s:사][e:세요]","[c:삽][e:니다]","[s:살][e:아요]"],["만들다 (to make)","[s:만드][e:세요]","[s:만][c:듭][e:니다]","[s:만들][e:어요]"],["알다 (to know)","[s:아][e:세요]","[c:압][e:니다]","[s:알][e:아요]"],["놀다 (to play)","[s:노][e:세요]","[c:놉][e:니다]","[s:놀][e:아요]"],["열다 (to open)","[s:여][e:세요]","[c:엽][e:니다]","[s:열][e:어요]"]],
+     note:"Watch out: 사세요 can also come from 사다 (to buy). Context tells you which: 어디 사세요? asks where someone lives."},
+    {h:"ㄹ verbs in sentences", p:"The ㄹ drops before ㄴ, ㅂ and ㅅ, and stays everywhere else.",
+     ex:[["어디 [c:사]세요?","Where do you live? (polite, to someone older)"],["이 노래 [c:아]세요?","Do you know this song?"],["저는 서울에 [s:살]아요.","I live in Seoul."],["주말에 친구들하고 [s:놀] 거예요.","I'm going to hang out with friends this weekend."]]}
   ],
-  vocab:[["바쁘다","to be busy"],["아프다","to hurt, to be sick"],["배고프다","to be hungry"],["예쁘다","to be pretty"],["슬프다","to be sad"],["나쁘다","to be bad"],["크다","to be big"],["쓰다","to write; to use"],["끄다","to turn off"],["살다","to live"],["만들다","to make"],["알다","to know"],["놀다","to play, to hang out"],["열다","to open"],["팔다","to sell"],["머리","head"],["병원","hospital"],["편지","letter"],["불","light"],["창문","window"]],
+  vocab:[["바쁘다 → 바빠요","to be busy"],["아프다 → 아파요","to hurt, to be sick"],["배고프다 → 배고파요","to be hungry"],["예쁘다 → 예뻐요","to be pretty"],["슬프다 → 슬퍼요","to be sad"],["나쁘다 → 나빠요","to be bad"],["크다 → 커요","to be big"],["쓰다 → 써요","to write; to use"],["끄다 → 꺼요","to turn off"],["살다 → 사세요","to live"],["만들다 → 만드세요","to make"],["알다 → 아세요","to know"],["놀다 → 노세요","to play, to hang out"],["열다 → 여세요","to open"],["팔다 → 파세요","to sell"],["머리","head"],["병원","hospital"],["편지","letter"],["불","light"],["신발","shoes"],["창문","window"]],
   ex:[
-    {k:"mc",q:"바쁘다 in the 해요 form",c:["바빠요","바뻐요","바쁘어요","바쁘요"],why:"바 has ㅏ, so the ㅡ drops and 아 takes its place."},
-    {k:"mc",q:"예쁘다 in the 해요 form",c:["예뻐요","예빠요","예쁘어요","예쁘요"],why:"예 has ㅖ, so it takes 어."},
-    {k:"mc",q:"크다 in the 해요 form",c:["커요","카요","크어요","크요"],why:"One-syllable ㅡ stems always take 어."},
+    {k:"mc",q:"바쁘다 in the 해요 form",c:["바빠요","바뻐요","바쁘어요","바쁘요"],why:"바 has ㅏ, so the ㅡ drops and 아 takes its place: [s:바][c:빠][e:요]."},
+    {k:"mc",q:"예쁘다 in the 해요 form",c:["예뻐요","예빠요","예쁘어요","예쁘요"],why:"예 has ㅖ, so it takes 어: [s:예][c:뻐][e:요]."},
+    {k:"mc",q:"크다 in the 해요 form",c:["커요","카요","크어요","크요"],why:"One-syllable ㅡ stems always take 어: [c:커][e:요]."},
     {k:"mc",q:"아프다 in the past",c:["아팠어요","아펐어요","아프었어요","아팠요"],why:"아 has ㅏ, so 아: 아파요 → 아팠어요."},
     {k:"mc",q:"쓰다 in the past",c:["썼어요","쌌어요","쓰었어요","썼요"],why:"Same base as 써요: 썼어요. 쌌어요 is the past of 싸다."},
-    {k:"mc",q:"\"I'm hungry.\"",c:["배고파요.","배고퍼요.","배고프어요.","배고프요."],why:"고 has ㅗ, so it takes 아."},
+    {k:"mc",q:"\"I'm hungry.\"",c:["배고파요.","배고퍼요.","배고프어요.","배고프요."],why:"고 has ㅗ, so it takes 아: [s:배고][c:파][e:요]."},
     {k:"mc",q:"\"I was busy, so I didn't go.\"",c:["바빠서 안 갔어요.","바뻐서 안 갔어요.","바쁘서 안 갔어요.","바빴서 안 갔어요."],why:"-아서 uses the same base as 바빠요, and the past goes on the last verb only."},
-    {k:"mc",q:"바쁘다 + -고",c:["바쁘고","바빠고","바뻐고","바쁘어고"],why:"-고 starts with a consonant, so the ㅡ stays."},
-    {k:"mc",q:"\"Where do you live?\" (polite, to someone older)",c:["어디 사세요?","어디 살으세요?","어디 살세요?","어디 사요?"],why:"No 으 for a ㄹ stem, and the ㄹ drops before ㅅ. 사요 means \"buy\"."},
-    {k:"mc",q:"만들다 + -ㅂ니다",c:["만듭니다","만들습니다","만들읍니다","만드습니다"],why:"The ㄹ drops before ㅂ: 만듭니다."},
+    {k:"mc",q:"바쁘다 + -고",c:["바쁘고","바빠고","바뻐고","바쁘어고"],why:"-고 starts with a consonant, so the ㅡ stays: [s:바쁘][e:고]."},
+    {k:"mc",q:"\"Where do you live?\" (polite, to someone older)",c:["어디 사세요?","어디 살으세요?","어디 살세요?","어디 사요?"],why:"No 으 for a ㄹ stem, and the ㄹ drops before ㅅ: [s:사][e:세요]. 사요 means \"buy\"."},
+    {k:"mc",q:"만들다 + -ㅂ니다",c:["만듭니다","만들습니다","만들읍니다","만드습니다"],why:"The ㄹ drops before ㅂ: [s:만][c:듭][e:니다]."},
     {k:"mc",q:"놀다 + -(으)ㄹ 거예요",c:["놀 거예요","놀을 거예요","노을 거예요","노 거예요"],why:"The stem already ends in ㄹ, so nothing is added."},
     {k:"mc",q:"열다 in the 해요 form",c:["열어요","여요","열아요","여러요"],why:"The 해요 form of a ㄹ stem is regular."},
     {k:"build",q:"My head hurt, so I went to the hospital.",ok:["머리가 아파서 병원에 갔어요"],x:["아퍼서"]},
@@ -1233,6 +1279,7 @@ const LESSONS = [
     {k:"mc",q:"팔다 + -ㅂ니다",c:["팝니다","팔습니다","팔읍니다","파습니다"],why:"The ㄹ drops before ㅂ."},
     {k:"mc",q:"살다 + -(으)면",c:["살면","살으면","사면","사으면"],why:"No 으 for a ㄹ stem. 사면 is from 사다 (to buy)."},
     {k:"mc",q:"Which ending makes the ㄹ of 만들다 drop?",c:["-세요","-어요","-고","-지만"],why:"The ㄹ drops before ㄴ, ㅂ and ㅅ, and 세요 starts with ㅅ."},
+    {k:"mc",q:"바쁘다 + -(으)세요",c:["바쁘세요","바빠세요","바쁘으세요","바뻐세요"],why:"-세요 doesn't start with 아/어, and 바쁘 already ends in a vowel, so nothing changes: [s:바쁘][e:세요]."},
     {k:"mc",q:"예쁘다 + -아/어서",c:["예뻐서","예빠서","예쁘서","예뻤서"],why:"Same base as 예뻐요."}
   ],
   poolN:4,
@@ -1252,37 +1299,48 @@ const LESSONS = [
   src:["L7"],
   goals:["Conjugate ㅂ adjectives like 춥다, 덥다, 어렵다 and 맵다","Conjugate 듣다, 걷다 and 묻다","Conjugate 르 verbs like 모르다, 빠르다 and 부르다","Tell which endings cause a change and which don't"],
   slides:[
-    {h:"One rule for all three", p:"ㅂ and ㄷ stems change before any ending that starts with a vowel: 아/어, or the 으 in -(으)세요, -(으)면 and -(으)ㄹ 거예요. 르 stems change only before 아/어. Endings that start with a consonant, like -고, -지만 and -지 마세요, leave all three groups alone."},
-    {h:"ㅂ stems: ㅂ becomes 우", p:"Before a vowel, the final ㅂ turns into 우, and 우 + 어 merges into 워: 춥 + 어요 → 추우 + 어요 → [추워요].",
-     t:[["Verb","Meaning","해요 form","Past"],["춥다","to be cold","추[워]요","추[웠]어요"],["덥다","to be hot","더[워]요","더[웠]어요"],["어렵다","to be difficult","어려[워]요","어려[웠]어요"],["쉽다","to be easy","쉬[워]요","쉬[웠]어요"],["맵다","to be spicy","매[워]요","매[웠]어요"],["가깝다","to be close","가까[워]요","가까[웠]어요"]],
-     note:"고마워 from the casual speech lesson is one of these: 고맙다 → 고마워요."},
-    {h:"ㅂ with the 으 endings", p:"With -(으)세요, -(으)면 and -(으)ㄹ 거예요, the 우 takes the place of the 으: 춥 + 으면 → [추우면].",
-     ex:[["추[우면] 창문 닫아 주세요.","If you're cold, please close the window."],["요즘 많이 더[우세요]?","Are you very hot these days? (honorific)"],["내일은 더 더[울] 거예요.","It'll be even hotter tomorrow."],["이거 너무 매[워]요!","This is too spicy!"]],
-     note:"Not every ㅂ stem changes: 입다 (to wear) and 잡다 (to catch) are regular, so 입어요, 잡아요. And 돕다 (to help) takes 오 instead: 도와요, as in 도와주세요."},
-    {h:"ㄷ stems: ㄷ becomes ㄹ", p:"A handful of common verbs ending in ㄷ swap it for ㄹ before a vowel.",
-     t:[["Verb","Meaning","해요 form","-(으)세요"],["듣다","to listen, to hear","[들]어요","[들]으세요"],["걷다","to walk","[걸]어요","[걸]으세요"],["묻다","to ask","[물]어요","[물]으세요"]],
-     ex:[["음악을 [들]어요.","I'm listening to music."],["매일 삼십 분 [걸]어요.","I walk for 30 minutes every day."],["길을 [물]었어요.","I asked for directions."]],
-     note:"걸어서 가요 (on foot) from Review 5 is 걷다 + 어서. Many ㄷ verbs are regular, though: 받다 (to receive) → 받아요, 닫다 (to close) → 닫아요."},
-    {h:"르 stems: an extra ㄹ", p:"For stems ending in 르, the ㅡ drops and an extra ㄹ attaches to the syllable before: 모르 + 아요 → [몰라요]. 아 or 어 follows the same look-back rule as the ㅡ group.",
-     t:[["Verb","Meaning","해요 form","Past"],["모르다","to not know","[몰라]요","[몰랐]어요"],["빠르다","to be fast","[빨라]요","[빨랐]어요"],["다르다","to be different","[달라]요","[달랐]어요"],["부르다","to sing; to call","[불러]요","[불렀]어요"],["고르다","to choose","[골라]요","[골랐]어요"]]},
+    {h:"One rule for all three",
+     steps:[["[s:춥] + [e:어요]","[s:추][c:워][e:요]"],["[s:춥] + [e:고]","[s:춥][e:고]"]],
+     p:"ㅂ and ㄷ stems change before any ending that starts with a vowel, including the 으 in -(으)세요 and -(으)면. 르 stems change only before 아/어, and endings that start with a consonant leave all three alone.",
+     t:[["Stem ends in","Changes before","Stays the same before"],["ㅂ, ㄷ","아/어, and the 으 endings","-고, -지만, -지 마세요"],["르","아/어 only","-고, -지만, and the 으 endings"]]},
+    {h:"ㅂ stems: ㅂ becomes 우",
+     steps:[["[s:춥] + [e:어요]","[s:추][c:우] + [e:어요]","[s:추][c:워][e:요]"]],
+     p:"Before a vowel, the final ㅂ turns into 우, and 우 + 어 merges into 워.",
+     t:[["Verb","Meaning","해요 form","Past"],["춥다","to be cold","[s:추][c:워][e:요]","[s:추][c:웠][e:어요]"],["덥다","to be hot","[s:더][c:워][e:요]","[s:더][c:웠][e:어요]"],["어렵다","to be difficult","[s:어려][c:워][e:요]","[s:어려][c:웠][e:어요]"],["쉽다","to be easy","[s:쉬][c:워][e:요]","[s:쉬][c:웠][e:어요]"],["맵다","to be spicy","[s:매][c:워][e:요]","[s:매][c:웠][e:어요]"],["가깝다","to be close","[s:가까][c:워][e:요]","[s:가까][c:웠][e:어요]"]],
+     note:"See also: 고마워 from the casual speech lesson is one of these: 고맙다 → 고마워요."},
+    {h:"ㅂ with the 으 endings",
+     steps:[["[s:춥] + [e:으면]","[s:추][c:우] + [x:으][e:면]","[s:추][c:우][e:면]"]],
+     p:"With -(으)세요, -(으)면 and -(으)ㄹ 거예요, the 우 takes the place of the 으.",
+     ex:[["추[c:우]면 창문 닫아 주세요.","If you're cold, please close the window."],["요즘 많이 더[c:우]세요?","Are you very hot these days? (honorific)"],["내일은 더 더[c:울] 거예요.","It'll be even hotter tomorrow."],["이거 너무 매[c:워]요!","This is too spicy!"]],
+     note:["Watch out: not every ㅂ stem changes. 입다 (to wear) and 잡다 (to catch) are regular: 입어요, 잡아요.","Watch out: 돕다 (to help) takes 오 instead of 우: 도와요, as in 도와주세요."]},
+    {h:"ㄷ stems: ㄷ becomes ㄹ",
+     steps:[["[s:듣] + [e:어요]","[c:들] + [e:어요]","[c:들][e:어요]"]],
+     p:"A handful of common verbs ending in ㄷ swap it for ㄹ before a vowel.",
+     t:[["Verb","Meaning","해요 form","-(으)세요"],["듣다","to listen, to hear","[c:들][e:어요]","[c:들][e:으세요]"],["걷다","to walk","[c:걸][e:어요]","[c:걸][e:으세요]"],["묻다","to ask","[c:물][e:어요]","[c:물][e:으세요]"]],
+     ex:[["음악을 [c:들]어요.","I'm listening to music."],["매일 삼십 분 [c:걸]어요.","I walk for 30 minutes every day."],["길을 [c:물]었어요.","I asked for directions."]],
+     note:["Watch out: many ㄷ verbs are regular: 받다 (to receive) → 받아요, 닫다 (to close) → 닫아요.","See also: 걸어서 가요 (on foot) from Review 5 is 걷다 + 어서."]},
+    {h:"르 stems: an extra ㄹ",
+     steps:[["[s:모르] + [e:아요]","[s:모][c:ㄹ] + [s:ㄹ][x:ㅡ] + [e:아요]","[c:몰라][e:요]"]],
+     p:"The ㅡ drops and an extra ㄹ attaches to the syllable before. 아 or 어 follows the same look-back rule as the ㅡ group.",
+     t:[["Verb","Meaning","해요 form","Past"],["모르다","to not know","[c:몰라][e:요]","[c:몰랐][e:어요]"],["빠르다","to be fast","[c:빨라][e:요]","[c:빨랐][e:어요]"],["다르다","to be different","[c:달라][e:요]","[c:달랐][e:어요]"],["부르다","to sing; to call","[c:불러][e:요]","[c:불렀][e:어요]"],["고르다","to choose","[c:골라][e:요]","[c:골랐][e:어요]"]]},
     {h:"르 verbs in sentences",
-     ex:[["잘 [몰라]요.","I'm not sure. / I don't really know."],["지하철이 [빨라]요.","The subway is fast."],["노래를 [불렀]어요.","I sang a song."],["하나 [골라] 주세요.","Please pick one."],["이거하고 그거는 [달라]요.","This one and that one are different."]],
-     note:"With the 으 endings, 르 stems just add the vowel-stem form: 모르면, 모르세요?"},
+     ex:[["잘 [c:몰라]요.","I'm not sure. / I don't really know."],["지하철이 [c:빨라]요.","The subway is fast."],["노래를 [c:불렀]어요.","I sang a song."],["하나 [c:골라] 주세요.","Please pick one."]],
+     note:"Watch out: before the 으 endings, a 르 stem doesn't change: 모르면, 모르세요? (not 몰라면)."},
     {h:"Quick sort", p:"Which group is it? Look at the end of the stem.",
-     t:[["Stem ends in","Before 아/어","Example"],["ㅡ","ㅡ drops","바빠요, 커요"],["ㄹ","no change (ㄹ drops before ㄴ ㅂ ㅅ)","살아요, 사세요"],["ㅂ","ㅂ → 우","추워요"],["ㄷ (some verbs)","ㄷ → ㄹ","들어요"],["르","ㅡ drops, extra ㄹ","몰라요"]]}
+     t:[["Stem ends in","Before 아/어","Example"],["ㅡ","ㅡ drops","[s:바][c:빠][e:요], [c:커][e:요]"],["ㄹ","no change (ㄹ drops before ㄴ ㅂ ㅅ)","[s:살][e:아요], [s:사][e:세요]"],["ㅂ","ㅂ → 우","[s:추][c:워][e:요]"],["ㄷ (some verbs)","ㄷ → ㄹ","[c:들][e:어요]"],["르","ㅡ drops, extra ㄹ","[c:몰라][e:요]"]]}
   ],
-  vocab:[["춥다","to be cold (weather)"],["덥다","to be hot (weather)"],["어렵다","to be difficult"],["쉽다","to be easy"],["맵다","to be spicy"],["가깝다","to be close"],["돕다","to help"],["입다","to wear"],["듣다","to listen, to hear"],["걷다","to walk"],["묻다","to ask"],["받다","to receive"],["모르다","to not know"],["빠르다","to be fast"],["다르다","to be different"],["부르다","to sing; to call"],["고르다","to choose"],["음악","music"],["노래","song"],["노래방","karaoke room"],["길","road, way"]],
+  vocab:[["춥다 → 추워요","to be cold (weather)"],["덥다 → 더워요","to be hot (weather)"],["어렵다 → 어려워요","to be difficult"],["쉽다 → 쉬워요","to be easy"],["맵다 → 매워요","to be spicy"],["가깝다 → 가까워요","to be close"],["돕다 → 도와요","to help"],["입다 → 입어요","to wear (doesn't change)"],["듣다 → 들어요","to listen, to hear"],["걷다 → 걸어요","to walk"],["묻다 → 물어요","to ask"],["받다 → 받아요","to receive (doesn't change)"],["모르다 → 몰라요","to not know"],["빠르다 → 빨라요","to be fast"],["다르다 → 달라요","to be different"],["부르다 → 불러요","to sing; to call"],["고르다 → 골라요","to choose"],["음악","music"],["노래","song"],["노래방","karaoke room"],["길","road, way"]],
   ex:[
-    {k:"mc",q:"춥다 in the 해요 form",c:["추워요","춥어요","추와요","추어요"],why:"ㅂ becomes 우, and 우 + 어 → 워."},
+    {k:"mc",q:"춥다 in the 해요 form",c:["추워요","춥어요","추와요","추어요"],why:"ㅂ becomes 우, and 우 + 어 → 워: [s:추][c:워][e:요]."},
     {k:"mc",q:"어렵다 in the past",c:["어려웠어요","어렵었어요","어려왔어요","어려웠요"],why:"Same base as 어려워요: 어려웠어요."},
     {k:"mc",q:"\"This is too spicy!\"",c:["이거 너무 매워요!","이거 너무 맵어요!","이거 너무 매와요!","이거 너무 맵아요!"],why:"맵다 → 매워요."},
-    {k:"mc",q:"덥다 + -(으)면",c:["더우면","덥으면","더워면","덥면"],why:"The 우 takes the place of the 으."},
-    {k:"mc",q:"춥다 + -고",c:["춥고","추워고","추우고","춥어고"],why:"-고 starts with a consonant, so the ㅂ stays."},
-    {k:"mc",q:"듣다 in the 해요 form",c:["들어요","듣어요","들아요","드어요"],why:"ㄷ becomes ㄹ before a vowel."},
+    {k:"mc",q:"덥다 + -(으)면",c:["더우면","덥으면","더워면","덥면"],why:"The 우 takes the place of the 으: [s:더][c:우][e:면]."},
+    {k:"mc",q:"춥다 + -고",c:["춥고","추워고","추우고","춥어고"],why:"-고 starts with a consonant, so the ㅂ stays: [s:춥][e:고]."},
+    {k:"mc",q:"듣다 in the 해요 form",c:["들어요","듣어요","들아요","드어요"],why:"ㄷ becomes ㄹ before a vowel: [c:들][e:어요]."},
     {k:"mc",q:"걷다 in the past",c:["걸었어요","걷었어요","걸랐어요","걸어요"],why:"Same base as 걸어요: 걸었어요. 걸어요 is the present."},
     {k:"mc",q:"\"Please listen.\" (듣다 + -(으)세요)",c:["들으세요","듣으세요","들세요","드세요"],why:"ㄷ becomes ㄹ before 으. 드세요 means \"please eat\"."},
     {k:"mc",q:"받다 in the 해요 form",c:["받아요","발아요","바다요","받어요"],why:"받다 is regular. Only a few ㄷ verbs change."},
-    {k:"mc",q:"모르다 in the 해요 form",c:["몰라요","모라요","몰러요","모르아요"],why:"The ㅡ drops, an extra ㄹ attaches to 모, and 모 has ㅗ, so 아."},
+    {k:"mc",q:"모르다 in the 해요 form",c:["몰라요","모라요","몰러요","모르아요"],why:"The ㅡ drops, an extra ㄹ attaches to 모, and 모 has ㅗ, so 아: [c:몰라][e:요]."},
     {k:"mc",q:"부르다 in the past",c:["불렀어요","불랐어요","부렀어요","부르었어요"],why:"부 has ㅜ, so 어: 불러 → 불렀어요."},
     {k:"mc",q:"\"The subway is fast.\"",c:["지하철이 빨라요.","지하철이 빠라요.","지하철이 빨러요.","지하철이 빠르아요."],why:"빠르다 → 빨라요."},
     {k:"build",q:"It was really cold yesterday.",ok:["어제 정말 추웠어요"],x:["춥었어요"]},
@@ -1377,10 +1435,11 @@ const LESSONS = [
   goals:["Attach -(으)면 to any verb, including the irregular ones","Talk about conditions and plans: 비가 오면…","Talk about habits: 피곤하면 커피를 마셔요","Say what you hope for with -(으)면 좋겠어요"],
   slides:[
     {h:"Making the form", p:"Stem + 면 after a vowel or ㄹ, stem + 으면 after any other consonant.",
-     t:[["Verb","Stem ends in","-(으)면"],["가다","vowel","가[면]"],["하다","vowel","하[면]"],["먹다","consonant","먹[으면]"],["있다","consonant","있[으면]"],["살다","ㄹ","살[면]"]],
-     note:"It's the same 면 as -(으)면 안 돼요 from the have-to lesson: \"if you do it, it's not okay\"."},
+     t:[["Verb","Stem ends in","-(으)면"],["가다","vowel","[s:가][e:면]"],["하다","vowel","[s:하][e:면]"],["먹다","consonant","[s:먹][e:으면]"],["있다","consonant","[s:있][e:으면]"],["살다","ㄹ","[s:살][e:면]"]],
+     note:"See also: it's the same 면 as -(으)면 안 돼요 from the have-to lesson: \"if you do it, it's not okay\"."},
     {h:"Irregulars with -(으)면", p:"The 으 triggers the ㅂ and ㄷ changes. ㅡ and 르 stems end in a vowel, so they just add 면.",
-     t:[["Verb","-(으)면"],["춥다","추[우면]"],["어렵다","어려[우면]"],["듣다","들[으면]"],["바쁘다","바쁘[면]"],["모르다","모르[면]"]]},
+     steps:[["[s:춥] + [e:으면]","[s:추][c:우][e:면]"],["[s:듣] + [e:으면]","[c:들][e:으면]"]],
+     t:[["Verb","-(으)면"],["춥다","[s:추][c:우][e:면]"],["어렵다","[s:어려][c:우][e:면]"],["듣다","[c:들][e:으면]"],["바쁘다","[s:바쁘][e:면]"],["모르다","[s:모르][e:면]"]]},
     {h:"If: a condition", p:"The 면 part comes first, and the result comes second.",
      ex:[["비가 오[면] 집에 있을 거예요.","If it rains, I'll stay home."],["시간이 있[으면] 같이 가요.","If you have time, let's go together."],["모르[면] 물어보세요.","If you don't know, ask."],["추[우면] 창문 닫을까요?","If you're cold, shall I close the window?"]],
      note:"You don't need a future ending in the 면 part. The plain form already covers it: 내일 비가 오면 means \"if it rains tomorrow\"."},
@@ -1438,7 +1497,7 @@ const LESSONS = [
   goals:["Attach -(으)러 to a verb, including ㄹ and ㄷ stems","Say where you're going and why in one sentence","Invite someone over with 놀러 오세요","Tell -(으)러 가요 apart from -고 가요"],
   slides:[
     {h:"Making the form", p:"Stem + 러 after a vowel or ㄹ, stem + 으러 after any other consonant. Then add a verb of going or coming.",
-     t:[["Verb","-(으)러 가요"],["사다","사[러] 가요"],["공부하다","공부하[러] 가요"],["먹다","먹[으러] 가요"],["찍다","찍[으러] 가요"],["놀다","놀[러] 가요"],["듣다","들[으러] 가요"]],
+     t:[["Verb","-(으)러 가요"],["사다","[s:사][e:러] 가요"],["공부하다","[s:공부하][e:러] 가요"],["먹다","[s:먹][e:으러] 가요"],["놀다","[s:놀][e:러] 가요"],["듣다","[c:들][e:으러] 가요"]],
      note:"Same pattern as -(으)면: ㄹ stems take no 으 (놀러), and ㄷ verbs change before 으 (들으러)."},
     {h:"Where, and what for", p:"The place takes 에. It can go before or after the -(으)러 verb.",
      ex:[["도서관에 공부하[러] 가요.","I'm going to the library to study."],["공부하[러] 도서관에 가요.","I'm going to the library to study."],["백화점에 옷 사[러] 갔어요.","I went to the department store to buy clothes."],["친구 만나[러] 카페에 가요.","I'm going to a café to meet a friend."]]},
@@ -1531,8 +1590,12 @@ const rand = (a,b)=>a+Math.floor(Math.random()*(b-a+1));
 const pick = arr => arr[Math.floor(Math.random()*arr.length)];
 function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const hl = s => String(s).replace(/\[([^\]]+)\]/g,'<span class="p">$1</span>').replace(/___/g,'<span class="blank">?</span>');
-const strip = s => String(s).replace(/[\[\]]/g,"").replace(/___/g,"");
+// [x] = the yellow highlight; [s:x] stem, [e:x] ending, [c:x] the part that changed, [x:x] a dropped part.
+const ROLES = {s:"stem", e:"ending", c:"changed", x:"dropped"};
+const hl = s => String(s).replace(/\[(?:([secx]):)?([^\]]+)\]/g,(_,r,t)=>r?`<span class="r-${r}">${t}</span>`:`<span class="p">${t}</span>`).replace(/___/g,'<span class="blank">?</span>');
+const strip = s => String(s).replace(/\[x:[^\]]*\]/g,"").replace(/\[[secx]:/g,"").replace(/[\[\]]/g,"").replace(/___/g,"");
+const rolesIn = o => { const j=JSON.stringify(o); return Object.keys(ROLES).filter(r=>j.includes(`[${r}:`)); };
+const legendHTML = rs => rs.length ? `<div class="legend" aria-label="Colour key">${rs.map(r=>`<span class="r-${r}">${ROLES[r]}</span>`).join("")}</div>` : "";
 const PLAY = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>';
 const sayBtn = t => `<button class="say" data-say="${esc(strip(t))}" aria-label="Play audio">${PLAY}</button>`;
 function toast(msg){ const t=document.createElement("div"); t.className="toast"; t.textContent=msg; document.body.appendChild(t); setTimeout(()=>t.remove(),2600); }
@@ -1743,11 +1806,19 @@ function showTab(L){
 }
 function slideHTML(s){
   let h=`<h2>${hl(s.h)}</h2>`;
+  // A change chain leads: the worked example first, then the rule in p.
+  if(s.steps) h+=`<div class="steps">${s.steps.map(c=>`<div class="chain">${c.map((x,j)=>(j?`<span class="arr" aria-label="becomes"></span>`:"")+`<span class="stp ko${j===c.length-1?" fin":""}">${hl(x)}</span>`).join("")}${sayBtn(c[c.length-1])}</div>`).join("")}</div>`;
   if(s.p) h+=`<p>${hl(s.p)}</p>`;
   if(s.t) h+=`<div class="tw"><table><thead><tr>${s.t[0].map(c=>`<th>${hl(c)}</th>`).join("")}</tr></thead><tbody>${s.t.slice(1).map(r=>`<tr>${r.map(c=>`<td class="ko">${hl(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
   if(s.ex) h+=`<div class="exs">${s.ex.map(([k,e])=>`<div class="ex">${sayBtn(k)}<div><div class="k1 ko">${hl(k)}</div><div class="e1">${esc(e)}</div></div></div>`).join("")}</div>`;
-  if(s.note) h+=`<div class="note">${hl(s.note)}</div>`;
+  if(s.note) h+=[].concat(s.note).map(noteHTML).join("");
   return h;
+}
+// "Watch out:" marks an exception you'll hit; "See also:" points to another lesson.
+function noteHTML(n){
+  const m=/^(Watch out|See also):\s*/.exec(n);
+  if(!m) return `<div class="note">${hl(n)}</div>`;
+  return `<div class="note ${m[1]==="Watch out"?"warn":"see"}"><span class="nlab">${m[1]}</span>${hl(n.slice(m[0].length))}</div>`;
 }
 function renderSlides(L,pane){
   const rec=lessonRec(L.id); if(!rec.at){ rec.at=Date.now(); save(); }
@@ -1761,7 +1832,7 @@ function renderSlides(L,pane){
     </div>`;
   const draw=()=>{
     slideIdx[L.id]=i;
-    $("#slide").innerHTML = `<div class="count">Slide ${i+1} / ${L.slides.length}</div>`+slideHTML(L.slides[i]);
+    $("#slide").innerHTML = `<div class="slidetop"><div class="count">Slide ${i+1} / ${L.slides.length}</div>${legendHTML(rolesIn(L.slides[i]))}</div>`+slideHTML(L.slides[i]);
     $("#dots").innerHTML = L.slides.map((_,j)=>`<button aria-label="Slide ${j+1}" aria-current="${j===i}" data-j="${j}"></button>`).join("");
     $$("#dots button").forEach(b=>b.onclick=()=>{ i=+b.dataset.j; draw(); });
     $("#prev").disabled = i===0;

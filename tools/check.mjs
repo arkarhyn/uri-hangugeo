@@ -11,8 +11,23 @@ const end = html.indexOf('const LMAP');
 if (start < 0 || end < 0) { console.error('Could not find SRC/LESSONS in index.html'); process.exit(1); }
 const { SRC, LESSONS } = new Function(html.slice(start, end) + '\nreturn {SRC, LESSONS};')();
 
-const errs = [];
+const errs = [], warns = [];
 const bad = (L, msg) => errs.push(`${L.id || '?'}: ${msg}`);
+const warn = (L, msg) => warns.push(`${L.id || '?'}: ${msg}`);
+// Bracket markup: [x] highlight, or [s:] stem, [e:] ending, [c:] changed, [x:] dropped.
+const markup = (L, where, str) => {
+  if (typeof str !== 'string') return;
+  const open = (str.match(/\[/g) || []).length, close = (str.match(/\]/g) || []).length;
+  if (open !== close) { bad(L, `${where}: unbalanced brackets in "${str}"`); return; }
+  for (const m of str.matchAll(/\[([^\]]*)\]/g)) {
+    const t = m[1];
+    if (t.includes('[')) bad(L, `${where}: nested brackets in "${str}"`);
+    const r = /^([A-Za-z]):(.*)$/.exec(t);
+    if (r && !'secx'.includes(r[1])) bad(L, `${where}: unknown role "${r[1]}:" in "${str}" (use s, e, c or x)`);
+    if (!(r ? r[2] : t).trim()) bad(L, `${where}: empty highlight in "${str}"`);
+  }
+};
+const sentences = s => (s.replace(/\([^)]*\)|"[^"]*"/g, '').match(/[.!?](\s|$)/g) || []).length;
 const ids = new Set();
 const ID = /^[a-z][a-z0-9-]{1,23}$/;
 
@@ -24,8 +39,28 @@ for (const L of LESSONS) {
   (L.src || []).forEach(k => { if (!SRC[k]) bad(L, `src "${k}" is not in SRC`); });
   (L.slides || []).forEach((s, i) => {
     if (!s.h) bad(L, `slide ${i + 1} has no h`);
-    if (!s.p && !s.t && !s.ex) bad(L, `slide ${i + 1} is empty`);
-    if (s.t) { const w = s.t[0].length; s.t.forEach((r, j) => { if (r.length !== w) bad(L, `slide ${i + 1} table row ${j} has ${r.length} cells, header has ${w}`); }); }
+    const at = `slide ${i + 1}`;
+    if (!s.p && !s.t && !s.ex && !s.steps) bad(L, `${at} is empty`);
+    markup(L, at, s.h); markup(L, at, s.p);
+    (s.t || []).forEach(r => r.forEach(c => markup(L, at, c)));
+    (s.ex || []).forEach(e => markup(L, at, e[0]));
+    if (s.note !== undefined) {
+      const ns = [].concat(s.note);
+      if (!ns.every(n => typeof n === 'string' && n)) bad(L, `${at}: note must be a string or an array of strings`);
+      ns.forEach(n => { markup(L, at, n); if (/^(watch out|see also)\b/i.test(n) && !/^(Watch out|See also): /.test(n)) bad(L, `${at}: write the label exactly "Watch out: " or "See also: "`); });
+    }
+    if (s.steps !== undefined) {
+      if (!Array.isArray(s.steps) || !s.steps.length) bad(L, `${at}: steps must be an array of chains`);
+      else s.steps.forEach((c, j) => {
+        if (!Array.isArray(c) || c.length < 2 || !c.every(x => typeof x === 'string' && x)) bad(L, `${at} chain ${j + 1}: needs 2 or more non-empty strings`);
+        else c.forEach(x => markup(L, at, x));
+      });
+    }
+    // Writing caps from docs/LESSONS.md: warnings, not failures.
+    if (s.p && sentences(s.p) > 2) warn(L, `${at}: paragraph has ${sentences(s.p)} sentences (cap 2)`);
+    if (s.t && (s.t[0].length > 4 || s.t.length > 7)) warn(L, `${at}: table is ${s.t[0].length} x ${s.t.length - 1} (cap 4 columns x 6 rows)`);
+    if (s.ex && s.ex.length > 4) warn(L, `${at}: ${s.ex.length} examples (cap 4)`);
+    if (s.t) { const w = s.t[0].length; s.t.forEach((r, j) => { if (r.length !== w) bad(L, `${at} table row ${j} has ${r.length} cells, header has ${w}`); }); }
     (s.ex || []).forEach((e, j) => { if (e.length !== 2) bad(L, `slide ${i + 1} example ${j + 1} needs [korean, english]`); });
   });
   (L.vocab || []).forEach((v, i) => { if (v.length !== 2 || !v[0] || !v[1]) bad(L, `vocab ${i + 1} needs [korean, english]`); });
@@ -34,6 +69,7 @@ for (const L of LESSONS) {
   items.forEach(([where, it], i) => {
     const tag = `${where} item ${i + 1} (${it.q})`;
     if (!it.q) bad(L, `${tag}: no q`);
+    markup(L, tag, it.why);
     if (it.k === 'mc') {
       if (!Array.isArray(it.c) || it.c.length < 2) bad(L, `${tag}: needs c with the right answer first`);
       else if (new Set(it.c).size !== it.c.length) bad(L, `${tag}: duplicate choices`);
@@ -48,7 +84,11 @@ for (const L of LESSONS) {
     } else bad(L, `${tag}: unknown kind "${it.k}"`);
   });
   if (L.pool && !(L.poolN > 0)) bad(L, 'has pool but no poolN');
+  (L.goals || []).forEach(g => markup(L, 'goals', g));
+  (L.plan || []).forEach(p => markup(L, 'plan', p[2]));
 }
 
+if (warns.length && process.argv.includes('--style')) console.log(warns.map(w => 'style: ' + w).join('\n') + '\n');
+else if (warns.length) console.log(`${warns.length} style note(s); run with --style to list them.`);
 if (errs.length) { console.error(errs.join('\n')); console.error(`\n${errs.length} problem(s).`); process.exit(1); }
 console.log(`OK: ${LESSONS.length} lessons, ${LESSONS.reduce((n, L) => n + L.ex.length + (L.pool || []).length, 0)} practice items.`);
