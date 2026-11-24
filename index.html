@@ -230,6 +230,24 @@ th{font:700 12px/1.4 var(--f-ui);text-transform:uppercase;letter-spacing:.06em;c
 /* progress */
 .ptable td,.ptable th{white-space:nowrap}
 .ptable td:first-child{white-space:normal;min-width:12rem}
+/* study calendar: one dot per person on each day they finished something */
+.cal{margin-bottom:14px}
+.calhd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.calhd h2{font-size:19px}
+.calhd .btn{padding:4px 12px;font-size:18px}
+.calgrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.calgrid .dow{font:700 12px/1.4 var(--f-ko);color:var(--ink-2);text-align:center}
+.cd{min-height:54px;border:1px solid var(--line);border-radius:var(--r);padding:4px 6px;display:flex;flex-direction:column;justify-content:space-between;gap:4px;font:13px/1.2 var(--f-ui);color:var(--ink-2);font-variant-numeric:tabular-nums}
+.cd.blank{border-color:transparent}
+.cd.future{opacity:.35}
+.cd.on{color:var(--ink);border-color:var(--line-2)}
+.cd.all{background:var(--good-soft)}
+.cd.today{border:2px solid var(--mark);padding:3px 5px}
+.dots{display:flex;gap:4px;flex-wrap:wrap}
+.dots i,.legend i{width:13px;height:13px;border-radius:50%;display:inline-block;flex:none}
+.legend{display:flex;gap:6px 18px;flex-wrap:wrap;margin-top:12px;font:14px/1.4 var(--f-ui)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+@media (max-width:560px){.cd{min-height:44px;padding:3px 4px}.cd.today{padding:2px 3px}.dots{gap:3px}.dots i{width:10px;height:10px}}
 .who{display:flex;align-items:center;gap:8px}
 .who img{width:24px;height:24px;border-radius:50%}
 .muted{color:var(--ink-2)}
@@ -2126,6 +2144,7 @@ async function renderProgress(){
     : "Scores from the shared Google Sheet, plus anything on this device that hasn't been sent yet.";
   app.innerHTML = `<div class="lhead"><div class="eyebrow">Both of us</div>${wg("진도")}<h1>Progress</h1><p class="lede" style="margin:0">${note}</p></div>
   ${!myName?`<a class="card nameprompt" href="#who"><span>Set your name so your scores are labelled.</span><span class="btn">Set name</span></a>`:""}
+  <div class="card cal" id="cal"></div>
   <div class="tw card" style="padding:0"><table class="ptable">
     <thead><tr><th>Lesson</th>${people.map((p,i)=>`<th class="nm" data-i="${i}"></th>`).join("")}</tr></thead>
     <tbody>
@@ -2139,6 +2158,53 @@ async function renderProgress(){
   <p class="muted" style="font-size:14px">A lesson counts as done after the last slide and a practice score of 80% or more.</p>`;
   $$(".nm").forEach(el=>{ const p=people[+el.dataset.i]; el.textContent = p.name + (p.isMe && myName ? " (you)" : ""); });
   const rb=$("#refresh"); if(rb) rb.onclick=()=>{ sheetRows=null; renderProgress(); };
+  renderCal(people, studyDays(people));
+}
+
+/* ---------------- study calendar ---------------- */
+// A day gets a person's dot when they finished anything that day: a lesson's slides, a practice
+// quiz, the mixed review or a Number Gym streak. Dates are in this device's local time.
+const pad2 = n => String(n).padStart(2,"0");
+const dayKey = t => { const d=new Date(t); return d.getFullYear()+"-"+pad2(d.getMonth()+1)+"-"+pad2(d.getDate()); };
+const PCOL = ["var(--accent)","var(--mark)","var(--blue)","var(--r-c)","var(--r-e)"];
+let calYM = null;
+function studyDays(people){
+  const sets = people.map(()=>new Set());
+  const at = (who,t) => { t=+t||0; if(t<=0) return; const i=people.findIndex(p=>nameKey(p.name)===nameKey(who)); if(i>=0) sets[i].add(dayKey(t)); };
+  for(const r of sheetRows||[]) at(r.who, new Date(r.when));
+  // this device: scores not sent yet, and lesson finish times saved locally
+  const me = people.find(p=>p.isMe);
+  if(me){
+    for(const e of loadPending()) if(!e.who || nameKey(e.who)===nameKey(myName)) at(me.name, e.at);
+    for(const x of Object.values(state.lessons)) at(me.name, x.at);
+  }
+  return sets;
+}
+function renderCal(people, sets){
+  const box=$("#cal"); if(!box) return;
+  const now=new Date(), today=dayKey(now);
+  if(!calYM) calYM=[now.getFullYear(), now.getMonth()];
+  const all=[].concat(...sets.map(s=>[...s])).sort();
+  const first=all.length ? all[0].slice(0,7) : today.slice(0,7);
+  const [y,m]=calYM, ym=y+"-"+pad2(m+1), days=new Date(y,m+1,0).getDate(), lead=new Date(y,m,1).getDay();
+  let cells="일월화수목금토".split("").map(d=>`<div class="dow">${d}</div>`).join("");
+  for(let i=0;i<lead;i++) cells+='<div class="cd blank"></div>';
+  for(let d=1; d<=days; d++){
+    const k=ym+"-"+pad2(d), who=people.map((p,i)=>sets[i].has(k)?i:-1).filter(i=>i>=0);
+    const cls=["cd", who.length?"on":"", who.length>1&&who.length===people.length?"all":"", k===today?"today":"", k>today?"future":""].filter(Boolean).join(" ");
+    const label=new Date(y,m,d).toLocaleDateString(undefined,{month:"short",day:"numeric"})+": "+(who.length?who.map(i=>people[i].name).join(", "):"no study");
+    cells+=`<div class="${cls}" title="${esc(label)}" aria-label="${esc(label)}"><span>${d}</span><span class="dots">${who.map(i=>`<i style="background:${PCOL[i%PCOL.length]}"></i>`).join("")}</span></div>`;
+  }
+  const monthName=new Date(y,m,1).toLocaleDateString(undefined,{month:"long",year:"numeric"});
+  const legend=people.map((p,i)=>{ const n=[...sets[i]].filter(k=>k.startsWith(ym)).length;
+    return `<span><i style="background:${PCOL[i%PCOL.length]}"></i>${esc(p.name)}${p.isMe&&myName?" (you)":""} <span class="muted">· ${n} day${n===1?"":"s"}</span></span>`; }).join("");
+  box.innerHTML=`<div class="calhd"><button class="btn" id="calPrev" aria-label="Previous month"${ym<=first?" disabled":""}>‹</button>
+    <h2>${monthName}</h2>
+    <button class="btn" id="calNext" aria-label="Next month"${ym>=today.slice(0,7)?" disabled":""}>›</button></div>
+    <div class="calgrid">${cells}</div>
+    <div class="legend">${legend}</div>`;
+  const go=step=>{ const d=new Date(calYM[0], calYM[1]+step, 1); calYM=[d.getFullYear(), d.getMonth()]; renderCal(people, sets); };
+  $("#calPrev").onclick=()=>go(-1); $("#calNext").onclick=()=>go(1);
 }
 
 updateWho();
