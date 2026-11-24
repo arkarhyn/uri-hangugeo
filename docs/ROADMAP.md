@@ -25,7 +25,7 @@ Site-wide: Number Gym, Mixed review, Progress (with the study calendar), and the
 - **There's no connected Korean.** Every example is a single sentence. Nothing shows two people actually talking with the grammar.
 - **Three conversation questions** isn't enough to fill a session, and they come with no sample answer.
 
-So the gaps are production, conversation and connected speech, which is exactly what the goal needs (speaking with each other, and with her parents).
+So the gaps are production, conversation and connected speech, which is exactly what the goal needs (speaking with each other, and politely with older people).
 
 ## 2. Guardrails (unchanged)
 
@@ -59,10 +59,17 @@ Each lesson gets 6 to 8 English sentences to say in Korean, using that lesson's 
 
 - **Say it out loud first, then reveal.** No typing needed, so it works on the phone and over screenshare. When you're together, one person reads the English and the other answers.
 - **Short to long:** the first sentences in a set are short and use only the new grammar. The last two or three join it with grammar from earlier lessons, so stringing sentences together comes gradually.
-- Your three-button rating feeds Mixed review: "Missed it" sentences come back sooner. That's repetition built into the practice, with no deck to grind.
+- Your three-button rating feeds Mixed review: "Missed it" sentences come back sooner. That's repetition built into the practice, with no deck to grind. **Ratings stay on the device** and are not sent to the Sheet, so neither of you sees the other's.
+- **Every sentence has a polite and a 반말 answer.** A switch at the top of the tab, **해요 / 반말**, picks which one you're asked for, and the device remembers it. The reveal shows the chosen level large and the other level small underneath, so you see both every time. (Why: polite speech with elders, 반말 with each other.)
 - **Where it shows up:** (a) a "Say it" step at the end of each lesson, (b) the lesson plan, which uses it as a timed activity, and (c) a site-wide **Say-it Gym** that mixes sentences from every lesson you've finished. That Gym is a good 5-minute session.
-- **Data:** a new optional lesson field, `say:[["I couldn't sleep last night.","어젯밤에 잠을 못 잤어요.","어젯밤에 못 잤어요."], ...]`, with the English, the model answer, then any other accepted answers. Lessons without it still work.
+- **Data:** a new optional lesson field, `say:[{en:"I couldn't sleep last night.", ko:"어젯밤에 잠을 못 잤어요.", ban:"어젯밤에 잠을 못 잤어.", alt:["어젯밤에 못 잤어요."]}, ...]`. `ko` is polite, `ban` is 반말, and `alt` lists other acceptable answers. Lessons without the field still work.
+- **Tab:** Say it gets its own tab beside Slides, Practice, Words and Plan. It doesn't count toward a lesson being "done".
 - **Work:** 1 session for the feature and checker rules. 1 to 2 more to write about 160 sentences for the existing 21 lessons, with the usual separate Korean review pass.
+
+**3.1b A "반말" slide in every lesson.**
+
+The last slide of each lesson shows the lesson's forms in 반말: a polite → 반말 table, then 2 or 3 examples. Some forms are more than "drop 요": -(으)세요 becomes -아/어, -(으)ㄹ까요 becomes -자 or -(으)ㄹ까, and 이에요/예요 becomes 이야/야. Those changes get the change-chain colours. Lessons that come before the 반말 lesson in teaching order (unit 1, past, plans, shopping, linking) add a `See also:` note pointing to it. Where 반말 doesn't fit the topic (the honorifics lesson, numbers), the slide says so in one line instead of forcing examples.
+- **Work:** written in the same per-lesson pass as Say-it.
 
 **3.2 A model conversation in every lesson.**
 
@@ -76,7 +83,8 @@ A short dialogue (6 to 10 lines, two speakers) that uses the lesson's grammar th
 - Each line plays aloud, with a different voice per speaker where the device has two Korean voices.
 - **Role-play mode:** hide one speaker's lines. You read A, she says B from memory or from the English, and then each hidden line is revealed. Swap roles and go again.
 - **Listen-first mode:** hear it with the Korean hidden, then answer two or three comprehension questions.
-- This gives connected Korean and a script for speaking. Lines can lean on family situations (talking with parents, meals, plans), which gives her parents' visits a reason to show up.
+- This gives connected Korean and a script for speaking.
+- **Recurring cast, all made up:** 민수 and 지은, close friends the same age who talk to each other in 반말. When they talk to someone older or someone they don't know (지은's mom, a shopkeeper, a teacher), they switch to polite. So most dialogues show both speech levels and when to switch. Situations are everyday and generic: meals, plans, shopping, phone calls, visiting someone's family. Nothing personal from real life goes in.
 - **Work:** 1 session for the feature, then 1 to 2 to write 21 dialogues plus review.
 
 **3.3 Lesson plans you can click through ("Session" mode).**
@@ -104,13 +112,13 @@ The lesson plan becomes a set of steps you click through like the slides, not a 
 - *Fix it:* one wrong sentence, pick the fixed version.
 - *Conjugation tiles:* stem + ending tiles to build 추워요 from 춥다. This fits the change chains already on the slides.
 
-**3.9 "What to reteach"** (already in PLAN.md Phase 2). A Progress panel listing each person's most-missed items and Say-it sentences per lesson, so you know what to open the next session with.
+**3.9 "What to reteach"** (already in PLAN.md Phase 2). A Progress panel listing each person's most-missed Practice items per lesson, so you know what to open the next session with. Say-it ratings aren't included, because they stay on the device.
 
 ### Later
 
-**3.10 Scenario lessons.** After every 4 or 5 grammar lessons, one lesson with no new grammar: a situation that uses several earlier ones (planning a weekend, ordering for a table, a phone call to make plans, dinner with her parents). It would be built from a dialogue, Say-it, and role cards ("you want X, but they're out of it").
+**3.10 Scenario lessons.** After every 4 or 5 grammar lessons, one lesson with no new grammar: a situation that uses several earlier ones (planning a weekend, ordering for a table, a phone call to make plans, dinner at a friend's family home). It would be built from a dialogue, Say-it, and role cards ("you want X, but they're out of it").
 
-**3.11 Topic word packs.** Vocabulary by theme rather than by grammar: food and ordering, family terms (very useful with parents), time and dates, feelings, around the house. Each pack is a short Words set plus a few Say-it sentences, and doesn't need slides.
+**3.11 Topic word packs.** Vocabulary by theme rather than by grammar: food and ordering, family terms, time and dates, feelings, around the house. Each pack is a short Words set plus a few Say-it sentences, and doesn't need slides.
 
 **3.12 Mined sentences from the reader, shown on the site.** See §4, option C.
 
@@ -149,9 +157,25 @@ The lesson plan becomes a set of steps you click through like the slides, not a 
 
 The writing passes for 3.1 to 3.3 can be done together, one lesson at a time (Say-it sentences, dialogue and questions for the same lesson in one go). That keeps the Korean review to one pass per lesson.
 
+## 5b. Checking the Korean without a native speaker
+
+Nobody available speaks Korean natively, and adding Say-it, 반말 and dialogues will roughly double the Korean on the site. Each lesson's new Korean goes through three layers:
+
+1. **Automatic check with Kiwi**, the Korean word analyzer already installed with korean-reader (`C:\dev\korean-reader\server\.venv`). A script splits every sentence into stem and endings and flags: a polite answer that doesn't end politely, a 반말 answer that still ends in 요 or 니다, and forms Kiwi doesn't recognise (in testing it flagged the misspelling 잣어요). It catches mechanical mistakes, **not unnatural phrasing**.
+2. **Two separate reviewer passes** (two fresh Claude agents that didn't write the sentences, one focused on grammar and one on "would a Korean person say it this way?"). Anything they disagree on gets simplified or cut.
+3. **Keep it plain.** Use short, common, textbook-style sentences and avoid slang or idioms. Most of the risk is in clever sentences, so don't write them.
+
+The existing "this looks wrong" flag stays. Anything either of you finds goes straight into a fix. This lowers the error rate but doesn't remove it: a few sentences will still be stiff in ways only a native speaker would notice.
+
 ## 6. Decisions (Austin, 2026-11-23)
 
 1. **The miner: open it, nothing more for now.** Option A is built: a Reader link set on the "Who's studying?" page, kept in that browser only. Mining for her (B) may come later.
 2. **Say-it: say, then reveal.** No typed checking. Neither of you types Korean yet, and saying it out loud is the point. The typed mode in 3.1 is dropped.
 3. **Dialogues: generic and everyday.** Nothing personal goes into this public repo: no real names, places or family details.
 4. **Say-it first, then dialogues.** In his words: "we need to be able to gain confidence in doing short pieces of Korean and then start stringing it together." So each lesson's Say-it set runs from short to long: single short sentences first, then the last two or three join in grammar from earlier lessons. Dialogues come after that, as the next step up.
+5. **Say it is its own tab.**
+6. **Say-it ratings stay private**, on the device only.
+7. **Recurring generic characters:** 민수 and 지은 (3.2).
+8. **Batch 4 waits** until Say-it is in all 21 existing lessons. After that, new lessons ship with Say-it, the 반말 slide and a dialogue.
+9. **반말 in every lesson:** a 반말 answer for every Say-it sentence and a 반말 slide per lesson (3.1, 3.1b). Polite speech is for elders, 반말 is for each other, and "it'd help both of us if we have the 반말 version as well".
+10. **No native speaker:** the Korean is checked as in §5b.
