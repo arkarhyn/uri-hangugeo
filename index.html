@@ -276,6 +276,7 @@ footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--ink-
     <a href="#gym" data-nav="gym">Number Gym</a>
     <a href="#review" data-nav="review">Review</a>
     <a href="#progress" data-nav="progress">Progress</a>
+    <a id="readerLink" href="#who" target="_blank" rel="noopener" title="Opens your reader app in a new tab" hidden>Reader ↗</a>
   </nav>
   <a class="sync" id="sync" href="#who" data-s="local"><i></i><span>Who's studying?</span></a>
 </div></header>
@@ -1678,6 +1679,18 @@ function updateWho(){
 const normName = n => String(n||"").replace(/\s+/g," ").trim();
 const nameKey = n => normName(n).toLowerCase();
 function setName(n){ myName=normName(n).slice(0,30); try{ localStorage.setItem(NAME_KEY,myName); }catch(e){} updateWho(); flushLog(); }
+
+/* Reader link: the address of a private app (e.g. korean-reader on a home PC).
+   It is kept only in this browser and never written into this public repo. */
+const READER_KEY="uri-hangugeo.reader";
+let readerUrl=""; try{ readerUrl=localStorage.getItem(READER_KEY)||""; }catch(e){}
+function cleanUrl(v){
+  v=String(v||"").trim(); if(!v) return "";
+  if(!/^[a-z][a-z0-9+.-]*:\/\//i.test(v)) v="https://"+v;
+  try{ const u=new URL(v); return /^https?:$/.test(u.protocol) && u.hostname ? u.href : null; }catch(e){ return null; }
+}
+function setReader(v){ readerUrl=v||""; try{ v ? localStorage.setItem(READER_KEY,v) : localStorage.removeItem(READER_KEY); }catch(e){} updateReader(); }
+function updateReader(){ const a=$("#readerLink"); a.hidden=!readerUrl; a.href=readerUrl||"#who"; }
 function loadPending(){ try{ const p=JSON.parse(localStorage.getItem(PEND_KEY)||"[]"); return Array.isArray(p)?p:[]; }catch(e){ return []; } }
 function savePending(p){ try{ localStorage.setItem(PEND_KEY, JSON.stringify(p.slice(-200))); }catch(e){} }
 // Every event gets an id. The Sheet skips ids it already has, so resending is always safe.
@@ -2105,8 +2118,19 @@ async function renderWho(){
       <label for="nameIn">First name or nickname</label>
       <div class="brow"><input id="nameIn" maxlength="30" autocomplete="nickname" placeholder="Your name"><button class="btn primary" type="submit">Save</button></div>
       <div class="brow" id="known"></div>
+    </form>
+    <form class="card namef" id="readerf" style="margin-top:16px">
+      <label for="readerIn">Reader link (optional, this device only)</label>
+      <p class="muted" style="margin:4px 0 8px;font-size:14px">Paste the address of another study app you use, and a Reader link appears in the menu on this device. It's saved only in this browser, so set it on each device you want it on.</p>
+      <div class="brow"><input id="readerIn" type="url" inputmode="url" autocomplete="url" placeholder="https://…"><button class="btn primary" type="submit">Save</button><button class="btn" type="button" id="readerClear">Clear</button></div>
     </form>`;
   $("#nameIn").value = myName;
+  $("#readerIn").value = readerUrl;
+  $("#readerf").addEventListener("submit", e=>{ e.preventDefault(); const v=cleanUrl($("#readerIn").value);
+    if(v===null){ toast("That doesn't look like a web address."); return; }
+    if(!v){ toast("Paste an address first, or use Clear."); return; }
+    setReader(v); $("#readerIn").value=v; toast("Saved. Reader is in the menu on this device."); });
+  $("#readerClear").onclick=()=>{ setReader(""); $("#readerIn").value=""; toast("Reader link removed from this device."); };
   $("#namef").addEventListener("submit", e=>{ e.preventDefault(); let v=normName($("#nameIn").value); if(!v){ toast("Type a name first."); return; }
     // "min" and "Min" are the same person: reuse the spelling already on the sheet
     const known = sheetRows ? aggregate(sheetRows).map(p=>p.name) : [];
@@ -2208,6 +2232,7 @@ function renderCal(people, sets){
 }
 
 updateWho();
+updateReader();
 route();
 flushLog();
 </script>

@@ -58,7 +58,7 @@ Each lesson gets 6 to 8 English sentences to say in Korean, using that lesson's 
 ```
 
 - **Say it out loud first, then reveal.** No typing needed, so it works on the phone and over screenshare. When you're together, one person reads the English and the other answers.
-- **Optional typed mode on desktop:** type with the Korean keyboard, and it checks against the accepted answers (ignoring spacing and punctuation). If it doesn't match, it shows the model answer with a "count mine as right" button, because a hand-written list of answers will never cover every correct sentence.
+- **Short to long:** the first sentences in a set are short and use only the new grammar. The last two or three join it with grammar from earlier lessons, so stringing sentences together comes gradually.
 - Your three-button rating feeds Mixed review: "Missed it" sentences come back sooner. That's repetition built into the practice, with no deck to grind.
 - **Where it shows up:** (a) a "Say it" step at the end of each lesson, (b) the lesson plan, which uses it as a timed activity, and (c) a site-wide **Say-it Gym** that mixes sentences from every lesson you've finished. That Gym is a good 5-minute session.
 - **Data:** a new optional lesson field, `say:[["I couldn't sleep last night.","어젯밤에 잠을 못 잤어요.","어젯밤에 못 잤어요."], ...]`, with the English, the model answer, then any other accepted answers. Lessons without it still work.
@@ -91,7 +91,7 @@ The lesson plan becomes a set of steps you click through like the slides, not a 
 
 ### Next
 
-**3.4 Open the sentence miner from the site.** See §4. A small first step: a "Reader" link on your devices only.
+**3.4 Open the sentence miner from the site.** Built 2026-11-23 (option A in §4). On the "Who's studying?" page, paste the reader's address under "Reader link". A **Reader ↗** item then appears in the menu on that device and opens the reader in a new tab. The address stays in that browser and is never in the repo. Devices without it set (hers) don't show the link.
 
 **3.5 Save sentences from the site ("mine" here).** A small "save" mark on any example, dialogue line or Say-it sentence. Saved sentences make a **My sentences** list for each person, which joins the Say-it Gym and Mixed review. It syncs through the same Sheet as progress, so each of you sees your own list on any device. This gives her a sentence miner too, inside the site.
 
@@ -136,7 +136,7 @@ The lesson plan becomes a set of steps you click through like the slides, not a 
 | **C. Reader sentences, shown here** | korean-reader sends your "Learn this" sentences (Korean, English and the podcast line) to a new tab in the progress Sheet. The site shows them as a list you can turn into Say-it practice. | Both can see yours. Only you mine. | 1 to 2 sessions across both repos |
 | D. She uses the reader too | Share your desktop to her Tailscale account, and make korean-reader multi-user (its own placement, SRS and DB per person). | Both | Large: it reverses korean-reader's single-user design. Not recommended now. |
 
-**Recommendation:** A now, because it's tiny and gives you the shortcut. B with the Now batch, because it's the miner she can actually use. Hold C until you notice you *want* your podcast sentences in the shared study time, not just in your own reading.
+**Decided:** A is built (3.4). B may come later. C and D aren't planned.
 
 ## 5. Suggested order
 
@@ -144,14 +144,14 @@ The lesson plan becomes a set of steps you click through like the slides, not a 
 2. Say it in Korean (3.1), the feature and then the writing pass.
 3. Model conversations (3.2).
 4. Session mode and more questions (3.3).
-5. Reader link (A) and saving sentences (3.5).
+5. Saving sentences (3.5). The Reader link is already built.
 6. Then the Next list, in whatever order the sessions show is missing.
 
 The writing passes for 3.1 to 3.3 can be done together, one lesson at a time (Say-it sentences, dialogue and questions for the same lesson in one go). That keeps the Korean review to one pass per lesson.
 
-## 6. Open questions for you
+## 6. Decisions (Austin, 2026-11-23)
 
-1. **The miner:** when you said "access it from this site", did you mean opening *your* reader (option A), or her being able to mine too (B or D)?
-2. **Say-it answers:** is reveal-and-rate enough, or do you want typed checking on the desktop from the start?
-3. **Dialogues:** generic situations, or tuned to your life (her parents, the two of you planning things)? Tuned is more useful, but it goes into a public repo.
-4. **Order:** is Say-it first right, or do the dialogues matter more to you?
+1. **The miner: open it, nothing more for now.** Option A is built: a Reader link set on the "Who's studying?" page, kept in that browser only. Mining for her (B) may come later.
+2. **Say-it: say, then reveal.** No typed checking. Neither of you types Korean yet, and saying it out loud is the point. The typed mode in 3.1 is dropped.
+3. **Dialogues: generic and everyday.** Nothing personal goes into this public repo: no real names, places or family details.
+4. **Say-it first, then dialogues.** In his words: "we need to be able to gain confidence in doing short pieces of Korean and then start stringing it together." So each lesson's Say-it set runs from short to long: single short sentences first, then the last two or three join in grammar from earlier lessons. Dialogues come after that, as the next step up.
