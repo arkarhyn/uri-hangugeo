@@ -1,4 +1,4 @@
-"""Checks the Korean in every lesson's Say-it sentences with the Kiwi analyzer.
+"""Checks the Korean in every lesson's Say-it sentences and dialogue lines with the Kiwi analyzer.
 
 Run from the repo root with any Python that has kiwipiepy installed, e.g. the
 korean-reader venv:
@@ -13,6 +13,9 @@ What it catches (mechanical mistakes, not naturalness):
     (a misspelling like 잣어요 shows up as an odd 엇)
 It also notes when the polite and 반말 versions use different content words,
 which usually means one of them drifted from the English.
+Dialogue lines are checked against their speech level (the speaker's, or the
+line's own when it switches): every ending in a polite line must be polite, and
+none in a 반말 line may be.
 Exit code 1 if there's a problem; notes alone don't fail.
 """
 import json
@@ -27,12 +30,17 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 args = [a for a in sys.argv[1:] if not a.startswith("--")]
 show_all = "--all" in sys.argv
 
-out = subprocess.run(["node", os.path.join(ROOT, "tools", "check.mjs"), "--dump-say"],
-                     capture_output=True, text=True, encoding="utf-8", cwd=ROOT)
-if out.returncode:
-    print(out.stderr or out.stdout)
-    sys.exit("Fix the checker errors first (node tools/check.mjs).")
-items = [x for x in json.loads(out.stdout) if not args or x["lesson"] in args]
+def dump(flag):
+    out = subprocess.run(["node", os.path.join(ROOT, "tools", "check.mjs"), flag],
+                         capture_output=True, text=True, encoding="utf-8", cwd=ROOT)
+    if out.returncode:
+        print(out.stderr or out.stdout)
+        sys.exit("Fix the checker errors first (node tools/check.mjs).")
+    return [x for x in json.loads(out.stdout) if not args or x["lesson"] in args]
+
+
+items = dump("--dump-say")
+dlg_lines = dump("--dump-dlg")
 
 kiwi = Kiwi()
 POLITE = ("요", "니다", "니까", "시오")
@@ -82,9 +90,30 @@ for it in items:
     if a != b:
         notes.append(f"{where}: content words differ between levels: polite only {sorted(a - b) or '-'}, 반말 only {sorted(b - a) or '-'}")
 
+# Dialogue lines: every sentence ending (EF) in a polite line must be polite, and none in a 반말 line may be.
+# Fragments with no ending at all (응. 나도. 민수야!) aren't judged, except a 반말 fragment ending in 요.
+BAN_BAD = ("요", "니다", "ᆸ니까", "습니까")
+for ln in dlg_lines:
+    s, lv = ln["ko"], ln["lv"]
+    where = f'{ln["lesson"]} dialogue line {ln["n"]} ({ln["who"]}, {"polite" if lv == "yo" else "반말"})'
+    toks = kiwi.tokenize(s)
+    morph = " ".join(f"{t.form}/{t.tag}" for t in toks)
+    if show_all:
+        print(f"{where} {s}\n    {morph}")
+    for t in toks:
+        if t.tag == "EF" and lv == "yo" and not t.form.endswith(POLITE):
+            problems.append(f"{where}: polite line {s} has the 반말 ending {t.form}\n    {morph}")
+        # Before a comma Kiwi tags the ending EC (고마워요, 민수 씨), so a 요 there counts too.
+        if lv == "ban" and (t.tag == "EF" and t.form.endswith(BAN_BAD) or t.tag in ("JX", "EC") and t.form.endswith("요")):
+            problems.append(f"{where}: 반말 line {s} has the polite ending {t.form}\n    {morph}")
+        if t.tag in ("UN", "NA") or t.tag.startswith("W_") or t.tag == "SL":
+            problems.append(f"{where}: Kiwi doesn't recognise \"{t.form}\" ({t.tag}) in {s}\n    {morph}")
+        if t.tag == "EP" and t.form not in KNOWN_EP:
+            problems.append(f"{where}: unusual pre-final ending \"{t.form}\" in {s}: check the spelling\n    {morph}")
+
 for p in problems:
     print("PROBLEM", p)
 for n in notes:
     print("note   ", n)
-print(f"\n{len(items)} sentences checked: {len(problems)} problem(s), {len(notes)} note(s).")
+print(f"\n{len(items)} sentences and {len(dlg_lines)} dialogue lines checked: {len(problems)} problem(s), {len(notes)} note(s).")
 sys.exit(1 if problems else 0)

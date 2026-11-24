@@ -115,6 +115,62 @@ for (const L of LESSONS) {
       [it.alt, it.banAlt].forEach(a => (a || []).forEach(x => { if (/[\[\]]/.test(x)) bad(L, `${tag}: alternatives are shown plain, so leave out [ ] markup`); }));
     });
   }
+  // Dialogue: {scene, cast:[[name, "yo"|"ban", english?]], lines:[[name, korean, english, level?]], q?:[mc], note?}.
+  // Endings are checked roughly per sentence here; tools/kiwi_check.py does the real check.
+  if (L.dlg !== undefined) {
+    const D = L.dlg, tag = 'dlg';
+    if (!D || typeof D !== 'object' || Array.isArray(D)) bad(L, 'dlg must be an object');
+    else {
+      for (const k of Object.keys(D)) if (!['scene', 'cast', 'lines', 'q', 'note'].includes(k)) bad(L, `${tag}: unknown field "${k}"`);
+      if (typeof D.scene !== 'string' || !D.scene.trim()) bad(L, `${tag}: missing scene`);
+      markup(L, tag, D.scene);
+      const cast = Array.isArray(D.cast) ? D.cast : [];
+      if (cast.length < 2 || cast.length > 3) bad(L, `${tag}: cast needs 2 or 3 speakers`);
+      const names = cast.map(c => Array.isArray(c) ? c[0] : undefined);
+      cast.forEach((c, i) => {
+        if (!Array.isArray(c) || typeof c[0] !== 'string' || !c[0] || !['yo', 'ban'].includes(c[1]) || c.length > 3) bad(L, `${tag}: cast ${i + 1} needs [name, "yo" or "ban", english?]`);
+      });
+      if (new Set(names).size !== names.length) bad(L, `${tag}: a name appears twice in cast`);
+      const lines = Array.isArray(D.lines) ? D.lines : [];
+      if (lines.length < 4) bad(L, `${tag}: needs at least 4 lines`);
+      if (lines.length && (lines.length < 6 || lines.length > 10)) warn(L, `${tag}: ${lines.length} lines (aim for 6 to 10)`);
+      const end = s => s.replace(/[.?!…"'\s]+$/, '');
+      const sentencesOf = s => strip(s).split(/(?<=[.?!…])\s+/).map(x => x.trim()).filter(Boolean);
+      lines.forEach((l, i) => {
+        const at = `${tag} line ${i + 1}`;
+        if (!Array.isArray(l) || l.length < 3 || l.length > 4) { bad(L, `${at}: needs [name, korean, english, level?]`); return; }
+        const [who, ko, en, lv] = l;
+        const c = cast.find(x => Array.isArray(x) && x[0] === who);
+        if (!c) { bad(L, `${at}: "${who}" isn't in cast`); return; }
+        if (typeof ko !== 'string' || !/[가-힣]/.test(ko)) bad(L, `${at}: missing Korean`);
+        if (typeof en !== 'string' || !en.trim() || /[가-힣]/.test(en)) bad(L, `${at}: english missing or has Korean in it (romanize names: Minsu, Jieun)`);
+        if (lv !== undefined && !['yo', 'ban'].includes(lv)) bad(L, `${at}: level must be "yo" or "ban"`);
+        if (lv !== undefined && lv === c[1]) bad(L, `${at}: level "${lv}" is already ${who}'s default; leave it off`);
+        markup(L, at, ko);
+        const level = lv || c[1];
+        if (typeof ko === 'string') sentencesOf(ko).forEach(s => {
+          const e = end(s);
+          if (level === 'yo' && !/(요|니다|니까|시오)$/.test(e) && /\s/.test(e) && !/(씨|님)$/.test(e)) bad(L, `${at}: polite line "${s}" doesn't end in 요 or 니다`);
+          if (level === 'ban' && /(요|니다)$/.test(e)) bad(L, `${at}: 반말 line "${s}" ends like polite speech`);
+        });
+      });
+      const spoke = new Set(lines.map(l => Array.isArray(l) && l[0]));
+      names.forEach(n => { if (n && !spoke.has(n)) bad(L, `${tag}: ${n} is in cast but has no lines`); });
+      if (D.q !== undefined) {
+        if (!Array.isArray(D.q) || !D.q.length) bad(L, `${tag}: q must be a non-empty array`);
+        (Array.isArray(D.q) ? D.q : []).forEach((x, i) => {
+          const at = `${tag} question ${i + 1}`;
+          if (!x || typeof x.q !== 'string' || !x.q) { bad(L, `${at}: no q`); return; }
+          if (!Array.isArray(x.c) || x.c.length < 2) bad(L, `${at}: needs c with the right answer first`);
+          else if (new Set(x.c).size !== x.c.length) bad(L, `${at}: duplicate choices`);
+          if (!x.why) bad(L, `${at}: no why`);
+          for (const k of Object.keys(x)) if (!['q', 'c', 'why'].includes(k)) bad(L, `${at}: unknown field "${k}"`);
+          markup(L, at, x.why);
+        });
+      }
+      if (D.note !== undefined) [].concat(D.note).forEach(n => { if (typeof n !== 'string' || !n) bad(L, `${tag}: note must be a string or an array of strings`); else markup(L, tag, n); });
+    }
+  }
   (L.goals || []).forEach(g => markup(L, 'goals', g));
   (L.plan || []).forEach(p => markup(L, 'plan', p[2]));
 }
@@ -124,7 +180,12 @@ if (process.argv.includes('--dump-say')) {
   process.stdout.write(JSON.stringify(LESSONS.flatMap(L => (L.say || []).map((it, i) => ({ lesson: L.id, n: i + 1, ...it, ko: strip(it.ko), ban: strip(it.ban) })))));
   process.exit(errs.length ? 1 : 0);
 }
+// --dump-dlg prints every dialogue line as JSON, with its speech level resolved.
+if (process.argv.includes('--dump-dlg')) {
+  process.stdout.write(JSON.stringify(LESSONS.flatMap(L => !L.dlg ? [] : L.dlg.lines.map((l, i) => ({ lesson: L.id, n: i + 1, who: l[0], ko: strip(l[1]), en: l[2], lv: l[3] || (L.dlg.cast.find(c => c[0] === l[0]) || [])[1] })))));
+  process.exit(errs.length ? 1 : 0);
+}
 if (warns.length && process.argv.includes('--style')) console.log(warns.map(w => 'style: ' + w).join('\n') + '\n');
 else if (warns.length) console.log(`${warns.length} style note(s); run with --style to list them.`);
 if (errs.length) { console.error(errs.join('\n')); console.error(`\n${errs.length} problem(s).`); process.exit(1); }
-console.log(`OK: ${LESSONS.length} lessons, ${LESSONS.reduce((n, L) => n + L.ex.length + (L.pool || []).length, 0)} practice items, ${LESSONS.reduce((n, L) => n + (L.say || []).length, 0)} say-it sentences.`);
+console.log(`OK: ${LESSONS.length} lessons, ${LESSONS.reduce((n, L) => n + L.ex.length + (L.pool || []).length, 0)} practice items, ${LESSONS.reduce((n, L) => n + (L.say || []).length, 0)} say-it sentences, ${LESSONS.filter(L => L.dlg).length} dialogues.`);

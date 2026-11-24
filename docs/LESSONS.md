@@ -34,6 +34,7 @@ Every lesson is one file in `lessons/`, named by unit and position (`u2-14-purpo
   plan:[["5","Warm-up","What to do"], ...],      // [minutes, title, instructions]
   talk:[["요즘 뭐 배우고 있어요?","What are you learning these days?"], ...],  // conversation prompts
   say:[ /* optional: Say it in Korean sentences, see below */ ],
+  dlg:{ /* optional: a model conversation, see below */ },
   after:"Where to read more (usually the HTSK lesson)."
 }
 ```
@@ -101,6 +102,33 @@ say:[
 - Only grammar already taught, everyday topics, nothing personal (the repo is public). The recurring people are 민수 and 지은, friends who use 반말 with each other and polite speech with elders and strangers.
 - Add a "Say it" row to the lesson plan.
 
+### Dialogue
+
+The Dialogue tab shows one short scene that uses the lesson's grammar the way people actually talk. It has three modes. **Read** shows the script, with Play all reading every line in each speaker's voice. **Role-play** shows the lines of the parts you pick as English only, until you've said them and pressed Show; pick both 민수 and 지은 when you're together. **Listen first** hides the Korean, plays it, then asks the questions. Nothing is scored or sent to the Sheet.
+
+```js
+dlg:{
+  scene:"At a café. 민수 and 지은 talk to each other in 반말, and switch to polite speech when they speak to the staff.",
+  cast:[["민수","ban"],["지은","ban"],["직원","yo","café staff"]],   // [name, default level, english?]
+  lines:[
+    ["직원","어서 오세요!","Welcome!"],
+    ["지은","민수야, 뭐 마실 거야?","Minsu, what are you going to drink?"],
+    ["지은","아이스 아메리카노 두 잔 [주세요].","Two iced Americanos, please.","yo"],   // 4th field: this line switches level
+    ...
+  ],
+  q:[{q:"What do they order?", c:["Two iced Americanos","...","..."], why:"아이스 아메리카노 두 잔: two iced Americanos."}],
+  note:"Optional, shown under the script."
+}
+```
+
+- **Cast:** 2 or 3 speakers. 민수 and 지은 are friends the same age: 반말 (`"ban"`) with each other, polite (`"yo"`) with anyone older or a stranger (지은's mom, a clerk, a teacher). A third person is generic (직원, 선생님, 지은 어머니), with an English label.
+- **Lines:** 6 to 10, each `[speaker, korean, english, level?]`. Leave the level off unless the line switches from the speaker's default; switched lines get a small 해요 / 반말 tag, so the switch is visible. One speaker talking to two people at two levels is two lines in a row.
+- Highlight the lesson's grammar with the bracket markup, as in examples. English romanizes names (Minsu, Jieun).
+- **Questions:** 2 or 3 multiple-choice in English, correct answer first, answerable from listening alone.
+- Same rules as Say it: only grammar already taught, everyday and generic, nothing personal. Watch for irregular verbs before `irregulars1`/`irregulars2` (고마워 is ㅂ-irregular; 잘 마실게 or 감사합니다 work earlier).
+- Add a "Dialogue" row to the lesson plan, or fold it into an existing role-play row.
+- The checker checks the shape and roughly checks each sentence's ending against its level; `tools/kiwi_check.py` checks dialogue lines with Kiwi as well.
+
 ## Conventions
 
 - Refer back to earlier lessons by name: "Review 2" for unit 1 lessons, "the linking lesson" for unit 2.
@@ -110,4 +138,4 @@ say:[
 
 ## What later features will change
 
-Lessons moved into their own files on 2026-11-23; the object shape didn't change. Planned features (`docs/ROADMAP.md`), such as model dialogues and Session mode, will be optional fields like `say`, so lessons without them keep working.
+Lessons moved into their own files on 2026-11-23; the object shape didn't change. Planned features (`docs/ROADMAP.md`), such as Session mode, will be optional fields like `say` and `dlg`, so lessons without them keep working.

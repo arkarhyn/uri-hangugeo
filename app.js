@@ -47,25 +47,46 @@ const strip = s => String(s).replace(/\[x:[^\]]*\]/g,"").replace(/\[[secx]:/g,""
 const rolesIn = o => { const j=JSON.stringify(o); return Object.keys(ROLES).filter(r=>j.includes(`[${r}:`)); };
 const legendHTML = rs => rs.length ? `<div class="legend" aria-label="Colour key">${rs.map(r=>`<span class="r-${r}">${ROLES[r]}</span>`).join("")}</div>` : "";
 const PLAY = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>';
-const sayBtn = t => `<button class="say" data-say="${esc(strip(t))}" aria-label="Play audio">${PLAY}</button>`;
+// v = speaker number in a dialogue, so each speaker keeps their own voice.
+const sayBtn = (t,v) => `<button class="say" data-say="${esc(strip(t))}"${v!=null?` data-v="${v}"`:""} aria-label="Play audio">${PLAY}</button>`;
 function toast(msg){ const t=document.createElement("div"); t.className="toast"; t.textContent=msg; document.body.appendChild(t); setTimeout(()=>t.remove(),2600); }
 function uniq4(ans, cands){ const out=[ans]; for(const c of shuffle(cands.slice())){ if(c && !out.includes(c)) out.push(c); if(out.length===4) break; } return out; }
 
 /* ---------------- audio ---------------- */
-let koVoice=null;
+// koVoices: every Korean voice on the device, the better-sounding ones first.
+let koVoices=[];
 function pickVoice(){
   if(!("speechSynthesis" in window)) return;
-  const vs=speechSynthesis.getVoices();
-  koVoice = vs.find(v=>/^ko/i.test(v.lang) && /google|natural|online/i.test(v.name)) || vs.find(v=>/^ko/i.test(v.lang)) || null;
-  $("#voiceNote").textContent = (vs.length && !koVoice) ? " Audio needs a Korean voice: add Korean in your device's speech or language settings." : "";
+  const vs=speechSynthesis.getVoices(), ko=vs.filter(v=>/^ko/i.test(v.lang)), good=v=>/google|natural|online/i.test(v.name);
+  koVoices = ko.filter(good).concat(ko.filter(v=>!good(v)));
+  $("#voiceNote").textContent = (vs.length && !koVoices.length) ? " Audio needs a Korean voice: add Korean in your device's speech or language settings." : "";
 }
 if("speechSynthesis" in window){ pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
-function say(text){
+// Dialogue speaker n gets the n-th Korean voice; when the device has fewer voices than speakers, a different pitch instead.
+function utter(text, spk){
+  const u=new SpeechSynthesisUtterance(String(text).replace(/→/g,", ").replace(/[·\/]/g,", "));
+  const n=koVoices.length, i=+spk||0;
+  u.lang="ko-KR"; if(n) u.voice=koVoices[i%n]; u.rate=0.85;
+  if(i>=n) u.pitch=[1,1.25,0.8][i%3];
+  return u;
+}
+// playTok is bumped whenever speech is cut off, so a stopped Play all ignores its leftover events.
+// playDone is the running Play all's finish callback, so its button resets however it was stopped.
+let playTok=0, playDone=null;
+function stopPlay(){ playTok++; const f=playDone; playDone=null; if("speechSynthesis" in window) speechSynthesis.cancel(); if(f) f(); }
+function say(text, spk){
   if(!("speechSynthesis" in window)){ toast("This browser can't play speech."); return; }
-  speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text.replace(/→/g,", ").replace(/[·\/]/g,", "));
-  u.lang="ko-KR"; if(koVoice) u.voice=koVoice; u.rate=0.85;
-  speechSynthesis.speak(u);
+  stopPlay(); speechSynthesis.speak(utter(text, spk));
+}
+// Plays [text, speaker] pairs in a row. onLine(i) fires as each one starts; onDone when all finish or are stopped.
+function playAll(items, onLine, onDone){
+  if(!("speechSynthesis" in window)){ toast("This browser can't play speech."); onDone(); return; }
+  stopPlay(); const tok=playTok; playDone=onDone;
+  items.forEach(([t,v],i)=>{ const u=utter(strip(t), v);
+    u.onstart=()=>{ if(tok===playTok) onLine(i); };
+    if(i===items.length-1) u.onend=u.onerror=()=>{ if(tok===playTok){ playDone=null; onDone(); } };
+    speechSynthesis.speak(u); });
+  return stopPlay;
 }
 
 /* ---------------- progress state ---------------- */
@@ -191,12 +212,12 @@ function aggregate(rows){
 let view="home", keyHandler=null, leaveHook=null, lessonTab="slides", slideIdx={};
 document.addEventListener("keydown", e=>{ if(keyHandler && !e.metaKey && !e.ctrlKey && !e.altKey) keyHandler(e); });
 document.addEventListener("click", e=>{
-  const s=e.target.closest("[data-say]"); if(s){ say(s.dataset.say); return; }
+  const s=e.target.closest("[data-say]"); if(s){ say(s.dataset.say, s.dataset.v); return; }
 });
 window.addEventListener("hashchange", route);
 function route(){
   const h=(location.hash||"#home").slice(1);
-  keyHandler=null;
+  keyHandler=null; stopPlay();
   if(leaveHook){ const f=leaveHook; leaveHook=null; f(); }
   if(h.startsWith("lesson-") && LMAP[h.slice(7)]){ view="lesson"; renderLesson(h.slice(7)); }
   else if(h==="gym"){ view="gym"; renderGym(); }
@@ -260,20 +281,21 @@ function renderLesson(id){
   $$(".tabs button").forEach(b=>b.onclick=()=>goTab(L, b.dataset.tab));
   showTab(L);
 }
-// The Say it tab shows only on lessons that have say sentences.
-const lessonTabs = L => [["slides","Slides"],["practice","Practice"],...(L.say&&L.say.length?[["say","Say it"]]:[]),["words","Words"],["plan","Lesson plan"]];
+// The Say it and Dialogue tabs show only on lessons that have them.
+const lessonTabs = L => [["slides","Slides"],["practice","Practice"],...(L.say&&L.say.length?[["say","Say it"]]:[]),...(L.dlg?[["dlg","Dialogue"]]:[]),["words","Words"],["plan","Lesson plan"]];
 function goTab(L,k){
   if(document.fullscreenElement) document.exitFullscreen().catch(()=>{});
   lessonTab=k; $$(".tabs button").forEach(x=>x.setAttribute("aria-selected", x.dataset.tab===k)); showTab(L);
 }
 function showTab(L){
-  keyHandler=null;
+  keyHandler=null; stopPlay();
   if(!lessonTabs(L).some(([k])=>k===lessonTab)) lessonTab="slides";
   $$(".tabs button").forEach(x=>x.setAttribute("aria-selected", x.dataset.tab===lessonTab));
   const pane=$("#pane");
   if(lessonTab==="slides") renderSlides(L,pane);
   else if(lessonTab==="practice") renderPractice(L,pane);
   else if(lessonTab==="say") renderSayTab(L,pane);
+  else if(lessonTab==="dlg") renderDlgTab(L,pane);
   else if(lessonTab==="words") renderWords(L,pane);
   else renderPlan(L,pane);
 }
@@ -512,10 +534,11 @@ function renderSayTab(L,pane){
   pane.innerHTML = `<p class="muted" style="margin-top:0">Read the English, say it out loud in Korean, then check. Together: one reads the English, the other answers. Your ratings stay on this device.</p><div id="sq"></div>`;
   const run=cards=>sayRun($("#sq",pane), cards, {done:(counts,rated)=>{
     const rec=lessonRec(L.id); rec.at=Date.now(); save();
-    const s=sayScore(counts, rated, "Whole set again", `<a class="btn" href="#say">Say-it Gym</a>`);
+    const s=sayScore(counts, rated, "Whole set again", (L.dlg?`<button class="btn" id="todlg">Dialogue →</button>`:"")+`<a class="btn" href="#say">Say-it Gym</a>`);
     $("#sq",pane).className=""; $("#sq",pane).innerHTML=s.html;
     const rd=$("#redo",pane); if(rd) rd.onclick=()=>run(s.redo);
     $("#again",pane).onclick=()=>run(sayCards(L));
+    const td=$("#todlg",pane); if(td) td.onclick=()=>goTab(L,"dlg");
   }});
   run(sayCards(L));
 }
@@ -540,6 +563,128 @@ function renderSayGym(){
     const rd=$("#redo"); if(rd) rd.onclick=()=>sayRun($("#sq"), s.redo, {from:true, done:()=>renderSayGym()});
     $("#again").onclick=renderSayGym;
   }});
+}
+
+/* ---------------- dialogue ---------------- */
+// One short scene per lesson: dlg:{scene, cast:[[name, "yo"|"ban", english?],...], lines:[[name, korean, english, level?],...], q:[mc items], note?}.
+// A line's level defaults to its speaker's; the 4th field marks a switch (지은 talks 반말 to 민수, then polite to the server).
+// Three modes: Read (the script, Play all), Role-play (your lines show English until you've said them) and
+// Listen first (Korean hidden, then the questions). Nothing here is scored or sent to the Sheet.
+const DLGM_KEY="uri-hangugeo.dlgMode", DLGEN_KEY="uri-hangugeo.dlgEn", DLGAUTO_KEY="uri-hangugeo.dlgAuto";
+const DLG_MODES=[["read","Read"],["role","Role-play"],["listen","Listen first"]];
+const lsGet=(k,d)=>{ try{ const v=localStorage.getItem(k); return v===null?d:v; }catch(e){ return d; } };
+const lsSet=(k,v)=>{ try{ localStorage.setItem(k,v); }catch(e){} };
+let dlgMode=lsGet(DLGM_KEY,"read"), dlgEn=lsGet(DLGEN_KEY,"1")==="1", dlgAuto=lsGet(DLGAUTO_KEY,"1")==="1";
+if(!DLG_MODES.some(([k])=>k===dlgMode)) dlgMode="read";
+const dlgRole={};   // lesson id -> the speaker you're playing in Role-play
+const spkI = (D,who) => D.cast.findIndex(c=>c[0]===who);
+const lineLv = (D,l) => l[3] || D.cast[spkI(D,l[0])][1];
+// o.ko: show the Korean; o.en: show the English; o.cls: extra classes ("cur", "mine").
+function dlgLineHTML(D,l,j,o){
+  const i=spkI(D,l[0]), lv=lineLv(D,l), sw=lv!==D.cast[i][1];
+  return `<div class="dl spk${i}${o.cls?" "+o.cls:""}" data-j="${j}">
+    <div class="dwho">${esc(l[0])}${sw?`<span class="lvtag" title="Switches to ${LVLONG[lv]} here">${LV[lv]}</span>`:""}</div>
+    <div class="dtxt">${o.ko?`<div class="ko dko">${hl(l[1])}</div>`:`<div class="dhid" aria-label="Korean hidden">· · ·</div>`}${o.en?`<div class="e1">${esc(l[2])}</div>`:""}</div>
+    ${o.ko?sayBtn(l[1],i):""}
+  </div>`;
+}
+function renderDlgTab(L,pane){
+  const D=L.dlg;
+  pane.innerHTML = `<p class="dscene">${hl(D.scene)}</p>
+    <div class="dcast">${D.cast.map(([n,lv,en],i)=>`<span class="dchip spk${i}">${esc(n)}${en?` <span class="muted">${esc(en)}</span>`:""}<span class="lvtag">${LV[lv]}</span></span>`).join("")}</div>
+    <div class="modes" role="group" aria-label="How to use the dialogue">${DLG_MODES.map(([k,t])=>`<button data-dm="${k}" aria-pressed="${dlgMode===k}">${t}</button>`).join("")}</div>
+    <div id="dbody"></div>`;
+  $$("[data-dm]",pane).forEach(b=>b.onclick=()=>{ dlgMode=b.dataset.dm; lsSet(DLGM_KEY,dlgMode); renderDlgTab(L,pane); });
+  stopPlay(); keyHandler=null;
+  const body=$("#dbody",pane);
+  if(dlgMode==="role") dlgRolePlay(L,D,body); else if(dlgMode==="listen") dlgListen(L,D,body); else dlgRead(L,D,body);
+}
+const markCur = (box,i) => $$(".dl",box).forEach(x=>x.classList.toggle("cur", +x.dataset.j===i));
+// Play all / Stop on one button. lines: indexes into D.lines.
+function playBtn(btn, D, box, idx, label){
+  let stop=null;
+  const reset=()=>{ stop=null; btn.textContent=label; markCur(box,-1); };
+  btn.textContent=label;
+  btn.onclick=()=>{ if(stop){ stop(); return; }
+    btn.textContent="■ Stop";
+    const s=playAll(idx.map(j=>[D.lines[j][1], spkI(D,D.lines[j][0])]), i=>markCur(box,idx[i]), reset);
+    if(btn.textContent!==label) stop=s; };
+}
+function dlgRead(L,D,body){
+  const draw=()=>{
+    body.innerHTML = `<div class="brow"><button class="btn primary" id="dplay"></button><button class="btn" id="den" aria-pressed="${!dlgEn}">${dlgEn?"Hide English":"Show English"}</button></div>
+      <div class="dlg" id="dlg">${D.lines.map((l,j)=>dlgLineHTML(D,l,j,{ko:true,en:dlgEn})).join("")}</div>
+      ${D.note?[].concat(D.note).map(noteHTML).join(""):""}`;
+    playBtn($("#dplay",body), D, $("#dlg",body), D.lines.map((_,j)=>j), "▶ Play all");
+    $("#den",body).onclick=()=>{ stopPlay(); dlgEn=!dlgEn; lsSet(DLGEN_KEY,dlgEn?"1":"0"); draw(); };
+  };
+  draw();
+}
+// Role-play: lines appear one at a time. Lines of the parts you picked show only the English until
+// you've said them and pressed Show; the rest show (and play, if auto-play is on). Pick two parts when
+// you're together, so each of you answers for one and the site plays the third (a shop clerk, say).
+function dlgRolePlay(L,D,body){
+  const names=D.cast.map(c=>c[0]);
+  const me=new Set((dlgRole[L.id]||[names[1]]).filter(n=>names.includes(n)));
+  if(!me.size) me.add(names[1]);
+  const keep=()=>{ dlgRole[L.id]=[...me]; };
+  const one=()=>me.size===1 ? [...me][0] : null, nextOf=n=>names[(names.indexOf(n)+1)%names.length];
+  let k=0, shown=false;
+  const draw=()=>{
+    const done=k>=D.lines.length, cur=D.lines[k], mine=!done && me.has(cur[0]);
+    body.innerHTML = `<div class="dctl"><span class="muted">Your part</span><div class="modes" role="group" aria-label="Your part">${names.map((n,i)=>`<button class="spk${i}" data-me="${esc(n)}" aria-pressed="${me.has(n)}">${esc(n)}</button>`).join("")}</div>
+      <button class="btn dauto" id="dauto" aria-pressed="${dlgAuto}">${dlgAuto?"Other lines play aloud":"Other lines silent"}</button></div>
+      <p class="muted dtip">Say your lines out loud from the English, then show them. Together, tap both your names: each of you answers for one${names.length>2?" and the site plays the rest":""}.</p>
+      <div class="dlg" id="dlg">${D.lines.slice(0, done?k:k+1).map((l,j)=>{
+        const hide = j===k && mine && !shown;
+        return dlgLineHTML(D,l,j,{ko:!hide, en:hide||dlgEn, cls:(j===k?"cur":"")+(me.has(l[0])?" mine":"")+(hide?" ask":"")});
+      }).join("")}</div>
+      <div class="brow">${done
+        ? (one()?`<button class="btn primary" id="swap">Swap: be ${esc(nextOf(one()))}</button>`:"")+`<button class="btn${one()?"":" primary"}" id="again">Again</button>`
+        : `<button class="btn primary" id="dnext">${mine&&!shown?"Show the line":k===D.lines.length-1?"Finish":"Next"}</button><span class="muted sayk">Space</span>`}</div>`;
+    // Tapping a name adds or removes that part; at least one part stays picked.
+    $$("[data-me]",body).forEach(b=>b.onclick=()=>{ const n=b.dataset.me;
+      if(me.has(n)){ if(me.size>1) me.delete(n); } else me.add(n);
+      keep(); k=0; shown=false; enter(); draw(); });
+    $("#dauto",body).onclick=()=>{ dlgAuto=!dlgAuto; lsSet(DLGAUTO_KEY,dlgAuto?"1":"0"); if(!dlgAuto) stopPlay(); draw(); };
+    if(done){
+      keyHandler=null; const rec=lessonRec(L.id); rec.at=Date.now(); save();
+      const sw=$("#swap",body); if(sw) sw.onclick=()=>{ const n=nextOf(one()); me.clear(); me.add(n); keep(); k=0; shown=false; enter(); draw(); };
+      $("#again",body).onclick=()=>{ k=0; shown=false; enter(); draw(); };
+      (sw||$("#again",body)).focus({preventScroll:true});
+      return;
+    }
+    const nb=$("#dnext",body);
+    nb.onclick=()=>{ if(mine && !shown){ shown=true; say(cur[1], spkI(D,cur[0])); } else { k++; shown=false; enter(); } draw(); };
+    nb.focus();
+    keyHandler=e=>{ if(e.key===" "||e.key==="Enter"){ e.preventDefault(); nb.click(); } };
+  };
+  // A new line comes up: play it if it isn't one of yours.
+  const enter=()=>{ const l=D.lines[k]; if(l && !me.has(l[0]) && dlgAuto) say(l[1], spkI(D,l[0])); else stopPlay(); };
+  enter(); draw();
+}
+// Listen first: hear it with the Korean hidden, answer the questions, then read the script.
+function dlgListen(L,D,body){
+  const hasQ=D.q&&D.q.length;
+  body.innerHTML = `<p class="muted dtip" style="margin-top:0">Listen without reading. Play it as often as you like${hasQ?", then answer the questions":""}.</p>
+    <div class="brow"><button class="btn primary" id="dplay"></button><button class="btn" id="dnext">${hasQ?"Questions →":"Show the script"}</button></div>
+    <div class="dlg" id="dlg">${D.lines.map((l,j)=>dlgLineHTML(D,l,j,{ko:false,en:false})).join("")}</div>
+    <div id="dq"></div>`;
+  playBtn($("#dplay",body), D, $("#dlg",body), D.lines.map((_,j)=>j), "▶ Play");
+  const toScript=()=>{ dlgMode="read"; lsSet(DLGM_KEY,dlgMode); renderDlgTab(L,$("#pane")); };
+  $("#dnext",body).onclick=()=>{
+    if(!hasQ){ toScript(); return; }
+    $("#dnext",body).disabled=true;
+    const q=$("#dq",body);
+    quiz(q, D.q.map(x=>Object.assign({k:"mc"},x)), (right,total)=>{
+      const rec=lessonRec(L.id); rec.at=Date.now(); save();
+      q.className=""; q.innerHTML=`<div class="score"><div class="eyebrow">Listening</div><div class="big">${right} / ${total}</div>
+        <div class="brow"><button class="btn primary" id="dread">Read the script</button><button class="btn" id="dagain">Listen again</button></div></div>`;
+      $("#dread",q).onclick=toScript;
+      $("#dagain",q).onclick=()=>dlgListen(L,D,body);
+    });
+    q.scrollIntoView({block:"nearest"});
+  };
 }
 
 /* ---------------- review ---------------- */

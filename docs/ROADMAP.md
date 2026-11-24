@@ -71,7 +71,7 @@ Each lesson gets 6 to 8 English sentences to say in Korean, using that lesson's 
 The last slide of each lesson shows the lesson's forms in 반말: a polite → 반말 table, then 2 or 3 examples. Some forms are more than "drop 요": -(으)세요 becomes -아/어, -(으)ㄹ까요 becomes -자 or -(으)ㄹ까, and 이에요/예요 becomes 이야/야. Those changes get the change-chain colours. Lessons that come before the 반말 lesson in teaching order (unit 1, past, plans, shopping, linking) add a `See also:` note pointing to it. Where 반말 doesn't fit the topic (the honorifics lesson, numbers), the slide says so in one line instead of forcing examples.
 - **Work:** written in the same per-lesson pass as Say-it.
 
-**3.2 A model conversation in every lesson.**
+**3.2 A model conversation in every lesson.** **Feature built 2026-11-24** (branch `dialogues`): the Dialogue tab with Read, Role-play (one part, or two when you're together while the site plays the third) and Listen first; a voice per speaker; a 해요/반말 tag on lines where someone switches; checker and Kiwi rules. **Written so far: 2 of 21** (`past`, `shopping`), through Kiwi and both reviewer passes. The other 19 are the next writing pass. How-to: `docs/LESSONS.md`, "Dialogue".
 
 A short dialogue (6 to 10 lines, two speakers) that uses the lesson's grammar the way people actually talk. For example, in the past-tense lesson:
 

@@ -267,3 +267,25 @@ footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--ink-
 .tally .got b{color:var(--good)} .tally .close b{color:var(--mark)} .tally .miss b{color:var(--bad)}
 @media (max-width:560px){.tabs button{padding:10px 9px;font-size:14px}.rate .kbd,.sayk{display:none}.rate .btn{flex:1 1 0;justify-content:center;padding-inline:8px}}
 .saynote{margin:0;font-size:15px}
+/* Dialogue: each speaker keeps one colour (--sc) for their name, chip and line edge */
+.spk0{--sc:var(--accent)} .spk1{--sc:var(--blue)} .spk2{--sc:var(--mark)}
+.dscene{margin:0 0 10px;color:var(--ink-2);font-style:italic}
+.dcast{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.dchip{display:inline-flex;align-items:center;gap:7px;font:500 14px/1.4 var(--f-ui);border:1px solid var(--line-2);border-radius:99px;padding:3px 8px 3px 10px}
+.dchip::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sc)}
+.dlg{display:grid;gap:4px;margin:14px 0 16px}
+.dl{display:grid;grid-template-columns:4.6em minmax(0,1fr) auto;gap:4px 12px;align-items:start;padding:8px 10px;border-left:3px solid var(--sc);border-radius:0 var(--r) var(--r) 0}
+.dl.cur{background:var(--raised)}
+.dwho{font:600 14px/1.4 var(--f-ui);color:var(--sc);padding-top:5px;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.dko{font-size:1.18em}
+.dl .e1{color:var(--ink-2);font-size:.92em}
+.dl.ask .e1{color:var(--ink);font-family:var(--f-display);font-size:1.25em}
+.dl.ask{outline:1px dashed var(--sc);outline-offset:-1px}
+.dhid{color:var(--ink-2);letter-spacing:.3em;padding-top:2px}
+.dctl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.dctl .modes{margin:0}
+.dctl .modes button[aria-pressed="true"]{background:var(--sc);border-color:var(--sc)}
+.dauto{margin-left:auto;font-size:14px}
+.dtip{font-size:15px;margin:10px 0 0}
+@media (max-width:560px){.dl{grid-template-columns:minmax(0,1fr) auto}.dwho{grid-column:1/-1;flex-direction:row;align-items:center;padding-top:0}.dauto{margin-left:0}}
+@media print{.dl.cur{background:none}}

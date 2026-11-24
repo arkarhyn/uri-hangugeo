@@ -68,10 +68,32 @@ LESSONS.push({
     {en:"Please speak slowly.", ko:"천천히 [말해 주세요].", ban:"천천히 [말해] [c:줘].", hint:"slowly = 천천히"},
     {en:"One iced Americano, to go, please.", ko:"아이스 아메리카노 한 잔 [포장해 주세요].", ban:"아이스 아메리카노 한 잔 [포장해] [c:줘].", alt:["아이스 아메리카노 한 잔, 포장해 주세요."], hint:"item, number and counter, then the request", note:"Ordering, you always use 주세요. The 반말 version is telling a friend what to order for you."}
   ],
+  dlg:{
+    scene:"At a café. 민수 and 지은 talk to each other in 반말, and switch to polite speech when they speak to the staff.",
+    cast:[["민수","ban"],["지은","ban"],["직원","yo","café staff"]],
+    lines:[
+      ["직원","어서 오세요!","Welcome!"],
+      ["지은","민수야, 뭐 마실 거야?","Minsu, what are you going to drink?"],
+      ["민수","나는 아이스 아메리카노. 너는?","An iced Americano for me. You?"],
+      ["지은","나도.","Me too."],
+      ["지은","아이스 아메리카노 두 잔 [주세요].","Two iced Americanos, please.","yo"],
+      ["직원","드시고 가세요?","For here?"],
+      ["민수","아니요, [포장해 주세요].","No, to go, please.","yo"],
+      ["직원","만 원입니다.","That's 10,000 won."],
+      ["민수","[카드로 할게요].","I'll pay by card.","yo"],
+      ["지은","민수야, 잘 [마실게]! 다음엔 내가 [살게].","Thanks for the coffee, Minsu! Next time it's on me."]
+    ],
+    q:[
+      {q:"What do they order?", c:["Two iced Americanos","An iced Americano and a tea","Two hot Americanos","Two iced Americanos and a cake"], why:"아이스 아메리카노 두 잔: two iced Americanos."},
+      {q:"Are they drinking it at the café?", c:["No, they take it to go","Yes, they stay","Only Jieun stays","The staff don't ask"], why:"드시고 가세요? (for here?) 아니요, 포장해 주세요: no, to go, please."},
+      {q:"Who pays, and how?", c:["Minsu, by card","Jieun, by card","Minsu, in cash","They split it"], why:"민수 says 카드로 할게요. 지은 thanks him with 잘 마실게 (literally \"I'll drink it well\") and 다음엔 내가 살게 (next time it's on me)."}
+    ],
+    note:"The lines tagged 해요 are where 민수 or 지은 turn to the staff and switch to polite speech. With each other, they stay in 반말."
+  },
   plan:[
     ["5","Warm-up","Put three things around the room: one near each of you and one far away. Point and say 이거, 그거, 저거."],
     ["10","Teach","Slides 1 to 4. Turn five verbs into requests: say the 해요 form first, then drop 요 and add 주세요."],
-    ["10","Café role-play","Slides 5 and 6. One person runs a café with a written menu and prices. The customer orders two things, asks the price, picks eat-in or takeout, and pays by card. Then swap."],
+    ["10","Café role-play","Slides 5 and 6, then the Dialogue tab: in Role-play, tap both 민수 and 지은, one each, and the site plays the staff. Then make your own: one person runs a café with a written menu and prices. The customer orders two things, asks the price, picks eat-in or takeout, and pays by card. Then swap."],
     ["3","Real-world mission","Pick one sentence to use the next time you're at a Korean restaurant or market, and say it out loud now."],
     ["5","Check","Practice tab."],
     ["5","Say it","Say it tab, polite first, as if you were at the counter. Then try a few in 반말, as if shopping with a friend."]

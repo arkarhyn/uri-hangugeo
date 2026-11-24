@@ -71,13 +71,35 @@ LESSONS.push({
     {en:"I went to the market earlier.", ko:"아까 시장에 [갔어요].", ban:"아까 시장에 [갔어].", hint:"earlier = 아까, market = 시장"},
     {en:"Last weekend I watched a movie at home.", ko:"지난 주말에 집에서 영화를 [봤어요].", ban:"지난 주말에 집에서 영화를 [봤어].", alt:["지난 주말에 집에서 영화 봤어요."], banAlt:["지난 주말에 집에서 영화 봤어."], hint:"time first, then the place with 에서"}
   ],
+  dlg:{
+    scene:"Monday morning. 민수 and 지은 are friends the same age, so they talk in 반말.",
+    cast:[["민수","ban"],["지은","ban"]],
+    lines:[
+      ["지은","민수야, 주말에 뭐 [했어]?","Minsu, what did you do on the weekend?"],
+      ["민수","토요일에 집에서 영화 [봤어].","On Saturday I watched a movie at home."],
+      ["지은","재미있[었어]?","Was it good?"],
+      ["민수","응, 진짜 재미있[었어]. 근데 좀 길[었어]. 너는?","Yeah, it was really good. But it was a bit long. You?"],
+      ["지은","나는 일요일에 시장에 [갔어]. 그리고 운동[했어].","On Sunday I went to the market. And I worked out."],
+      ["민수","나는 일요일에 집에 있[었어]. 너무 피곤[했어].","I stayed home on Sunday. I was really tired."],
+      ["지은","아침은 [먹었어]?","Did you have breakfast?"],
+      ["민수","아니, 아직 [안] 먹었어.","No, not yet."],
+      ["지은","나도 아직 [안] 먹었어.","Me neither."]
+    ],
+    q:[
+      {q:"What did Minsu do on Saturday?", c:["Watched a movie at home","Went to the market","Worked out","Studied Korean"], why:"토요일에 집에서 영화 봤어: on Saturday I watched a movie at home."},
+      {q:"What did Jieun do on Sunday?", c:["Went to the market, then worked out","Watched a movie","Stayed home, tired","Studied Korean"], why:"시장에 갔어. 그리고 운동했어."},
+      {q:"Who has had breakfast?", c:["Neither of them","Only Minsu","Only Jieun","Both of them"], why:"아직 안 먹었어 (not yet), then 나도 아직 안 먹었어 (me neither)."}
+    ],
+    note:"See also: the 반말 lesson. 민수 and 지은 drop 요 with each other. Asking a teacher, it would be 주말에 뭐 했어요?"
+  },
   plan:[
     ["5","Warm-up","Ask each other 밥 먹었어요? and 어제 뭐 했어요? Answering in English is fine; the point is to hear the questions."],
     ["10","Teach","Slides 1 to 4. Take ten verbs from the Words tab: say the present (가요), then the past (갔어요)."],
     ["8","Yesterday story","Each person tells three things they did yesterday, joined with 그리고 (일어났어요. 그리고 운동했어요. 그리고…). The listener asks one question back."],
     ["5","Didn't and couldn't","Slide 6. Each person names one thing they didn't do (안) and one thing they couldn't do (못) this week."],
     ["5","Check","Practice tab."],
-    ["5","Say it","Say it tab, polite first. Swap who reads the English halfway through, then try a few in 반말."]
+    ["5","Say it","Say it tab, polite first. Swap who reads the English halfway through, then try a few in 반말."],
+    ["5","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other 지은. Swap and go again."]
   ],
   talk:[["어제 뭐 했어요?","What did you do yesterday?"],["주말에 어디에 갔어요?","Where did you go on the weekend?"],["아침 먹었어요?","Did you have breakfast?"]],
   after:"HTSK Lesson 5 covers past-tense conjugation in more depth."
