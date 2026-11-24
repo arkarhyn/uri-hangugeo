@@ -202,6 +202,7 @@ function route(){
   else if(h==="gym"){ view="gym"; renderGym(); }
   else if(h==="who"){ view="who"; renderWho(); }
   else if(h==="review"){ view="review"; renderReview(); }
+  else if(h==="say"){ view="say"; renderSayGym(); }
   else if(h==="progress"){ view="progress"; renderProgress(); }
   else { view="home"; renderHome(); }
   $$("nav a").forEach(a=>a.setAttribute("aria-current", a.dataset.nav===(view==="lesson"?"home":view) ? "page" : "false"));
@@ -234,6 +235,7 @@ function renderHome(){
       </a>`;}).join("")}
   </div>`).join("")}
   <div class="tools">
+    <a class="tool" href="#say"><h3>Say it in Korean</h3><p>English sentences to say out loud in Korean, polite or 반말, then check. Ones you miss come back first.</p></a>
     <a class="tool" href="#gym"><h3>Number Gym</h3><p>Endless drills: Sino and native numbers, clock times, counters, ages and prices.</p></a>
     <a class="tool" href="#review"><h3>Mixed review</h3><p>Twelve questions drawn from every lesson. Good for warming up before class time together.</p></a>
     <a class="tool" href="#progress"><h3>Progress</h3><p>Lesson scores for each of us, side by side.</p></a>
@@ -252,17 +254,26 @@ function renderLesson(id){
     <div class="src">Full explanation on How to Study Korean: ${L.src.map(k=>`<a href="${SRC[k].u}" target="_blank" rel="noopener">${SRC[k].n} (${esc(SRC[k].t)})</a>`).join(" · ")}</div>
   </div>
   <div class="tabs" role="tablist">
-    ${[["slides","Slides"],["practice","Practice"],["words","Words"],["plan","Lesson plan"]].map(([k,t])=>`<button role="tab" id="tab-${k}" data-tab="${k}" aria-selected="${lessonTab===k}">${t}</button>`).join("")}
+    ${lessonTabs(L).map(([k,t])=>`<button role="tab" id="tab-${k}" data-tab="${k}" aria-selected="${lessonTab===k}">${t}</button>`).join("")}
   </div>
   <div id="pane"></div>`;
-  $$(".tabs button").forEach(b=>b.onclick=()=>{ lessonTab=b.dataset.tab; $$(".tabs button").forEach(x=>x.setAttribute("aria-selected", x===b)); showTab(L); });
+  $$(".tabs button").forEach(b=>b.onclick=()=>goTab(L, b.dataset.tab));
   showTab(L);
+}
+// The Say it tab shows only on lessons that have say sentences.
+const lessonTabs = L => [["slides","Slides"],["practice","Practice"],...(L.say&&L.say.length?[["say","Say it"]]:[]),["words","Words"],["plan","Lesson plan"]];
+function goTab(L,k){
+  if(document.fullscreenElement) document.exitFullscreen().catch(()=>{});
+  lessonTab=k; $$(".tabs button").forEach(x=>x.setAttribute("aria-selected", x.dataset.tab===k)); showTab(L);
 }
 function showTab(L){
   keyHandler=null;
+  if(!lessonTabs(L).some(([k])=>k===lessonTab)) lessonTab="slides";
+  $$(".tabs button").forEach(x=>x.setAttribute("aria-selected", x.dataset.tab===lessonTab));
   const pane=$("#pane");
   if(lessonTab==="slides") renderSlides(L,pane);
   else if(lessonTab==="practice") renderPractice(L,pane);
+  else if(lessonTab==="say") renderSayTab(L,pane);
   else if(lessonTab==="words") renderWords(L,pane);
   else renderPlan(L,pane);
 }
@@ -302,7 +313,7 @@ function renderSlides(L,pane){
     if(i===L.slides.length-1 && !rec.slides){ rec.slides=true; rec.at=Date.now(); save(); logEvent("slides", L.id, 0, 0); }
   };
   $("#prev").onclick=()=>{ if(i>0){ i--; draw(); } };
-  $("#next").onclick=()=>{ if(i<L.slides.length-1){ i++; draw(); } else { if(document.fullscreenElement) document.exitFullscreen().catch(()=>{}); lessonTab="practice"; $$(".tabs button").forEach(x=>x.setAttribute("aria-selected", x.dataset.tab==="practice")); showTab(L); } };
+  $("#next").onclick=()=>{ if(i<L.slides.length-1){ i++; draw(); } else goTab(L,"practice"); };
   $("#fs").onclick=()=>{ const el=$("#slide"); if(el.requestFullscreen) el.requestFullscreen().catch(()=>toast("Full screen isn't available here.")); else toast("Full screen isn't available here."); };
   keyHandler=e=>{ if(e.key==="ArrowRight"){ if(i<L.slides.length-1){ i++; draw(); } } else if(e.key==="ArrowLeft"){ if(i>0){ i--; draw(); } } };
   draw();
@@ -439,9 +450,95 @@ function renderPractice(L,pane){
     const nextL=inUnit(unitOf(L))[lnum(L)];
     $("#qz",pane).innerHTML = `<div class="score"><div class="eyebrow">Score</div><div class="big">${right} / ${total}</div>
       <p class="muted" style="margin:0">${pct>=0.8?(rec.slides?"Lesson complete.":"Passed. Go through the slides to finish the lesson."):"80% completes the lesson. Look over the slides and try again."}${prev&&pct>prev?" New best.":""}</p>
-      <div class="brow"><button class="btn" id="again">Practise again</button>${nextL&&pct>=0.8?`<a class="btn primary" href="#lesson-${nextL.id}">Next lesson →</a>`:""}</div></div>`;
+      <div class="brow"><button class="btn" id="again">Practise again</button>${L.say&&L.say.length?`<button class="btn${pct>=0.8?" primary":""}" id="tosay">Say it in Korean →</button>`:""}${nextL&&pct>=0.8?`<a class="btn${L.say&&L.say.length?"":" primary"}" href="#lesson-${nextL.id}">Next lesson →</a>`:""}</div></div>`;
     $("#again",pane).onclick=()=>renderPractice(L,pane);
+    const ts=$("#tosay",pane); if(ts) ts.onclick=()=>goTab(L,"say");
   });
+}
+
+/* ---------------- say it in Korean ---------------- */
+// English prompt -> say it out loud -> reveal -> rate yourself. Nothing is typed or graded.
+// Each item: {en, ko (해요 polite), ban (반말), alt:[other polite answers], banAlt:[other 반말 answers], hint}.
+// Ratings stay on this device and are never sent to the Sheet: 0 got it, 1 close, 2 missed it.
+const SAY_KEY="uri-hangugeo.say.v1", SAYLV_KEY="uri-hangugeo.sayLevel";
+const RATES=[["Got it","got"],["Close","close"],["Missed it","miss"]];
+let sayRec={}; try{ const o=JSON.parse(localStorage.getItem(SAY_KEY)||"{}"); if(o && typeof o==="object") sayRec=o; }catch(e){}
+let sayLevel="yo"; try{ if(localStorage.getItem(SAYLV_KEY)==="ban") sayLevel="ban"; }catch(e){}
+const LV={yo:"해요", ban:"반말"}, LVLONG={yo:"polite 해요", ban:"casual 반말"};
+const sayKey = c => c.L.id+"|"+c.it.en;
+function rateSay(c,r){ const k=sayKey(c), x=sayRec[k]||{}; sayRec[k]={r, n:(+x.n||0)+1, at:Date.now()}; try{ localStorage.setItem(SAY_KEY, JSON.stringify(sayRec)); }catch(e){} }
+function setSayLevel(v){ sayLevel=v; try{ localStorage.setItem(SAYLV_KEY,v); }catch(e){} }
+const sayCards = L => (L.say||[]).map(it=>({L,it}));
+const toRedo = cards => cards.filter(c=>{ const x=sayRec[sayKey(c)]; return x && x.r>0; });
+// Runs a set of cards in el. opts.from shows which lesson a card came from (the Gym); opts.done(counts, cards) draws the summary.
+function sayRun(el, cards, opts){
+  let i=0, shown=false; const counts=[0,0,0], rated=[];
+  el.className="quiz saycard";
+  const draw=()=>{
+    if(i>=cards.length){ keyHandler=null; opts.done(counts, rated); return; }
+    const c=cards[i], it=c.it, main=sayLevel==="ban"?it.ban:it.ko, other=sayLevel==="ban"?it.ko:it.ban;
+    const alts=(sayLevel==="ban"?it.banAlt:it.alt)||[];
+    el.innerHTML = `<div class="qhead"><span>Say it in Korean${opts.from?` · <a href="#lesson-${c.L.id}">${esc(c.L.title)}</a>`:""}</span><span>${i+1} / ${cards.length}</span></div>
+      <div class="qbar"><i style="width:${(i/cards.length*100).toFixed(1)}%"></i></div>
+      <div class="modes lvsw" role="group" aria-label="Speech level">${["yo","ban"].map(v=>`<button data-lv="${v}" aria-pressed="${sayLevel===v}">${LVLONG[v]}</button>`).join("")}</div>
+      <div class="sayen">${esc(it.en)}</div>
+      ${it.hint?`<div class="sayhint">Hint: ${hl(it.hint)}</div>`:""}
+      ${!shown?`<div class="brow"><button class="btn primary" id="reveal">Show answer</button><span class="muted sayk">Say it out loud first · Space</span></div>`
+      :`<div class="sayans"><span class="lvtag">${LV[sayLevel]}</span><span class="ko">${hl(main)}</span>${sayBtn(main)}</div>
+        ${alts.length?`<div class="sayalt">Also fine: ${alts.map(a=>`<span class="ko">${esc(a)}</span>`).join(" · ")}</div>`:""}
+        <div class="sayother"><span class="lvtag">${LV[sayLevel==="ban"?"yo":"ban"]}</span><span class="ko">${hl(other)}</span>${sayBtn(other)}</div>
+        <div class="rate" role="group" aria-label="How did you do?">${RATES.map(([t,cl],r)=>`<button class="btn ${cl}" data-r="${r}"><span class="kbd">${r+1}</span>${t}</button>`).join("")}</div>`}`;
+    $$(".lvsw button",el).forEach(b=>b.onclick=()=>{ setSayLevel(b.dataset.lv); draw(); });
+    if(!shown){
+      const rb=$("#reveal",el); rb.onclick=()=>{ shown=true; draw(); };
+      keyHandler=e=>{ if(e.key===" "||e.key==="Enter"){ e.preventDefault(); rb.click(); } };
+    } else {
+      const btns=$$(".rate button",el);
+      btns.forEach(b=>b.onclick=()=>{ const r=+b.dataset.r; rateSay(c,r); counts[r]++; rated.push([c,r]); i++; shown=false; draw(); });
+      keyHandler=e=>{ const n=+e.key; if(n>=1 && n<=3){ e.preventDefault(); btns[n-1].click(); } };
+    }
+  };
+  draw();
+}
+function sayScore(counts, rated, again, extra){
+  const redo=rated.filter(([,r])=>r>0).map(([c])=>c);
+  return {html:`<div class="score"><div class="eyebrow">Set done</div>
+    <div class="tally">${RATES.map(([t,cl],r)=>`<span class="${cl}"><b>${counts[r]}</b> ${t.toLowerCase()}</span>`).join("")}</div>
+    <p class="muted" style="margin:0">${redo.length?"The ones you marked close or missed come back first in the Say-it Gym.":"Clean run. Try the other speech level next time."}</p>
+    <div class="brow">${redo.length?`<button class="btn primary" id="redo">Redo those ${redo.length}</button>`:""}<button class="btn${redo.length?"":" primary"}" id="again">${again}</button>${extra||""}</div></div>`, redo};
+}
+function renderSayTab(L,pane){
+  pane.innerHTML = `<p class="muted" style="margin-top:0">Read the English, say it out loud in Korean, then check. Together: one reads the English, the other answers. Your ratings stay on this device.</p><div id="sq"></div>`;
+  const run=cards=>sayRun($("#sq",pane), cards, {done:(counts,rated)=>{
+    const rec=lessonRec(L.id); rec.at=Date.now(); save();
+    const s=sayScore(counts, rated, "Whole set again", `<a class="btn" href="#say">Say-it Gym</a>`);
+    $("#sq",pane).className=""; $("#sq",pane).innerHTML=s.html;
+    const rd=$("#redo",pane); if(rd) rd.onclick=()=>run(s.redo);
+    $("#again",pane).onclick=()=>run(sayCards(L));
+  }});
+  run(sayCards(L));
+}
+// The Gym mixes sentences from lessons you've opened (all lessons if that's under 8 sentences).
+// Missed first, then close, then never tried, then the got-its you haven't seen longest.
+const SAY_N=10;
+function sayGymCards(){
+  const withSay=LESSONS.filter(l=>l.say&&l.say.length), open=withSay.filter(l=>status(l.id)!=="new");
+  const src=open.reduce((n,l)=>n+l.say.length,0)>=8 ? open : withSay;
+  const all=[].concat(...src.map(sayCards));
+  const pri=c=>{ const x=sayRec[sayKey(c)]; if(!x) return 2; if(x.r===2) return 4; if(x.r===1) return 3; return Math.min(1.9,(Date.now()-(+x.at||0))/(7*864e5)); };
+  return {cards:shuffle(shuffle(all).sort((a,b)=>pri(b)-pri(a)).slice(0,SAY_N)), all, open:src===open};
+}
+function renderSayGym(){
+  const g=sayGymCards(), redoN=toRedo(g.all).length;
+  app.innerHTML = `<div class="lhead"><div class="eyebrow">Speaking practice</div>${wg("말해 보세요")}<h1>Say it in Korean</h1>
+    <p class="lede" style="margin:0">${g.all.length?`${Math.min(SAY_N,g.all.length)} sentences from ${g.open?"the lessons you've opened":"every lesson"}, different each time. Ones you marked missed or close come back first${redoN?` (${redoN} waiting)`:""}. Ratings stay on this device.`:"No lessons have Say-it sentences yet."}</p></div><div id="sq"></div>`;
+  if(!g.all.length) return;
+  sayRun($("#sq"), g.cards, {from:true, done:(counts,rated)=>{
+    const s=sayScore(counts, rated, "New set", `<a class="btn" href="#home">Lessons</a>`);
+    $("#sq").className=""; $("#sq").innerHTML=s.html;
+    const rd=$("#redo"); if(rd) rd.onclick=()=>sayRun($("#sq"), s.redo, {from:true, done:()=>renderSayGym()});
+    $("#again").onclick=renderSayGym;
+  }});
 }
 
 /* ---------------- review ---------------- */
@@ -453,7 +550,7 @@ function renderReview(){
   quiz($("#qz"), shuffle(items), (right,total)=>{
     const pct=right/total; state.review.best=Math.max(state.review.best||0,pct); save(); logEvent("review", "mixed", right, total);
     $("#qz").innerHTML = `<div class="score"><div class="eyebrow">Score</div><div class="big">${right} / ${total}</div>
-      <div class="brow"><button class="btn primary" id="again">New set</button><a class="btn" href="#home">Lessons</a></div></div>`;
+      <div class="brow"><button class="btn primary" id="again">New set</button><a class="btn" href="#say">Say it in Korean</a><a class="btn" href="#home">Lessons</a></div></div>`;
     $("#again").onclick=renderReview;
   });
 }

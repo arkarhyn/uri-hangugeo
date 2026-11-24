@@ -35,6 +35,8 @@ const markup = (L, where, str) => {
     if (!(r ? r[2] : t).trim()) bad(L, `${where}: empty highlight in "${str}"`);
   }
 };
+// Same as strip() in app.js: drops [x:...] parts and the bracket markup.
+const strip = s => String(s).replace(/\[x:[^\]]*\]/g, '').replace(/\[[secx]:/g, '').replace(/[\[\]]/g, '');
 const sentences = s => (s.replace(/\([^)]*\)|"[^"]*"/g, '').match(/[.!?](\s|$)/g) || []).length;
 const ids = new Set();
 const ID = /^[a-z][a-z0-9-]{1,23}$/;
@@ -92,11 +94,37 @@ for (const L of LESSONS) {
     } else bad(L, `${tag}: unknown kind "${it.k}"`);
   });
   if (L.pool && !(L.poolN > 0)) bad(L, 'has pool but no poolN');
+  // Say it: {en, ko (polite), ban (반말), alt?, banAlt?, hint?}. Endings are checked roughly here;
+  // tools/kiwi_check.py does the real morpheme check.
+  if (L.say !== undefined) {
+    if (!Array.isArray(L.say) || !L.say.length) bad(L, 'say must be a non-empty array');
+    const seen = new Set();
+    const end = s => strip(s).replace(/[.?!…"'\s]+$/, '');
+    const politeEnd = /(요|니다|니까|시오)$/;
+    (Array.isArray(L.say) ? L.say : []).forEach((it, i) => {
+      const tag = `say ${i + 1} (${it && it.en})`;
+      for (const f of ['en', 'ko', 'ban']) if (typeof it[f] !== 'string' || !it[f].trim()) bad(L, `${tag}: missing ${f}`);
+      for (const f of ['alt', 'banAlt']) if (it[f] !== undefined && (!Array.isArray(it[f]) || !it[f].every(x => typeof x === 'string' && x.trim()))) bad(L, `${tag}: ${f} must be an array of strings`);
+      for (const k of Object.keys(it)) if (!['en', 'ko', 'ban', 'alt', 'banAlt', 'hint'].includes(k)) bad(L, `${tag}: unknown field "${k}"`);
+      if (seen.has(it.en)) bad(L, `${tag}: duplicate English sentence`); seen.add(it.en);
+      if (/[가-힣]/.test(it.en || '')) bad(L, `${tag}: en should be English`);
+      ['ko', 'ban', 'hint'].forEach(f => markup(L, tag, it[f]));
+      [].concat(it.ko || [], it.alt || []).forEach(s => { if (!politeEnd.test(end(s))) bad(L, `${tag}: polite answer "${s}" doesn't end in 요 or 니다`); });
+      [].concat(it.ban || [], it.banAlt || []).forEach(s => { if (/(요|니다|니까)$/.test(end(s))) bad(L, `${tag}: 반말 answer "${s}" ends like polite speech`); });
+      if (it.ko && it.ban && strip(it.ko) === strip(it.ban)) bad(L, `${tag}: ko and ban are the same`);
+      [it.alt, it.banAlt].forEach(a => (a || []).forEach(x => { if (/[\[\]]/.test(x)) bad(L, `${tag}: alternatives are shown plain, so leave out [ ] markup`); }));
+    });
+  }
   (L.goals || []).forEach(g => markup(L, 'goals', g));
   (L.plan || []).forEach(p => markup(L, 'plan', p[2]));
 }
 
+// --dump-say prints every say item as JSON (tools/kiwi_check.py reads it) and skips the report.
+if (process.argv.includes('--dump-say')) {
+  process.stdout.write(JSON.stringify(LESSONS.flatMap(L => (L.say || []).map((it, i) => ({ lesson: L.id, n: i + 1, ...it, ko: strip(it.ko), ban: strip(it.ban) })))));
+  process.exit(errs.length ? 1 : 0);
+}
 if (warns.length && process.argv.includes('--style')) console.log(warns.map(w => 'style: ' + w).join('\n') + '\n');
 else if (warns.length) console.log(`${warns.length} style note(s); run with --style to list them.`);
 if (errs.length) { console.error(errs.join('\n')); console.error(`\n${errs.length} problem(s).`); process.exit(1); }
-console.log(`OK: ${LESSONS.length} lessons, ${LESSONS.reduce((n, L) => n + L.ex.length + (L.pool || []).length, 0)} practice items.`);
+console.log(`OK: ${LESSONS.length} lessons, ${LESSONS.reduce((n, L) => n + L.ex.length + (L.pool || []).length, 0)} practice items, ${LESSONS.reduce((n, L) => n + (L.say || []).length, 0)} say-it sentences.`);

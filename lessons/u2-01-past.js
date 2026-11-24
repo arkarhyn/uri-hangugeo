@@ -57,12 +57,23 @@ LESSONS.push({
     {k:"mc",q:"일어나다 in the past",c:["일어났어요","일어나었어요","일어나요","일어낫어요"],why:"ㅏ + 았 merges: 일어났어요."}
   ],
   poolN:4,
+  say:[
+    {en:"I ate breakfast.", ko:"아침을 [먹었어요].", ban:"아침을 [먹었어].", alt:["아침 먹었어요."], banAlt:["아침 먹었어."], hint:"먹다 + past"},
+    {en:"What did you do yesterday?", ko:"어제 뭐 [했어요]?", ban:"어제 뭐 [했어]?", hint:"하다 always becomes 했-"},
+    {en:"I was really tired.", ko:"너무 피곤[했어요].", ban:"너무 피곤[했어].", alt:["정말 피곤했어요."], banAlt:["진짜 피곤했어."]},
+    {en:"Yesterday was my birthday.", ko:"어제는 제 생일[이었어요].", ban:"어제는 [c:내] 생일[이었어].", hint:"noun + 이었어요 / 였어요; in 반말, 제 becomes 내"},
+    {en:"I couldn't sleep last night.", ko:"어젯밤에 [못] 잤어요.", ban:"어젯밤에 [못] 잤어.", alt:["어젯밤에 잠을 못 잤어요."], banAlt:["어젯밤에 잠을 못 잤어."], hint:"못 + past"},
+    {en:"I didn't do my homework.", ko:"숙제를 [안] 했어요.", ban:"숙제를 [안] 했어.", alt:["숙제 안 했어요."], banAlt:["숙제 안 했어."], hint:"안 goes right before the verb"},
+    {en:"I went to the market earlier.", ko:"아까 시장에 [갔어요].", ban:"아까 시장에 [갔어].", hint:"earlier = 아까, market = 시장"},
+    {en:"Last weekend I watched a movie at home.", ko:"지난 주말에 집에서 영화를 [봤어요].", ban:"지난 주말에 집에서 영화를 [봤어].", alt:["지난 주말에 집에서 영화 봤어요."], banAlt:["지난 주말에 집에서 영화 봤어."], hint:"time first, then the place with 에서"}
+  ],
   plan:[
     ["5","Warm-up","Ask each other 밥 먹었어요? and 어제 뭐 했어요? Answering in English is fine; the point is to hear the questions."],
     ["10","Teach","Slides 1 to 4. Take ten verbs from the Words tab: say the present (가요), then the past (갔어요)."],
     ["8","Yesterday story","Each person tells three things they did yesterday, joined with 그리고 (일어났어요. 그리고 운동했어요. 그리고…). The listener asks one question back."],
     ["5","Didn't and couldn't","Slide 6. Each person names one thing they didn't do (안) and one thing they couldn't do (못) this week."],
-    ["5","Check","Practice tab."]
+    ["5","Check","Practice tab."],
+    ["5","Say it","Say it tab, polite first. Swap who reads the English halfway through, then try a few in 반말."]
   ],
   talk:[["어제 뭐 했어요?","What did you do yesterday?"],["주말에 어디에 갔어요?","Where did you go on the weekend?"],["아침 먹었어요?","Did you have breakfast?"]],
   after:"HTSK Lesson 5 covers past-tense conjugation in more depth."

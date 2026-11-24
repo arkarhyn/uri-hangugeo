@@ -39,7 +39,7 @@ So the gaps are production, conversation and connected speech, which is exactly 
 
 ### Now: the next three things to build
 
-**3.1 "Say it in Korean" (translation practice).** *This is the one you asked for.*
+**3.1 "Say it in Korean" (translation practice).** *This is the one you asked for.* **Feature built 2026-11-23** (branch `say-it`): the Say it tab, the 해요/반말 switch, local ratings, the Say-it Gym at `#say`, checker rules and `tools/kiwi_check.py`. The past-tense lesson has its 8 sentences; the other 20 lessons are the writing pass.
 
 Each lesson gets 6 to 8 English sentences to say in Korean, using that lesson's grammar. It works like a slide:
 
@@ -122,7 +122,7 @@ The lesson plan becomes a set of steps you click through like the slides, not a 
 
 **3.12 Mined sentences from the reader, shown on the site.** See §4, option C.
 
-**3.13 Split `index.html` into files** (PLAN.md Phase 2). It's 248 KB in one file now, and dialogues plus Say-it sentences will roughly double the content. This should happen before or with the 3.1 to 3.3 writing passes, not after.
+**3.13 Split `index.html` into files** (PLAN.md Phase 2). **Done 2026-11-23** (branch `say-it`): `index.html` shell, `styles.css`, `app.js`, `lessons/`. It's 248 KB in one file now, and dialogues plus Say-it sentences will roughly double the content. This should happen before or with the 3.1 to 3.3 writing passes, not after.
 
 ### Not doing
 

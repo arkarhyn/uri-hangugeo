@@ -8,7 +8,10 @@ Every lesson is one file in `lessons/`, named by unit and position (`u2-14-purpo
 2. **Write the lesson file** (shape below). Copy an existing file in `lessons/` and add a `<script src="lessons/...">` line for it in `index.html`, after the lesson it follows. Script order is teaching order. The checker fails if a lesson file has no script line. Write the explanations and example sentences fresh. Use How to Study Korean (HTSK) only to check what to cover and to link to it, and never copy its sentences.
 3. **Add the HTSK link** to `SRC` in `lessons/sources.js` if it isn't there yet, then list its key in the lesson's `src`.
 4. **Run the checker:** `node tools/check.mjs`. It loads every lesson and reports missing fields, duplicate ids, unknown `src` keys, mismatched table rows, duplicate quiz choices, build answers that can't be made from their tiles, and broken bracket markup (unbalanced brackets, unknown roles like `[q:]`, misspelled note labels, short `steps` chains). `node tools/check.mjs --style` also lists slides over the size caps in the writing rules below. Those are warnings, not failures.
-5. **Get a Korean review.** Ask Claude for a separate reviewer pass on every sentence, and read it yourself. The checker can't tell whether the Korean is right.
+5. **Check the Korean.** Neither of us is a native speaker, so it's three layers:
+   - `tools/kiwi_check.py` runs the Kiwi analyzer on every Say-it sentence. It fails when a polite answer doesn't end politely, a 반말 answer does, or Kiwi doesn't recognise a form (a misspelling like 잣어요 shows up this way). It also notes when the polite and 반말 versions use different content words. Run it with the korean-reader venv: `C:\dev\korean-reader\server\.venv\Scripts\python.exe -I tools/kiwi_check.py` (add lesson ids to check only those, `--all` to print every analysis).
+   - Two separate Claude reviewer passes, neither by whoever wrote the sentences: one for grammar, one for "would a Korean person actually say this?". Read both yourself.
+   - Keep sentences short and everyday. Plain Korean is easier to get right than clever Korean.
 6. **Preview:** double-click `index.html`. For a phone test on the same Wi-Fi, run `python -m http.server` in the repo and open `http://<pc-ip>:8000`.
 7. **Commit and push to `main`.** GitHub Pages updates in a few minutes. Commit as the repo-local noreply address, never a personal email (the repo is public).
 
@@ -30,6 +33,7 @@ Every lesson is one file in `lessons/`, named by unit and position (`u2-14-purpo
   pool:[ /* optional extra items */ ], poolN:3,  // poolN random pool items are added to each run
   plan:[["5","Warm-up","What to do"], ...],      // [minutes, title, instructions]
   talk:[["요즘 뭐 배우고 있어요?","What are you learning these days?"], ...],  // conversation prompts
+  say:[ /* optional: Say it in Korean sentences, see below */ ],
   after:"Where to read more (usually the HTSK lesson)."
 }
 ```
@@ -77,6 +81,25 @@ These come from the review of batches 1 to 3 (dual coding and signalling: show t
 
 Aim for about 12 multiple-choice items and 2 builders in `ex`, plus 6 to 9 in `pool` with `poolN` of 3 or 4.
 
+### Say it in Korean
+
+The Say it tab shows English; you say it out loud in Korean, reveal, and rate yourself Got it / Close / Missed it. Ratings stay on the device and send close or missed sentences back first in the Say-it Gym (`#say`).
+
+```js
+say:[
+  {en:"I couldn't sleep last night.", ko:"어젯밤에 [못] 잤어요.", ban:"어젯밤에 [못] 잤어.",
+   alt:["어젯밤에 잠을 못 잤어요."], banAlt:["어젯밤에 잠을 못 잤어."], hint:"못 + past"},
+  ...
+]
+```
+
+- `en` is the prompt. `ko` is the 해요 answer and `ban` the 반말 answer; both are required, because a switch picks which one you're asked for. Highlight the lesson's grammar with the usual bracket markup, and use `[c:]` for a word that changes in 반말 (제 → `[c:내]`).
+- `alt` / `banAlt` are other answers that are just as right, shown as "Also fine". Plain text, no markup.
+- `hint` is optional and shows before the reveal. Keep it level-neutral ("안 goes right before the verb", not "...before 했어요").
+- **6 to 8 per lesson, short to long.** The first few use only the new grammar in a short sentence. The last two or three join it with grammar from earlier lessons, so stringing sentences together comes gradually.
+- Only grammar already taught, everyday topics, nothing personal (the repo is public). The recurring people are 민수 and 지은, friends who use 반말 with each other and polite speech with elders and strangers.
+- Add a "Say it" row to the lesson plan.
+
 ## Conventions
 
 - Refer back to earlier lessons by name: "Review 2" for unit 1 lessons, "the linking lesson" for unit 2.
@@ -86,4 +109,4 @@ Aim for about 12 multiple-choice items and 2 builders in `ex`, plus 6 to 9 in `p
 
 ## What later features will change
 
-Phase 2 in `docs/PLAN.md` plans to move each lesson into its own file. The object shape above stays the same, so moving existing lessons is a copy, not a rewrite. New features such as a reviewed tag or generated drills would be optional fields; lessons without them keep working.
+Lessons moved into their own files on 2026-11-23; the object shape didn't change. Planned features (`docs/ROADMAP.md`), such as model dialogues and Session mode, will be optional fields like `say`, so lessons without them keep working.
