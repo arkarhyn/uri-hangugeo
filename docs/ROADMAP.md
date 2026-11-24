@@ -39,7 +39,7 @@ So the gaps are production, conversation and connected speech, which is exactly 
 
 ### Now: the next three things to build
 
-**3.1 "Say it in Korean" (translation practice).** *This is the one you asked for.* **Feature built 2026-11-23** (branch `say-it`): the Say it tab, the 해요/반말 switch, local ratings, the Say-it Gym at `#say`, checker rules and `tools/kiwi_check.py`. The past-tense lesson has its 8 sentences; the other 20 lessons are the writing pass.
+**3.1 "Say it in Korean" (translation practice).** *This is the one you asked for.* **Feature built 2026-11-23** (branch `say-it`): the Say it tab, the 해요/반말 switch, local ratings, the Say-it Gym at `#say`, checker rules and `tools/kiwi_check.py`. **All 21 lessons have their sentences** (168 in all, polite and 반말), and every lesson but the 반말 one ends with a 반말 slide (3.1b). The Korean went through the Kiwi check and two separate reviewer passes (grammar: no errors; naturalness: register fixes applied, plus a `note` shown after the reveal saying who a form is for, e.g. "With a clerk, always 주세요").
 
 Each lesson gets 6 to 8 English sentences to say in Korean, using that lesson's grammar. It works like a slide:
 

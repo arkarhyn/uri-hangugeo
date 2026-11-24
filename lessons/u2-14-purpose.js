@@ -18,7 +18,10 @@ LESSONS.push({
      ex:[["밥 먹[으러] 가요!","Let's go eat!"],["커피 마시[러] 갈까요?","Shall we go get coffee?"],["주말에 사진 찍[으러] 갈까요?","Shall we go take pictures this weekend?"],["노래방에 노래 부르[러] 가자!","Let's go sing at karaoke! (casual)"]]},
     {h:"-(으)러 vs -고", p:"-(으)러 says why you're going. -고 says what you do first, before you go.",
      ex:[["밥 먹[으러] 가요.","I'm going (somewhere) to eat."],["밥 먹[고] 가요.","I'll eat, and then go."]],
-     note:"뭐 하러? on its own asks \"What for?\""}
+     note:"뭐 하러? on its own asks \"What for?\""},
+    {h:"In 반말", p:"-(으)러 stays the same in 반말; only the verb of going or coming changes. To invite someone, use -(으)러 갈까 or -(으)러 가자.",
+     t:[["Polite","반말"],["밥 먹[으러] 가[e:요]","밥 먹[으러] 가[x:요]"],["놀[러] [c:오세요]","놀[러] [c:와]"],["사[러] 갔어[e:요]","사[러] 갔어[x:요]"],["먹[으러] 갈까[e:요]?","먹[으러] 갈까[x:요]?"],["먹[으러] 가[e:요]!","먹[으러] [c:가자]!"]],
+     ex:[["우리 집에 놀[러] 와!","Come over to my place!"],["커피 마시[러] 갈까?","Shall we go get coffee?"],["노래방에 노래 부르[러] 가자!","Let's go sing at karaoke!"]]}
   ],
   vocab:[["도서관","library"],["백화점","department store"],["카페","café"],["학원","private academy"],["다니다","to attend, to go regularly"],["나가다","to go out"],["오다","to come"],["점심","lunch"],["옷","clothes"],["만나다","to meet"],["배우다","to learn"],["모으다","to save up, to collect"],["영화","movie"],["사진","photo"],["장 보다","to grocery shop"],["뭐 하러?","what for?"]],
   ex:[
@@ -47,12 +50,23 @@ LESSONS.push({
     {k:"mc",q:"Why is 돈을 모으러 일해요 wrong?",c:["일하다 isn't a verb of moving","모으다 is irregular","It needs 에","러 should be 으러"],why:"-(으)러 only works before 가다, 오다 and other verbs of moving."}
   ],
   poolN:3,
+  say:[
+    {en:"I'm going to go eat.", ko:"밥 먹[으러] 가요.", ban:"밥 먹[으러] 가.", alt:["밥 먹으러 갈 거예요."], banAlt:["밥 먹으러 갈 거야."], hint:"the stem + 으러, then 가요"},
+    {en:"I'm going to the library to study.", ko:"도서관에 공부하[러] 가요.", ban:"도서관에 공부하[러] 가.", alt:["공부하러 도서관에 가요."], banAlt:["공부하러 도서관에 가."], hint:"vowel stem: just 러"},
+    {en:"I'm going to a café to meet a friend.", ko:"친구 만나[러] 카페에 가요.", ban:"친구 만나[러] 카페에 가.", alt:["카페에 친구 만나러 가요."], banAlt:["카페에 친구 만나러 가."]},
+    {en:"I went to the department store to buy clothes.", ko:"백화점에 옷 사[러] 갔어요.", ban:"백화점에 옷 사[러] 갔어.", alt:["옷 사러 백화점에 갔어요."], banAlt:["옷 사러 백화점에 갔어."], hint:"the past goes on the verb of going"},
+    {en:"Come over to my place!", ko:"우리 집에 놀[러] 오세요!", ban:"우리 집에 놀[러] 와!", hint:"놀다 takes no 으; the request 오세요 becomes 와"},
+    {en:"What did you come here for?", ko:"여기에 뭐 하[러] 왔어요?", ban:"여기에 뭐 하[러] 왔어?", alt:["뭐 하러 왔어요?"], banAlt:["뭐 하러 왔어?"], hint:"coming toward you = 오다", note:"Fine with a friend. To a stranger it can sound like 'why are you here?', so be careful with it."},
+    {en:"Shall we go get coffee?", ko:"커피 마시[러] 갈까요?", ban:"커피 마시[러] 갈까?", banAlt:["커피 마시러 가자."], hint:"in 반말, 갈까요 drops its 요"},
+    {en:"If you have time this weekend, shall we go take pictures?", ko:"주말에 시간 있으면 사진 찍[으러] 갈까요?", ban:"주말에 시간 있으면 사진 찍[으러] 갈까?", alt:["주말에 시간 있으면 사진 찍으러 가요."], banAlt:["주말에 시간 있으면 사진 찍으러 가자."], hint:"if-clause first, then the purpose"}
+  ],
   plan:[
     ["5","Warm-up","Each person lists three places they went this week."],
     ["10","Teach","Slides 1 to 3. Turn each place from the warm-up into a full sentence with a reason: 마트에 장 보러 갔어요."],
     ["8","Invitations","Slides 4 and 5. Invite each other to do something this weekend with -(으)러 갈까요?, and accept or decline (미안해요, 바빠요)."],
     ["5","Why go there?","One person names a place (공항, 병원, 도서관); the other says why people go there, with -(으)러 가요."],
-    ["5","Check","Practice tab."]
+    ["5","Check","Practice tab."],
+    ["5","Say it","Say it tab, polite first. Say the place and the reason before the verb of going, then try a few in 반말 (갈까? and 가자)."]
   ],
   talk:[["주말에 어디에 놀러 가고 싶어요?","Where do you want to go this weekend for fun?"],["오늘 점심 뭐 먹으러 갈까요?","What shall we go eat for lunch today?"],["한국에 뭐 하러 가고 싶어요?","What would you want to go to Korea for?"]],
   after:"HTSK Lesson 32 covers -(으)러 together with -(으)려고 and -아/어 보다."

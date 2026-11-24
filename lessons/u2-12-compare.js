@@ -21,7 +21,10 @@ LESSONS.push({
      ex:[["이게 [제일] 싸요.","This one is the cheapest."],["뭐가 [제일] 맛있어요?","What's the best thing here?"],["누가 [가장] 빨라요?","Who's the fastest?"]]},
     {h:"Among: 중에서", p:"Name the group with noun + 중에서 (\"among\"). With two choices, ask with 더. With three or more, use 제일.",
      ex:[["커피하고 차 [중에서] 뭐가 더 좋아요?","Which do you prefer, coffee or tea?"],["과일 [중에서] 딸기를 제일 좋아해요.","Of all fruits, I like strawberries most."],["우리 가족 [중에서] 제가 제일 키가 커요.","I'm the tallest in my family."],["이 세 개 [중에서] 뭐가 제일 좋아요?","Which of these three is best?"]],
-     note:"키가 커요 means \"tall\": literally, the height is big. 키가 작아요 means short."}
+     note:"키가 커요 means \"tall\": literally, the height is big. 키가 작아요 means short."},
+    {h:"In 반말", p:"보다, 더, 덜 and 제일 don't change in 반말. Just drop the 요, and use 나 for 저.",
+     t:[["Polite","반말","Meaning"],["더 싸[e:요]","더 싸[x:요]","cheaper"],["버스보다 빨라[e:요]","버스보다 빨라[x:요]","faster than the bus"],["제일 맛있어[e:요]","제일 맛있어[x:요]","the tastiest"],["[c:저]는 차를 더 좋아해[e:요]","[c:나]는 차를 더 좋아해[x:요]","I like tea more"],["더 [c:주세요]","더 [c:줘]","more, please"]],
+     ex:[["지하철이 버스보다 빨라.","The subway is faster than the bus."],["이게 제일 싸.","This one is the cheapest."],["[c:나]는 차를 더 좋아해.","I like tea more."]]}
   ],
   vocab:[["더","more"],["덜","less"],["보다","than"],["제일","the most"],["가장","the most (more written)"],["중에서","among, out of"],["훨씬","much (more)"],["조금","a little"],["느리다","to be slow"],["비싸다","to be expensive"],["싸다","to be cheap"],["키","height"],["작다","to be small, short"],["과일","fruit"],["딸기","strawberry"],["강아지","puppy, dog"],["고양이","cat"],["기다리다","to wait"]],
   ex:[
@@ -50,12 +53,23 @@ LESSONS.push({
     {k:"mc",q:"\"Do you like dogs more than cats?\"",c:["고양이보다 강아지를 더 좋아해요?","강아지보다 고양이를 더 좋아해요?","고양이를 강아지보다 더 좋아해요?","고양이보다 강아지를 더 싫어해요?"],why:"보다 on cats; 를 on dogs, the one you like."}
   ],
   poolN:3,
+  say:[
+    {en:"This one is cheaper.", ko:"이게 [더] 싸요.", ban:"이게 [더] 싸.", hint:"더 goes in front of the adjective"},
+    {en:"More, please.", ko:"[더] 주세요.", ban:"[더] 줘.", hint:"주세요 → 줘 in 반말"},
+    {en:"The subway is faster than the bus.", ko:"지하철이 버스[보다] 빨라요.", ban:"지하철이 버스[보다] 빨라.", alt:["버스보다 지하철이 빨라요."], banAlt:["버스보다 지하철이 빨라."], hint:"보다 goes on the thing you're beating"},
+    {en:"Today is colder than yesterday.", ko:"오늘이 어제[보다] 더 추워요.", ban:"오늘이 어제[보다] 더 추워.", alt:["오늘이 어제보다 추워요."], banAlt:["오늘이 어제보다 추워."], hint:"더 is optional with 보다"},
+    {en:"This one is the cheapest.", ko:"이게 [제일] 싸요.", ban:"이게 [제일] 싸.", alt:["이게 가장 싸요."], banAlt:["이게 가장 싸."]},
+    {en:"I like tea more than coffee.", ko:"[c:저]는 커피[보다] 차를 [더] 좋아해요.", ban:"[c:나]는 커피[보다] 차를 [더] 좋아해.", alt:["커피보다 차를 더 좋아해요."], banAlt:["커피보다 차를 더 좋아해."], hint:"보다 goes on coffee; the thing you like takes 를"},
+    {en:"Of all fruits, I like strawberries the most.", ko:"과일 [중에서] 딸기를 [제일] 좋아해요.", ban:"과일 [중에서] 딸기를 [제일] 좋아해.", hint:"among = 중에서"},
+    {en:"Which do you like better, coffee or tea?", ko:"커피하고 차 [중에서] 뭐가 [더] 좋아요?", ban:"커피하고 차 [중에서] 뭐가 [더] 좋아?", alt:["커피하고 차 중에 뭐가 더 좋아요?"], banAlt:["커피하고 차 중에 뭐가 더 좋아?"], hint:"two choices: 중에서 and 더"}
+  ],
   plan:[
     ["5","Warm-up","Compare two things in the room: 이 컵이 저 컵보다 커요."],
     ["10","Teach","Slides 1 to 4. Make five 보다 sentences about food, cities and weather, then swap the winner and the loser."],
     ["8","Rankings","Slides 5 to 7. Rank three foods, three cities and three people you both know with 중에서 … 제일."],
     ["5","This or that","Ask each other A하고 B 중에서 뭐가 더 좋아요? and answer with a reason using -아서."],
-    ["5","Check","Practice tab."]
+    ["5","Check","Practice tab."],
+    ["5","Say it","Say it tab, polite first. Check that 보다 lands on the thing being beaten, then try a few in 반말."]
   ],
   talk:[["커피하고 차 중에서 뭐가 더 좋아요?","Which do you prefer, coffee or tea?"],["한국 음식 중에서 뭐가 제일 맛있어요?","What's the tastiest Korean food?"],["한국어가 영어보다 어려워요?","Is Korean harder than English?"]],
   after:"HTSK Lesson 19 covers 더, 보다, 덜, and 가장/제일."

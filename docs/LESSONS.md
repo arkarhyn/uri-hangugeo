@@ -95,6 +95,7 @@ say:[
 
 - `en` is the prompt. `ko` is the 해요 answer and `ban` the 반말 answer; both are required, because a switch picks which one you're asked for. Highlight the lesson's grammar with the usual bracket markup, and use `[c:]` for a word that changes in 반말 (제 → `[c:내]`).
 - `alt` / `banAlt` are other answers that are just as right, shown as "Also fine". Plain text, no markup.
+- `note` is optional and shows after the reveal. Use it for who you can say it to ("With a clerk, always 주세요. 줘 is for a friend."), so neither level gets copied into the wrong situation.
 - `hint` is optional and shows before the reveal. Keep it level-neutral ("안 goes right before the verb", not "...before 했어요").
 - **6 to 8 per lesson, short to long.** The first few use only the new grammar in a short sentence. The last two or three join it with grammar from earlier lessons, so stringing sentences together comes gradually.
 - Only grammar already taught, everyday topics, nothing personal (the repo is public). The recurring people are 민수 and 지은, friends who use 반말 with each other and polite speech with elders and strangers.

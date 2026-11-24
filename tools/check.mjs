@@ -105,10 +105,10 @@ for (const L of LESSONS) {
       const tag = `say ${i + 1} (${it && it.en})`;
       for (const f of ['en', 'ko', 'ban']) if (typeof it[f] !== 'string' || !it[f].trim()) bad(L, `${tag}: missing ${f}`);
       for (const f of ['alt', 'banAlt']) if (it[f] !== undefined && (!Array.isArray(it[f]) || !it[f].every(x => typeof x === 'string' && x.trim()))) bad(L, `${tag}: ${f} must be an array of strings`);
-      for (const k of Object.keys(it)) if (!['en', 'ko', 'ban', 'alt', 'banAlt', 'hint'].includes(k)) bad(L, `${tag}: unknown field "${k}"`);
+      for (const k of Object.keys(it)) if (!['en', 'ko', 'ban', 'alt', 'banAlt', 'hint', 'note'].includes(k)) bad(L, `${tag}: unknown field "${k}"`);
       if (seen.has(it.en)) bad(L, `${tag}: duplicate English sentence`); seen.add(it.en);
       if (/[가-힣]/.test(it.en || '')) bad(L, `${tag}: en should be English`);
-      ['ko', 'ban', 'hint'].forEach(f => markup(L, tag, it[f]));
+      ['ko', 'ban', 'hint', 'note'].forEach(f => markup(L, tag, it[f]));
       [].concat(it.ko || [], it.alt || []).forEach(s => { if (!politeEnd.test(end(s))) bad(L, `${tag}: polite answer "${s}" doesn't end in 요 or 니다`); });
       [].concat(it.ban || [], it.banAlt || []).forEach(s => { if (/(요|니다|니까)$/.test(end(s))) bad(L, `${tag}: 반말 answer "${s}" ends like polite speech`); });
       if (it.ko && it.ban && strip(it.ko) === strip(it.ban)) bad(L, `${tag}: ko and ban are the same`);

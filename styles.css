@@ -266,3 +266,4 @@ footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--ink-
 .tally b{display:block;font-family:var(--f-display);font-size:40px;line-height:1.1}
 .tally .got b{color:var(--good)} .tally .close b{color:var(--mark)} .tally .miss b{color:var(--bad)}
 @media (max-width:560px){.tabs button{padding:10px 9px;font-size:14px}.rate .kbd,.sayk{display:none}.rate .btn{flex:1 1 0;justify-content:center;padding-inline:8px}}
+.saynote{margin:0;font-size:15px}

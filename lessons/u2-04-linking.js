@@ -22,7 +22,11 @@ LESSONS.push({
      ex:[["친구를 만나[서] 영화를 봤어요.","I met a friend and we watched a movie."],["학교에 가[서] 공부했어요.","I went to school and studied there."],["밥을 먹[고] 영화를 봤어요.","I ate, then I watched a movie. (two separate things)"]]},
     {h:"Which one?", p:"Same two facts, three different links.",
      t:[["You want to say","Use"],["A and B, or A then B","-고"],["A, but B","-지만"],["A, so B (because A, B)","-아서/어서"]],
-     ex:[["맛있[고] 싸요.","It's tasty and cheap."],["맛있[지만] 비싸요.","It's tasty but expensive."],["맛있[어서] 또 왔어요.","It was tasty, so I came again."]]}
+     ex:[["맛있[고] 싸요.","It's tasty and cheap."],["맛있[지만] 비싸요.","It's tasty but expensive."],["맛있[어서] 또 왔어요.","It was tasty, so I came again."]]},
+    {h:"In 반말", p:"The link words -고, -지만 and -아서/어서 don't change at all. Only the last verb of the sentence drops its 요.",
+     t:[["해요","반말","Meaning"],["싸고 맛있어요","싸고 맛있어[x:요]","cheap and tasty"],["비싸지만 맛있어요","비싸지만 맛있어[x:요]","expensive but tasty"],["늦어서 미안해요","늦어서 미안해[x:요]","sorry I'm late"],["피곤해서 잤어요","피곤해서 잤어[x:요]","I was tired, so I slept"]],
+     ex:[["싸[고] 맛있어.","It's cheap and tasty."],["피곤[해서] 일찍 잤어.","I was tired, so I went to bed early."],["비싸[지만] 맛있어.","It's expensive but good."]],
+     note:"See also: the casual speech lesson (반말) covers 반말 in full."}
   ],
   vocab:[["그리고","and"],["하지만","but"],["그래서","so"],["싸다","to be cheap"],["비싸다","to be expensive"],["맛있다","to be tasty"],["어렵다","to be difficult"],["재미있다","to be fun"],["늦다","to be late"],["일찍","early"],["미안하다","to be sorry"],["피곤하다","to be tired"],["좋아하다","to like"],["또","again"],["샤워하다","to shower"]],
   ex:[
@@ -50,12 +54,23 @@ LESSONS.push({
     {k:"mc",q:"하지만 means…",c:["but","so","and","if"],why:"하지만 = but."}
   ],
   poolN:3,
+  say:[
+    {en:"It's cheap and good.", ko:"싸[고] 맛있어요.", ban:"싸[고] 맛있어.", hint:"and"},
+    {en:"It's expensive, but it's good.", ko:"비싸[지만] 맛있어요.", ban:"비싸[지만] 맛있어.", hint:"but"},
+    {en:"Sorry I'm late.", ko:"늦[어서] 죄송해요.", ban:"늦[어서] 미안해.", alt:["늦어서 미안해요."], hint:"the reason comes first", note:"죄송해요 to someone older; 미안해요 to someone your age or younger."},
+    {en:"I eat, and then I drink coffee.", ko:"밥을 먹[고] 커피를 마셔요.", ban:"밥을 먹[고] 커피를 마셔.", alt:["밥 먹고 커피 마셔요."], banAlt:["밥 먹고 커피 마셔."]},
+    {en:"Korean is hard, but it's fun.", ko:"한국어는 어렵[지만] 재미있어요.", ban:"한국어는 어렵[지만] 재미있어.", hint:"but"},
+    {en:"I was tired yesterday, so I went to bed early.", ko:"어제 피곤[해서] 일찍 잤어요.", ban:"어제 피곤[해서] 일찍 잤어.", hint:"no past tense before the reason link"},
+    {en:"I like coffee, but my friend doesn't.", ko:"[c:저]는 커피를 좋아하[지만] 친구는 안 좋아해요.", ban:"[c:나]는 커피를 좋아하[지만] 친구는 안 좋아해.", alt:["커피를 좋아하지만 친구는 안 좋아해요."], banAlt:["커피를 좋아하지만 친구는 안 좋아해."]},
+    {en:"Last weekend I met a friend and we watched a movie.", ko:"지난 주말에 친구를 만나[서] 영화를 봤어요.", ban:"지난 주말에 친구를 만나[서] 영화를 봤어.", hint:"meet and then do something together"}
+  ],
   plan:[
     ["5","Warm-up","Each person says two short sentences about today with 그리고 or 하지만 between them (오늘 바빠요. 하지만 행복해요.)."],
     ["10","Teach","Slides 1 to 3. Take the warm-up sentences and glue them together with -고 and -지만 instead."],
     ["8","Excuses game","Slides 4 and 5. One person invites (같이 영화 볼까요?). The other says no with a reason using -아서/어서 (미안해요, 피곤해서 못 가요). Keep going until someone runs out of excuses."],
     ["5","Which one?","Slide 7. Describe a restaurant you both know three ways: with -고, with -지만 and with -아서."],
-    ["5","Check","Practice tab."]
+    ["5","Check","Practice tab."],
+    ["5","Say it","Say it tab, polite first. Name the link word you used (-고, -지만 or -아서) before you reveal, then try a few in 반말."]
   ],
   talk:[["한국어 공부는 어때요?","How's studying Korean going?"],["어제 왜 늦게 잤어요?","Why did you go to bed late last night?"],["이 식당 어때요?","How's this restaurant?"]],
   after:"HTSK Lesson 17 covers -고, Lesson 47 covers -지만, and Lesson 37 covers -아서/어서."

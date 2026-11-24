@@ -22,7 +22,11 @@ LESSONS.push({
      ex:[["모자를 쓰[고 있어요].","I'm wearing a hat."],["오늘 뭐 입[고 있어요]?","What are you wearing today?"]]},
     {h:"Honorific: -고 계세요", p:"For someone you raise (Review 2), 있어요 becomes 계세요.",
      ex:[["할머니는 TV를 보[고 계세요].","Grandma is watching TV."],["선생님이 기다리[고 계세요].","The teacher is waiting."],["부장님은 회의하[고 계세요].","The manager is in a meeting."]],
-     note:"In 반말, drop the 요: 뭐 하고 있어?"}
+     note:"In 반말, drop the 요: 뭐 하고 있어?"},
+    {h:"In 반말", p:"Drop the 요, and everything else stays the same. 저는 becomes 나는, as in the casual speech lesson.",
+     t:[["Polite","반말"],["먹고 있어요","먹고 있어[x:요]"],["보고 있었어요","보고 있었어[x:요]"],["뭐 하고 있어요?","뭐 하고 있어[x:요]?"],["저는 일하고 있어요","[c:나]는 일하고 있어[x:요]"]],
+     ex:[["지금 뭐 하[e:고 있어]?","What are you doing now?"],["나 지금 밥 먹[e:고 있어].","I'm eating right now."],["아까 자[e:고 있었어].","I was sleeping a little while ago."]],
+     note:"See also: the casual speech lesson (반말)."}
   ],
   vocab:[["지금","now"],["요즘","these days"],["그때","then, at that time"],["나중에","later"],["기다리다","to wait"],["운전하다","to drive"],["일하다","to work"],["배우다","to learn"],["입다","to wear (clothes)"],["신다","to wear (shoes, socks)"],["쓰다","to wear (a hat, glasses)"],["안경","glasses"],["모자","hat"],["운동화","sneakers"],["목걸이","necklace"],["회의하다","to have a meeting"],["드라마","TV drama"]],
   ex:[
@@ -50,12 +54,23 @@ LESSONS.push({
     {k:"mc",q:"\"I'm reading a book.\"",c:["책을 읽고 있어요.","책을 읽어 있어요.","책을 읽었고 있어요.","책이 읽고 있어요."],why:"읽 + 고 있어요."}
   ],
   poolN:3,
+  say:[
+    {en:"I'm eating.", ko:"지금 밥 [먹고 있어요].", ban:"지금 밥 [먹고 있어].", hint:"stem + 고 있어요"},
+    {en:"I'm wearing a hat.", ko:"모자를 [쓰고 있어요].", ban:"모자를 [쓰고 있어].", hint:"hats and glasses use 쓰다"},
+    {en:"I'm waiting for the bus.", ko:"버스를 [기다리고 있어요].", ban:"버스를 [기다리고 있어].", hint:"the bus is what you wait for, so it takes 를"},
+    {en:"What are you doing now?", ko:"지금 뭐 [하고 있어요]?", ban:"지금 뭐 [하고 있어]?", alt:["지금 뭐 해요?"], banAlt:["지금 뭐 해?"]},
+    {en:"I'm watching a movie right now.", ko:"지금 영화를 [보고 있어요].", ban:"지금 영화를 [보고 있어].", alt:["지금 영화 보고 있어요."], banAlt:["지금 영화 보고 있어."]},
+    {en:"I'm learning Korean these days.", ko:"요즘 한국어를 [배우고 있어요].", ban:"요즘 한국어를 [배우고 있어].", hint:"요즘 = these days"},
+    {en:"I was sleeping.", ko:"아까 [자고 있었어요].", ban:"아까 [자고 있었어].", hint:"the past tense goes on 있다 only"},
+    {en:"I was in the shower, so I couldn't answer the phone.", ko:"샤워하[고 있어서] 전화를 못 받았어요.", ban:"샤워하[고 있어서] 전화를 못 받았어.", alt:["샤워하고 있어서 전화 못 받았어요."], banAlt:["샤워하고 있어서 전화 못 받았어."], hint:"no past tense before -어서; 못 goes before the verb"}
+  ],
   plan:[
     ["5","Warm-up","Ask each other 지금 뭐 해요? and answer with something true (한국어 공부해요!)."],
     ["10","Teach","Slides 1 to 4. One person mimes an action; the other says what they're doing (책을 읽고 있어요)."],
     ["5","These days","Slide 3. Each person says three things they're doing these days (요즘 … 고 있어요)."],
     ["5","What are they wearing?","Slide 6. Describe what each of you is wearing right now, head to toe."],
-    ["5","Check","Practice tab."]
+    ["5","Check","Practice tab."],
+    ["5","Say it","Say it tab. After each answer, ask the same thing back with 지금 뭐 하고 있어요? Then try a few in 반말."]
   ],
   talk:[["요즘 뭐 배우고 있어요?","What are you learning these days?"],["요즘 무슨 드라마 보고 있어요?","What drama are you watching these days?"],["오늘 뭐 입고 있어요?","What are you wearing today?"]],
   after:"HTSK Lesson 18 covers -고 있다, plus -아/어지다 (getting more ___)."

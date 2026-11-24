@@ -487,6 +487,7 @@ function sayRun(el, cards, opts){
       :`<div class="sayans"><span class="lvtag">${LV[sayLevel]}</span><span class="ko">${hl(main)}</span>${sayBtn(main)}</div>
         ${alts.length?`<div class="sayalt">Also fine: ${alts.map(a=>`<span class="ko">${esc(a)}</span>`).join(" · ")}</div>`:""}
         <div class="sayother"><span class="lvtag">${LV[sayLevel==="ban"?"yo":"ban"]}</span><span class="ko">${hl(other)}</span>${sayBtn(other)}</div>
+        ${it.note?`<div class="note saynote">${hl(it.note)}</div>`:""}
         <div class="rate" role="group" aria-label="How did you do?">${RATES.map(([t,cl],r)=>`<button class="btn ${cl}" data-r="${r}"><span class="kbd">${r+1}</span>${t}</button>`).join("")}</div>`}`;
     $$(".lvsw button",el).forEach(b=>b.onclick=()=>{ setSayLevel(b.dataset.lv); draw(); });
     if(!shown){

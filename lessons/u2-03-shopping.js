@@ -24,7 +24,11 @@ LESSONS.push({
      ex:[["이걸로 할게요.","I'll take this one."],["저는 비빔밥[으로] 할게요.","I'll have the bibimbap."],["카드[로] 할게요.","I'll pay by card."],["큰 걸로 주세요.","The big one, please."]],
      note:"이걸로 is short for 이것으로, and 큰 걸로 for 큰 것으로."},
     {h:"Handy extras", p:"A few lines that cover most small problems.",
-     ex:[["카드 돼요?","Do you take card?"],["영수증 주세요.","Receipt, please."],["이거 안 시켰어요.","I didn't order this."],["화장실 어디에 있어요?","Where's the restroom?"],["잘 먹었습니다!","Thank you for the meal! (said when leaving)"]]}
+     ex:[["카드 돼요?","Do you take card?"],["영수증 주세요.","Receipt, please."],["이거 안 시켰어요.","I didn't order this."],["화장실 어디에 있어요?","Where's the restroom?"],["잘 먹었습니다!","Thank you for the meal! (said when leaving)"]]},
+    {h:"In 반말, with a friend", p:"With a clerk you stay polite. This is for shopping with a friend, where 주세요 becomes 줘 and \"shall we?\" becomes -자 or -(으)ㄹ까?",
+     t:[["해요","반말","Meaning"],["이거 얼마예요?","이거 얼마[c:야]?","how much is this?"],["저거 뭐예요?","저거 뭐[c:야]?","what's that?"],["주세요","[c:줘]","please give me"],["포장해 주세요","포장해 [c:줘]","pack it to go, please"],["이걸로 할게요","이걸로 할게[x:요]","I'll take this one"]],
+     ex:[["이거 [사자].","Let's buy this."],["이걸로 할[게].","I'll take this one."],["이거 얼마[야]?","How much is this?"]],
+     note:"See also: the casual speech lesson (반말) covers 반말 in full."}
   ],
   vocab:[["이거","this"],["그거","that (near you)"],["저거","that (over there)"],["얼마예요?","how much is it?"],["원","won"],["주세요","please give me"],["좀","a little (softens a request)"],["포장","takeout, wrapping"],["계산하다","to pay, settle the bill"],["카드","card"],["현금","cash"],["영수증","receipt"],["봉투","bag"],["괜찮아요","no thanks, it's OK"],["시키다","to order (food)"],["메뉴판","menu (the physical one)"]],
   ex:[
@@ -54,12 +58,23 @@ LESSONS.push({
     {k:"mc",q:"\"I'll take this one.\"",c:["이걸로 할게요.","이거에 할게요.","이걸로 했어요.","이게 할게요."],why:"(으)로 할게요 settles your choice. 이걸로 is short for 이것으로. (You'll also hear 이거로 in casual speech.)"}
   ],
   poolN:3,
+  say:[
+    {en:"This one, please.", ko:"[이거] 주세요.", ban:"[이거] [c:줘].", hint:"이거 = this", note:"With a clerk, always 주세요. 줘 is for a friend, like asking them to pass you something."},
+    {en:"How much is this?", ko:"이거 [얼마예요]?", ban:"이거 [얼마야]?"},
+    {en:"What's that over there?", ko:"[저거] 뭐예요?", ban:"[저거] 뭐야?", hint:"far from both of you"},
+    {en:"Some water, please.", ko:"물 좀 [주세요].", ban:"물 좀 [c:줘].", hint:"좀 softens a request", note:"With a server, always 주세요. 줘 is for a friend."},
+    {en:"I'll take this one.", ko:"[이걸로 할게요].", ban:"[이걸로 할게].", hint:"I'll go with this"},
+    {en:"To go, please.", ko:"[포장해 주세요].", ban:"[포장해] [c:줘].", hint:"the verb 해요 form, then 주세요", note:"The 반말 version is for a friend who is ordering for you. To the barista, it's 포장해 주세요."},
+    {en:"Please speak slowly.", ko:"천천히 [말해 주세요].", ban:"천천히 [말해] [c:줘].", hint:"slowly = 천천히"},
+    {en:"One iced Americano, to go, please.", ko:"아이스 아메리카노 한 잔 [포장해 주세요].", ban:"아이스 아메리카노 한 잔 [포장해] [c:줘].", alt:["아이스 아메리카노 한 잔, 포장해 주세요."], hint:"item, number and counter, then the request", note:"Ordering, you always use 주세요. The 반말 version is telling a friend what to order for you."}
+  ],
   plan:[
     ["5","Warm-up","Put three things around the room: one near each of you and one far away. Point and say 이거, 그거, 저거."],
     ["10","Teach","Slides 1 to 4. Turn five verbs into requests: say the 해요 form first, then drop 요 and add 주세요."],
     ["10","Café role-play","Slides 5 and 6. One person runs a café with a written menu and prices. The customer orders two things, asks the price, picks eat-in or takeout, and pays by card. Then swap."],
     ["3","Real-world mission","Pick one sentence to use the next time you're at a Korean restaurant or market, and say it out loud now."],
-    ["5","Check","Practice tab."]
+    ["5","Check","Practice tab."],
+    ["5","Say it","Say it tab, polite first, as if you were at the counter. Then try a few in 반말, as if shopping with a friend."]
   ],
   talk:[["이거 얼마예요?","How much is this?"],["뭐 마실 거예요?","What are you going to drink?"],["카드 돼요?","Do you take card?"]],
   after:"HTSK Lesson 41 covers 주다 and -아/어 주다, and Lesson 40 covers -세요 requests."

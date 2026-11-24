@@ -24,7 +24,11 @@ LESSONS.push({
      ex:[["지난 주말에 영화를 봤어요.","I saw a movie last weekend."],["아까 전화했어요.","I called a little while ago."]],
      note:"어제, 아까 and 방금 never take 에. 지난 주말에 and 작년에 usually do."},
     {h:"밥 먹었어요?", p:"\"Have you eaten?\" is a common way to check in on someone, a bit like \"how are you?\". It's a real question, but nobody minds if you haven't.",
-     ex:[["밥 먹었어요?","Have you eaten?"],["네, 먹었어요.","Yes, I have."],["아직이요.","Not yet."]]}
+     ex:[["밥 먹었어요?","Have you eaten?"],["네, 먹었어요.","Yes, I have."],["아직이요.","Not yet."]]},
+    {h:"In 반말", p:"The past tense stays exactly as it is; only the 요 drops. 이었어요 / 였어요 drop the 요 the same way, and 제 becomes 내.",
+     t:[["해요","반말","Meaning"],["먹었어요","먹었어[x:요]","ate"],["했어요","했어[x:요]","did"],["못 잤어요","못 잤어[x:요]","couldn't sleep"],["생일이었어요","생일이었어[x:요]","was a birthday"],["제 생일","[c:내] 생일","my birthday"]],
+     ex:[["어제 뭐 했[어]?","What did you do yesterday?"],["밥 먹었[어]?","Did you eat?"],["어제는 [c:내] 생일이었어.","Yesterday was my birthday."]],
+     note:"See also: the casual speech lesson (반말) covers 반말 in full."}
   ],
   vocab:[["어제","yesterday"],["어젯밤","last night"],["지난주","last week"],["주말","weekend"],["아까","a little while ago"],["방금","just now"],["작년","last year"],["자다","to sleep"],["일어나다","to get up"],["받다","to receive"],["청소하다","to clean"],["요리하다","to cook"],["운동하다","to work out"],["전화하다","to call"],["생일","birthday"],["피곤하다","to be tired"],["재미있다","to be fun"],["그리고","and, and then"]],
   ex:[

@@ -27,7 +27,11 @@ LESSONS.push({
      t:[["Plain","Humble","Meaning"],["주다","드리다","to give"],["만나다 / 보다","뵙다","to meet, see"],["묻다","여쭤보다","to ask"],["말하다","말씀드리다","to tell"]],
      ex:[["처음 [뵙겠습니다].","Nice to meet you. (first meeting)"],["부모님께 전화를 [드려요].","I call my parents."],["잘 부탁[드립니다].","I look forward to working with you."]]},
     {h:"All together", p:"Listen for who is being raised and who is being lowered in each line.",
-     ex:[["안녕하세요. 성함이 어떻게 되세요?","Hello. What is your name?"],["저는 이지은입니다.","I'm Jieun Lee."],["부모님은 어디에 사세요?","Where do your parents live?"],["저희 부모님은 부산에 사세요.","My parents live in Busan."],["할머니께서도 부산에 계세요?","Is your grandmother in Busan too?"]]}
+     ex:[["안녕하세요. 성함이 어떻게 되세요?","Hello. What is your name?"],["저는 이지은입니다.","I'm Jieun Lee."],["부모님은 어디에 사세요?","Where do your parents live?"],["저희 부모님은 부산에 사세요.","My parents live in Busan."],["할머니께서도 부산에 계세요?","Is your grandmother in Busan too?"]]},
+    {h:"The same in 반말", p:"Talking to a friend, only the ending toward your listener goes casual: 주무세요 becomes 주무셔. The elder still gets -(으)시-, 드시다 and 께 / 드리다, but friends say 할머니가 rather than 할머니께서.",
+     t:[["Polite","반말 (to a friend)","Meaning"],["주무세요","주무[c:셔]","sleeps"],["계세요","계[c:셔]","is (somewhere)"],["드세요","드[c:셔]","eats"],["사세요","사[c:셔]","lives"],["읽으세요","읽으[c:셔]","reads"]],
+     ex:[["할머니가 주무[c:셔].","Grandmother is sleeping."],["[c:우리] 할머니는 부산에 사[c:셔].","My grandmother lives in Busan."]],
+     note:"See also: the casual speech lesson (반말) covers 반말 in full."}
   ],
   vocab:[["저","I (humble)"],["제","my (humble)"],["저희","we, our (humble)"],["계시다","to be (somewhere), honorific"],["드시다","to eat or drink, honorific"],["주무시다","to sleep, honorific"],["말씀하시다","to speak, honorific"],["드리다","to give (humble)"],["뵙다","to meet (humble)"],["여쭤보다","to ask (humble)"],["성함","name (honorific)"],["연세","age (honorific)"],["댁","home (honorific)"],["분","person (honorific)"],["께서","subject particle (honorific)"],["께","to (someone), honorific"]],
   ex:[
@@ -46,12 +50,23 @@ LESSONS.push({
     {k:"build",q:"Enjoy your meal.",ok:["맛있게 드세요"],x:["드려요"]},
     {k:"build",q:"My parents live in Busan. (humble, respectful)",ok:["저희 부모님은 부산에 사세요"],x:["살아요"]}
   ],
+  say:[
+    {en:"Grandmother is sleeping.", ko:"할머니께서 [주무세요].", ban:"할머니가 [주무셔].", hint:"자다 has its own honorific verb; the ending to a friend goes casual"},
+    {en:"Grandfather is at home.", ko:"할아버지께서 집에 [계세요].", ban:"할아버지가 집에 [계셔].", hint:"있다 for a respected person"},
+    {en:"Mother is eating lunch.", ko:"어머니께서 점심을 [드세요].", ban:"[c:엄마]가 점심을 [드셔].", hint:"the honorific verb for eating"},
+    {en:"Grandfather is going to the park.", ko:"할아버지께서 공원에 [가세요].", ban:"할아버지가 공원에 [가셔].", hint:"가다 + -시-"},
+    {en:"Father is reading a book.", ko:"아버지께서 책을 [읽으세요].", ban:"[c:아빠]가 책을 [읽으셔].", hint:"consonant stem + 으시-"},
+    {en:"The teacher teaches Korean.", ko:"선생님께서 한국어를 [가르치세요].", ban:"선생님이 한국어를 [가르치셔].", hint:"가르치다 + -시-"},
+    {en:"I call my grandmother.", ko:"할머니께 전화를 [드려요].", ban:"할머니께 전화를 [드려].", hint:"humble 드리다 and 께 stay, even in 반말"},
+    {en:"My grandmother lives in Busan.", ko:"[c:저희] 할머니는 부산에 [사세요].", ban:"[c:우리] 할머니는 부산에 [사셔].", hint:"저희 becomes 우리 in 반말; 살다 drops its ㄹ before 시"}
+  ],
   plan:[
     ["5","Warm-up","Act out meeting a friend's grandmother: 처음 뵙겠습니다. 저는 ___입니다."],
     ["10","Teach","Slides 1 to 4. Stress the two directions: lower yourself (저, 제, 저희), raise them (-(으)시-)."],
     ["7","Swap game","Slides 5 to 7. One person says a plain word (자다, 이름, 주다), the other gives the honorific or humble version (주무시다, 성함, 드리다). Keep score."],
     ["5","Family talk","Each person describes one older relative with honorifics: 할머니께서 ___에 사세요. ___을/를 좋아하세요."],
-    ["5","Check","Practice tab. Watch for the trap: honorifics never go on yourself."]
+    ["5","Check","Practice tab. Watch for the trap: honorifics never go on yourself."],
+    ["5","Say it","Say it tab, polite first. In 반말, notice what stays (the honorific words for the elder) and what changes (only the ending toward your friend)."]
   ],
   talk:[["부모님은 어디에 사세요?","Where do your parents live?"],["할머니께서는 연세가 어떻게 되세요?","How old is your grandmother?"],["주말에 뭐 하세요?","What do you do on weekends?"]],
   after:"HTSK Lesson 6 covers speech levels. Lesson 39 goes deeper into -시- and the special honorific words."

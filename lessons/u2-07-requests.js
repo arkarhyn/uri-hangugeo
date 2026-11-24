@@ -21,7 +21,11 @@ LESSONS.push({
      ex:[["여기에 주차하[지 말아 주세요].","Please don't park here."],["너무 늦게 전화하[지 말아 주세요].","Please don't call too late."],["잊[지 말아 주세요].","Please don't forget."]]},
     {h:"Casual: -아/어 and -지 마", p:"In 반말, the casual form on its own works as an instruction, and -지 마세요 becomes -지 마. Use these only with people you'd use 반말 with.",
      ex:[["빨리 와!","Come quickly!"],["이거 먹어 봐.","Try this."],["걱정하[지 마].","Don't worry."],["가[지 마].","Don't go."]],
-     note:"먹어 봐 uses -아/어 보다, \"try doing\". You'll hear it in shops too: 입어 보세요 (try it on)."}
+     note:"먹어 봐 uses -아/어 보다, \"try doing\". You'll hear it in shops too: 입어 보세요 (try it on)."},
+    {h:"In 반말", p:"-(으)세요 becomes the plain -아/어 form, and -지 마세요 just loses 세요.",
+     t:[["Polite","반말"],["앉으세요","앉[c:아]"],["오세요","[c:와]"],["기다리세요","기다[c:려]"],["가지 마세요","가지 마[x:세요]"]],
+     ex:[["여기 앉[c:아].","Sit here."],["빨리 [c:와]!","Come quickly!"],["걱정하지 마.","Don't worry."]],
+     note:"See also: the casual speech lesson (반말)."}
   ],
   vocab:[["앉다","to sit"],["기다리다","to wait"],["잠깐만","just a moment"],["천천히","slowly"],["빨리","quickly"],["걱정하다","to worry"],["늦다","to be late"],["아직","yet, still"],["사진","photo"],["찍다","to take (a photo)"],["만지다","to touch"],["들어가다","to go in"],["뛰다","to run"],["주차하다","to park"],["잊다","to forget"],["많이","a lot"]],
   ex:[
@@ -50,12 +54,23 @@ LESSONS.push({
     {k:"mc",q:"\"Don't forget.\" (casual)",c:["잊지 마.","잊어 마.","안 잊어.","잊지 마요요."],why:"Casual -지 마."}
   ],
   poolN:4,
+  say:[
+    {en:"Please sit here.", ko:"여기 [앉으세요].", ban:"여기 [앉아].", hint:"consonant stem + 으세요; in 반말 it's the plain 해요 form without 요"},
+    {en:"Please come.", ko:"[오세요].", ban:"[와].", hint:"vowel stem + 세요"},
+    {en:"Don't worry.", ko:"걱정하[지 마세요].", ban:"걱정하[지 마].", hint:"stem + 지 마세요"},
+    {en:"Don't be late.", ko:"늦[지 마세요].", ban:"늦[지 마]."},
+    {en:"Wait a moment.", ko:"잠깐만 [기다려 주세요].", ban:"잠깐만 [기다려].", banAlt:["잠깐만 기다려 줘."], hint:"잠깐만 = just a moment; asking a favor, so -아/어 주세요", note:"잠깐만 기다리세요 is what a clerk says to a customer. Asking someone to wait for you, add 주세요."},
+    {en:"Please eat a lot. (to a guest)", ko:"많이 [드세요].", ban:"많이 [먹어].", hint:"for a guest, 먹다 has its own honorific word", note:"The 반말 version is for a friend at your place. A guest or anyone older gets 드세요."},
+    {en:"Don't go yet.", ko:"아직 가[지 마세요].", ban:"아직 가[지 마].", hint:"안 + -세요 would not work here"},
+    {en:"Come quickly. Don't be late.", ko:"빨리 [오세요]. 늦[지 마세요].", ban:"빨리 [와]. 늦[지 마].", hint:"two requests, one do and one don't"}
+  ],
   plan:[
     ["5","Warm-up","Recap from Review 2: say 안녕히 가세요 and 안녕히 계세요, and explain which one goes to whom."],
     ["10","Teach","Slides 1 to 4. One person names a verb from the Words tab; the other gives the -(으)세요 and the -지 마세요 forms."],
     ["8","Simon says","Take turns giving each other instructions. -(으)세요 means do it, -지 마세요 means don't (앉으세요, 일어나세요, 웃지 마세요). Try to catch the other person out."],
     ["5","Sign makers","Slide 5. Each person writes two signs for your home (냉장고 열지 마세요!) and reads them out."],
-    ["5","Check","Practice tab."]
+    ["5","Check","Practice tab."],
+    ["5","Say it","Say it tab. Give each answer as a short order to your partner, who has to act it out (앉아! 늦지 마!). Then try the polite version."]
   ],
   talk:[["한국어로 천천히 말해 주세요.","Please speak slowly in Korean."],["걱정하지 마세요. 괜찮아요.","Don't worry. It's fine."],["다시 한번 말해 주세요.","Please say that one more time."]],
   after:"HTSK Lesson 40 covers commands, including negative ones, and Lesson 41 covers -아/어 주다."

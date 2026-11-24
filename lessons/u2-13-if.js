@@ -21,7 +21,10 @@ LESSONS.push({
     {h:"만약 and 그럼", p:"만약 at the start of a sentence flags a what-if, and the verb still needs -(으)면. 그럼 (short for 그러면) starts a new sentence: \"then\" or \"in that case\".",
      ex:[["[만약] 내일 비가 오면 어떻게 해요?","What do we do if it rains tomorrow?"],["바빠요? [그럼] 다음에 만나요.","You're busy? Then let's meet another time."]]},
     {h:"Hoping: -(으)면 좋겠어요", p:"Literally \"if …, it would be good\". It's the everyday way to say \"I hope\" or \"I wish\". Learn 좋겠어요 as a chunk for now.",
-     ex:[["주말에 날씨가 좋[으면 좋겠어요].","I hope the weather's nice this weekend."],["시험이 쉬[우면 좋겠어요].","I hope the test is easy."],["같이 가[면 좋겠어요].","I'd love it if we went together."],["돈이 많[으면 좋겠어요].","I wish I had a lot of money."]]}
+     ex:[["주말에 날씨가 좋[으면 좋겠어요].","I hope the weather's nice this weekend."],["시험이 쉬[우면 좋겠어요].","I hope the test is easy."],["같이 가[면 좋겠어요].","I'd love it if we went together."],["돈이 많[으면 좋겠어요].","I wish I had a lot of money."]]},
+    {h:"In 반말", p:"-(으)면 stays the same in 반말; only the ending after it changes. -(으)면 좋겠어요 becomes -(으)면 좋겠어.",
+     t:[["Polite","반말","Meaning"],["피곤하면 자[e:요]","피곤하면 자[x:요]","if you're tired, sleep"],["비가 오면 갈 [c:거예요]","비가 오면 갈 [c:거야]","if it rains, I'll go"],["날씨가 좋[으면 좋겠어][e:요]","날씨가 좋[으면 좋겠어][x:요]","I hope it's nice"],["모르면 [c:물어보세요]","모르면 [c:물어봐]","if you don't know, ask"],["전화해 [c:주세요]","전화해 [c:줘]","please call"]],
+     ex:[["비가 오면 집에 있을 거야.","If it rains, I'll stay home."],["시간 있으면 같이 가자.","If you have time, let's go together."],["주말에 날씨가 좋[으면 좋겠어].","I hope the weather's nice this weekend."]]}
   ],
   vocab:[["비","rain"],["비가 오다","to rain"],["시간","time"],["도착하다","to arrive"],["끝나다","to end"],["시작하다","to start"],["피곤하다","to be tired"],["스트레스를 받다","to get stressed"],["기분","mood, feeling"],["물어보다","to ask"],["닫다","to close"],["만약","if (what-if)"],["그럼","then, in that case"],["날씨","weather"],["시험","test, exam"],["돈","money"],["많다","to be many, a lot"],["좋겠어요","I hope, it'd be nice"]],
   ex:[
@@ -51,12 +54,23 @@ LESSONS.push({
     {k:"mc",q:"하다 + -(으)면",c:["하면","하으면","해면","할면"],why:"Vowel stem, so just 면."}
   ],
   poolN:4,
+  say:[
+    {en:"If you're tired, go to bed early.", ko:"피곤하[면] 일찍 자요.", ban:"피곤하[면] 일찍 자.", hint:"the stem + 면 after a vowel"},
+    {en:"If you don't know, ask.", ko:"모르[면] 물어보세요.", ban:"모르[면] 물어봐.", hint:"모르다 is a vowel stem before 면; a request in 반말 drops 세요 and changes shape"},
+    {en:"If it rains, I'll stay home.", ko:"비가 오[면] 집에 있을 거예요.", ban:"비가 오[면] 집에 있을 [c:거야].", hint:"the 면 part comes first, then the result"},
+    {en:"If you have time, let's go together.", ko:"시간이 있[으면] 같이 가요.", ban:"시간이 있[으면] 같이 가자.", alt:["시간 있으면 같이 가요."], banAlt:["시간 있으면 같이 가자."], hint:"있다 ends in a consonant, so 으면"},
+    {en:"If it's cold, please close the window.", ko:"추[우면] 창문 닫아 주세요.", ban:"추[우면] 창문 닫아 줘.", hint:"춥다: the 우 takes the place of 으"},
+    {en:"Call me when you get home.", ko:"집에 도착하[면] 전화해 주세요.", ban:"집에 도착하[면] 전화해 줘.", hint:"면 can also mean \"when\""},
+    {en:"When I'm tired, I drink coffee.", ko:"[c:저]는 피곤하[면] 커피를 마셔요.", ban:"[c:나]는 피곤하[면] 커피를 마셔.", alt:["피곤하면 커피를 마셔요."], banAlt:["피곤하면 커피를 마셔."], hint:"a present ending after 면 shows a habit"},
+    {en:"I hope the weather's nice this weekend.", ko:"주말에 날씨가 좋[으면 좋겠어요].", ban:"주말에 날씨가 좋[으면 좋겠어].", hint:"좋다 + 으면, then 좋겠어요"}
+  ],
   plan:[
     ["5","Warm-up","Make -(으)면 forms of ten verbs from earlier lessons, including three irregulars."],
     ["10","Teach","Slides 1 to 4. Finish each other's sentences: one says the 면 half (비가 오면…), the other adds the result."],
     ["8","Habits","Slide 5. Each person says three things they do when they're tired, stressed or hungry."],
     ["5","Hopes","Slide 7. Take turns saying three hopes for this month with -(으)면 좋겠어요."],
-    ["5","Check","Practice tab."]
+    ["5","Check","Practice tab."],
+    ["5","Say it","Say it tab, polite first. Say the 면 half before you reveal, then try a few in 반말."]
   ],
   talk:[["시간이 있으면 뭐 하고 싶어요?","If you have time, what do you want to do?"],["스트레스를 받으면 뭐 해요?","What do you do when you get stressed?"],["한국에 가면 어디에 가고 싶어요?","When you go to Korea, where do you want to go?"]],
   after:"HTSK Lesson 43 covers -(으)면, along with the more formal -ㄴ/는다면."

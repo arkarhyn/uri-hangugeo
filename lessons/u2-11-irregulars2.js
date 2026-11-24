@@ -33,7 +33,10 @@ LESSONS.push({
      ex:[["잘 [c:몰라]요.","I'm not sure. / I don't really know."],["지하철이 [c:빨라]요.","The subway is fast."],["노래를 [c:불렀]어요.","I sang a song."],["하나 [c:골라] 주세요.","Please pick one."]],
      note:"Watch out: before the 으 endings, a 르 stem doesn't change: 모르면, 모르세요? (not 몰라면)."},
     {h:"Quick sort", p:"Which group is it? Look at the end of the stem.",
-     t:[["Stem ends in","Before 아/어","Example"],["ㅡ","ㅡ drops","[s:바][c:빠][e:요], [c:커][e:요]"],["ㄹ","no change (ㄹ drops before ㄴ ㅂ ㅅ)","[s:살][e:아요], [s:사][e:세요]"],["ㅂ","ㅂ → 우","[s:추][c:워][e:요]"],["ㄷ (some verbs)","ㄷ → ㄹ","[c:들][e:어요]"],["르","ㅡ drops, extra ㄹ","[c:몰라][e:요]"]]}
+     t:[["Stem ends in","Before 아/어","Example"],["ㅡ","ㅡ drops","[s:바][c:빠][e:요], [c:커][e:요]"],["ㄹ","no change (ㄹ drops before ㄴ ㅂ ㅅ)","[s:살][e:아요], [s:사][e:세요]"],["ㅂ","ㅂ → 우","[s:추][c:워][e:요]"],["ㄷ (some verbs)","ㄷ → ㄹ","[c:들][e:어요]"],["르","ㅡ drops, extra ㄹ","[c:몰라][e:요]"]]},
+    {h:"In 반말", p:"The irregular change happens the same way in 반말; only the 요 drops. The past works the same: 추웠어요 becomes 추웠어.",
+     t:[["Polite","반말","Meaning"],["추[c:워][e:요]","추[c:워][x:요]","cold"],["[c:들][e:어요]","[c:들][e:어][x:요]","listen, hear"],["[c:몰라][e:요]","[c:몰라][x:요]","don't know"],["[c:도와][e:요]","[c:도와][x:요]","help"],["추[c:웠][e:어요]","추[c:웠][e:어][x:요]","was cold"]],
+     ex:[["오늘 추[c:워].","It's cold today."],["나 잘 [c:몰라].","I don't really know."],["매일 음악 [c:들]어.","I listen to music every day."]]}
   ],
   vocab:[["춥다 → 추워요","to be cold (weather)"],["덥다 → 더워요","to be hot (weather)"],["어렵다 → 어려워요","to be difficult"],["쉽다 → 쉬워요","to be easy"],["맵다 → 매워요","to be spicy"],["가깝다 → 가까워요","to be close"],["돕다 → 도와요","to help"],["입다 → 입어요","to wear (doesn't change)"],["듣다 → 들어요","to listen, to hear"],["걷다 → 걸어요","to walk"],["묻다 → 물어요","to ask"],["받다 → 받아요","to receive (doesn't change)"],["모르다 → 몰라요","to not know"],["빠르다 → 빨라요","to be fast"],["다르다 → 달라요","to be different"],["부르다 → 불러요","to sing; to call"],["고르다 → 골라요","to choose"],["음악","music"],["노래","song"],["노래방","karaoke room"],["길","road, way"]],
   ex:[
@@ -63,12 +66,23 @@ LESSONS.push({
     {k:"mc",q:"쉽다 + -(으)ㄹ 거예요",c:["쉬울 거예요","쉽을 거예요","쉬워 거예요","쉽 거예요"],why:"쉽 + 을 → 쉬울."}
   ],
   poolN:4,
+  say:[
+    {en:"It's cold today.", ko:"오늘 추[c:워]요.", ban:"오늘 추[c:워].", hint:"춥다: ㅂ becomes 우"},
+    {en:"This is too spicy!", ko:"이거 너무 매[c:워]요!", ban:"이거 너무 매[c:워]!", hint:"맵다"},
+    {en:"I don't know.", ko:"[c:몰라]요.", ban:"[c:몰라].", hint:"모르다: an extra ㄹ", note:"몰라요 can sound curt to someone older. 모르겠어요 is softer."},
+    {en:"Please help me.", ko:"좀 [c:도와] 주세요.", ban:"좀 [c:도와] 줘.", alt:["좀 도와주세요."], banAlt:["좀 도와줘."], hint:"돕다 takes 오, not 우"},
+    {en:"I listen to music every day.", ko:"매일 음악을 [c:들]어요.", ban:"매일 음악을 [c:들]어.", alt:["매일 음악 들어요."], banAlt:["매일 음악 들어."], hint:"듣다: ㄷ becomes ㄹ"},
+    {en:"It was really cold yesterday.", ko:"어제 정말 추[c:웠]어요.", ban:"어제 정말 추[c:웠]어.", alt:["어제 너무 추웠어요."], banAlt:["어제 너무 추웠어."], hint:"the past of 춥다"},
+    {en:"I walk to school every day.", ko:"매일 학교에 [c:걸]어서 가요.", ban:"매일 학교에 [c:걸]어서 가.", alt:["매일 걸어서 학교에 가요."], banAlt:["매일 걸어서 학교에 가."], hint:"on foot = 걷다 + 어서"},
+    {en:"It was cold, so I couldn't sleep.", ko:"추[c:워]서 못 잤어요.", ban:"추[c:워]서 못 잤어.", alt:["추워서 잠을 못 잤어요."], banAlt:["추워서 잠을 못 잤어."], hint:"춥다 + \"so\", then 못 before the verb"}
+  ],
   plan:[
     ["5","Warm-up","Talk about today's weather and the last thing you ate with 추워요, 더워요 and 매워요."],
     ["10","Teach","Slides 1 to 3. Put every ㅂ adjective in the 해요 form, the past, and with -(으)면."],
     ["8","Teach","Slides 4 to 6. Say 듣다, 걷다, 모르다 and 부르다 in three forms each."],
     ["5","Sort it","Slide 7. One person says a dictionary form from either irregulars lesson; the other names its group and gives the 해요 form."],
-    ["5","Check","Practice tab."]
+    ["5","Check","Practice tab."],
+    ["5","Say it","Say it tab, polite first. Before each reveal, name the group (ㅂ, ㄷ or 르), then try a few in 반말."]
   ],
   talk:[["요즘 날씨가 추워요?","Is it cold these days?"],["무슨 음악 들어요?","What music do you listen to?"],["노래방에서 무슨 노래 불러요?","What do you sing at karaoke?"]],
   after:"HTSK Lesson 7 covers these groups, plus the rarer ㅅ irregulars (낫다 → 나아요)."

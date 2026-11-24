@@ -37,7 +37,10 @@ LESSONS.push({
      t:[["Verb","-(으)세요","-ㅂ니다","해요 form"],["살다 (to live)","[s:사][e:세요]","[c:삽][e:니다]","[s:살][e:아요]"],["만들다 (to make)","[s:만드][e:세요]","[s:만][c:듭][e:니다]","[s:만들][e:어요]"],["알다 (to know)","[s:아][e:세요]","[c:압][e:니다]","[s:알][e:아요]"],["놀다 (to play)","[s:노][e:세요]","[c:놉][e:니다]","[s:놀][e:아요]"],["열다 (to open)","[s:여][e:세요]","[c:엽][e:니다]","[s:열][e:어요]"]],
      note:"Watch out: 사세요 can also come from 사다 (to buy). Context tells you which: 어디 사세요? asks where someone lives."},
     {h:"ㄹ verbs in sentences", p:"The ㄹ drops before ㄴ, ㅂ and ㅅ, and stays everywhere else.",
-     ex:[["어디 [c:사]세요?","Where do you live? (polite, to someone older)"],["이 노래 [c:아]세요?","Do you know this song?"],["저는 서울에 [s:살]아요.","I live in Seoul."],["주말에 친구들하고 [s:놀] 거예요.","I'm going to hang out with friends this weekend."]]}
+     ex:[["어디 [c:사]세요?","Where do you live? (polite, to someone older)"],["이 노래 [c:아]세요?","Do you know this song?"],["저는 서울에 [s:살]아요.","I live in Seoul."],["주말에 친구들하고 [s:놀] 거예요.","I'm going to hang out with friends this weekend."]]},
+    {h:"In 반말", p:"The irregular change happens the same way in 반말; only the 요 drops. Before 아/어, ㅡ still drops, and a ㄹ stem still loses its ㄹ before ㅅ in 세요.",
+     t:[["Polite","반말","Meaning"],["바[c:빠][e:요]","바[c:빠][x:요]","busy"],["아[c:파][e:요]","아[c:파][x:요]","hurts, sick"],["예[c:뻐][e:요]","예[c:뻐][x:요]","pretty"],["[c:커][e:요]","[c:커][x:요]","big"],["[c:사]세요?","[c:살]아?","where do you live? (to an elder, to a friend)"]],
+     ex:[["오늘 너무 바[c:빠].","I'm so busy today."],["머리가 아[c:파]서 일찍 잤어.","I had a headache, so I went to bed early."],["너 어디 [c:살]아?","Where do you live?"]]}
   ],
   vocab:[["바쁘다 → 바빠요","to be busy"],["아프다 → 아파요","to hurt, to be sick"],["배고프다 → 배고파요","to be hungry"],["예쁘다 → 예뻐요","to be pretty"],["슬프다 → 슬퍼요","to be sad"],["나쁘다 → 나빠요","to be bad"],["크다 → 커요","to be big"],["쓰다 → 써요","to write; to use"],["끄다 → 꺼요","to turn off"],["살다 → 사세요","to live"],["만들다 → 만드세요","to make"],["알다 → 아세요","to know"],["놀다 → 노세요","to play, to hang out"],["열다 → 여세요","to open"],["팔다 → 파세요","to sell"],["머리","head"],["병원","hospital"],["편지","letter"],["불","light"],["신발","shoes"],["창문","window"]],
   ex:[
@@ -68,12 +71,23 @@ LESSONS.push({
     {k:"mc",q:"예쁘다 + -아/어서",c:["예뻐서","예빠서","예쁘서","예뻤서"],why:"Same base as 예뻐요."}
   ],
   poolN:4,
+  say:[
+    {en:"I'm busy today.", ko:"오늘 바[c:빠]요.", ban:"오늘 바[c:빠].", alt:["오늘 너무 바빠요."], banAlt:["오늘 너무 바빠."], hint:"바쁘다: the ㅡ drops"},
+    {en:"I'm hungry.", ko:"배고[c:파]요.", ban:"배고[c:파].", alt:["저는 배고파요."], banAlt:["나는 배고파."], hint:"배고프다: look one syllable back for 아 or 어"},
+    {en:"It's really pretty.", ko:"정말 예[c:뻐]요.", ban:"정말 예[c:뻐].", alt:["너무 예뻐요."], banAlt:["너무 예뻐."], hint:"예쁘다 takes 어, not 아"},
+    {en:"Please turn off the light.", ko:"불 좀 [c:꺼] 주세요.", ban:"불 좀 [c:꺼] 줘.", alt:["불 꺼 주세요."], banAlt:["불 꺼 줘."], hint:"끄다: a one-syllable ㅡ stem takes 어"},
+    {en:"Where do you live?", ko:"어디 [c:사]세요?", ban:"어디 [c:살]아?", alt:["어디에 사세요?"], banAlt:["어디에 살아?"], hint:"살다: the ㄹ drops before 세요; in 반말 there's no 세요", note:"사세요 has the polite -시-, right for someone older. With a friend, 어디 살아?"},
+    {en:"Do you know this song?", ko:"이 노래 [c:아]세요?", ban:"이 노래 [c:알]아?", alt:["이 노래 알아요?"], hint:"알다: the ㄹ drops before 세요"},
+    {en:"I had a headache, so I went to bed early.", ko:"머리가 아[c:파]서 일찍 잤어요.", ban:"머리가 아[c:파]서 일찍 잤어.", hint:"아프다 + the linking ending for \"so\""},
+    {en:"I was busy yesterday, so I couldn't go.", ko:"어제 바[c:빠]서 못 갔어요.", ban:"어제 바[c:빠]서 못 갔어.", alt:["어제 바빠서 못 갔어요."], hint:"바쁘다 + \"so\", then 못 before the verb"}
+  ],
   plan:[
     ["5","Warm-up","Each person says how they feel today with a word from the Words tab (배고파요, 좀 바빠요…)."],
     ["10","Teach","Slides 1 to 5. Say the 해요 and past forms of every ㅡ verb out loud, pointing at the syllable that decides 아 or 어."],
     ["8","ㄹ verbs","Slides 6 to 8. Ask each other polite questions with 사세요, 아세요 and 만드세요 (어디 사세요? 이 노래 아세요?)."],
     ["5","At the doctor","One person is the doctor (어디가 아프세요?); the other says what hurts and why, with -아서 (많이 먹어서 배가 아파요)."],
-    ["5","Check","Practice tab."]
+    ["5","Check","Practice tab."],
+    ["5","Say it","Say it tab, polite first. Say each ㅡ sentence slowly, pointing at the syllable that decides 아 or 어, then try a few in 반말."]
   ],
   talk:[["요즘 바빠요?","Are you busy these days?"],["어디가 아파요?","Where does it hurt?"],["주말에 누구하고 놀았어요?","Who did you hang out with on the weekend?"]],
   after:"HTSK Lesson 7 covers all the irregular groups at once. Read the ㅡ and ㄹ sections first."

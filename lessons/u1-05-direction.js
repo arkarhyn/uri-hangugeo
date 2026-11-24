@@ -18,7 +18,11 @@ LESSONS.push({
      ex:[["집[에서] 학교[까지] 버스로 가요.","I take the bus from home to school."],["서울[에서] 부산[까지] 기차로 두 시간 반 걸려요.","Seoul to Busan takes two and a half hours by train."]],
      note:"걸리다 means \"to take (time)\". The number words come up in Lessons 6 and 7."},
     {h:"가다 and 오다", p:"가다 is movement away from where the speaker is; 오다 is movement toward the speaker.",
-     ex:[["같이 가요!","Let's go together!"],["집에 언제 와요?","When are you coming home?"],["버스가 와요.","The bus is coming."]]}
+     ex:[["같이 가요!","Let's go together!"],["집에 언제 와요?","When are you coming home?"],["버스가 와요.","The bus is coming."]]},
+    {h:"In 반말", p:"에 and (으)로 don't change in 반말. Only the ending drops 요, and 저 becomes 나.",
+     t:[["Polite","반말","Meaning"],["학교에 가요","학교에 가[x:요]","go to school"],["어디에 가요?","어디에 가[x:요]?","where are you going?"],["집으로 와요","집으로 와[x:요]","come home"],["버스로 가요","버스로 가[x:요]","go by bus"],["[c:저]는 걸어서 가요","[c:나]는 걸어서 가[x:요]","I go on foot"]],
+     ex:[["학교[에] 가.","I go to school."],["집[으로] 가.","I'm heading home."],["[c:나]는 버스[로] 가.","I go by bus."]],
+     note:"See also: the casual speech lesson (반말) covers 반말 in full."}
   ],
   vocab:[["버스","bus"],["지하철","subway"],["택시","taxi"],["비행기","airplane"],["기차","train"],["걸어서","on foot"],["오른쪽","right"],["왼쪽","left"],["이쪽","this way"],["역","station"],["공항","airport"],["까지","to, until"],["걸리다","to take (time)"],["같이","together"]],
   ex:[
@@ -35,12 +39,23 @@ LESSONS.push({
     {k:"build",q:"I go to the airport by taxi.",ok:["저는 택시로 공항에 가요","저는 공항에 택시로 가요"],x:["택시에"]},
     {k:"build",q:"Please go to the right.",ok:["오른쪽으로 가세요"],x:["오른쪽에서"]}
   ],
+  say:[
+    {en:"I go to school.", ko:"학교[에] 가요.", ban:"학교[에] 가.", hint:"place + 에 + 가다"},
+    {en:"Where are you going?", ko:"어디[에] 가세요?", ban:"어디[에] 가?", alt:["어디 가세요?","어디 가요?"], banAlt:["어디 가?"], note:"To someone older, 가세요 (from the honorifics lesson) is the polite way to ask. 가요 is fine with someone your age."},
+    {en:"I'm heading home.", ko:"집[으로] 가요.", ban:"집[으로] 가.", hint:"집 ends in a consonant"},
+    {en:"I'm going to Seoul tomorrow.", ko:"내일 서울[로] 가요.", ban:"내일 서울[로] 가.", alt:["내일 서울에 가요."], banAlt:["내일 서울에 가."], hint:"서울 ends in ㄹ"},
+    {en:"I go by bus.", ko:"버스[로] 가요.", ban:"버스[로] 가.", hint:"means of travel"},
+    {en:"I speak in Korean.", ko:"한국어[로] 말해요.", ban:"한국어[로] 말해.", hint:"a language is also a means"},
+    {en:"I go to the airport by taxi.", ko:"공항[에] 택시[로] 가요.", ban:"공항[에] 택시[로] 가.", alt:["택시로 공항에 가요."], banAlt:["택시로 공항에 가."]},
+    {en:"I go from home to work by subway.", ko:"집[에서] 회사[까지] 지하철[로] 가요.", ban:"집[에서] 회사[까지] 지하철[로] 가.", hint:"start 에서, end 까지, then the means"}
+  ],
   plan:[
     ["5","Warm-up","Ask 내일 어디에 가요? Answer with a real place."],
     ["8","Teach","Slides 1 to 3. Practise the 로 / 으로 rule on ten nouns, including some ending in ㄹ."],
     ["8","Taxi role-play","One person is the driver. The passenger gives a destination (서울역으로 가 주세요) and turns (오른쪽으로 가세요). Swap roles."],
     ["6","How do you get there?","Slides 4 and 5. Describe your commute: 집에서 ___까지 ___로 가요."],
-    ["5","Check","Practice tab."]
+    ["5","Check","Practice tab."],
+    ["5","Say it","Say it tab, polite first. For each one, decide between 에, (으)로 and 에서…까지 before you reveal."]
   ],
   talk:[["집에서 회사까지 뭐로 가요?","How do you get from home to work?"],["이번 주말에 어디에 가요?","Where are you going this weekend?"],["한국어로 말해 주세요.","Please say it in Korean."]],
   after:"HTSK Lesson 12, the section on (으)로."

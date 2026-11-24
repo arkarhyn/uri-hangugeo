@@ -20,7 +20,11 @@ LESSONS.push({
      ex:[["좋아요!","Sounds good!"],["네, 그래요.","Yes, let's."],["치킨 먹을까요? 좋아요, 치킨 먹어요!","Shall we have chicken? Sounds good, let's have chicken!"],["미안해요, 내일은 바빠요.","Sorry, I'm busy tomorrow."],["다음에 해요.","Let's do it another time."]]},
     {h:"거예요 or 까요?", p:"거예요 says what's going to happen. 까요? asks what the other person thinks.",
      t:[["Sentence","Meaning"],["주말에 등산할 거예요.","I'm going hiking on the weekend."],["주말에 등산할까요?","Shall we go hiking on the weekend?"],["내일 비가 올 거예요.","It's going to rain tomorrow."],["내일 비가 올까요?","Do you think it'll rain tomorrow?"]],
-     note:"With weather and other things nobody controls, 까요? means \"do you think…?\""}
+     note:"With weather and other things nobody controls, 까요? means \"do you think…?\""},
+    {h:"In 반말", p:"Future 거예요 becomes 거야, and -(으)ㄹ까요 drops its 요. For \"let's\", use -자.",
+     t:[["해요","반말","Meaning"],["갈 거예요","갈 거[c:야]","I'll go"],["내일 뭐 할 거예요?","내일 뭐 할 거[c:야]?","what will you do tomorrow?"],["같이 갈까요?","같이 갈까[x:요]?","shall we go together?"],["같이 가요!","같이 [c:가자]!","let's go together"],["좋아요!","좋아[x:요]!","sounds good"]],
+     ex:[["내일 뭐 할 거야?","What are you going to do tomorrow?"],["같이 먹[자]!","Let's eat together."],["뭐 먹을[까]?","What shall we eat?"]],
+     note:"See also: the casual speech lesson (반말) covers 반말 in full."}
   ],
   vocab:[["내일","tomorrow"],["모레","the day after tomorrow"],["이따가","later (today)"],["이번 주말","this weekend"],["다음 주","next week"],["쉬다","to rest"],["놀다","to hang out, play"],["만들다","to make"],["사다","to buy"],["열다","to open"],["등산하다","to go hiking"],["같이","together"],["좋아요","sounds good"],["다음에","next time"],["비가 오다","to rain"]],
   ex:[
@@ -51,12 +55,23 @@ LESSONS.push({
     {k:"mc",q:"만나다 as a suggestion: \"Shall we meet?\"",c:["만날까요?","만나을까요?","만나까요?","만날 거예요?"],why:"A vowel stem takes ㄹ까요."}
   ],
   poolN:4,
+  say:[
+    {en:"I'm going to rest.", ko:"[쉴 거예요].", ban:"[쉴 거야].", hint:"vowel stem: add ㄹ, then 거예요"},
+    {en:"I'm going to make dinner.", ko:"저녁을 [만들 거예요].", ban:"저녁을 [만들 거야].", alt:["저녁 만들 거예요."], banAlt:["저녁 만들 거야."], hint:"the stem already ends in ㄹ"},
+    {en:"What are you going to do tomorrow?", ko:"내일 뭐 [할 거예요]?", ban:"내일 뭐 [할 거야]?"},
+    {en:"Shall we go together?", ko:"같이 [갈까요]?", ban:"같이 [갈까]?", banAlt:["같이 가자."], hint:"suggestion with the verb"},
+    {en:"What shall we eat?", ko:"뭐 [먹을까요]?", ban:"뭐 [먹을까]?", hint:"consonant stem: 을 + 까요"},
+    {en:"I'm not going to work tomorrow.", ko:"내일은 일 안 [할 거예요].", ban:"내일은 일 안 [할 거야].", hint:"안 goes between the noun and the verb"},
+    {en:"Shall we meet at three?", ko:"세 시에 [만날까요]?", ban:"세 시에 [만날까]?", banAlt:["세 시에 만나자."], hint:"3 o'clock = native number + 시"},
+    {en:"This weekend I'm going to meet a friend at home.", ko:"이번 주말에 집에서 친구를 [만날 거예요].", ban:"이번 주말에 집에서 친구를 [만날 거야].", alt:["이번 주말에 친구를 집에서 만날 거예요."], banAlt:["이번 주말에 친구를 집에서 만날 거야."], hint:"time first, then where with 에서"}
+  ],
   plan:[
     ["5","Warm-up","Ask 어제 뭐 했어요? (last lesson), then 내일 뭐 할 거예요? Notice how the ending changes."],
     ["8","Teach","Slides 1 to 3. Take turns: one says a verb, the other says it with 거예요. Throw in ㄹ stems (만들다, 놀다, 살다)."],
     ["10","Plan a date","Slides 4 and 5. Plan a real weekend together using only 까요? questions: 어디에 갈까요? 뭐 먹을까요? 몇 시에 만날까요? Answer with 좋아요 or a soft no."],
     ["5","Plan or suggestion?","Slide 6. One person says a sentence with 거예요 or 까요?; the other says whether it's a plan or a suggestion."],
-    ["5","Check","Practice tab."]
+    ["5","Check","Practice tab."],
+    ["5","Say it","Say it tab, polite first. Notice whether each sentence is a plan or a suggestion, then try a few in 반말."]
   ],
   talk:[["이번 주말에 뭐 할 거예요?","What are you going to do this weekend?"],["저녁에 뭐 먹을까요?","What shall we have for dinner?"],["다음 휴가에 어디에 갈 거예요?","Where are you going on your next vacation?"]],
   after:"HTSK Lesson 9 covers the future tense, and Lesson 44 covers more ways to suggest things."

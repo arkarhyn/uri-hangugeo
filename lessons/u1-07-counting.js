@@ -20,7 +20,11 @@ LESSONS.push({
     {h:"Telling time", p:"Hours use native numbers with 시. Minutes use Sino numbers with 분. 반 means half past. 오전 is a.m., 오후 is p.m. For duration, use 시간.",
      ex:[["세 시 십오 분","3:15"],["열두 시 [반]","12:30"],["오후 두 시","2 p.m."],["두 [시간]","two hours (duration)"]]},
     {h:"At the café or shop", p:"Item + number + counter + 주세요 is all you need to order.",
-     ex:[["아메리카노 두 잔 주세요.","Two Americanos, please."],["물 한 병 주세요.","A bottle of water, please."],["표 세 장 주세요.","Three tickets, please."],["이거 얼마예요? — 오천 원이에요.","How much is this? — It's 5,000 won."]]}
+     ex:[["아메리카노 두 잔 주세요.","Two Americanos, please."],["물 한 병 주세요.","A bottle of water, please."],["표 세 장 주세요.","Three tickets, please."],["이거 얼마예요? — 오천 원이에요.","How much is this? — It's 5,000 won."]]},
+    {h:"The same in 반말", p:"The counting stays the same. Only the ending changes: drop 요, and 이에요 / 예요 become 이야 / 야.",
+     t:[["해요","반말","Meaning"],["두 마리 있어요","두 마리 있어[x:요]","there are two (animals)"],["스무 살이에요","스무 살[c:이야]","I'm twenty"],["몇 살이에요?","몇 살[c:이야]?","how old are you?"],["지금 몇 시예요?","지금 몇 시[c:야]?","what time is it now?"],["커피 두 잔 마셔요","커피 두 잔 마셔[x:요]","I drink two cups of coffee"]],
+     ex:[["고양이가 두 마리 있[어].","There are two cats."],["지금 몇 시[c:야]?","What time is it now?"]],
+     note:"See also: the casual speech lesson (반말) covers 반말 in full."}
   ],
   vocab:[["개","counter: things"],["명","counter: people"],["분","counter: people (honorific)"],["마리","counter: animals"],["권","counter: books"],["잔","counter: cups"],["병","counter: bottles"],["장","counter: flat things"],["대","counter: vehicles, machines"],["살","years old"],["번","times"],["시","o'clock"],["시간","hours (duration)"],["반","half"],["주세요","please give me"],["얼마예요?","how much is it?"]],
   ex:[
@@ -38,12 +42,23 @@ LESSONS.push({
     {k:"mc",q:"\"five students\"",c:["학생 다섯 명","학생 오 명","다섯 학생 명","학생 다섯 마리"],why:"People take 명 with native numbers."},
     {k:"build",q:"Two bottles of water, please.",ok:["물 두 병 주세요"],x:["둘"]}
   ],
+  say:[
+    {en:"I have one bag.", ko:"가방이 [한 개] 있어요.", ban:"가방이 [한 개] 있어.", hint:"1 shortens before a counter"},
+    {en:"There are three students.", ko:"학생이 [세 명] 있어요.", ban:"학생이 [세 명] 있어.", hint:"people = 명"},
+    {en:"I'm twenty.", ko:"[스무 살]이에요.", ban:"[스무 살]이야.", hint:"age = 살, and 20 shortens"},
+    {en:"How old are you? (to someone your age)", ko:"[몇 살]이에요?", ban:"[몇 살]이야?", hint:"몇 + counter", note:"To someone older, ask 몇 살이세요? or, more politely, 연세가 어떻게 되세요?"},
+    {en:"What time is it now?", ko:"지금 [몇 시]예요?", ban:"지금 [몇 시]야?"},
+    {en:"It's 3:15.", ko:"[세 시 십오 분]이에요.", ban:"[세 시 십오 분]이야.", hint:"hours native, minutes Sino"},
+    {en:"I drink two cups of coffee every day.", ko:"매일 커피를 [두 잔] 마셔요.", ban:"매일 커피를 [두 잔] 마셔.", hint:"cups = 잔"},
+    {en:"At home there are two cats and one dog.", ko:"집에 고양이가 [두 마리], 강아지가 [한 마리] 있어요.", ban:"집에 고양이가 [두 마리], 강아지가 [한 마리] 있어.", hint:"animals = 마리"}
+  ],
   plan:[
     ["5","Warm-up","Count things in the room in native numbers: 의자 하나, 둘, 셋…"],
     ["10","Teach","Slides 1 to 4. Drill the shortened forms (한, 두, 세, 네, 스무) until they come without thinking."],
     ["8","Café role-play","Slide 7. One person runs a café; the other orders for a group (아메리카노 두 잔, 케이크 한 개 주세요). The café asks 몇 분이세요? first."],
     ["5","Clock drill","Number Gym, Time mode. Say each answer out loud before tapping."],
-    ["4","Check","Practice tab."]
+    ["4","Check","Practice tab."],
+    ["5","Say it","Say it tab, polite first. Say each counter out loud, then try a few in 반말."]
   ],
   talk:[["몇 살이에요?","How old are you?"],["지금 몇 시예요?","What time is it now?"],["고양이가 몇 마리 있어요?","How many cats do you have?"]],
   after:"HTSK Lesson 10 lists the common counters, and Lesson 11 covers time."

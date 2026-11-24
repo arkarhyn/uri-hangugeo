@@ -23,7 +23,11 @@ LESSONS.push({
      ex:[["친구[한테서] 문자를 받았어요.","I got a text from a friend."],["언니[한테서] 배웠어요.","I learned it from my older sister."],["친구[한테] 받았어요.","I got it from a friend. (서 dropped)"]],
      note:"에서 means \"from\" a place (Review 5), never from a person: 회사에서 왔어요, but 친구한테서 받았어요."},
     {h:"Putting them together",
-     ex:[["주말에 친구[하고] 밥을 먹고 엄마[한테] 전화했어요.","On the weekend I ate with a friend and called Mom."],["누구[랑] 살아요?","Who do you live with?"],["이거 누구[한테] 줄 거예요?","Who are you going to give this to?"]]}
+     ex:[["주말에 친구[하고] 밥을 먹고 엄마[한테] 전화했어요.","On the weekend I ate with a friend and called Mom."],["누구[랑] 살아요?","Who do you live with?"],["이거 누구[한테] 줄 거예요?","Who are you going to give this to?"]]},
+    {h:"In 반말", p:"하고, (이)랑 and 한테 don't change at all. Only the verb ending and 저/제 do.",
+     t:[["Polite","반말"],["친구한테 전화했어요","친구한테 전화했어[x:요]"],["친구랑 갔어요","친구랑 갔어[x:요]"],["저는 동생이랑 살아요","[c:나]는 동생이랑 살아[x:요]"],["제 친구하고 먹었어요","[c:내] 친구하고 먹었어[x:요]"]],
+     ex:[["[c:나]는 친구[e:랑] 갔어.","I went with a friend."],["엄마[e:한테] 문자 보냈어.","I texted Mom."],["누구[e:한테서] 받았어?","Who did you get it from?"]],
+     note:"See also: the casual speech lesson (반말)."}
   ],
   vocab:[["하고","and, with"],["(이)랑","and, with (friendly)"],["같이","together"],["한테","to (a person, spoken)"],["에게","to (a person, written)"],["한테서","from (a person)"],["누구","who"],["동생","younger sibling"],["언니","older sister (for a woman)"],["형","older brother (for a man)"],["주다","to give"],["보내다","to send"],["받다","to receive"],["문자","text message"],["선물","present"],["물어보다","to ask"],["강아지","puppy, dog"],["살다","to live"]],
   ex:[
@@ -52,12 +56,23 @@ LESSONS.push({
     {k:"mc",q:"\"Coffee and cake, please.\"",c:["커피랑 케이크 주세요.","커피이랑 케이크 주세요.","커피한테 케이크 주세요.","커피고 케이크 주세요."],why:"커피 ends in a vowel, so 랑."}
   ],
   poolN:4,
+  say:[
+    {en:"I bought bread and milk.", ko:"빵[하고] 우유를 샀어요.", ban:"빵[하고] 우유를 샀어.", alt:["빵이랑 우유를 샀어요."], banAlt:["빵이랑 우유를 샀어."], hint:"하고 joins two nouns"},
+    {en:"I watched a movie with a friend.", ko:"친구[랑] 영화를 봤어요.", ban:"친구[랑] 영화를 봤어.", alt:["친구하고 영화를 봤어요."], banAlt:["친구하고 영화를 봤어."], hint:"친구 ends in a vowel"},
+    {en:"Who did you go with?", ko:"누구[랑] 갔어요?", ban:"누구[랑] 갔어?", alt:["누구하고 갔어요?"], banAlt:["누구하고 갔어?"]},
+    {en:"I live with my younger sibling.", ko:"동생[이랑] 같이 살아요.", ban:"동생[이랑] 같이 살아.", alt:["동생하고 같이 살아요."], banAlt:["동생하고 같이 살아."], hint:"동생 ends in a consonant"},
+    {en:"I called Mom.", ko:"엄마[한테] 전화했어요.", ban:"엄마[한테] 전화했어.", hint:"the person you call gets 한테"},
+    {en:"I'm going to give my friend a present.", ko:"[c:저]는 친구[한테] 선물을 줄 거예요.", ban:"[c:나]는 친구[한테] 선물을 줄 거야.", hint:"the person receiving gets 한테"},
+    {en:"I got a text from a friend.", ko:"친구[한테서] 문자를 받았어요.", ban:"친구[한테서] 문자를 받았어.", alt:["친구한테 문자를 받았어요."], banAlt:["친구한테 문자를 받았어."], hint:"from a person: 한테 + 서"},
+    {en:"On the weekend I ate with a friend and called Mom.", ko:"주말에 친구[하고] 밥을 먹고 엄마[한테] 전화했어요.", ban:"주말에 친구[하고] 밥을 먹고 엄마[한테] 전화했어.", alt:["주말에 친구랑 밥을 먹고 엄마한테 전화했어요."], banAlt:["주말에 친구랑 밥을 먹고 엄마한테 전화했어."], hint:"join the two actions with -고"}
+  ],
   plan:[
     ["5","Warm-up","Each person says what they had at their last meal, joining the foods with 하고 (밥하고 김치하고 계란을 먹었어요)."],
     ["10","Teach","Slides 1 to 3. Say who you did three things with this week (친구랑 커피를 마셨어요)."],
     ["8","Who to?","Slides 4 to 6. Check your phones: who did you last call, last text, and last get a text from? Say each one (엄마한테 전화했어요, 친구한테서 문자를 받았어요)."],
     ["5","Gift list","Plan presents for three people (엄마한테 꽃을 줄 거예요)."],
-    ["5","Check","Practice tab."]
+    ["5","Check","Practice tab."],
+    ["5","Say it","Say it tab. Add the name of someone real to each sentence (동생이랑… becomes 지은이랑…) and say it again."]
   ],
   talk:[["주말에 누구랑 시간을 보냈어요?","Who did you spend the weekend with?"],["오늘 누구한테 문자를 보냈어요?","Who did you text today?"],["누구하고 같이 살아요?","Who do you live with?"]],
   after:"HTSK Lesson 13 covers 와/과, (이)랑, 하고, 에게/한테/께 and more."

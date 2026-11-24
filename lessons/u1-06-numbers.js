@@ -20,7 +20,10 @@ LESSONS.push({
     {h:"Months and dates", p:"Months are Sino number + 월. Two are irregular: June is 유월 and October is 시월. Dates read year, month, day.",
      ex:[["일월, 이월, 삼월 … [유월] … [시월], 십일월, 십이월","January … June … October … December"],["이천이십육 년 십일월 이십일 일","21 November 2026"]]},
     {h:"Phone numbers", p:"Read phone numbers digit by digit with Sino numbers. Zero is 공, and the dash is read as 에.",
-     ex:[["공일공에 일이삼사에 오육칠팔","010-1234-5678"],["전화번호가 뭐예요?","What's your phone number?"]]}
+     ex:[["공일공에 일이삼사에 오육칠팔","010-1234-5678"],["전화번호가 뭐예요?","What's your phone number?"]]},
+    {h:"In 반말", p:"Numbers don't change in 반말. Only the ending does: 이에요 becomes 이야, and 예요 becomes 야.",
+     ex:[["지금 세 시[c:야].","It's three o'clock now."],["삼 층[c:이야].","It's the third floor."]],
+     note:"See also: the casual speech lesson (반말) covers 반말 in full."}
   ],
   vocab:[["하나","one (native)"],["둘","two (native)"],["셋","three (native)"],["넷","four (native)"],["다섯","five (native)"],["열","ten (native)"],["스물","twenty (native)"],["일","one (Sino)"],["이","two (Sino)"],["삼","three (Sino)"],["십","ten (Sino)"],["백","hundred"],["천","thousand"],["만","ten thousand"],["공","zero (phone numbers)"],["층","floor"],["전화번호","phone number"],["몇","how many, what number"]],
   ex:[
@@ -37,12 +40,23 @@ LESSONS.push({
     {k:"mc",q:"The phone digits 2580",c:["이오팔공","둘다섯여덟공","이천오백팔십","이십오팔십"],why:"Phone numbers are read digit by digit in Sino, and 0 is 공."},
     {k:"mc",q:"80,000",c:["팔만","팔십천","팔천","팔십만"],why:"8 × 만 = 팔만."}
   ],
+  say:[
+    {en:"It's three o'clock.", ko:"지금 [세] 시예요.", ban:"지금 [세] 시야.", hint:"o'clock takes native numbers"},
+    {en:"It's the third floor.", ko:"[삼] 층이에요.", ban:"[삼] 층이야.", hint:"floors take Sino numbers"},
+    {en:"It's bus number 50.", ko:"[오십] 번 버스예요.", ban:"[오십] 번 버스야.", hint:"numbered things take Sino numbers"},
+    {en:"It's 15,000 won.", ko:"[만 오천] 원이에요.", ban:"[만 오천] 원이야.", hint:"big numbers are grouped around 만"},
+    {en:"Today is November 21.", ko:"오늘은 [십일월 이십일 일]이에요.", ban:"오늘은 [십일월 이십일 일]이야.", hint:"Sino number + 월, then Sino number + 일"},
+    {en:"I go to the library at ten o'clock.", ko:"[열] 시에 도서관에 가요.", ban:"[열] 시에 도서관에 가.", hint:"o'clock takes native numbers"},
+    {en:"My phone number is 010-1234-5678.", ko:"제 전화번호는 [공일공에 일이삼사에 오육칠팔]이에요.", ban:"[c:내] 전화번호는 [공일공에 일이삼사에 오육칠팔]이야.", hint:"digit by digit; 0 is 공 and the dash is 에"},
+    {en:"I eat dinner at six o'clock at the café on the second floor.", ko:"[이] 층 카페에서 [여섯] 시에 저녁을 먹어요.", ban:"[이] 층 카페에서 [여섯] 시에 저녁을 먹어.", hint:"floor = Sino, o'clock = native"}
+  ],
   plan:[
     ["5","Warm-up","Count 1 to 10 together in both systems, then backward."],
     ["10","Teach","Slides 1 to 5. Make the \"which system?\" chart on paper and keep it out for the rest of the session."],
     ["8","Number Gym","Open Number Gym, Sino mode then Native mode. Race to a streak of 5."],
     ["5","Dates and phones","Slides 6 and 7. Say your birthdays and phone numbers to each other."],
-    ["4","Check","Practice tab."]
+    ["4","Check","Practice tab."],
+    ["5","Say it","Say it tab, polite first. Say each number out loud before you reveal the answer, then try a few in 반말."]
   ],
   talk:[["생일이 언제예요?","When is your birthday?"],["전화번호가 뭐예요?","What is your phone number?"],["몇 층에 살아요?","Which floor do you live on?"]],
   after:"HTSK Lesson 10 (numbers) and Lesson 11 (time words, and which system goes with each)."

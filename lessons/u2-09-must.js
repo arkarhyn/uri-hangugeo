@@ -27,7 +27,11 @@ LESSONS.push({
     {h:"The four together",
      t:[["Meaning","Pattern","Example"],["have to","-아/어야 해요","가[e:야 해요]"],["may, it's okay to","-아/어도 돼요","가[e:도 돼요]"],["mustn't","-(으)면 안 돼요","가[e:면 안 돼요]"],["don't have to","안 -아/어도 돼요","[안] 가[e:도 돼요]"]]},
     {h:"돼요 on its own", p:"되다 shows up everywhere as a short answer.",
-     ex:[["돼요?","Is that okay?"],["네, 돼요.","Yes, that's fine."],["안 돼요!","No! / You can't!"],["카드 돼요?","Do you take cards?"]]}
+     ex:[["돼요?","Is that okay?"],["네, 돼요.","Yes, that's fine."],["안 돼요!","No! / You can't!"],["카드 돼요?","Do you take cards?"]]},
+    {h:"In 반말", p:"Each ending just loses its 요. 안 돼요 becomes 안 돼.",
+     t:[["Polite","반말"],["가야 해요","가야 해[x:요]"],["앉아도 돼요","앉아도 돼[x:요]"],["먹으면 안 돼요","먹으면 안 돼[x:요]"],["안 와도 돼요","안 와도 돼[x:요]"]],
+     ex:[["지금 가[e:야 해].","I have to go now."],["여기 앉아[e:도 돼]?","May I sit here?"],["여기서 먹[e:으면 안 돼].","You can't eat here."]],
+     note:"See also: the casual speech lesson (반말)."}
   ],
   vocab:[["내일","tomorrow"],["일찍","early"],["숙제","homework"],["일어나다","to get up"],["앉다","to sit"],["찍다","to take (a photo)"],["담배","cigarette"],["피우다","to smoke"],["만지다","to touch"],["걱정하다","to worry"],["아직","yet"],["되다","to be okay, to be allowed"],["안 되다","to not be allowed"],["카드","card"],["죄송하다","to be sorry (formal)"]],
   ex:[
@@ -56,12 +60,23 @@ LESSONS.push({
     {k:"mc",q:"A guest asks 이거 먹어도 돼요? You say yes.",c:["네, 드세요.","네, 먹으면 안 돼요.","아니요, 먹어도 돼요.","네, 먹어야 해요."],why:"네 plus an invitation: 드세요 (Review 2). 네, 먹어도 돼요 also works."}
   ],
   poolN:4,
+  say:[
+    {en:"I have to go.", ko:"가[야 해요].", ban:"가[야 해].", alt:["가야 돼요."], banAlt:["가야 돼."], hint:"the 해요 base + 야 해요"},
+    {en:"I have to study.", ko:"공부해[야 해요].", ban:"공부해[야 해].", alt:["공부해야 돼요."], banAlt:["공부해야 돼."], hint:"하다 becomes 해, then 야 해요"},
+    {en:"May I sit here?", ko:"여기 앉아[도 돼요]?", ban:"여기 앉아[도 돼]?", hint:"asking permission"},
+    {en:"You can't eat here.", ko:"여기서 먹[으면 안 돼요].", ban:"여기서 먹[으면 안 돼].", hint:"consonant stem + 으면 안 돼요"},
+    {en:"You don't have to come.", ko:"[안] 와[도 돼요].", ban:"[안] 와[도 돼].", hint:"안 + the allowed-to form"},
+    {en:"I had to work yesterday.", ko:"어제 일해[야 했어요].", ban:"어제 일해[야 했어].", hint:"the past tense goes on the last word"},
+    {en:"Can I take a picture here?", ko:"여기서 사진 찍어[도 돼요]?", ban:"여기서 사진 찍어[도 돼]?"},
+    {en:"Don't be late. You have to come early.", ko:"늦[으면 안 돼요]. 일찍 와[야 해요].", ban:"늦[으면 안 돼]. 일찍 와[야 해].", alt:["늦으면 안 돼요. 일찍 와야 돼요."], banAlt:["늦으면 안 돼. 일찍 와야 돼."], hint:"one mustn't, one have to"}
+  ],
   plan:[
     ["5","Warm-up","Each person says one thing they have to do this week (이번 주에 … 해야 해요)."],
     ["10","Teach","Slides 1 to 3. Turn ten verbs from the Words tab into the have-to and allowed-to forms, out loud."],
     ["8","House rules","Slides 4 to 6. Write five house rules together using all four patterns (집에서 신발을 신으면 안 돼요, 설거지는 안 해도 돼요…)."],
     ["5","May I?","Take turns asking permission for silly things (냉장고 열어도 돼요?). The other answers 네, 돼요, or 안 돼요 with a reason (-아서)."],
-    ["5","Check","Practice tab."]
+    ["5","Check","Practice tab."],
+    ["5","Say it","Say it tab. Answer each one as a house rule in 반말, then turn every answer into a question with a rising voice."]
   ],
   talk:[["이번 주에 뭐 해야 해요?","What do you have to do this week?"],["집에서 뭐 하면 안 돼요?","What isn't allowed at your place?"],["여기서 사진 찍어도 돼요?","Can I take pictures here?"]],
   after:"HTSK Lesson 46 covers -아/어야 하다, and Lesson 49 covers -아/어도 되다."

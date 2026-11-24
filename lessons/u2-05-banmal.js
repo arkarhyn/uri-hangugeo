@@ -58,12 +58,23 @@ LESSONS.push({
     {k:"mc",q:"\"Let's eat together.\" (casual)",c:["같이 먹자.","같이 먹어자.","같이 먹을자.","같이 먹자요."],why:"Stem 먹 + 자."}
   ],
   poolN:4,
+  say:[
+    {en:"I'm a student.", ko:"[c:저]는 학생이에요.", ban:"[c:나]는 학생[이야].", hint:"in 반말, 이에요 becomes 이야; 저 becomes 나"},
+    {en:"That's not mine.", ko:"그거 [c:제] 거 아니에요.", ban:"그거 [c:내] 거 [아니야].", hint:"아니에요 becomes 아니야; 제 becomes 내"},
+    {en:"Yes, I ate.", ko:"[c:네], 먹었어요.", ban:"[c:응], 먹었어.", hint:"the casual yes"},
+    {en:"No, I didn't eat.", ko:"[c:아니요], 안 먹었어요.", ban:"[c:아니], 안 먹었어.", hint:"the casual no"},
+    {en:"Jieun, what are you doing?", ko:"지은 씨, 뭐 해요?", ban:"지은[아], 뭐 해?", hint:"name + 아 after a consonant, no 씨"},
+    {en:"Let's go together.", ko:"같이 가요.", ban:"같이 가[자].", hint:"stem + 자"},
+    {en:"What should we eat?", ko:"뭐 먹을까요?", ban:"뭐 먹을[까]?", hint:"-(으)ㄹ까요 loses its 요"},
+    {en:"Minsu, shall we see a movie this weekend?", ko:"민수 씨, 주말에 영화 볼까요?", ban:"민수[야], 주말에 영화 볼[까]?", hint:"name + 야 after a vowel"}
+  ],
   plan:[
     ["3","Agree on it","Decide together that you'll use 반말 with each other for this lesson."],
     ["10","Teach","Slides 1 to 4. Take five 해요 sentences from earlier lessons and drop the 요."],
     ["8","Text chat","Slides 5 to 7. Text each other a short casual chat: call the other by name (지은아!), ask 뭐 해?, suggest something with -자 or -(으)ㄹ까?, and answer with 응 or 아니."],
     ["5","Switch","One person says a 반말 sentence; the other says it back in 해요. Then swap."],
-    ["4","Check","Practice tab."]
+    ["4","Check","Practice tab."],
+    ["5","Say it","Say it tab with the 반말 switch on from the start, so the casual answer is the one you give. Then flip the switch and say the same sentence in 해요."]
   ],
   talk:[["지금 뭐 해?","What are you doing now?"],["주말에 뭐 했어?","What did you do on the weekend?"],["오늘 저녁에 뭐 먹을까?","What should we eat tonight?"]],
   after:"HTSK Lesson 6 covers speech levels, including how casual forms are made."

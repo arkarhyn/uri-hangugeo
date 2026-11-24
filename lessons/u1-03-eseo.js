@@ -17,7 +17,11 @@ LESSONS.push({
      ex:[["미국[에서] 왔어요.","I came from America."],["어디[에서] 오셨어요?","Where are you from? (respectful)"]]},
     {h:"Short forms", p:"In speech, 에서 often shrinks to 서 after these words.",
      t:[["Full","Short","Meaning"],["어디에서","어디서","where (at)"],["여기에서","여기서","here"],["거기에서","거기서","there"],["저기에서","저기서","over there"]],
-     ex:[["어디서 일해요?","Where do you work?"],["여기서 기다리세요.","Please wait here."]]}
+     ex:[["어디서 일해요?","Where do you work?"],["여기서 기다리세요.","Please wait here."]]},
+    {h:"In 반말", p:"에서 doesn't change in 반말. Only the ending drops 요, and 저 becomes 나.",
+     t:[["Polite","반말","Meaning"],["도서관에서 공부해요","도서관에서 공부해[x:요]","study at the library"],["카페에서 마셔요","카페에서 마셔[x:요]","drink at a café"],["어디서 일해요?","어디서 일해[x:요]?","where do you work?"],["[c:저]는 집에서 쉬어요","[c:나]는 집에서 쉬어[x:요]","I rest at home"]],
+     ex:[["도서관[에서] 공부해.","I study at the library."],["어디[서] 일해?","Where do you work?"],["[c:나]는 집[에서] 쉬어.","I rest at home."]],
+     note:"See also: the casual speech lesson (반말) covers 반말 in full."}
   ],
   vocab:[["도서관","library"],["카페","café"],["회사","company, office"],["공원","park"],["식당","restaurant"],["학교","school"],["집","home, house"],["시장","market"],["체육관","gym"],["영화관","movie theater"],["쉬다","to rest"],["운동하다","to exercise"],["사다","to buy"],["요리하다","to cook"],["어디서","where (at)"]],
   ex:[
@@ -35,12 +39,23 @@ LESSONS.push({
     {k:"build",q:"I cook at home.",ok:["저는 집에서 요리해요"],x:["집에"]},
     {k:"build",q:"Where do you work?",ok:["어디서 일해요?"],x:["어디에"]}
   ],
+  say:[
+    {en:"I study at the library.", ko:"도서관[에서] 공부해요.", ban:"도서관[에서] 공부해.", hint:"place + 에서 + action"},
+    {en:"I drink coffee at a café.", ko:"카페[에서] 커피를 마셔요.", ban:"카페[에서] 커피를 마셔.", alt:["카페에서 커피 마셔요."], banAlt:["카페에서 커피 마셔."]},
+    {en:"I work at a company.", ko:"회사[에서] 일해요.", ban:"회사[에서] 일해."},
+    {en:"Where do you work?", ko:"어디[서] 일해요?", ban:"어디[서] 일해?", alt:["어디에서 일해요?"], banAlt:["어디에서 일해?"], hint:"where + 에서, shortened"},
+    {en:"I buy fruit at the market.", ko:"시장[에서] 과일을 사요.", ban:"시장[에서] 과일을 사.", alt:["시장에서 과일 사요."], banAlt:["시장에서 과일 사."]},
+    {en:"I meet a friend at the park.", ko:"공원[에서] 친구를 만나요.", ban:"공원[에서] 친구를 만나.", alt:["공원에서 친구 만나요."], banAlt:["공원에서 친구 만나."]},
+    {en:"Where do you usually meet friends?", ko:"보통 어디[서] 친구를 만나요?", ban:"보통 어디[서] 친구를 만나?", alt:["보통 어디에서 친구를 만나요?"], banAlt:["보통 어디에서 친구를 만나?"], hint:"time word first"},
+    {en:"Jieun is at the library. I study at the library.", ko:"지은이는 도서관[에] 있어요. [c:저]는 도서관[에서] 공부해요.", ban:"지은이는 도서관[에] 있어. [c:나]는 도서관[에서] 공부해.", hint:"being somewhere takes 에; doing something takes 에서"}
+  ],
   plan:[
     ["5","Warm-up","Name five places in your town in Korean (도서관, 카페, 체육관 and so on)."],
     ["8","Teach","Slides 1 to 3. Draw two columns on paper: 에 (be, go) and 에서 (do)."],
     ["8","Where do you…?","Take turns asking 어디에서 ___해요? (공부해요, 운동해요, 커피를 마셔요) and answering with a real place."],
     ["5","Edge cases","Slides 4 to 6: 앉다 and 도착하다 take 에, and 에서 can also mean \"from\"."],
-    ["6","Check","Practice tab. Say each finished sentence out loud before moving on."]
+    ["6","Check","Practice tab. Say each finished sentence out loud before moving on."],
+    ["5","Say it","Say it tab, polite first. Before revealing each one, say out loud whether it needs 에 or 에서."]
   ],
   talk:[["보통 어디에서 공부해요?","Where do you usually study?"],["주말에 어디에서 친구를 만나요?","Where do you meet friends on weekends?"],["어디에서 오셨어요?","Where are you from?"]],
   after:"HTSK Lesson 12 has a section on 에서, along with 부터, 까지 and (으)로."

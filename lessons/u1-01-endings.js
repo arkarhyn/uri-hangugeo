@@ -21,7 +21,11 @@ LESSONS.push({
      ex:[["감사[합니다].","Thank you."],["어디에 [갑니까]?","Where are you going? (formal)"]]},
     {h:"Questions use the same words", p:"In 해요체 a question is the same form with your voice rising at the end. The answer can repeat it with falling intonation.",
      ex:[["커피를 마셔요?","Do you drink coffee? ↗"],["네, 마셔요.","Yes, I do. ↘"],["지금 공부해요?","Are you studying now?"]],
-     note:"Quick check: say 먹다, 오다, 마시다, 일하다 in 해요 and 합니다 before moving on."}
+     note:"Quick check: say 먹다, 오다, 마시다, 일하다 in 해요 and 합니다 before moving on."},
+    {h:"In 반말", p:"Between close friends, 해요 simply loses its 요, and the formal 합니다 style isn't used. 이에요 and 예요 become 이야 and 야.",
+     t:[["Polite","반말","Meaning"],["먹어요","먹어[x:요]","eat"],["와요","와[x:요]","come"],["공부해요","공부해[x:요]","study"],["학생이에요","학생[c:이야]","am a student"],["커피예요","커피[c:야]","is coffee"]],
+     ex:[["[c:나]는 학생[c:이야].","I'm a student. (to a friend)"],["커피 마셔?","Do you drink coffee? (to a friend)"],["지금 공부해?","Are you studying now? (to a friend)"]],
+     note:"See also: the casual speech lesson (반말) covers 반말 in full."}
   ],
   vocab:[["가다","to go"],["오다","to come"],["먹다","to eat"],["마시다","to drink"],["보다","to see, watch"],["하다","to do"],["공부하다","to study"],["배우다","to learn"],["만나다","to meet"],["읽다","to read"],["기다리다","to wait"],["앉다","to sit"],["일하다","to work"],["살다","to live"],["만들다","to make"]],
   ex:[
@@ -40,12 +44,23 @@ LESSONS.push({
     {k:"build",q:"I eat bread. (polite)",ok:["저는 빵을 먹어요"],x:["먹습니까"]},
     {k:"build",q:"Do you drink coffee? (polite)",ok:["커피를 마셔요?"],x:["마시요?"]}
   ],
+  say:[
+    {en:"I eat bread.", ko:"빵을 [먹어요].", ban:"빵을 [먹어].", alt:["빵 먹어요."], banAlt:["빵 먹어."], hint:"먹다: last vowel ㅓ"},
+    {en:"I study Korean.", ko:"한국어를 공부[해요].", ban:"한국어를 공부[해].", alt:["한국어 공부해요."], banAlt:["한국어 공부해."], hint:"공부하다: every 하다 verb ends in 해요"},
+    {en:"I'm a student.", ko:"[c:저]는 학생[이에요].", ban:"[c:나]는 학생[이야].", alt:["학생이에요."], banAlt:["학생이야."], hint:"noun + 이에요 / 예요; I = 저 in polite speech"},
+    {en:"Do you work today?", ko:"오늘 일[해요]?", ban:"오늘 일[해]?", hint:"A question is the same form with rising intonation"},
+    {en:"I read a book.", ko:"책을 [읽어요].", ban:"책을 [읽어].", alt:["책을 읽습니다."], hint:"formal version: a consonant stem takes 습니다"},
+    {en:"I live in Seoul.", ko:"서울에 [살아요].", ban:"서울에 [살아].", alt:["서울에 삽니다."], hint:"formal version: the ㄹ drops before ㅂ니다 (삽니다)"},
+    {en:"My friend is a doctor.", ko:"[c:제] 친구는 의사[예요].", ban:"[c:내] 친구는 의사[야].", alt:["제 친구는 의사입니다."], hint:"의사 ends in a vowel"},
+    {en:"I learn Korean at the library.", ko:"도서관에서 한국어를 [배워요].", ban:"도서관에서 한국어를 [배워].", alt:["도서관에서 한국어를 배웁니다."], hint:"배우다: ㅜ + 어 merge"}
+  ],
   plan:[
     ["5","Warm-up","Greet each other twice: once like a news anchor (안녕하십니까?), once like coworkers (안녕하세요?). Talk about what felt different."],
     ["10","Teach","Slides 1 to 5. Write five verbs on paper and find each stem together before adding any ending."],
     ["8","Ping-pong drill","One person says a dictionary form (먹다). The other answers in 해요 (먹어요), then 합니다 (먹습니다). Switch every five verbs. The Words tab has the list."],
     ["5","Formal switch","Slide 6. Re-say three of your 해요 sentences in 합니다체 as if giving a briefing."],
-    ["5","Check","Do the Practice tab together. Read every explanation out loud, even for right answers."]
+    ["5","Check","Do the Practice tab together. Read every explanation out loud, even for right answers."],
+    ["5","Say it","Say it tab, polite first. Do the 합니다 sentences twice, once in 합니다 and once in 해요."]
   ],
   talk:[["오늘 뭐 해요?","What are you doing today?"],["커피를 마셔요?","Do you drink coffee?"],["어디에 살아요?","Where do you live?"]],
   after:"Read HTSK Lesson 5 for more conjugation detail, then do the Practice tab once on your own."
