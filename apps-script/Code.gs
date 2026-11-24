@@ -4,7 +4,7 @@
  * Setup (once): open a new Google Sheet, Extensions > Apps Script, replace the
  * contents of Code.gs with this file, save, then Deploy > New deployment >
  * type "Web app", Execute as "Me", Who has access "Anyone". Copy the /exec URL
- * into SHEET_URL near the top of index.html's script.
+ * into SHEET_URL in the site's app.js.
  * After editing this file later: Deploy > Manage deployments > Edit >
  * Version "New version". That keeps the same /exec URL.
  *
@@ -22,8 +22,8 @@
 const TAB = "Log";
 const HEAD = ["When", "Who", "Activity", "Item", "Right", "Total", "Percent", "Id"];
 
-// Lesson ids are checked by shape, so adding a lesson to index.html needs no
-// script update. Keep the fixed lists in step with GYM_MODES in index.html.
+// Lesson ids are checked by shape, so adding a lesson file to the site needs no
+// script update. Keep the fixed lists in step with GYM_MODES in app.js.
 const LESSON_RE = /^[a-z][a-z0-9-]{1,23}$/;
 const ITEMS = {
   review: ["mixed"],

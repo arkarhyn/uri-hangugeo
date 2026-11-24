@@ -1,0 +1,62 @@
+"use strict";
+LESSONS.push({
+  id:"linking", unit:2, ko:"-고 -지만 -아서", title:"And, but, so",
+  blurb:"Join two sentences into one with -고 (and), -지만 (but) and -아서/어서 (so, because).",
+  src:["L17","L47","L37"],
+  goals:["Join two facts or actions with -고","Contrast two things with -지만","Give a reason with -아서/어서","Remember that -아서 never takes the past tense"],
+  slides:[
+    {h:"Two sentences into one", p:"You can already join sentences with separate words: 그리고 (and), 하지만 (but), 그래서 (so). Korean usually glues the link onto the first verb instead.",
+     t:[["Two sentences","One sentence"],["밥을 먹어요. 그리고 커피를 마셔요.","밥을 먹고 커피를 마셔요."],["비싸요. 하지만 맛있어요.","비싸지만 맛있어요."],["피곤해요. 그래서 자요.","피곤해서 자요."]]},
+    {h:"-고: and", p:"Stem + 고. No vowel rule and no batchim rule. It lists facts, or actions in order.",
+     ex:[["밥을 먹[고] 커피를 마셔요.","I eat, then I have coffee."],["이 식당은 싸[고] 맛있어요.","This restaurant is cheap and good."],["저는 커피를 마시[고] 친구는 차를 마셔요.","I drink coffee and my friend drinks tea."],["샤워하[고] 잘 거예요.","I'm going to shower and go to bed."]],
+     note:"Usually the tense goes only on the last verb: 어제 밥을 먹고 잤어요 means \"Yesterday I ate and went to sleep.\""},
+    {h:"-지만: but", p:"Stem + 지만. Unlike -고, it very often carries the past tense itself: 했지만, 갔지만.",
+     ex:[["비싸[지만] 맛있어요.","It's expensive, but it's good."],["한국어는 어렵[지만] 재미있어요.","Korean is hard but fun."],["어제 전화했[지만] 안 받았어요.","I called yesterday, but they didn't pick up."],["저는 고기를 좋아하[지만] 친구는 안 좋아해요.","I like meat, but my friend doesn't."]]},
+    {h:"-아서/어서: so, because", p:"Take the 해요 form, drop 요 and add 서. 하다 becomes 해서. The reason comes first and the result second.",
+     t:[["Verb","해요 form","Reason form"],["늦다 (be late)","늦어요","늦어서"],["좋다 (be good)","좋아요","좋아서"],["맛있다 (be tasty)","맛있어요","맛있어서"],["피곤하다 (be tired)","피곤해요","피곤해서"],["비가 오다 (rain)","비가 와요","비가 와서"]],
+     ex:[["늦[어서] 미안해요.","Sorry I'm late."],["피곤[해서] 일찍 잤어요.","I was tired, so I went to bed early."],["비가 [와서] 집에 있었어요.","It rained, so I stayed home."]]},
+    {h:"No past tense before -아서", p:"With -아서, the tense goes only on the last verb. Even when the reason happened in the past, the -아서 part stays plain.",
+     ex:[["어제 피곤[해서] 일찍 잤어요.","I was tired yesterday, so I went to bed early. ✓"],["어제 피곤했어서 일찍 잤어요.","✗ Never put 았/었 before 서."]],
+     note:"When -아서 gives a reason, the sentence can't end in a request or a suggestion (-세요, -(으)ㄹ까요). That needs -(으)니까, which comes in a later lesson."},
+    {h:"-아서 as \"and then, there\"", p:"With verbs like 가다, 오다, 만나다 and 앉다, -아서 also means \"and then, in that place or with that person\". Use -고 when the two actions aren't connected.",
+     ex:[["친구를 만나[서] 영화를 봤어요.","I met a friend and we watched a movie."],["학교에 가[서] 공부했어요.","I went to school and studied there."],["밥을 먹[고] 영화를 봤어요.","I ate, then I watched a movie. (two separate things)"]]},
+    {h:"Which one?", p:"Same two facts, three different links.",
+     t:[["You want to say","Use"],["A and B, or A then B","-고"],["A, but B","-지만"],["A, so B (because A, B)","-아서/어서"]],
+     ex:[["맛있[고] 싸요.","It's tasty and cheap."],["맛있[지만] 비싸요.","It's tasty but expensive."],["맛있[어서] 또 왔어요.","It was tasty, so I came again."]]}
+  ],
+  vocab:[["그리고","and"],["하지만","but"],["그래서","so"],["싸다","to be cheap"],["비싸다","to be expensive"],["맛있다","to be tasty"],["어렵다","to be difficult"],["재미있다","to be fun"],["늦다","to be late"],["일찍","early"],["미안하다","to be sorry"],["피곤하다","to be tired"],["좋아하다","to like"],["또","again"],["샤워하다","to shower"]],
+  ex:[
+    {k:"mc",q:"\"It's cheap and good.\"",c:["싸고 맛있어요.","싸지만 맛있어요.","싸서 맛있어요.","싸요고 맛있어요."],why:"Two facts side by side: -고."},
+    {k:"mc",q:"\"It's expensive, but it's good.\"",c:["비싸지만 맛있어요.","비싸고 맛있어요.","비싸서 맛있어요.","비싸요지만 맛있어요."],why:"A contrast: -지만, attached to the stem."},
+    {k:"mc",q:"\"Sorry I'm late.\"",c:["늦어서 미안해요.","늦고 미안해요.","늦었어서 미안해요.","늦지만 미안해요."],why:"Being late is the reason, so it takes -어서. 늦었어서 is wrong: no past tense before 서."},
+    {k:"mc",q:"피곤하다 as a reason (\"because I'm tired…\")",c:["피곤해서","피곤하서","피곤했어서","피곤해요서"],why:"하다 becomes 해서."},
+    {k:"mc",q:"늦다 as a reason",c:["늦어서","늦아서","늦서","늦었어서"],why:"늦어요 minus 요, plus 서."},
+    {k:"mc",q:"\"Yesterday I ate and went to sleep.\"",c:["어제 밥을 먹고 잤어요.","어제 밥을 먹었어요고 잤어요.","어제 밥을 먹지만 잤어요.","어제 밥을 먹고 자요."],why:"Join with -고 and put the past tense on the last verb."},
+    {k:"mc",q:"\"It rained, so I stayed home.\"",c:["비가 와서 집에 있었어요.","비가 왔어서 집에 있었어요.","비가 오지만 집에 있었어요.","비가 오고 집에 있었어요."],why:"The rain is the reason: 와서, with no past tense before 서."},
+    {k:"mc",q:"\"Korean is hard but fun.\"",c:["한국어는 어렵지만 재미있어요.","한국어는 어렵고 재미있어요.","한국어는 어렵요지만 재미있어요.","한국어는 어렵지만서 재미있어요."],why:"A contrast: stem + 지만."},
+    {k:"mc",q:"\"I called, but they didn't pick up.\"",c:["전화했지만 안 받았어요.","전화해서 안 받았어요.","전화하고 안 받았어요.","전화했어서 안 받았어요."],why:"-지만 can carry the past: 했지만."},
+    {k:"mc",q:"Which sentence is wrong?",c:["어제 늦었어서 미안해요.","어제 늦어서 미안해요.","싸고 맛있어요.","비쌌지만 샀어요."],why:"No past tense before -아서: it should be 늦어서."},
+    {k:"mc",q:"\"I met a friend and we watched a movie.\"",c:["친구를 만나서 영화를 봤어요.","친구를 만나지만 영화를 봤어요.","친구를 만났어서 영화를 봤어요.","친구를 만나요서 영화를 봤어요."],why:"With 만나다, -아서 means \"and then, with them\"."},
+    {k:"mc",q:"\"I like coffee, but my friend doesn't.\"",c:["저는 커피를 좋아하지만 친구는 안 좋아해요.","저는 커피를 좋아해서 친구는 안 좋아해요.","저는 커피를 좋아하고 친구는 좋아해요.","저는 커피를 좋아하지만 친구는 좋아해요."],why:"A contrast with -지만, and 안 makes the second part negative."},
+    {k:"build",q:"I was tired, so I went to bed early.",ok:["피곤해서 일찍 잤어요"],x:["피곤했어서"]},
+    {k:"build",q:"I'm going to shower and go to bed.",ok:["샤워하고 잘 거예요"],x:["샤워해서"]}
+  ],
+  pool:[
+    {k:"mc",q:"좋다 as a reason",c:["좋아서","좋어서","좋서","좋았어서"],why:"The last vowel is ㅗ, so 아서."},
+    {k:"mc",q:"오다 as a reason (비가 ___)",c:["와서","오서","오아서","왔어서"],why:"와요 minus 요, plus 서."},
+    {k:"mc",q:"공부하다 + -고",c:["공부하고","공부해고","공부하요고","공부학고"],why:"-고 attaches straight to the stem."},
+    {k:"mc",q:"싸다 + -지만",c:["싸지만","싸요지만","싸서지만","싸아지만"],why:"-지만 attaches straight to the stem."},
+    {k:"mc",q:"그래서 means…",c:["so","but","and","or"],why:"그래서 = so, therefore."},
+    {k:"mc",q:"하지만 means…",c:["but","so","and","if"],why:"하지만 = but."}
+  ],
+  poolN:3,
+  plan:[
+    ["5","Warm-up","Each person says two short sentences about today with 그리고 or 하지만 between them (오늘 바빠요. 하지만 행복해요.)."],
+    ["10","Teach","Slides 1 to 3. Take the warm-up sentences and glue them together with -고 and -지만 instead."],
+    ["8","Excuses game","Slides 4 and 5. One person invites (같이 영화 볼까요?). The other says no with a reason using -아서/어서 (미안해요, 피곤해서 못 가요). Keep going until someone runs out of excuses."],
+    ["5","Which one?","Slide 7. Describe a restaurant you both know three ways: with -고, with -지만 and with -아서."],
+    ["5","Check","Practice tab."]
+  ],
+  talk:[["한국어 공부는 어때요?","How's studying Korean going?"],["어제 왜 늦게 잤어요?","Why did you go to bed late last night?"],["이 식당 어때요?","How's this restaurant?"]],
+  after:"HTSK Lesson 17 covers -고, Lesson 47 covers -지만, and Lesson 37 covers -아서/어서."
+});

@@ -1,15 +1,23 @@
 // Lesson checker: node tools/check.mjs
-// Loads the SRC map and LESSONS array out of index.html and checks their shape.
+// Loads lessons/sources.js and every lesson file, in the order index.html's <script> tags list them, and checks their shape.
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-const start = html.indexOf('const HT = ');
-const end = html.indexOf('const LMAP');
-if (start < 0 || end < 0) { console.error('Could not find SRC/LESSONS in index.html'); process.exit(1); }
-const { SRC, LESSONS } = new Function(html.slice(start, end) + '\nreturn {SRC, LESSONS};')();
+const tagged = [...html.matchAll(/<script src="(lessons\/[^"]+\.js)"><\/script>/g)].map(m => m[1]);
+const onDisk = fs.readdirSync(path.join(root, 'lessons')).filter(f => f.endsWith('.js')).map(f => 'lessons/' + f);
+const loadErrs = [];
+onDisk.filter(f => !tagged.includes(f)).forEach(f => loadErrs.push(`${f} has no <script> tag in index.html, so the site never loads it`));
+tagged.filter(f => !onDisk.includes(f)).forEach(f => loadErrs.push(`index.html loads ${f}, which doesn't exist`));
+if (tagged[0] !== 'lessons/sources.js') loadErrs.push('lessons/sources.js must be the first lesson script in index.html');
+if (loadErrs.length) { console.error(loadErrs.join('\n')); process.exit(1); }
+let SRC, LESSONS;
+try {
+  const code = tagged.map(f => fs.readFileSync(path.join(root, f), 'utf8').replace(/^﻿?"use strict";/, '')).join('\n;\n');
+  ({ SRC, LESSONS } = new Function(code + '\nreturn {SRC, LESSONS};')());
+} catch (e) { console.error('A lesson file has a JavaScript error: ' + e.message); process.exit(1); }
 
 const errs = [], warns = [];
 const bad = (L, msg) => errs.push(`${L.id || '?'}: ${msg}`);

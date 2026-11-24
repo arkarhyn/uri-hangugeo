@@ -1,0 +1,58 @@
+"use strict";
+LESSONS.push({
+  id:"honorifics", ko:"높임말", title:"Honorific and humble speech",
+  blurb:"Lower yourself with 저, 제, 저희 and humble verbs; raise others with -(으)시- and special words.",
+  src:["L6","L39","L13"],
+  goals:["Use 저, 제, 저희 for yourself","Add -(으)시- to raise the person you're talking about","Swap in special honorific verbs like 계시다, 드시다, 주무시다","Use 께서 and 께, and humble verbs like 드리다 and 뵙다"],
+  slides:[
+    {h:"Respect goes in two directions", p:"Korean shows respect two ways, often in the same sentence. You <b>raise</b> the other person with honorific forms, and you <b>lower</b> yourself with humble forms. The ending (-요, -습니다) is respect for the listener. Honorifics are respect for the person you're talking about.",
+     ex:[["할머니께서 [주무세요].","Grandmother is sleeping. (raising her)"],["[제가] 할머니께 전화를 [드려요].","I call Grandmother. (lowering me)"]]},
+    {h:"Lowering yourself: 저, 제, 저희", p:"With anyone older or anyone you don't know well, swap the plain words for yourself into humble ones.",
+     t:[["Plain","Humble","Meaning"],["나","저","I"],["내가","제가","I (as subject)"],["나의 / 내","제","my"],["우리","저희","we, our"]],
+     ex:[["[제] 이름은 김민수예요.","My name is Minsu Kim."],["[저희] 회사는 서울에 있어요.","Our company is in Seoul."]],
+     note:"저희 lowers your group in front of the listener, so don't use it when the listener belongs to the group."},
+    {h:"Raising others: -(으)시-", p:"Add 시 to the stem of the verb (으시 after a consonant). In polite speech this becomes -(으)세요, in formal speech -(으)십니다. A stem ending in ㄹ drops the ㄹ.",
+     t:[["Verb","Polite honorific","Formal honorific"],["가다","가세요","가십니다"],["일하다","일하세요","일하십니다"],["읽다","읽으세요","읽으십니다"],["앉다","앉으세요","앉으십니다"],["살다","사세요","사십니다"]],
+     ex:[["선생님이 한국어를 [가르치세요].","The teacher teaches Korean."],["할아버지는 부산에 [사세요].","Grandfather lives in Busan."]],
+     note:"Never put -(으)시- on yourself. 저는 가세요 is wrong; say 저는 가요."},
+    {h:"-(으)세요 also means \"please\"", p:"The same form works as a polite request. That's why the two goodbyes differ: you tell the person leaving to go well, and the person staying to stay well.",
+     ex:[["여기 [앉으세요].","Please sit here."],["잠깐만 [기다리세요].","Please wait a moment."],["안녕히 [가세요].","Goodbye. (to someone leaving)"],["안녕히 [계세요].","Goodbye. (to someone staying)"]]},
+    {h:"Some verbs change completely", p:"A few common verbs have their own honorific word instead of just adding 시.",
+     t:[["Plain","Honorific","Polite form"],["있다 (be somewhere)","계시다","계세요"],["먹다 / 마시다","드시다","드세요"],["자다","주무시다","주무세요"],["말하다","말씀하시다","말씀하세요"],["아프다 (be sick)","편찮으시다","편찮으세요"]],
+     ex:[["아버지께서 집에 [계세요].","Father is at home."],["맛있게 [드세요].","Enjoy your meal."],["시간 [있으세요]?","Do you have time? (있다 \"to have\" takes regular 있으세요)"]]},
+    {h:"Honorific particles and nouns", p:"The particles change too: 이/가 becomes 께서, 은/는 becomes 께서는, and 에게/한테 (to someone) becomes 께. Some nouns also have an honorific version.",
+     t:[["Plain","Honorific","Meaning"],["이름","성함","name"],["나이","연세","age"],["집","댁","home"],["말","말씀","words, speech"],["생일","생신","birthday"],["사람","분","person"]],
+     ex:[["[성함]이 어떻게 되세요?","What is your name?"],["[연세]가 어떻게 되세요?","How old are you? (to an elder)"],["할머니[께] 선물을 드려요.","I give Grandmother a present."]]},
+    {h:"Humble verbs: what you do for others", p:"When you do something for a respected person, use the humble verb. It lowers you rather than raising them.",
+     t:[["Plain","Humble","Meaning"],["주다","드리다","to give"],["만나다 / 보다","뵙다","to meet, see"],["묻다","여쭤보다","to ask"],["말하다","말씀드리다","to tell"]],
+     ex:[["처음 [뵙겠습니다].","Nice to meet you. (first meeting)"],["부모님께 전화를 [드려요].","I call my parents."],["잘 부탁[드립니다].","I look forward to working with you."]]},
+    {h:"All together", p:"Listen for who is being raised and who is being lowered in each line.",
+     ex:[["안녕하세요. 성함이 어떻게 되세요?","Hello. What is your name?"],["저는 이지은입니다.","I'm Jieun Lee."],["부모님은 어디에 사세요?","Where do your parents live?"],["저희 부모님은 부산에 사세요.","My parents live in Busan."],["할머니께서도 부산에 계세요?","Is your grandmother in Busan too?"]]}
+  ],
+  vocab:[["저","I (humble)"],["제","my (humble)"],["저희","we, our (humble)"],["계시다","to be (somewhere), honorific"],["드시다","to eat or drink, honorific"],["주무시다","to sleep, honorific"],["말씀하시다","to speak, honorific"],["드리다","to give (humble)"],["뵙다","to meet (humble)"],["여쭤보다","to ask (humble)"],["성함","name (honorific)"],["연세","age (honorific)"],["댁","home (honorific)"],["분","person (honorific)"],["께서","subject particle (honorific)"],["께","to (someone), honorific"]],
+  ex:[
+    {k:"mc",q:"\"My name is Minsu.\" (to a stranger)",c:["제 이름은 민수예요.","내 이름은 민수예요.","제 성함은 민수예요.","저 이름은 민수예요."],why:"제 is the humble \"my\". 성함 raises a name, so never use it for your own."},
+    {k:"mc",q:"\"Grandmother is sleeping.\" (respectfully)",c:["할머니께서 주무세요.","할머니가 자요.","할머니께서 자세요.","할머니께 주무세요."],why:"자다 has its own honorific verb, 주무시다, and 께서 replaces 가. 할머니가 자요 is grammatical but sounds disrespectful."},
+    {k:"mc",q:"\"Please sit here.\"",c:["여기 앉으세요.","여기 앉세요.","여기 앉아세요.","여기 앉으시요."],why:"앉 ends in a consonant, so it takes 으세요."},
+    {k:"mc",q:"읽다 + honorific, polite",c:["읽으세요","읽세요","읽어세요","일으세요"],why:"Consonant stem + 으세요."},
+    {k:"mc",q:"살다 + honorific, polite",c:["사세요","살으세요","살세요","사으세요"],why:"The ㄹ drops before 시: 사세요."},
+    {k:"mc",q:"\"Is your father at home?\"",c:["아버지께서 집에 계세요?","아버지께서 집에 있으세요?","아버지께 집에 계세요?","아버지께서 집에서 계세요?"],why:"있다 meaning \"be somewhere\" becomes 계시다 for a respected person."},
+    {k:"mc",q:"\"I give a present to my teacher.\"",c:["선생님께 선물을 드려요.","선생님께 선물을 줘요.","선생님께서 선물을 드려요.","선생님한테 선물을 주세요."],why:"께 marks who receives it and 드리다 is the humble \"give\". 께서 would make the teacher the one giving."},
+    {k:"mc",q:"First meeting, formal: \"Nice to meet you.\"",c:["처음 뵙겠습니다.","처음 보겠습니다.","처음 만나세요.","처음 뵈세요."],why:"뵙다 is the humble \"meet\". This is a set phrase."},
+    {k:"mc",q:"Which sentence is wrong?",c:["저는 지금 주무세요.","할아버지께서 진지를 드세요.","선생님께서 말씀하세요.","저는 지금 자요."],why:"Honorifics never go on yourself. Say 저는 지금 자요."},
+    {k:"mc",q:"\"What is your name?\" (to an elder)",c:["성함이 어떻게 되세요?","이름이 뭐야?","제 성함이 뭐예요?","이름이 어떻게 돼?"],why:"성함 plus 어떻게 되세요 is the respectful way to ask."},
+    {k:"mc",q:"가다 + honorific, formal",c:["가십니다","가습니다","가시습니다","갑시니다"],why:"가 + 시 + ㅂ니다 = 가십니다."},
+    {k:"mc",q:"What does 저희 mean?",c:["we / our (humble)","you (polite)","they","my (humble)"],why:"저희 is the humble form of 우리."},
+    {k:"build",q:"Enjoy your meal.",ok:["맛있게 드세요"],x:["드려요"]},
+    {k:"build",q:"My parents live in Busan. (humble, respectful)",ok:["저희 부모님은 부산에 사세요"],x:["살아요"]}
+  ],
+  plan:[
+    ["5","Warm-up","Act out meeting a friend's grandmother: 처음 뵙겠습니다. 저는 ___입니다."],
+    ["10","Teach","Slides 1 to 4. Stress the two directions: lower yourself (저, 제, 저희), raise them (-(으)시-)."],
+    ["7","Swap game","Slides 5 to 7. One person says a plain word (자다, 이름, 주다), the other gives the honorific or humble version (주무시다, 성함, 드리다). Keep score."],
+    ["5","Family talk","Each person describes one older relative with honorifics: 할머니께서 ___에 사세요. ___을/를 좋아하세요."],
+    ["5","Check","Practice tab. Watch for the trap: honorifics never go on yourself."]
+  ],
+  talk:[["부모님은 어디에 사세요?","Where do your parents live?"],["할머니께서는 연세가 어떻게 되세요?","How old is your grandmother?"],["주말에 뭐 하세요?","What do you do on weekends?"]],
+  after:"HTSK Lesson 6 covers speech levels. Lesson 39 goes deeper into -시- and the special honorific words."
+});

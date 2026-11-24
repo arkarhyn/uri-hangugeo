@@ -4,7 +4,7 @@ Korean lessons for after the KSM textbook. **New lessons** (Unit 2) pick up wher
 
 The lesson text is original. Each lesson links to the matching free lesson on [How to Study Korean](https://www.howtostudykorean.com/).
 
-The whole site is one file, `index.html`, and needs no build step. Progress is saved in each browser. When `SHEET_URL` is set, finished quizzes are also logged to a Google Sheet, so the Progress page can show everyone's scores.
+The site is plain files with no build step: `index.html` (the page shell), `styles.css`, `app.js` (all the code), and `lessons/` (`sources.js` plus one file per lesson, loaded in teaching order). It still works when `index.html` is opened by double-click. Progress is saved in each browser. When `SHEET_URL` is set, finished quizzes are also logged to a Google Sheet, so the Progress page can show everyone's scores.
 
 ## 1. Shared progress sheet (once, about 5 minutes)
 
@@ -14,7 +14,7 @@ The whole site is one file, `index.html`, and needs no build step. Progress is s
    - Execute as: **Me**
    - Who has access: **Anyone**
 4. Click **Deploy**, approve the permissions prompt (Google warns because the script is unverified: Advanced → Go to project), then copy the **Web app URL** (ends in `/exec`).
-5. In `index.html`, set `const SHEET_URL = "https://script.google.com/macros/s/…/exec";`, then commit and push.
+5. In `app.js`, set `const SHEET_URL = "https://script.google.com/macros/s/…/exec";`, then commit and push.
 
 The sheet stores only the name each person types on the site and their scores. Anyone who has the `/exec` URL could read or add rows, so use first names or nicknames.
 
@@ -26,4 +26,4 @@ The repo is served from the `main` branch root. After pushing, the site is at `h
 
 ## Adding lessons
 
-Full guide: [`docs/LESSONS.md`](docs/LESSONS.md). Run `node tools/check.mjs` before committing. In short: add an entry to the `LESSONS` array in `index.html` with the same shape as the others (slides, vocab, ex, plan, talk, after, src). Practice items are `{k:"mc", q, c:[correct, ...wrong], why}` or `{k:"build", q, ok:[accepted sentences], x:[extra wrong tiles]}`. Set `unit:2` for a new lesson (unit 1 is review). Optional `pool:[...]` plus `poolN` adds that many random extra questions to each practice run. Lesson ids must be lowercase letters, digits or dashes (2-24 characters); the Sheet script accepts any id of that shape, so new lessons need no script change.
+Full guide: [`docs/LESSONS.md`](docs/LESSONS.md). Run `node tools/check.mjs` before committing. In short: add a file to `lessons/` with one `LESSONS.push({...});` call shaped like the others, and a `<script>` line for it in `index.html` (slides, vocab, ex, plan, talk, after, src). Practice items are `{k:"mc", q, c:[correct, ...wrong], why}` or `{k:"build", q, ok:[accepted sentences], x:[extra wrong tiles]}`. Set `unit:2` for a new lesson (unit 1 is review). Optional `pool:[...]` plus `poolN` adds that many random extra questions to each practice run. Lesson ids must be lowercase letters, digits or dashes (2-24 characters); the Sheet script accepts any id of that shape, so new lessons need no script change.

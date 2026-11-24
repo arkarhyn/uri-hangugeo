@@ -1,12 +1,12 @@
 # How to add a lesson
 
-Every lesson is one object in the `LESSONS` array in `index.html`. The page builds the slides, Words tab, flashcards, Practice quiz and lesson plan from that object, so adding a lesson means adding data, not code. Nothing else has to change: the progress Sheet accepts any new lesson id.
+Every lesson is one file in `lessons/`, named by unit and position (`u2-14-purpose.js`), holding one `LESSONS.push({...});` call. The page builds the slides, Words tab, flashcards, Practice quiz and lesson plan from that object, so adding a lesson means adding data, not code. Nothing else has to change: the progress Sheet accepts any new lesson id.
 
 ## The routine
 
-1. **Pick the topic.** The next ones are listed in `docs/PLAN.md` §6.1. Check what earlier lessons already teach (search `index.html` for the grammar point) so the new one builds on them instead of repeating them.
-2. **Write the lesson object** (shape below). Write the explanations and example sentences fresh. Use How to Study Korean (HTSK) only to check what to cover and to link to it, and never copy its sentences.
-3. **Add the HTSK link** to `SRC` near the top of the script if it isn't there yet, then list its key in the lesson's `src`.
+1. **Pick the topic.** The next ones are listed in `docs/PLAN.md` §6.1. Check what earlier lessons already teach (search `lessons/` for the grammar point) so the new one builds on them instead of repeating them.
+2. **Write the lesson file** (shape below). Copy an existing file in `lessons/` and add a `<script src="lessons/...">` line for it in `index.html`, after the lesson it follows. Script order is teaching order. The checker fails if a lesson file has no script line. Write the explanations and example sentences fresh. Use How to Study Korean (HTSK) only to check what to cover and to link to it, and never copy its sentences.
+3. **Add the HTSK link** to `SRC` in `lessons/sources.js` if it isn't there yet, then list its key in the lesson's `src`.
 4. **Run the checker:** `node tools/check.mjs`. It loads every lesson and reports missing fields, duplicate ids, unknown `src` keys, mismatched table rows, duplicate quiz choices, build answers that can't be made from their tiles, and broken bracket markup (unbalanced brackets, unknown roles like `[q:]`, misspelled note labels, short `steps` chains). `node tools/check.mjs --style` also lists slides over the size caps in the writing rules below. Those are warnings, not failures.
 5. **Get a Korean review.** Ask Claude for a separate reviewer pass on every sentence, and read it yourself. The checker can't tell whether the Korean is right.
 6. **Preview:** double-click `index.html`. For a phone test on the same Wi-Fi, run `python -m http.server` in the repo and open `http://<pc-ip>:8000`.

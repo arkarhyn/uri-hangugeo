@@ -1,0 +1,62 @@
+"use strict";
+LESSONS.push({
+  id:"ing", unit:2, ko:"하고 있어요", title:"What you're doing right now",
+  blurb:"Say what's happening right now, or what you're in the middle of these days, with -고 있어요.",
+  src:["L18"],
+  goals:["Say what you're doing right now with -고 있어요","Say what you were doing with -고 있었어요","Talk about what you're doing these days","Say what someone is wearing"],
+  slides:[
+    {h:"In the middle of it", p:"Stem + 고 있어요 means you're in the middle of doing something. There's no vowel rule and no batchim rule: just the stem, then 고 있어요.",
+     t:[["Verb","Stem","Right now"],["먹다","먹","먹고 있어요"],["보다","보","보고 있어요"],["기다리다","기다리","기다리고 있어요"],["공부하다","공부하","공부하고 있어요"]],
+     ex:[["지금 밥 먹[고 있어요].","I'm eating right now."],["버스를 기다리[고 있어요].","I'm waiting for the bus."]]},
+    {h:"Plain 해요 works too", p:"Korean often uses the plain present for \"now\". 지금 뭐 해요? and 지금 뭐 하고 있어요? both mean \"What are you doing?\"; -고 있어요 just stresses that it's happening at this moment.",
+     ex:[["지금 뭐 [해요]?","What are you doing now?"],["지금 뭐 하[고 있어요]?","What are you doing right now?"],["운전하[고 있어요]. 나중에 전화해 주세요.","I'm driving. Please call me later."]]},
+    {h:"These days", p:"With 요즘 (these days), -고 있어요 means something that's been going on for weeks or months, not just this second.",
+     ex:[["요즘 한국어를 배우[고 있어요].","I'm learning Korean these days."],["요즘 운동하[고 있어요].","I've been working out lately."],["요즘 무슨 드라마 보[고 있어요]?","What drama are you watching these days?"]]},
+    {h:"Was doing: -고 있었어요", p:"Put the past tense on 있다 only: -고 있었어요. It sets the scene for something else.",
+     ex:[["아까 샤워하[고 있었어요].","I was in the shower a little while ago."],["그때 뭐 하[고 있었어요]?","What were you doing then?"],["샤워하[고 있어서] 전화 못 받았어요.","I was in the shower, so I couldn't answer the phone."]],
+     note:"In the last sentence, -어서 attaches to 있다: 있어서. As in the linking lesson, there's no past tense before 서."},
+    {h:"Only for actions", p:"-고 있어요 goes on verbs, not adjectives. An adjective already describes a state, so the plain form is enough.",
+     ex:[["지금 피곤해요.","I'm tired right now. ✓"],["지금 피곤하고 있어요.","✗ 피곤하다 is an adjective."],["지금 일하[고 있어요].","I'm working right now. ✓"]]},
+    {h:"What someone is wearing", p:"With clothing verbs, -고 있어요 means \"is wearing\": the state after putting something on. Different items use different verbs.",
+     t:[["Verb","For","Example"],["입다","clothes","티셔츠를 입고 있어요"],["신다","shoes, socks","운동화를 신고 있어요"],["쓰다","hats, glasses","안경을 쓰고 있어요"],["하다","necklaces, scarves","목걸이를 하고 있어요"]],
+     ex:[["모자를 쓰[고 있어요].","I'm wearing a hat."],["오늘 뭐 입[고 있어요]?","What are you wearing today?"]]},
+    {h:"Honorific: -고 계세요", p:"For someone you raise (Review 2), 있어요 becomes 계세요.",
+     ex:[["할머니는 TV를 보[고 계세요].","Grandma is watching TV."],["선생님이 기다리[고 계세요].","The teacher is waiting."],["부장님은 회의하[고 계세요].","The manager is in a meeting."]],
+     note:"In 반말, drop the 요: 뭐 하고 있어?"}
+  ],
+  vocab:[["지금","now"],["요즘","these days"],["그때","then, at that time"],["나중에","later"],["기다리다","to wait"],["운전하다","to drive"],["일하다","to work"],["배우다","to learn"],["입다","to wear (clothes)"],["신다","to wear (shoes, socks)"],["쓰다","to wear (a hat, glasses)"],["안경","glasses"],["모자","hat"],["운동화","sneakers"],["목걸이","necklace"],["회의하다","to have a meeting"],["드라마","TV drama"]],
+  ex:[
+    {k:"mc",q:"먹다 + \"am doing\"",c:["먹고 있어요","먹어 있어요","먹고 있요","먹는 있어요"],why:"Stem + 고 있어요."},
+    {k:"mc",q:"공부하다 + \"am doing\"",c:["공부하고 있어요","공부해고 있어요","공부하고 있다요","공부했고 있어요"],why:"Stem 공부하 + 고 있어요."},
+    {k:"mc",q:"\"I'm waiting for the bus.\"",c:["버스를 기다리고 있어요.","버스를 기다려고 있어요.","버스를 기다리고 해요.","버스가 기다리고 있어요."],why:"기다리 + 고 있어요. The bus is what you're waiting for, so it takes 를."},
+    {k:"mc",q:"\"I'm learning Korean these days.\"",c:["요즘 한국어를 배우고 있어요.","요즘 한국어를 배웠고 있어요.","요즘 한국어를 배우고 있었어요.","어제 한국어를 배우고 있어요."],why:"요즘 + -고 있어요 for something ongoing."},
+    {k:"mc",q:"\"I was in the shower.\"",c:["샤워하고 있었어요.","샤워했고 있어요.","샤워하고 있어요.","샤워했고 있었어요."],why:"The past tense goes on 있다 only."},
+    {k:"mc",q:"Which sentence is wrong?",c:["지금 피곤하고 있어요.","지금 피곤해요.","지금 일하고 있어요.","지금 자고 있어요."],why:"피곤하다 is an adjective, so it can't take -고 있어요."},
+    {k:"mc",q:"\"I'm wearing glasses.\"",c:["안경을 쓰고 있어요.","안경을 입고 있어요.","안경을 신고 있어요.","안경을 쓰어 있어요."],why:"Hats and glasses use 쓰다."},
+    {k:"mc",q:"\"I'm wearing sneakers.\"",c:["운동화를 신고 있어요.","운동화를 입고 있어요.","운동화를 쓰고 있어요.","운동화를 신어 있어요."],why:"Shoes and socks use 신다."},
+    {k:"mc",q:"\"Grandma is watching TV.\" (raising her)",c:["할머니는 TV를 보고 계세요.","할머니는 TV를 보고 있세요.","할머니는 TV를 봐 계세요.","할머니는 TV를 보고 계셔요요."],why:"For someone you raise, 있어요 becomes 계세요."},
+    {k:"mc",q:"Your friend texts 지금 뭐 하고 있어? Which reply fits?",c:["드라마 보고 있어.","드라마 봤고 있어.","드라마 보 있어.","드라마 보고 있어자."],why:"Casual -고 있어 back."},
+    {k:"mc",q:"\"I was in the shower, so I couldn't answer.\"",c:["샤워하고 있어서 전화 못 받았어요.","샤워하고 있었어서 전화 못 받았어요.","샤워하고 있지만 전화 못 받았어요.","샤워해서 있어서 전화 못 받았어요."],why:"No past tense before -어서: 있어서."},
+    {k:"mc",q:"\"What were you doing then?\"",c:["그때 뭐 하고 있었어요?","그때 뭐 했고 있어요?","그때 뭐 하고 있어요요?","그때 뭐 하고 했어요?"],why:"그때 (then), with the past tense on 있다."},
+    {k:"build",q:"I'm driving right now.",ok:["지금 운전하고 있어요"],x:["운전했고"]},
+    {k:"build",q:"What are you watching these days?",ok:["요즘 뭐 보고 있어요"],x:["봤고"]}
+  ],
+  pool:[
+    {k:"mc",q:"자다 + \"am doing\"",c:["자고 있어요","자 있어요","잤고 있어요","자고 해요"],why:"Stem + 고 있어요."},
+    {k:"mc",q:"일하다 + \"was doing\"",c:["일하고 있었어요","일했고 있었어요","일해 있었어요","일하고 있었요"],why:"The past tense goes on 있다 only."},
+    {k:"mc",q:"티셔츠를 ___ 있어요. (wearing a T-shirt)",c:["입고","신고","쓰고","입어"],why:"Clothes use 입다."},
+    {k:"mc",q:"요즘 means…",c:["these days","right now","yesterday","later"],why:"요즘 = these days, lately."},
+    {k:"mc",q:"\"The teacher is waiting.\" (raising them)",c:["선생님이 기다리고 계세요.","선생님이 기다리고 있세요.","선생님이 기다려 계세요.","선생님이 기다리고 계셔요요."],why:"-고 계세요 for someone you raise."},
+    {k:"mc",q:"\"I'm reading a book.\"",c:["책을 읽고 있어요.","책을 읽어 있어요.","책을 읽었고 있어요.","책이 읽고 있어요."],why:"읽 + 고 있어요."}
+  ],
+  poolN:3,
+  plan:[
+    ["5","Warm-up","Ask each other 지금 뭐 해요? and answer with something true (한국어 공부해요!)."],
+    ["10","Teach","Slides 1 to 4. One person mimes an action; the other says what they're doing (책을 읽고 있어요)."],
+    ["5","These days","Slide 3. Each person says three things they're doing these days (요즘 … 고 있어요)."],
+    ["5","What are they wearing?","Slide 6. Describe what each of you is wearing right now, head to toe."],
+    ["5","Check","Practice tab."]
+  ],
+  talk:[["요즘 뭐 배우고 있어요?","What are you learning these days?"],["요즘 무슨 드라마 보고 있어요?","What drama are you watching these days?"],["오늘 뭐 입고 있어요?","What are you wearing today?"]],
+  after:"HTSK Lesson 18 covers -고 있다, plus -아/어지다 (getting more ___)."
+});
