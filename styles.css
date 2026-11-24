@@ -8,7 +8,7 @@
   --seal:#C4573E; --seal-ink:#F4E9D8; --seal-text:#DC7D62;
   --blue:#A3B5DA; --mark:#D7B46C; --mark-soft:#3A3122; --grid:#7E4A3B;
   /* word-part roles: strong and far apart in hue so they survive screenshare compression */
-  --r-s:#7DB4FF; --r-e:#FFA64D; --r-c:#FF6F9F; --r-c-ink:#1B1916; --r-x:#8C8476; --r-x-line:#FF5C4D;
+  --r-s:#7DB4FF; --r-e:#FFA64D; --r-c:#D98AA5; --r-c-ink:#1B1916; --r-x:#8C8476; --r-x-line:#FF5C4D;
   --warn-soft:#3A2A1C;
   --good:#A6C98F; --good-soft:#283222; --bad:#E3977F; --bad-soft:#3B2620;
   --f-display:"Gowun Batang","Noto Serif KR","Nanum Myeongjo",serif;
