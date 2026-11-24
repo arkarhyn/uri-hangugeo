@@ -115,6 +115,8 @@ E:\Study\Korean\
 Cadence: about one lesson a week, matched to their actual pace.
 
 ## 7. Phases
+New features (translation practice, dialogues, Session mode, the reader link and more) are planned in `docs/ROADMAP.md` (2026-11-23).
+
 | Phase | Work | Austin's part |
 |---|---|---|
 | 0, done | Unit 1 content, single-file site, Sheet script | |
