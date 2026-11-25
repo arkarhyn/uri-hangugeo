@@ -76,21 +76,21 @@ LESSONS.push({
     cast:[["민수","ban"],["지은","ban"]],
     lines:[
       ["지은","민수야, 주말에 뭐 [했어]?","Minsu, what did you do on the weekend?"],
-      ["민수","토요일에 집에서 영화 [봤어].","On Saturday I watched a movie at home."],
-      ["지은","재미있[었어]?","Was it good?"],
-      ["민수","응, 진짜 재미있[었어]. 근데 좀 길[었어]. 너는?","Yeah, it was really good. But it was a bit long. You?"],
-      ["지은","나는 일요일에 시장에 [갔어]. 그리고 운동[했어].","On Sunday I went to the market. And I worked out."],
-      ["민수","나는 일요일에 집에 있[었어]. 너무 피곤[했어].","I stayed home on Sunday. I was really tired."],
-      ["지은","아침은 [먹었어]?","Did you have breakfast?"],
-      ["민수","아니, 아직 [안] 먹었어.","No, not yet."],
-      ["지은","나도 아직 [안] 먹었어.","Me neither."]
+      ["민수","주말? 음... 토요일엔 그냥 집에서 영화 [봤어].","The weekend? Hmm... Saturday I just watched a movie at home."],
+      ["지은","오, 재밌[었어]?","Oh, was it good?"],
+      ["민수","응, 진짜 재밌[었어]. 근데 좀... 길[었어]. 너는?","Yeah, it was really good. But kind of... long. You?"],
+      ["지은","나? 난 일요일에 시장 [갔어]. 그리고 운동도 하고.","Me? I went to the market on Sunday. And worked out, too."],
+      ["민수","와. 나는 일요일엔 그냥 집에 있[었어]. 너무 피곤[했어].","Wow. I just stayed home on Sunday. I was so tired."],
+      ["지은","아, 맞다. 아침은 [먹었어]?","Oh, right. Did you have breakfast?"],
+      ["민수","아니, 아직. 너는?","No, not yet. You?"],
+      ["지은","나도 아직.","Me neither."]
     ],
     q:[
-      {q:"What did Minsu do on Saturday?", c:["Watched a movie at home","Went to the market","Worked out","Studied Korean"], why:"토요일에 집에서 영화 봤어: on Saturday I watched a movie at home."},
-      {q:"What did Jieun do on Sunday?", c:["Went to the market, then worked out","Watched a movie","Stayed home, tired","Studied Korean"], why:"시장에 갔어. 그리고 운동했어."},
-      {q:"Who has had breakfast?", c:["Neither of them","Only Minsu","Only Jieun","Both of them"], why:"아직 안 먹었어 (not yet), then 나도 아직 안 먹었어 (me neither)."}
+      {q:"What did Minsu do on Saturday?", c:["Watched a movie at home","Went to the market","Worked out","Studied Korean"], why:"토요일엔 그냥 집에서 영화 봤어: Saturday I just watched a movie at home."},
+      {q:"What did Jieun do on Sunday?", c:["Went to the market, then worked out","Watched a movie","Stayed home, tired","Studied Korean"], why:"시장 갔어. 그리고 운동도 하고."},
+      {q:"Who has had breakfast?", c:["Neither of them","Only Minsu","Only Jieun","Both of them"], why:"아니, 아직 (no, not yet), then 나도 아직 (me neither)."}
     ],
-    note:"See also: the 반말 lesson. 민수 and 지은 drop 요 with each other. Asking a teacher, it would be 주말에 뭐 했어요?"
+    note:"See also: the 반말 lesson and Thinking out loud. Real speech drops what the listener already knows: 시장 갔어 (no 에), 아니, 아직 (no verb at all), 재밌었어 (short for 재미있었어). Asking a teacher, it would be 주말에 뭐 했어요?"
   },
   plan:[
     ["5","Warm-up","Ask each other 밥 먹었어요? and 어제 뭐 했어요? Answering in English is fine; the point is to hear the questions."],

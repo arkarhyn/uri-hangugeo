@@ -1,7 +1,7 @@
 "use strict";
 const LMAP = Object.fromEntries(LESSONS.map(l=>[l.id,l]));
-// Unit 2 = new lessons (shown first); unit 1 = what the KSM class covered, kept as review.
-const UNITS = [{u:2, name:"New lessons", short:"New"}, {u:1, name:"Review from class", short:"Review"}];
+// Unit 2 = new lessons (shown first); unit 3 = speaking glue (fillers, reactions, connectors); unit 1 = what the KSM class covered, kept as review.
+const UNITS = [{u:2, name:"New lessons", short:"New"}, {u:3, name:"Talk like people talk", short:"Talk"}, {u:1, name:"Review from class", short:"Review"}];
 const unitOf = L => L.unit || 1;
 const inUnit = u => LESSONS.filter(l=>unitOf(l)===u);
 const lnum = L => inUnit(unitOf(L)).indexOf(L) + 1;
@@ -233,11 +233,11 @@ const wg = s => `<div class="wg" aria-label="${esc(s)}">${[...s].map(ch=>ch===" 
 
 /* ---------------- home ---------------- */
 function renderHome(){
-  const next = inUnit(2).find(l=>status(l.id)!=="done") || inUnit(1).find(l=>status(l.id)!=="done");
+  const next = inUnit(2).find(l=>status(l.id)!=="done") || inUnit(3).find(l=>status(l.id)!=="done") || inUnit(1).find(l=>status(l.id)!=="done");
   const doneN = LESSONS.filter(l=>status(l.id)==="done").length;
   app.innerHTML = `
   <section class="hero">
-    <div class="eyebrow">After the KSM textbook · ${inUnit(2).length} new · ${inUnit(1).length} review · ${doneN} done</div>
+    <div class="eyebrow">After the KSM textbook · ${inUnit(2).length} new · ${inUnit(3).length} talk · ${inUnit(1).length} review · ${doneN} done</div>
     ${wg("우리 한국어")}
     <p class="lede">New lessons that pick up where class stopped: the past tense, plans and suggestions, ordering and shopping, and joining sentences. The lessons from class are below as review. Each lesson has slides to teach from, a practice quiz, flashcards and a lesson plan.</p>
     <div class="continue">

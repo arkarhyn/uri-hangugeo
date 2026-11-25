@@ -114,6 +114,21 @@ The lesson plan becomes a set of steps you click through like the slides, not a 
 
 **3.9 "What to reteach"** (already in PLAN.md Phase 2). A Progress panel listing each person's most-missed Practice items per lesson, so you know what to open the next session with. Say-it ratings aren't included, because they stay on the device.
 
+**3.14 Talk like people talk (unit 3, the speaking glue).** Asked for 2026-11-25. The grammar lessons give the structure, but not the glue that holds a real conversation together: the pauses, reactions, hedges and fragments. Using only what the lessons teach still sounds like a textbook. In his words, he wants "conversations for us to go over that read naturally, read more naturally." Two parts that feed each other:
+
+- **A short unit of glue lessons**, shown on the lessons page as "Talk like people talk" (`unit:3`, files `lessons/u3-<nn>-<id>.js`). Each has the usual slides, quiz, Say-it and dialogue, but teaches fixed spoken chunks rather than a grammar point:
+  1. **Thinking out loud** (`fillers`, **sample built**): 음, 어, 그..., 저... + 혹시, 저기요, 그거 있잖아, 뭐지?, 뭐라고 하지?, 아 맞다!, echoing the question back, 글쎄, 잠깐만.
+  2. **Reacting:** 아 진짜?, 헐, 대박, 그치, 맞아, 아 그래?, 에이, 응응, 오. Backchanneling while the other person talks.
+  3. **Spoken connectors:** 근데, 그니까, 그래서, 그럼, 아무튼/암튼, 아니 근데, 그래도. How sentences chain in speech instead of with -고 every time.
+  4. **Softeners:** 좀, 그냥, 약간, 뭐, 그런 거, -것 같아. Taking the edge off a statement or request.
+  5. **Trailing endings:** -는데..., -거든, -잖아, -더라, -지?. Ending a thought without finishing it, giving a reason, checking the listener agrees.
+  6. **Spoken word order:** dropped particles and subjects, fragments, short answers, and afterthoughts (verb first, the noun tacked on: 진짜 맛있다, 이거.), the Korean version of Japanese 倒置法.
+- **Natural dialogues everywhere.** The 19 dialogues still to write (3.2) are written in this style, and the 2 done ones are redone. **Sample:** the past-tense dialogue is rewritten (echo question, 음, 그냥, 재밌었어, 시장 갔어 without 에, 아니, 아직). The rule for each dialogue: the lesson's grammar stays highlighted and correct, and everything around it sounds the way it would be said.
+
+How this squares with §5b ("keep it plain"): the glue is fixed, very frequent chunks, which are low risk. The risk is in clever sentences, and the rule against those still stands. The naturalness reviewer carries more weight here than in grammar lessons. Its brief is to flag anything textbook-stiff as well as anything overdone.
+
+Open questions: whether the unit sits before or after the unit 2 lessons on the lessons page (it's after, for now); and whether a dialogue should keep its clean textbook version too, behind a **Clean / As spoken** switch. That would mean writing every dialogue twice, so it's not built.
+
 ### Later
 
 **3.10 Scenario lessons.** After every 4 or 5 grammar lessons, one lesson with no new grammar: a situation that uses several earlier ones (planning a weekend, ordering for a table, a phone call to make plans, dinner at a friend's family home). It would be built from a dialogue, Say-it, and role cards ("you want X, but they're out of it").
