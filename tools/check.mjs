@@ -100,7 +100,7 @@ for (const L of LESSONS) {
     if (!Array.isArray(L.say) || !L.say.length) bad(L, 'say must be a non-empty array');
     const seen = new Set();
     const end = s => strip(s).replace(/[.?!…"'\s]+$/, '');
-    const politeEnd = /(요|니다|니까|시오)$/;
+    const politeEnd = /(요|죠|니다|니까|시오)$/;
     (Array.isArray(L.say) ? L.say : []).forEach((it, i) => {
       const tag = `say ${i + 1} (${it && it.en})`;
       for (const f of ['en', 'ko', 'ban']) if (typeof it[f] !== 'string' || !it[f].trim()) bad(L, `${tag}: missing ${f}`);
@@ -109,8 +109,8 @@ for (const L of LESSONS) {
       if (seen.has(it.en)) bad(L, `${tag}: duplicate English sentence`); seen.add(it.en);
       if (/[가-힣]/.test(it.en || '')) bad(L, `${tag}: en should be English`);
       ['ko', 'ban', 'hint', 'note'].forEach(f => markup(L, tag, it[f]));
-      [].concat(it.ko || [], it.alt || []).forEach(s => { if (!politeEnd.test(end(s))) bad(L, `${tag}: polite answer "${s}" doesn't end in 요 or 니다`); });
-      [].concat(it.ban || [], it.banAlt || []).forEach(s => { if (/(요|니다|니까)$/.test(end(s))) bad(L, `${tag}: 반말 answer "${s}" ends like polite speech`); });
+      [].concat(it.ko || [], it.alt || []).forEach(s => { const e = end(s), pre = end(e.replace(/,[^,]*$/, "")); if (!politeEnd.test(e) && !(e.includes(",") && politeEnd.test(pre))) bad(L, `${tag}: polite answer "${s}" doesn't end in 요 or 니다`); });
+      [].concat(it.ban || [], it.banAlt || []).forEach(s => { if (/(요|죠|니다|니까)$/.test(end(s))) bad(L, `${tag}: 반말 answer "${s}" ends like polite speech`); });
       if (it.ko && it.ban && strip(it.ko) === strip(it.ban)) bad(L, `${tag}: ko and ban are the same`);
       [it.alt, it.banAlt].forEach(a => (a || []).forEach(x => { if (/[\[\]]/.test(x)) bad(L, `${tag}: alternatives are shown plain, so leave out [ ] markup`); }));
     });
@@ -153,8 +153,8 @@ for (const L of LESSONS) {
         const level = lv || c[1];
         if (typeof ko === 'string') sentencesOf(ko).forEach(s => {
           const e = end(s);
-          if (level === 'yo' && !/(요|니다|니까|시오)$/.test(e) && /\s/.test(e) && !/(씨|님)$/.test(e)) bad(L, `${at}: polite line "${s}" doesn't end in 요 or 니다`);
-          if (level === 'ban' && /(요|니다)$/.test(e)) bad(L, `${at}: 반말 line "${s}" ends like polite speech`);
+          if (level === 'yo' && !/(요|죠|니다|니까|시오)$/.test(e) && /\s/.test(e) && !/(씨|님)$/.test(e)) bad(L, `${at}: polite line "${s}" doesn't end in 요 or 니다`);
+          if (level === 'ban' && /(요|죠|니다)$/.test(e)) bad(L, `${at}: 반말 line "${s}" ends like polite speech`);
         });
       });
       const spoke = new Set(lines.map(l => Array.isArray(l) && l[0]));

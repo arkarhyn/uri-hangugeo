@@ -123,6 +123,7 @@ The lesson plan becomes a set of steps you click through like the slides, not a 
   4. **Softeners:** 좀, 그냥, 약간, 뭐, 그런 거, -것 같아. Taking the edge off a statement or request.
   5. **Trailing endings:** -는데..., -거든, -잖아, -더라, -지?. Ending a thought without finishing it, giving a reason, checking the listener agrees.
   6. **Spoken word order:** dropped particles and subjects, fragments, short answers, and afterthoughts (verb first, the noun tacked on: 진짜 맛있다, 이거.), the Korean version of Japanese 倒置法.
+  - **Lessons 2 to 6 built (2026-11-26, branch `talk-unit`):** `reacting`, `connectors`, `softeners`, `trailing`, `wordorder`, each with Say-it and a dialogue in both scripts, Kiwi-checked and through separate grammar and naturalness reviews. The checker and Kiwi now accept polite -죠 and a bare afterthought after a polite verb (진짜 맛있어요, 이거.).
 - **Natural dialogues everywhere.** The 19 dialogues still to write (3.2) are written in this style, and the 2 done ones are redone. **Sample:** the past-tense dialogue is rewritten (echo question, 음, 그냥, 재밌었어, 시장 갔어 without 에, 아니, 아직). The rule for each dialogue: the lesson's grammar stays highlighted and correct, and everything around it sounds the way it would be said.
 
 How this squares with §5b ("keep it plain"): the glue is fixed, very frequent chunks, which are low risk. The risk is in clever sentences, and the rule against those still stands. The naturalness reviewer carries more weight here than in grammar lessons. Its brief is to flag anything textbook-stiff as well as anything overdone.

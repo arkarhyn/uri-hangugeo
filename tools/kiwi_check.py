@@ -43,7 +43,7 @@ items = dump("--dump-say")
 dlg_lines = dump("--dump-dlg")
 
 kiwi = Kiwi()
-POLITE = ("요", "니다", "니까", "시오")
+POLITE = ("요", "죠", "니다", "니까", "시오")
 KNOWN_EP = {"었", "았", "였", "시", "으시", "겠", "었었", "았었", "더"}
 CONTENT = ("NNG", "NNP", "VV", "VA", "MAG", "VX", "XR")
 # Words that are meant to change between the two speech levels.
@@ -51,6 +51,12 @@ LEVEL_SWAP = {"저", "나", "제", "내", "저희", "우리", "네", "응", "아
 
 
 def final_ending(toks):
+    # An afterthought after the last comma (진짜 맛있어요, 이거.) has no ending of its own:
+    # judge the ending before that comma instead.
+    commas = [i for i, t in enumerate(toks) if t.tag == "SP" and t.form == ","]
+    if commas and not any(t.tag.startswith("E") for t in toks[commas[-1]:]):
+        return final_ending(toks[:commas[-1]])
+
     for t in reversed(toks):
         if t.tag in ("EF", "JX", "EC"):
             return t
@@ -92,7 +98,7 @@ for it in items:
 
 # Dialogue lines: every sentence ending (EF) in a polite line must be polite, and none in a 반말 line may be.
 # Fragments with no ending at all (응. 나도. 민수야!) aren't judged, except a 반말 fragment ending in 요.
-BAN_BAD = ("요", "니다", "ᆸ니까", "습니까")
+BAN_BAD = ("요", "죠", "니다", "ᆸ니까", "습니까")
 for ln in dlg_lines:
     s, lv = ln["ko"], ln["lv"]
     where = f'{ln["lesson"]} dialogue line {ln["n"]} ({ln["who"]}, {"polite" if lv == "yo" else "반말"})'
