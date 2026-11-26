@@ -82,7 +82,7 @@ LESSONS.push({
       ["지은 어머니","네, 할머니도 집에 [계세요]. 그런데 지금 [주무세요].","Yes, Grandmother is at home too. But she is sleeping now."],
       ["지은","[c:우리] 할머니는 이 시간에 자주 주무[c:셔].","My grandmother often sleeps at this time."],
       ["지은 어머니","민수 씨, 커피를 [드세요]?","Minsu, do you drink coffee?"],
-      ["민수","네, 커피 좋아요. 감사합니다.","Yes, coffee sounds good. Thank you."],
+      ["민수","네, 좋아요. 감사합니다.","Yes, that sounds good. Thank you."],
       ["지은","엄마, [저]도 커피를 주[세요].","Mom, please give me coffee too.","yo"]
     ],
     q:[
@@ -90,7 +90,7 @@ LESSONS.push({
       {q:"What does Jieun's mom ask Minsu to do when he comes in?", c:["Sit here","Wait a moment","Eat lunch","Meet Grandmother"], why:"여기 앉으세요: sit here, please."},
       {q:"What does Jieun ask her mom for?", c:["Coffee for herself too","Water","Lunch","A seat"], why:"엄마, 저도 커피 주세요: coffee for me too, please.", cwhy:"엄마, 저도 커피를 주세요: please give me coffee too."}
     ],
-    note:"Watch who gets raised: Grandmother gets 계세요 and 주무세요, and Minsu lowers himself with 저. When 지은 turns from 민수 to her mom, she switches to polite speech and calls herself 저."
+    note:"Watch who gets raised: Grandmother gets 계세요 and 주무세요, and Minsu lowers himself with 저. When 지은 turns from 민수 to her mom, she switches to polite speech and calls herself 저. Many Koreans use 반말 with their own parents; on this site, 지은 stays polite with her mom."
   },
   plan:[
     ["3","Warm-up","Act out meeting a friend's grandmother: 처음 뵙겠습니다. 저는 ___입니다."],

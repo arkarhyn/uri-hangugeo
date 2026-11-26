@@ -89,7 +89,7 @@ LESSONS.push({
       ["지은","음... 토요일은 [만날] 사람이 있어. 일요일은 괜찮아.","Hmm... Saturday I've got someone to meet. Sunday's fine."],
       ["민수","그럼 일요일에 가자!","Then let's go on Sunday!"],
       ["지은","좋아. 내가 먹[을] 거 가져갈까?","Sure. Shall I bring something to eat?"],
-      ["민수","응! 그럼 나는 [마실] 거 가져갈 거야.","Yeah! Then I'll bring something to drink."]
+      ["민수","응! 그럼 나는 [마실] 거 가져갈게.","Yeah! Then I'll bring something to drink."]
     ],
     clean:[
       ["지은","민수야, 이 사진을 봐. 이것은 내가 지난주에 찍[은] 사진이야.","Minsu, look at this photo. This is a photo I took last week."],
@@ -101,14 +101,14 @@ LESSONS.push({
       ["지은","토요일에는 [만날] 사람이 있어. 일요일은 괜찮아.","On Saturday I have someone to meet. Sunday is fine."],
       ["민수","그럼 일요일에 가자.","Then let's go on Sunday."],
       ["지은","좋아. 내가 먹[을] 것을 가져갈까?","Sure. Shall I bring something to eat?"],
-      ["민수","응. 그럼 나는 [마실] 것을 가져갈 거야.","Yes. Then I'm going to bring something to drink."]
+      ["민수","응. 그럼 나는 [마실] 것을 가져갈게.","Yes. Then I'll bring something to drink."]
     ],
     q:[
       {q:"Whose is the big dog?",c:["Jieun's next-door neighbor's","Jieun's","Minsu's","Nobody knows"],why:"옆집에 사는 사람 강아지: the dog of the person who lives next door.",cwhy:"옆집에 사는 사람의 강아지야: it's the next-door neighbor's dog."},
       {q:"When will they go to the park?",c:["Sunday","Saturday","Today","Next week"],why:"토요일은 만날 사람이 있어. 일요일은 괜찮아. Then 일요일에 가자.",cwhy:"토요일에는 만날 사람이 있어. 일요일은 괜찮아. Then 일요일에 가자."},
-      {q:"What will Minsu bring?",c:["Something to drink","Something to eat","A camera","A present"],why:"나는 마실 거 가져갈 거야: I'll bring something to drink.",cwhy:"나는 마실 것을 가져갈 거야: I'm going to bring something to drink."}
+      {q:"What will Minsu bring?",c:["Something to drink","Something to eat","A camera","A present"],why:"나는 마실 거 가져갈게: I'll bring something to drink.",cwhy:"나는 마실 것을 가져갈게: I'll bring something to drink."}
     ],
-    note:"All the descriptions sit in front of their nouns: 지난주에 찍은 (done), 근처에 있는 and 옆집에 사는 (now), 만날 and 마실 (still to come). In speech 것 is usually 거."
+    note:"All the descriptions sit in front of their nouns: 지난주에 찍은 (done), 근처에 있는 and 옆집에 사는 (now), 만날 and 마실 (still to come). In speech 것 is usually 거. 가져갈게 is \"I'll bring\", with the same ending as 낼게 in the because lesson."
   },
   plan:[
     ["3","Warm-up","Point at things in the room and describe each with one adjective you know."],

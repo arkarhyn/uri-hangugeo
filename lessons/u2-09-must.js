@@ -75,13 +75,13 @@ LESSONS.push({
     cast:[["민수","ban"],["지은","ban"],["직원","yo","library staff"]],
     lines:[
       ["민수","저... 여기 앉아[도 돼요]?","Um... may I sit here?","yo"],
-      ["직원","네, 돼요. 근데 여기서 음식 먹[으면 안 돼요].","Yes, you may. But you can't eat food here."],
+      ["직원","네, 앉으세요. 근데 여기서 음식 먹[으면 안 돼요].","Yes, go ahead. But you can't eat food here."],
       ["민수","아... 커피도 안 돼요?","Oh... is coffee not allowed either?","yo"],
       ["직원","커피는 마셔[도 돼요].","Coffee is okay to drink."],
       ["지은","민수야, 오늘 뭐 해[야 해]?","Minsu, what do you have to do today?"],
       ["민수","음... 숙제 해[야 돼]. 내일 수업 있어.","Hmm... I have to do homework. I have class tomorrow."],
       ["지은","아, 나는 네 시에 가[야 해]. 저녁에 약속 있어.","Oh, I have to leave at four. I've got plans this evening."],
-      ["민수","약속? 그럼 먼저 가[도 돼].","Plans? Then it's fine to go ahead of me."],
+      ["민수","약속? 그럼 먼저 가[도 돼].","Plans? Then you can head off before me."],
       ["지은","응. 너무 늦게 자[면 안 돼]!","Okay. Don't stay up too late!"]
     ],
     clean:[
@@ -92,7 +92,7 @@ LESSONS.push({
       ["지은","민수야, 너는 오늘 뭐 해[야 해]?","Minsu, what do you have to do today?"],
       ["민수","나는 숙제를 해[야 돼]. 내일 수업이 있어.","I have to do my homework. I have class tomorrow."],
       ["지은","나는 네 시에 가[야 해]. 저녁에 약속이 있어.","I have to leave at four. I have plans this evening."],
-      ["민수","그럼 먼저 가[도 돼].","Then it's fine to go ahead of me."],
+      ["민수","그럼 먼저 가[도 돼].","Then you can leave before me."],
       ["지은","응. 너는 너무 늦게 자[면 안 돼].","Okay. You mustn't go to bed too late."]
     ],
     q:[

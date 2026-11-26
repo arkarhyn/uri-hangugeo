@@ -71,18 +71,18 @@ LESSONS.push({
       ["민수","음... 저거? 저게 [더] 예뻐.","Hmm... that one? That one's prettier."],
       ["지은","저기요, 이거하고 저거, 뭐가 [더] 싸요?","Excuse me, this one or that one, which is cheaper?","yo"],
       ["직원","이게 [더] 싸요. 저건 이거[보다] 만 원 [더] 비싸요.","This one's cheaper. That one costs 10,000 won more than this one."],
-      ["지은","아... 만 원이요? 그럼 뭐가 [제일] 인기가 많아요?","Ah... 10,000 won? Then which one's the most popular?","yo"],
+      ["지은","아... 만 원이요? 그럼 여기서 뭐가 [제일] 인기가 많아요?","Ah... 10,000 won? Then which one's the most popular here?","yo"],
       ["직원","이게 [제일] 인기가 많아요. [훨씬] 가벼워요.","This one's the most popular. It's much lighter."],
       ["지은","민수야, 너는?","Minsu, what about you?"],
       ["민수","음... 나는 이게 [더] 좋아. [덜] 비싸고.","Hmm... I like this one better. It's less expensive, too."],
-      ["지은","저기요, 이걸로 할게요.","Excuse me, I'll take this one.","yo"]
+      ["지은","그럼 이걸로 할게요.","Then I'll take this one.","yo"]
     ],
     clean:[
       ["지은","민수야, 이거하고 저거 [중에서] 뭐가 [더] 예뻐?","Minsu, which is prettier, this one or that one?"],
       ["민수","저게 [더] 예뻐.","That one is prettier."],
       ["지은","이거하고 저거 [중에서] 뭐가 [더] 싸요?","Which is cheaper, this one or that one?","yo"],
       ["직원","이게 [더] 싸요. 저 신발은 이 신발[보다] 만 원 [더] 비싸요.","This one is cheaper. Those shoes cost 10,000 won more than these shoes."],
-      ["지은","그럼 뭐가 [제일] 인기가 많아요?","Then which one is the most popular?","yo"],
+      ["지은","그럼 여기에서 뭐가 [제일] 인기가 많아요?","Then which one is the most popular here?","yo"],
       ["직원","이 신발이 [제일] 인기가 많아요. 그리고 [훨씬] 가벼워요.","These shoes are the most popular. And they are much lighter."],
       ["지은","민수야, 너는 뭐가 [더] 좋아?","Minsu, which do you like better?"],
       ["민수","나는 이게 [더] 좋아. 그리고 [덜] 비싸.","I like this one better. And it's less expensive."],

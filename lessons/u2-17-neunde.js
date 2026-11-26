@@ -21,9 +21,9 @@ LESSONS.push({
      t:[["Word","Now","Past"],["먹다","먹는데","먹[e:었는데]"],["하다","하는데","[c:했][e:는데]"],["바쁘다","바쁜데","[c:바빴][e:는데]"],["춥다","추운데","추[c:웠][e:는데]"],["있다","있는데","있[e:었는데]"],["학생","학생인데","학생[e:이었는데]"]],
      note:["After a vowel, a noun takes 였는데: 휴가였는데.","For a plan, -(으)ㄹ 거예요 becomes -(으)ㄹ 건데: 시장에 갈 건데 뭐 필요해요?"]},
     {h:"Background, then the news", p:"The -는데 part sets the scene, and the second part tells what happened or what you found. In English it's often just \"and\", \"so\" or a full stop.",
-     ex:[["어제 백화점에 갔[는데] 사람이 정말 많았어요.","I went to the department store yesterday, and there were really a lot of people."],["친구가 한 명 있[는데] 요리를 정말 좋아해요.","I have a friend who really likes cooking."],["어제 영화를 봤[는데] 정말 재미있었어요.","I watched a movie yesterday, and it was really fun."],["저는 서울에 사[는데] 회사는 부산에 있어요.","I live in Seoul, and my company is in Busan."]]},
+     ex:[["어제 백화점에 갔[는데] 사람이 정말 많았어요.","I went to the department store yesterday, and there were really a lot of people."],["친구가 한 명 있[는데] 요리를 정말 좋아해요.","I have a friend who really likes cooking."],["어제 영화를 봤[는데] 정말 재미있었어요.","I watched a movie yesterday, and it was really fun."],["저는 서울에 사[는데] 회사는 인천에 있어요.","I live in Seoul, and my company is in Incheon."]]},
     {h:"Before a question, request or suggestion", p:"Say the situation with -는데, then ask, request or suggest. It tells the listener why you're bringing it up, and it sounds less sudden.",
-     ex:[["비가 오[는데] 우산 있어요?","It's raining. Do you have an umbrella?"],["지금 바[c:쁜]데 나중에 전화해 주세요.","I'm busy right now, so please call me later."],["날씨가 좋[은데] 산책할까요?","The weather's nice. Shall we take a walk?"],["✗ 지금 바빠서 나중에 전화해 주세요.","✗ -아서 can't lead into a request."]],
+     ex:[["비가 오[는데] 우산 있어요?","It's raining. Do you have an umbrella?"],["지금 바[c:쁜]데 나중에 전화해 주세요.","I'm busy right now, so please call me later."],["날씨가 좋[은데] 산책할까요?","The weather's nice. Shall we take a walk?"],["지금 바빠서 나중에 전화해 주세요.","✗ -아서 can't lead into a request."]],
      note:"See also: -(으)니까 also works before a request. It pushes the first part as the reason, while -는데 just puts the situation on the table."},
     {h:"Contrast: [-는데] as \"but\"", p:"When the two parts pull in different directions, -는데 means \"but\". It's lighter than -지만, and 은/는 often marks the two things you're comparing.",
      ex:[["이 식당은 비[c:싼]데 정말 맛있어요.","This restaurant is expensive, but it's really good."],["평일은 바[c:쁜]데 주말은 괜찮아요.","Weekdays are busy, but the weekend is fine."],["어제 전화했[는데] 안 받았어요.","I called yesterday, but they didn't pick up."],["공부했[는데] 시험이 어려웠어요.","I studied, but the test was hard."]],
@@ -78,14 +78,14 @@ LESSONS.push({
     cast:[["민수","ban"],["지은","ban"]],
     lines:[
       ["민수","지은아, 지금 뭐 해?","Jieun, what are you doing right now?"],
-      ["지은","음... 그냥 집에서 쉬어. 왜?","Hmm... just resting at home. Why?"],
+      ["지은","음... 그냥 집에서 쉬고 있어. 왜?","Hmm... just resting at home. Why?"],
       ["민수","날씨 진짜 좋[은데] 공원 갈까?","The weather's really nice. Shall we go to the park?"],
       ["지은","공원? 좋아. 근데 나 아직 아침 안 먹었[는데] 밥 먼저 먹자.","The park? Sure. But I haven't eaten yet, so let's eat first."],
       ["민수","어, 나도 배고[픈데] 잘됐다.","Oh, I'm hungry too, so that works out."],
       ["민수","공원 앞에 김밥집 있[는데], 거기 어때?","There's a gimbap place in front of the park. How about there?"],
       ["지은","아, 거기? 거기 맛있[는데] 사람이 좀 많아.","Oh, that place? It's good, but it gets kind of crowded."],
-      ["민수","지금 열한 시[인데] 괜찮아.","It's only eleven now, so it'll be fine."],
-      ["지은","그래? 그럼 열두 시에 거기서 만나자.","Really? Then let's meet there at twelve."]
+      ["민수","아직 열한 시[인데] 괜찮을 거야.","It's still only eleven, so it should be fine."],
+      ["지은","그래? 그럼 열한 시 반에 거기서 만나자.","Really? Then let's meet there at half past eleven."]
     ],
     clean:[
       ["민수","지은아, 지금 뭐 해?","Jieun, what are you doing right now?"],
@@ -95,13 +95,13 @@ LESSONS.push({
       ["민수","나도 배가 고[픈데] 잘됐어.","I'm hungry too, so that works out."],
       ["민수","공원 앞에 김밥집이 있[는데], 거기는 어때?","There is a gimbap restaurant in front of the park. How about that place?"],
       ["지은","그 식당은 맛있[는데] 사람이 조금 많아.","That restaurant is good, but there are quite a few people."],
-      ["민수","지금은 열한 시[인데] 괜찮을 거야.","It is eleven o'clock now, so it will be fine."],
-      ["지은","그럼 열두 시에 거기에서 만나자.","Then let's meet there at twelve."]
+      ["민수","지금은 아직 열한 시[인데] 괜찮을 거야.","It's still only eleven now, so it should be fine."],
+      ["지은","그럼 열한 시 반에 거기에서 만나자.","Then let's meet there at half past eleven."]
     ],
     q:[
-      {q:"What is Jieun doing when Minsu calls?",c:["Resting at home","Eating lunch","Walking in the park","Working"],why:"그냥 집에서 쉬어: just resting at home.",cwhy:"나는 집에서 쉬고 있어: I'm resting at home."},
+      {q:"What is Jieun doing when Minsu calls?",c:["Resting at home","Eating lunch","Walking in the park","Working"],why:"그냥 집에서 쉬고 있어: just resting at home.",cwhy:"나는 집에서 쉬고 있어: I'm resting at home."},
       {q:"What's the one problem with the gimbap place?",c:["It gets kind of crowded","The food isn't good","It's expensive","It's far from the park"],why:"거기 맛있는데 사람이 좀 많아: it's good, but there are a lot of people.",cwhy:"그 식당은 맛있는데 사람이 조금 많아: it's good, but there are quite a few people."},
-      {q:"When and where do they meet?",c:["At twelve, at the gimbap place","At eleven, at the park","At twelve, at Jieun's home","At one, at the park"],why:"그럼 열두 시에 거기서 만나자: let's meet there at twelve.",cwhy:"그럼 열두 시에 거기에서 만나자: let's meet there at twelve."}
+      {q:"When and where do they meet?",c:["At half past eleven, at the gimbap place","At eleven, at the park","At half past eleven, at Jieun's home","At one, at the park"],why:"그럼 열한 시 반에 거기서 만나자: let's meet there at half past eleven.",cwhy:"그럼 열한 시 반에 거기에서 만나자: let's meet there at half past eleven."}
     ],
     note:"Every highlighted ending sets something up: the nice weather before a suggestion, 아직 아침 안 먹었는데 before \"let's eat first\", 맛있는데 before the downside. Switch between As spoken and Clean to compare."
   },

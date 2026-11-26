@@ -75,7 +75,7 @@ LESSONS.push({
       ["지은","응, 주스는 [세 병] 있어. 그런데 물은 없어.","Yes, there are three bottles of juice. But there is no water."],
       ["민수","그럼 물 [네 병]은 내가 사.","Then I'll buy four bottles of water."],
       ["지은","좋아. 토요일 [다섯 시]에 우리 집에 와.","Good. Come to my house at five on Saturday."],
-      ["민수","응, [다섯 시] 좋아.","Yes, five is good."]
+      ["민수","응, 좋아.","Yes, sounds good."]
     ],
     q:[
       {q:"How many friends are coming?", c:["4","3","2","5"], why:"친구? 음... 네 명 와: four friends are coming.", cwhy:"친구가 네 명 와: four friends are coming."},

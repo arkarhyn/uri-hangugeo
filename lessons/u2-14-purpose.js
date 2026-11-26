@@ -71,7 +71,7 @@ LESSONS.push({
       ["선생님","저는 장 보[러] 마트에 가요.","I'm going to the store to get groceries."],
       ["지은","어, 선생님! 안녕하세요.","Oh, hello!","yo"],
       ["지은","민수야, 점심 먹[으러] 가자.","Minsu, let's go get lunch."],
-      ["민수","점심? 음... 좋아. 그럼 밥 먹[고] 공부하[러] 갈 거야.","Lunch? Hmm... okay. Then I'll eat and then go study.","ban"],
+      ["민수","점심? 음... 좋아. 근데 밥 먹[고] 공부하[러] 갈 거야.","Lunch? Hmm... okay. But after we eat, I'm going to study.","ban"],
       ["선생님","그럼 월요일에 봐요.","Then see you on Monday."]
     ],
     clean:[
@@ -82,7 +82,7 @@ LESSONS.push({
       ["선생님","저는 장 보[러] 마트에 가요.","I'm going to the store to get groceries."],
       ["지은","선생님, 안녕하세요.","Hello.","yo"],
       ["지은","민수야, 우리 점심을 먹[으러] 가자.","Minsu, let's go eat lunch."],
-      ["민수","좋아. 그럼 나는 점심을 먹[고] 공부하[러] 갈 거야.","Okay. Then I'll eat lunch and then go study.","ban"],
+      ["민수","좋아. 그런데 나는 점심을 먹[고] 공부하[러] 갈 거야.","Okay. But after I eat lunch, I'm going to study.","ban"],
       ["선생님","그럼 월요일에 봐요.","Then see you on Monday."]
     ],
     q:[

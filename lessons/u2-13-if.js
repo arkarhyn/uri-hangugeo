@@ -73,10 +73,9 @@ LESSONS.push({
       ["지은","응. 아마 오후에 올 거야.","Yeah. It'll probably come in the afternoon."],
       ["민수","음... 그럼 비 오[면] 그냥 우리 집에서 영화 보자.","Hmm... then if it rains, let's just watch a movie at my place."],
       ["지은","좋아. 근데 나 내일 늦게 일어날 거야.","Okay. But I'm going to get up late tomorrow."],
-      ["민수","괜찮아. 일어나[면] 전화해.","That's fine. Call me when you get up."],
-      ["지은","응. 아, 그리고 시간 있[으면] 김밥 좀 사 와.","Okay. Oh, and if you have time, bring some gimbap."],
-      ["민수","알았어. 아... 비 안 오[면 좋겠어].","Got it. Ah... I hope it doesn't rain."],
-      ["지은","나도.","Me too."]
+      ["민수","괜찮아. 일어나[면] 전화해. 아, 그리고 시간 있[으면] 김밥 좀 사 와.","That's fine. Call me when you get up. Oh, and if you have time, bring some gimbap."],
+      ["지은","응, 알았어. 아... 비 안 오[면 좋겠어].","Okay, got it. Ah... I hope it doesn't rain."],
+      ["민수","나도.","Me too."]
     ],
     clean:[
       ["지은","민수야, 내일 비가 오[면] 어떻게 해?","Minsu, what do we do if it rains tomorrow?"],
@@ -84,15 +83,14 @@ LESSONS.push({
       ["지은","응. 아마 오후에 비가 올 거야.","Yes. It will probably rain in the afternoon."],
       ["민수","그럼 비가 오[면] 우리 집에서 영화를 보자.","Then if it rains, let's watch a movie at my house."],
       ["지은","좋아. 그런데 나는 내일 늦게 일어날 거야.","Good. But I'm going to get up late tomorrow."],
-      ["민수","괜찮아. 네가 일어나[면] 전화해.","That's fine. Call me when you get up."],
-      ["지은","응. 그리고 시간이 있[으면] 김밥을 좀 사 와.","Okay. And if you have time, buy some gimbap and bring it."],
-      ["민수","알았어. 내일 비가 안 오[면 좋겠어].","Okay. I hope it doesn't rain tomorrow."],
-      ["지은","나도 비가 안 오[면 좋겠어].","I hope it doesn't rain, too."]
+      ["민수","괜찮아. 네가 일어나[면] 전화해. 그리고 시간이 있[으면] 김밥을 좀 사 와.","That's fine. Call me when you get up. And if you have time, buy some gimbap and bring it."],
+      ["지은","응, 알았어. 내일 비가 안 오[면 좋겠어].","Okay, got it. I hope it doesn't rain tomorrow."],
+      ["민수","나도 비가 안 오[면 좋겠어].","I hope it doesn't rain, too."]
     ],
     q:[
       {q:"What will they do if it rains?",c:["Watch a movie at Minsu's place","Go to a café","Meet in the morning instead","Study at Jieun's place"],why:"비 오면 그냥 우리 집에서 영화 보자: if it rains, let's just watch a movie at my place.",cwhy:"비가 오면 우리 집에서 영화를 보자: if it rains, let's watch a movie at my house."},
       {q:"When should Minsu get a call?",c:["When Jieun gets up","When it starts raining","When Jieun buys gimbap","Tonight"],why:"일어나면 전화해, said to Jieun: call when you get up.",cwhy:"네가 일어나면 전화해: call me when you get up."},
-      {q:"What is Minsu asked to bring, if he has time?",c:["Gimbap","A movie","An umbrella","Coffee"],why:"시간 있으면 김밥 좀 사 와.",cwhy:"시간이 있으면 김밥을 좀 사 와."}
+      {q:"What is Jieun asked to bring, if she has time?",c:["Gimbap","A movie","An umbrella","Coffee"],why:"시간 있으면 김밥 좀 사 와.",cwhy:"시간이 있으면 김밥을 좀 사 와."}
     ],
     note:"면 covers both \"if\" (비 오면) and \"when\" (일어나면). 사 와 is 사다 and 오다 together: buy it and bring it."
   },

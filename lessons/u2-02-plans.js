@@ -95,7 +95,7 @@ LESSONS.push({
       {q:"What's the problem with hiking?", c:["It's going to rain","Jieun is tired","It's too far","Minsu has to work"], why:"근데 내일 비 올 거야: but it's going to rain tomorrow.", cwhy:"그런데 내일은 비가 올 거야: but it's going to rain tomorrow."},
       {q:"What time do they end up meeting?", c:["1:00","2:00","12:00","3:00"], why:"두 시 comes up first, but after lunch is added it's 한 시에 만나자: let's meet at one."}
     ],
-    note:"거야 tells your own plan, and -(으)ㄹ까? asks what the other person thinks. As spoken, a suggestion can shrink to just 두 시? To someone older it would be 내일 뭐 할 거예요?"
+    note:"거야 says what's going to happen (your plan, or the rain), and -(으)ㄹ까? asks what the other person thinks. As spoken, a suggestion can shrink to just 두 시? To someone older it would be 내일 뭐 할 거예요?"
   },
   plan:[
     ["3","Warm-up","Ask 어제 뭐 했어요? (last lesson), then 내일 뭐 할 거예요? Notice how the ending changes."],

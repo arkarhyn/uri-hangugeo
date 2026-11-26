@@ -17,7 +17,7 @@ LESSONS.push({
      ex:[["여행 가[려고] 돈을 모아요.","I'm saving money to go on a trip."],["한국 친구하고 이야기하[려고] 한국어를 배워요.","I'm learning Korean so I can talk with Korean friends."],["케이크를 만들[려고] 계란을 샀어요.","I bought eggs to make a cake."],["안 늦[으려고] 일찍 나왔어요.","I left early so I wouldn't be late."]]},
     {h:"-(으)러 or -(으)려고?", p:"-(으)러 only goes before verbs of moving, like 가다 and 오다. -(으)려고 can go before other action verbs too.",
      t:[["After it","-(으)러","-(으)려고"],["가다, 오다","✓ the usual choice","possible, stresses your aim"],["일하다","✗","✓"],["배우다, 사다","✗","✓"]],
-     ex:[["밥 먹[으러] 가요.","I'm going to go eat."],["✓ 돈을 모으[려고] 일해요.","✓ I work to save money."],["✗ 돈을 모으러 일해요.","✗ 일해요 isn't a verb of moving."]],
+     ex:[["밥 먹[으러] 가요.","I'm going to go eat."],["돈을 모으[려고] 일해요.","✓ I work to save money."],["돈을 모으러 일해요.","✗ 일해요 isn't a verb of moving."]],
      note:"Watch out: don't use -(으)려고 to lead into a request or a suggestion like -(으)세요 or -(으)ㄹ까요?. To invite someone out, use the purpose lesson's 밥 먹으러 갈까요?"},
     {h:"-(으)려고 해요: I'm planning to", p:"Add 해요 to say what you intend to do. It sounds like an aim you have in mind, while -(으)ㄹ 거예요 simply says what you're going to do.",
      ex:[["내일부터 운동하[려고 해요].","I'm planning to start exercising tomorrow."],["이번 주말에는 집에서 쉬[려고 해요].","I'm planning to rest at home this weekend."],["점심에 뭐 먹[으려고 해요]?","What are you planning to eat for lunch?"],["올해는 술을 안 마시[려고 해요].","I'm planning not to drink this year."]]},
@@ -44,8 +44,8 @@ LESSONS.push({
     {k:"mc",q:"\"Why did you buy milk?\" \"To make bread.\"",c:["빵 만들려고요.","빵 만들으려고요.","빵 만들고요.","빵 만들면요."],why:"Just the aim plus 요: 만들[려고요]."},
     {k:"mc",q:"Which is the standard spelling of \"meaning to do\"?",c:["하려고","할려고","하러고","하러려고"],why:"No extra ㄹ: [s:하][e:려고]."},
     {k:"mc",q:"일찍 자려고 했는데 못 잤어요 means…",c:["I meant to go to bed early, but I couldn't.","I'm going to go to bed early.","I went to bed early, so I couldn't sleep.","If I go to bed early, I can't sleep."],why:"-려고 했는데 = meant to, but…"},
-    {k:"build",q:"I'm learning Korean to work in Korea.",ok:["한국에서 일하려고 한국어를 배워요"],x:["일하러"]},
-    {k:"build",q:"I'm planning to rest at home this weekend.",ok:["이번 주말에는 집에서 쉬려고 해요"],x:["쉬으려고"]}
+    {k:"build",q:"I'm learning Korean to work in Korea.",ok:["한국에서 일하려고 한국어를 배워요","한국어를 한국에서 일하려고 배워요"],x:["일하러"]},
+    {k:"build",q:"I'm planning to rest at home this weekend.",ok:["이번 주말에는 집에서 쉬려고 해요","집에서 이번 주말에는 쉬려고 해요"],x:["쉬으려고"]}
   ],
   pool:[
     {k:"mc",q:"놀다 + -(으)려고",c:["놀려고","놀으려고","노려고","노으려고"],why:"ㄹ stems take no 으."},
@@ -72,11 +72,11 @@ LESSONS.push({
     cast:[["민수","ban"],["지은","ban"]],
     lines:[
       ["지은","어, 민수야! 여기서 뭐 해?","Oh, Minsu! What are you doing here?"],
-      ["민수","아, 책 [사려고]. 한국 여행 책.","Ah, to buy a book. A Korea travel book."],
-      ["지은","여행? 한국에 가?","Travel? You're going to Korea?"],
+      ["민수","아, 책 [사려고]. 부산 여행 책.","Ah, to buy a book. A Busan travel book."],
+      ["지은","여행? 부산에 가?","A trip? You're going to Busan?"],
       ["민수","응, 여름에 [가려고]. 그래서 요즘 돈 [모으려고] 아르바이트해.","Yeah, I'm planning to go in the summer. So I'm working part-time these days to save money."],
       ["지은","오, 진짜? 가서 뭐 [하려고]?","Oh, really? What are you planning to do there?"],
-      ["민수","음... 부산에서 바다도 보고, 맛있는 거 많이 [먹으려고].","Hmm... see the sea in Busan, and eat lots of good food."],
+      ["민수","음... 바다도 보고, 맛있는 거 많이 [먹으려고].","Hmm... see the sea, and eat lots of good food."],
       ["지은","와, 좋다! 나도 가고 싶어.","Wow, nice! I want to go too."],
       ["민수","너는? 책 사러 왔어?","What about you? Did you come to buy a book?"],
       ["지은","아니, 친구 [만나려고]. 두 시에 여기서.","No, to meet a friend. Here, at two."],
@@ -84,19 +84,19 @@ LESSONS.push({
     ],
     clean:[
       ["지은","민수야, 여기에서 뭐 해?","Minsu, what are you doing here?"],
-      ["민수","한국 여행 책을 [사려고] 왔어.","I came to buy a Korea travel book."],
-      ["지은","한국에 여행을 갈 거야?","Are you going to travel to Korea?"],
+      ["민수","부산 여행 책을 [사려고] 왔어.","I came to buy a Busan travel book."],
+      ["지은","부산에 여행을 갈 거야?","Are you going to take a trip to Busan?"],
       ["민수","응, 여름에 [가려고] 해. 그래서 요즘 돈을 [모으려고] 아르바이트를 해.","Yes, I'm planning to go in the summer. So I'm working part-time these days to save money."],
-      ["지은","한국에 가서 뭐 [하려고] 해?","What are you planning to do in Korea?"],
-      ["민수","부산에서 바다를 보고 맛있는 음식을 많이 [먹으려고] 해.","I'm planning to see the sea in Busan and eat lots of good food."],
-      ["지은","정말 좋다. 나도 한국에 가고 싶어.","That's really nice. I want to go to Korea too."],
+      ["지은","부산에 가서 뭐 [하려고] 해?","What are you planning to do in Busan?"],
+      ["민수","바다를 보고 맛있는 음식을 많이 [먹으려고] 해.","I'm planning to see the sea and eat lots of good food."],
+      ["지은","정말 좋다. 나도 부산에 가고 싶어.","That's really nice. I want to go to Busan too."],
       ["민수","너도 책을 사러 왔어?","Did you come to buy a book too?"],
       ["지은","아니, 친구를 [만나려고] 왔어. 두 시에 여기에서 만날 거야.","No, I came to meet a friend. We're going to meet here at two."],
       ["민수","지금은 두 시 반인데 친구가 아직 안 왔어?","It's two thirty now. Your friend still isn't here?"]
     ],
     q:[
       {q:"Why is Minsu working part-time?",c:["To save money","To buy a computer","To learn about books","To help a friend"],why:"돈 모으려고 아르바이트해: I work part-time to save money.",cwhy:"돈을 모으려고 아르바이트를 해: I work part-time to save money."},
-      {q:"What does Minsu plan to do in Busan?",c:["See the sea","Visit a friend","Study Korean","Find a job"],why:"부산에서 바다도 보고: see the sea in Busan.",cwhy:"부산에서 바다를 보고: see the sea in Busan."},
+      {q:"What does Minsu plan to do in Busan?",c:["See the sea","Visit a friend","Study Korean","Find a job"],why:"바다도 보고: see the sea.",cwhy:"바다를 보고: see the sea."},
       {q:"Why did Jieun come to the bookstore?",c:["To meet a friend","To buy a travel book","To work","To look for Minsu"],why:"아니, 친구 만나려고: no, to meet a friend.",cwhy:"친구를 만나려고 왔어: I came to meet a friend."}
     ]
   },

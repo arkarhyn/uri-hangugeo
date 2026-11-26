@@ -72,7 +72,7 @@ LESSONS.push({
       ["민수","네? 아, 사진이요? 죄송합니다.","Sorry? Oh, photos? I'm sorry.","yo"],
       ["지은","민수야, 그거 만지[지 마]!","Minsu, don't touch that!"],
       ["민수","어? 아, 미안, 미안.","Huh? Oh, sorry, sorry."],
-      ["지은","저... 화장실 어디에 있어요?","Um... where's the restroom?","yo"],
+      ["지은","저... 화장실 어디 있어요?","Um... where's the restroom?","yo"],
       ["직원","화장실이요? 저쪽으로 [가세요].","The restroom? Go that way."],
       ["지은","감사합니다.","Thank you.","yo"],
       ["지은","민수야, 여기서 잠깐만 [기다려].","Minsu, wait here a moment."],
@@ -81,7 +81,7 @@ LESSONS.push({
     clean:[
       ["직원","저기요, 여기에서 사진을 찍[지 마세요].","Excuse me, please don't take photos here."],
       ["민수","네, 죄송합니다.","Yes, I'm sorry.","yo"],
-      ["지은","민수야, 그것을 만지[지 마].","Minsu, don't touch that."],
+      ["지은","민수야, 그거를 만지[지 마].","Minsu, don't touch that."],
       ["민수","응, 미안해.","Okay, I'm sorry."],
       ["지은","저기요, 화장실이 어디에 있어요?","Excuse me, where is the restroom?","yo"],
       ["직원","화장실은 저쪽에 있어요. 저쪽으로 [가세요].","The restroom is over there. Go that way."],
@@ -91,7 +91,7 @@ LESSONS.push({
     ],
     q:[
       {q:"What does the staff member ask them not to do?", c:["Take photos","Touch anything","Run","Talk loudly"], why:"여기서 사진 찍지 마세요: no photos here.", cwhy:"여기에서 사진을 찍지 마세요: please don't take photos here."},
-      {q:"What does Jieun tell Minsu not to do?", c:["Touch something","Take photos","Go to the restroom","Worry"], why:"그거 만지지 마: don't touch that.", cwhy:"그것을 만지지 마: don't touch that."},
+      {q:"What does Jieun tell Minsu not to do?", c:["Touch something","Take photos","Go to the restroom","Worry"], why:"그거 만지지 마: don't touch that.", cwhy:"그거를 만지지 마: don't touch that."},
       {q:"What does Jieun ask Minsu to do while she's gone?", c:["Wait there a moment","Come with her","Go that way","Take a photo"], why:"여기서 잠깐만 기다려: wait here a moment.", cwhy:"여기에서 잠깐만 기다려: wait here a moment."}
     ],
     note:"The staff use -지 마세요 and -(으)세요. Between friends, the same requests shrink to -지 마 and the plain form: 만지지 마, 기다려, 빨리 와."

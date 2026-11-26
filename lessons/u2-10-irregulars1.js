@@ -82,7 +82,7 @@ LESSONS.push({
     {en:"I was busy yesterday, so I couldn't go.", ko:"어제 바[c:빠]서 못 갔어요.", ban:"어제 바[c:빠]서 못 갔어.", alt:["어제 바빠서 못 갔어요."], hint:"바쁘다 + \"so\", then 못 before the verb"}
   ],
   dlg:{
-    scene:"Saturday at 지은's home. Her mother has made lunch. 민수 speaks politely to her. She uses 반말 with him, and 지은 and 민수 use 반말 with each other.",
+    scene:"A weekday lunch at 지은's home. Her mother has made lunch. 민수 speaks politely to her. She uses 반말 with him, and 지은 and 민수 use 반말 with each other.",
     cast:[["민수","yo"],["지은","ban"],["지은 어머니","ban","Jieun's mom"]],
     lines:[
       ["지은 어머니","민수야, 어서 와. 배 안 고[c:파]?","Minsu, come on in. Aren't you hungry?"],
@@ -98,11 +98,11 @@ LESSONS.push({
     ],
     clean:[
       ["지은 어머니","민수야, 어서 와. 배가 안 고[c:파]?","Minsu, come on in. Aren't you hungry?"],
-      ["민수","네, 조금 배고[c:파]요.","Yes, I'm a little hungry."],
+      ["민수","아니요, 조금 배고[c:파]요.","Actually, I am a little hungry."],
       ["지은 어머니","그럼 이 김밥을 먹어.","Then eat this gimbap."],
       ["민수","김밥이 정말 [c:커]요. 이 김밥을 직접 [c:만드]셨어요?","The gimbap is really big. Did you make this gimbap yourself?"],
       ["지은 어머니","응. 나는 김밥을 자주 [s:만들]어.","Yes. I make gimbap often."],
-      ["지은","많이 먹어. 우리 엄마의 김밥은 정말 맛있어.","Eat a lot. My mom's gimbap is really delicious."],
+      ["지은","많이 먹어. 우리 엄마 김밥은 정말 맛있어.","Eat a lot. My mom's gimbap is really delicious."],
       ["지은 어머니","민수는 어디에 [s:살]아?","Where do you live, Minsu?"],
       ["민수","저는 학교 앞에 [s:살]아요.","I live in front of the school."],
       ["지은 어머니","그럼 주말에 우리 집에 또 와.","Then come to our house again on a weekend."],
@@ -113,7 +113,7 @@ LESSONS.push({
       {q:"Where does Minsu live?",c:["In front of the school","Next to Jieun's home","In Seoul","Behind the hospital"],why:"학교 앞에 살아요."},
       {q:"Why does Minsu ask about next week?",c:["He's busy this weekend","He's sick","He lives too far away","Jieun is busy"],why:"이번 주말은 좀 바빠요: I'm kind of busy this weekend.",cwhy:"이번 주말에는 조금 바빠요: I'm a little busy this weekend."}
     ],
-    note:"배고파, 커 and 바빠 are ㅡ stems. 만드셨어요 is 만들다 losing its ㄹ before ㅅ, while 만들어 and 살아 keep it."
+    note:"배고파, 커 and 바빠 are ㅡ stems. 만드셨어요 is 만들다 losing its ㄹ before ㅅ, while 만들어 and 살아 keep it. 지은's mom uses 반말 with 민수 here. In the 반말 lesson she used 해요; many parents switch once they know their child's friend well."
   },
   plan:[
     ["3","Warm-up","Each person says how they feel today with a word from the Words tab (배고파요, 좀 바빠요…)."],

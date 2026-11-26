@@ -27,13 +27,13 @@ LESSONS.push({
      note:"Watch out: don't put 못 before describing words like 예쁘다 or 춥다. Use 안: 안 추워요."},
     {h:"How well? 잘 and 못", p:"잘해요 means you're good at it. 잘 못해요 means you're not very good, and 못해요 alone is stronger: you're bad at it, or you can't.",
      t:[["Korean","Meaning"],["노래를 [잘]해요.","I sing well."],["노래를 [잘 못]해요.","I'm not very good at singing."],["노래를 [못]해요.","I'm bad at singing."]],
-     ex:[["저는 요리를 [잘 못] 해요.","I'm not much of a cook."],["어제는 [잘 못] 잤어요.","I didn't sleep well yesterday."],["술을 [잘 못] 마셔요.","I can't drink much."]],
+     ex:[["저는 요리를 [잘 못]해요.","I'm not much of a cook."],["어제는 [잘 못] 잤어요.","I didn't sleep well yesterday."],["술을 [잘 못] 마셔요.","I can't drink much."]],
      note:"You'll see both 못해요 and 못 해요 in writing. They sound the same."},
     {h:"Which one do I use?", p:"For a skill or a free evening, both ways often work. To ask, the long form is a safe choice.",
-     ex:[["운전할 [수 있어요]?","Can you drive?"],["아니요, [못] 해요.","No, I can't."],["조금 할 [수 있어요].","I can a little."],["한글은 읽을 [수 있지만] 말은 [잘 못] 해요.","I can read Hangul, but I can't speak very well."]]},
+     ex:[["운전할 [수 있어요]?","Can you drive?"],["아니요, [못] 해요.","No, I can't."],["조금 할 [수 있어요].","I can a little."],["한글은 읽을 [수 있지만] 말은 [잘 못]해요.","I can read Hangul, but I can't speak very well."]]},
     {h:"In 반말", p:"있어요 and 없어요 lose their 요. 못 and 안 don't change at all.",
-     t:[["Polite","반말"],["할 수 있어[e:요]?","할 수 있어[x:요]?"],["갈 수 없어[e:요]","갈 수 없어[x:요]"],["[못] 가[e:요]","[못] 가[x:요]"],["[잘 못] 해[e:요]","[잘 못] 해[x:요]"]],
-     ex:[["너 운전할 [수 있어]?","Can you drive?"],["미안, 오늘은 [못] 가.","Sorry, I can't go today."],["나 노래 [잘 못] 해.","I'm not much of a singer."]]}
+     t:[["Polite","반말"],["할 수 있어[e:요]?","할 수 있어[x:요]?"],["갈 수 없어[e:요]","갈 수 없어[x:요]"],["[못] 가[e:요]","[못] 가[x:요]"],["[잘 못]해[e:요]","[잘 못]해[x:요]"]],
+     ex:[["너 운전할 [수 있어]?","Can you drive?"],["미안, 오늘은 [못] 가.","Sorry, I can't go today."],["나 노래 [잘 못]해.","I'm not much of a singer."]]}
   ],
   vocab:[["수영하다","to swim"],["운전하다","to drive"],["요리하다","to cook"],["사진 찍다","to take a picture"],["돕다 → 도와요","to help"],["도와주다","to help (someone)"],["걷다 → 걸어요","to walk"],["듣다 → 들어요","to listen, to hear"],["부르다 → 불러요","to sing; to call"],["물","water"],["한글","Hangul, the Korean alphabet"],["말","speech, speaking"],["잘","well"],["조금","a little"],["못","can't"],["전화하다","to call, to phone"]],
   ex:[
@@ -50,7 +50,7 @@ LESSONS.push({
     {k:"mc",q:"Which sentence is wrong?",c:["오늘은 못 추워요.","오늘은 안 추워요.","오늘은 못 가요.","오늘은 안 가요."],why:"못 doesn't go before a describing word like 춥다."},
     {k:"mc",q:"술을 잘 못 마셔요 means…",c:["I can't drink much.","I drink really well.","I'm not going to drink today.","I didn't drink."],why:"잘 못 = not very well, not much."},
     {k:"build",q:"I can't meet today.",ok:["오늘은 만날 수 없어요"],x:["만나"]},
-    {k:"build",q:"I can read Hangul, but I can't speak very well.",ok:["한글은 읽을 수 있지만 말은 잘 못 해요"],x:["안"]}
+    {k:"build",q:"I can read Hangul, but I can't speak very well.",ok:["한글은 읽을 수 있지만 말은 잘 못해요"],x:["안"]}
   ],
   pool:[
     {k:"mc",q:"걷다 + -(으)ㄹ 수 있어요",c:["걸을 수 있어요","걷을 수 있어요","걸 수 있어요","거를 수 있어요"],why:"ㄷ → ㄹ before 으: [c:걸][e:을] 수."},
@@ -69,7 +69,7 @@ LESSONS.push({
     {en:"I'm not very good at singing.", ko:"노래를 [잘 못]해요.", ban:"노래를 [잘 못]해.", alt:["노래 잘 못 불러요."], banAlt:["노래 잘 못 불러."], hint:"\"well\" comes before \"can't\""},
     {en:"Can you help me?", ko:"좀 도와줄 [수 있어요]?", ban:"좀 도와줄 [수 있어]?", alt:["도와줄 수 있어요?"], banAlt:["도와줄 수 있어?"], hint:"the stem is 도와주", note:"A friendly way to ask a favour at either level."},
     {en:"I was busy, so I couldn't call.", ko:"바빠서 전화할 [수 없었어요].", ban:"바빠서 전화할 [수 없었어].", alt:["바빠서 전화 못 했어요."], banAlt:["바빠서 전화 못 했어."], hint:"the past goes on the last part"},
-    {en:"I can read Hangul, but I can't speak very well.", ko:"한글은 읽을 [수 있지만] 말은 [잘 못] 해요.", ban:"한글은 읽을 [수 있지만] 말은 [잘 못] 해.", alt:["한글은 읽을 수 있는데 말은 잘 못해요."], banAlt:["한글은 읽을 수 있는데 말은 잘 못해."], hint:"\"but\" goes on the first half"},
+    {en:"I can read Hangul, but I can't speak very well.", ko:"한글은 읽을 [수 있지만] 말은 [잘 못]해요.", ban:"한글은 읽을 [수 있지만] 말은 [잘 못]해.", alt:["한글은 읽을 수 있는데 말은 잘 못해요."], banAlt:["한글은 읽을 수 있는데 말은 잘 못해."], hint:"\"but\" goes on the first half"},
     {en:"If you can come on Saturday, shall we cook together?", ko:"토요일에 올 [수 있으면] 같이 요리할까요?", ban:"토요일에 올 [수 있으면] 같이 요리할까?", alt:["토요일에 올 수 있으면 같이 요리해요."], banAlt:["토요일에 올 수 있으면 같이 요리하자."], hint:"the if-ending goes on the \"can\" part"}
   ],
   dlg:{
@@ -77,30 +77,30 @@ LESSONS.push({
     cast:[["민수","ban"],["지은","ban"]],
     lines:[
       ["지은","민수야, 너 수영[할 수 있어]?","Minsu, can you swim?"],
-      ["민수","수영? 음... 아니, [잘 못] 해.","Swim? Hmm... no, not very well."],
+      ["민수","수영? 음... 아니, [잘 못]해.","Swim? Hmm... no, not very well."],
       ["지은","그럼 조금은 [할 수 있어]?","So can you a little?"],
       ["민수","어... 물에서 걸[을 수는 있어].","Uh... I can walk in the water, at least."],
-      ["지은","아, 괜찮아! 내가 [도와줄 수 있어]. 토요일에 시간 있어?","Ah, that's fine! I can help you. Are you free on Saturday?"],
-      ["민수","토요일? 토요일은 [못] 가. 일해야 돼.","Saturday? I can't go Saturday. I have to work."],
-      ["지은","그럼 일요일은?","Then how about Sunday?"],
-      ["민수","일요일은 [갈 수 있어].","I can go on Sunday."],
-      ["지은","좋아! 그럼 일요일 두 시에 보자.","Great! See you Sunday at two, then."]
+      ["지은","아, 괜찮아! 내가 [도와줄 수 있어]. 토요일에 같이 수영하러 갈까?","Ah, that's fine! I can help you. Shall we go swimming together on Saturday?"],
+      ["민수","토요일? 아침에는 [못] 가. 일해야 돼.","Saturday? I can't go in the morning. I have to work."],
+      ["지은","그럼 오후는?","Then how about the afternoon?"],
+      ["민수","오후에는 [갈 수 있어].","I can go in the afternoon."],
+      ["지은","좋아! 그럼 토요일 두 시에 보자.","Great! See you Saturday at two, then."]
     ],
     clean:[
       ["지은","민수야, 너는 수영[할 수 있어]?","Minsu, can you swim?"],
-      ["민수","아니, 나는 수영을 [잘 못] 해.","No, I can't swim very well."],
+      ["민수","아니, 나는 수영을 [잘 못]해.","No, I can't swim very well."],
       ["지은","그럼 수영을 조금은 [할 수 있어]?","Then can you swim a little?"],
       ["민수","나는 물에서 걸[을 수는 있어].","I can walk in the water, at least."],
-      ["지은","괜찮아. 내가 너를 [도와줄 수 있어]. 토요일에 시간이 있어?","That's all right. I can help you. Do you have time on Saturday?"],
-      ["민수","토요일에는 [못] 가. 나는 일해야 돼.","I can't go on Saturday. I have to work."],
-      ["지은","그럼 일요일은 어때?","Then how about Sunday?"],
-      ["민수","일요일에는 [갈 수 있어].","I can go on Sunday."],
-      ["지은","좋아. 그럼 일요일 두 시에 보자.","Good. Then see you on Sunday at two."]
+      ["지은","괜찮아. 내가 너를 [도와줄 수 있어]. 토요일에 같이 수영하러 갈까?","That's all right. I can help you. Shall we go swimming together on Saturday?"],
+      ["민수","토요일 아침에는 [못] 가. 나는 일해야 돼.","I can't go on Saturday morning. I have to work."],
+      ["지은","그럼 오후는 어때?","Then how about the afternoon?"],
+      ["민수","오후에는 [갈 수 있어].","I can go in the afternoon."],
+      ["지은","좋아. 그럼 토요일 두 시에 보자.","Good. Then see you on Saturday at two."]
     ],
     q:[
-      {q:"How well can Minsu swim?",c:["Not very well","Very well","He swims every day","Better than Jieun"],why:"아니, 잘 못 해: no, not very well.",cwhy:"나는 수영을 잘 못 해: I can't swim very well."},
-      {q:"Why can't Minsu go on Saturday?",c:["He has to work","He's sick","The pool is closed","He's meeting another friend"],why:"토요일은 못 가. 일해야 돼: I can't go Saturday, I have to work.",cwhy:"토요일에는 못 가. 나는 일해야 돼: I can't go on Saturday, I have to work."},
-      {q:"When will they meet?",c:["Sunday at two","Saturday at two","Sunday at ten","Thursday evening"],why:"그럼 일요일 두 시에 보자: see you Sunday at two."}
+      {q:"How well can Minsu swim?",c:["Not very well","Very well","He swims every day","Better than Jieun"],why:"아니, 잘 못해: no, not very well.",cwhy:"나는 수영을 잘 못해: I can't swim very well."},
+      {q:"Why can't Minsu go on Saturday morning?",c:["He has to work","He's sick","The pool is closed","He's meeting another friend"],why:"아침에는 못 가. 일해야 돼: I can't go in the morning, I have to work.",cwhy:"토요일 아침에는 못 가. 나는 일해야 돼: I can't go on Saturday morning, I have to work."},
+      {q:"When will they meet?",c:["Saturday at two","Sunday at two","Saturday at ten","Thursday evening"],why:"그럼 토요일 두 시에 보자: see you Saturday at two."}
     ],
     note:"걸을 수는 있어: adding 는 to 수 means \"that much I can do\", and hints there's not much more."
   },

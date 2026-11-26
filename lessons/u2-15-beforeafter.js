@@ -45,7 +45,7 @@ LESSONS.push({
     {k:"mc",q:"샤워한 후에 밥을 먹었어요. What happened first?",c:["The shower","The meal","Both at once","Neither has happened yet"],why:"샤워한 후에 = after showering, so the shower came first."},
     {k:"mc",q:"밥을 먹기 전에 운동했어요. What happened first?",c:["The workout","The meal","Both at once","Neither has happened yet"],why:"먹기 전에 = before eating, so the workout came first."},
     {k:"mc",q:"삼십 분 후에 means…",c:["in thirty minutes","thirty minutes ago","for thirty minutes","every thirty minutes"],why:"An amount of time + 후에 = that much later. Thirty minutes ago is 삼십 분 전에."},
-    {k:"build",q:"Please wash your hands before you eat.",ok:["먹기 전에 손을 씻으세요"],x:["먹은"]},
+    {k:"build",q:"Please wash your hands before you eat.",ok:["먹기 전에 손을 씻으세요","손을 먹기 전에 씻으세요"],x:["먹은"]},
     {k:"build",q:"I work out after I get off work.",ok:["퇴근한 후에 운동해요"],x:["퇴근하기"]}
   ],
   pool:[
@@ -70,36 +70,36 @@ LESSONS.push({
     {en:"After I do my homework, I'm going to meet a friend and watch a movie.", ko:"숙제[한 후에] 친구를 만나서 영화를 볼 거예요.", ban:"숙제[한 후에] 친구를 만나서 영화를 볼 거[c:야].", hint:"after-part first, then meet and watch with -아서"}
   ],
   dlg:{
-    scene:"Saturday morning. 지은 calls 민수. They're friends the same age, so they talk in 반말.",
+    scene:"A weekday afternoon. 지은 calls 민수 about this evening. They're friends the same age, so they talk in 반말.",
     cast:[["민수","ban"],["지은","ban"]],
     lines:[
-      ["지은","민수야, 지금 뭐 해?","Minsu, what are you doing right now?"],
-      ["민수","지금? 어... 그냥 청소해.","Right now? Uh... just cleaning."],
-      ["지은","아, 그래? 오늘 영화 볼까?","Oh, really? Shall we see a movie today?"],
-      ["민수","좋아. 근데 청소[한 후에] 샤워해야 돼.","Sounds good. But I have to shower after I clean."],
-      ["지은","그럼 영화 보[기 전에] 점심 먹을까?","Then shall we have lunch before the movie?"],
-      ["민수","점심? 음... 좋아. 몇 시에?","Lunch? Hmm... sure. What time?"],
-      ["지은","한 시. 아, 나오[기 전에] 전화해 줘.","One. Oh, call me before you head out."],
-      ["민수","알았어. 영화 [본 후에] 뭐 할 거야?","Okay. What are we doing after the movie?"],
-      ["지은","글쎄... 커피?","Hmm... coffee?"]
+      ["지은","민수야, 오늘 퇴근[한 후에] 시간 있어?","Minsu, are you free after work today?"],
+      ["민수","오늘? 어... 퇴근[한 후에] 운동해야 돼.","Today? Uh... I have to work out after work."],
+      ["지은","아, 그래? 그럼 운동하[기 전에] 저녁 먹을까?","Oh, really? Then shall we have dinner before you work out?"],
+      ["민수","저녁? 음... 좋아. 몇 시에?","Dinner? Hmm... sure. What time?"],
+      ["지은","여섯 시. 아, 회사에서 나오[기 전에] 전화해 줘.","Six. Oh, call me before you leave the office."],
+      ["민수","알았어. 너는 저녁 먹[은 후에] 뭐 할 거야?","Okay. What are you doing after dinner?"],
+      ["지은","나? 그냥 집에 갈 거야.","Me? I'm just going home."],
+      ["민수","그럼 같이 운동하자!","Then work out with me!"],
+      ["지은","운동? 음... 아니, 괜찮아.","Work out? Hmm... no, I'm good."]
     ],
     clean:[
-      ["지은","민수야, 지금 뭐 해?","Minsu, what are you doing right now?"],
-      ["민수","나는 지금 청소해.","I'm cleaning right now."],
-      ["지은","오늘 같이 영화를 볼까?","Shall we see a movie together today?"],
-      ["민수","좋아. 그런데 청소[한 후에] 샤워해야 돼.","Sounds good. But I have to shower after I clean."],
-      ["지은","그럼 영화를 보[기 전에] 점심을 먹을까?","Then shall we have lunch before we see the movie?"],
+      ["지은","민수야, 오늘 퇴근[한 후에] 시간이 있어?","Minsu, do you have time after work today?"],
+      ["민수","나는 오늘 퇴근[한 후에] 운동해야 돼.","I have to work out after work today."],
+      ["지은","그럼 운동하[기 전에] 같이 저녁을 먹을까?","Then shall we have dinner together before you work out?"],
       ["민수","좋아. 몇 시에 만날까?","Sure. What time shall we meet?"],
-      ["지은","한 시에 만나자. 집에서 나오[기 전에] 전화해 줘.","Let's meet at one. Call me before you leave home."],
-      ["민수","알았어. 영화를 [본 후에] 뭐 할 거야?","Okay. What are we going to do after we see the movie?"],
-      ["지은","커피를 마실까?","Shall we drink coffee?"]
+      ["지은","여섯 시에 만나자. 회사에서 나오[기 전에] 전화해 줘.","Let's meet at six. Call me before you leave the office."],
+      ["민수","알았어. 너는 저녁을 먹[은 후에] 뭐 할 거야?","Okay. What are you going to do after you have dinner?"],
+      ["지은","나는 집에 갈 거야.","I'm going to go home."],
+      ["민수","그럼 나하고 같이 운동하자.","Then let's work out together."],
+      ["지은","아니, 괜찮아.","No, I'm all right."]
     ],
     q:[
-      {q:"What is Minsu doing when Jieun calls?",c:["Cleaning","Showering","Eating lunch","Watching a movie"],why:"그냥 청소해: just cleaning.",cwhy:"나는 지금 청소해: I'm cleaning right now."},
-      {q:"What does Jieun suggest doing before the movie?",c:["Eating lunch","Having coffee","Cleaning","Taking a shower"],why:"영화 보기 전에 점심 먹을까?: shall we have lunch before the movie?",cwhy:"영화를 보기 전에 점심을 먹을까?: shall we have lunch before we see the movie?"},
-      {q:"When should Minsu call?",c:["Before he heads out","After he showers","After the movie","At one o'clock"],why:"나오기 전에 전화해 줘: call me before you come out."}
+      {q:"What does Minsu have to do after work?",c:["Work out","Clean","Study","Meet a friend"],why:"퇴근한 후에 운동해야 돼: I have to work out after work.",cwhy:"나는 오늘 퇴근한 후에 운동해야 돼: I have to work out after work today."},
+      {q:"What does Jieun suggest doing before the workout?",c:["Having dinner","Having coffee","Going home","Watching a movie"],why:"운동하기 전에 저녁 먹을까?: shall we have dinner before you work out?",cwhy:"운동하기 전에 같이 저녁을 먹을까?: shall we have dinner together before you work out?"},
+      {q:"When should Minsu call?",c:["Before he leaves the office","After his workout","After dinner","At six"],why:"회사에서 나오기 전에 전화해 줘: call me before you leave the office."}
     ],
-    note:"점심? 몇 시에? 커피? In speech one word is often the whole question. Switch between As spoken and Clean to compare it with the full sentences."
+    note:"오늘? 저녁? 몇 시에? In speech one word is often the whole question. Switch between As spoken and Clean to compare it with the full sentences."
   },
   plan:[
     ["3","Warm-up","Each person says three things they did today in order, joined with -고."],
@@ -110,5 +110,5 @@ LESSONS.push({
     ["5","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other 지은. Swap and go again."]
   ],
   talk:[["자기 전에 보통 뭐 해요?","What do you usually do before bed?"],["일어난 후에 제일 먼저 뭐 해요?","What's the first thing you do after you get up?"],["오늘 저녁 먹은 후에 뭐 할 거예요?","What are you going to do after dinner today?"]],
-  after:"HTSK Lesson 24 covers 전 and 후 with verbs, nouns and amounts of time."
+  after:"HTSK Lesson 24 covers 전 and 후 with verbs and amounts of time."
 });

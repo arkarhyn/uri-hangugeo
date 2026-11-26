@@ -69,11 +69,11 @@ LESSONS.push({
     {en:"Minsu, shall we see a movie this weekend?", ko:"민수 씨, 주말에 영화 볼까요?", ban:"민수[야], 주말에 영화 볼[까]?", hint:"name + 야 after a vowel"}
   ],
   dlg:{
-    scene:"Lunchtime at 지은's home. 민수 visits for the first time and meets her mom. He's polite with her mom, and uses 반말 with 지은.",
+    scene:"Lunchtime at 지은's home. 민수 comes over and says hi to her mom. He's polite with her mom, and uses 반말 with 지은.",
     cast:[["민수","ban"],["지은","ban"],["지은 어머니","yo","Jieun's mom"]],
     lines:[
-      ["민수","아, 안녕하세요! 저는 지은이 친구 민수예요.","Oh, hello! I'm Jieun's friend Minsu.","yo"],
-      ["지은 어머니","아, 민수 씨? 어서 오세요. 밥 먹었어요?","Ah, Minsu? Come in. Have you eaten?"],
+      ["민수","아, 안녕하세요! 저 민수예요.","Oh, hello! It's Minsu.","yo"],
+      ["지은 어머니","아, 민수 씨! 어서 와요. 밥 먹었어요?","Oh, Minsu! Come in. Have you eaten?"],
       ["민수","밥이요? 어... 아직이요.","Food? Uh... not yet.","yo"],
       ["지은 어머니","그럼 같이 먹어요.","Then eat with us."],
       ["지은","민수[야], 왔어?","Minsu, you're here?"],
@@ -83,8 +83,8 @@ LESSONS.push({
       ["지은","그럼 빨리 먹[자]!","Then let's hurry up and eat!"]
     ],
     clean:[
-      ["민수","안녕하세요. 저는 지은이 친구 민수예요.","Hello. I'm Jieun's friend Minsu.","yo"],
-      ["지은 어머니","민수 씨예요? 어서 오세요. 밥은 먹었어요?","Are you Minsu? Come in. Have you eaten?"],
+      ["민수","안녕하세요. 저는 민수예요.","Hello. This is Minsu.","yo"],
+      ["지은 어머니","민수 씨, 어서 와요. 밥은 먹었어요?","Minsu, come in. Have you eaten?"],
       ["민수","아니요, 아직 안 먹었어요.","No, I haven't eaten yet.","yo"],
       ["지은 어머니","그럼 같이 먹어요.","Then eat with us."],
       ["지은","민수[야], 왔어?","Minsu, you're here?"],
@@ -98,7 +98,7 @@ LESSONS.push({
       {q:"What's for lunch?", c:["Kimchi stew","Gimbap","Bibimbap","Chicken"], why:"김치찌개야: it's kimchi stew.", cwhy:"점심은 김치찌개야: lunch is kimchi stew."},
       {q:"Who does Minsu speak politely to?", c:["Only Jieun's mom","Only Jieun","Both of them","Neither of them"], why:"To her mom he says 안녕하세요 and 아직이요. To 지은 he says 응.", cwhy:"To her mom he says 안녕하세요 and 아직 안 먹었어요. To 지은 he says 응, 왔어."}
     ],
-    note:"Watch the level change: 민수 is polite with 지은's mom, then drops the 요 the moment he turns to 지은. 지은이 친구 has the extra 이 that a name ending in a consonant usually picks up."
+    note:"Watch the level change: 민수 is polite with 지은's mom, then drops the 요 the moment he turns to 지은."
   },
   plan:[
     ["3","Agree on it","Decide together that you'll use 반말 with each other for this lesson."],

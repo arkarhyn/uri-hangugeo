@@ -84,10 +84,10 @@ LESSONS.push({
       ["민수","나? 음... 요즘 노래 잘 [몰라].","Me? Hmm... I don't really know new songs."],
       ["지은","그럼 이 노래는? 이거 알아?","Then how about this song? Do you know it?"],
       ["민수","아, 이거! 매일 [들어]. 근데 좀... [어려워].","Oh, this one! I listen to it every day. But it's kind of... hard."],
-      ["지은","어려워? 안 [빨라]서 [쉬워].","Hard? It's not fast, so it's easy."],
+      ["지은","어려워? 아니야, 안 [빨라]서 [쉬워].","Hard? No, it's not fast, so it's easy."],
       ["민수","그럼 같이 [부르]자.","Then let's sing it together."],
       ["지은","좋아! 아, 근데 여기 좀 [더워].","Okay! Oh, but it's kind of hot in here."],
-      ["민수","응, 진짜 [더워]. 문 좀 열까?","Yeah, it's really hot. Should I open the door a bit?"],
+      ["민수","응, 진짜 [더워]. 에어컨 켤까?","Yeah, it's really hot. Should I turn on the AC?"],
       ["지은","아니, 괜찮아. 그냥 빨리 [부르]자.","No, it's fine. Let's just hurry up and sing."]
     ],
     clean:[
@@ -95,10 +95,10 @@ LESSONS.push({
       ["민수","나는 요즘 노래를 잘 [몰라].","I don't really know recent songs."],
       ["지은","그럼 이 노래는 어때? 이 노래를 알아?","Then how about this song? Do you know it?"],
       ["민수","응, 이 노래를 매일 [들어]. 그런데 이 노래는 조금 [어려워].","Yes, I listen to this song every day. But it's a little hard."],
-      ["지은","이 노래는 안 [빨라]서 [쉬워].","This song isn't fast, so it's easy."],
+      ["지은","아니야, 이 노래는 안 [빨라]서 [쉬워].","No, this song isn't fast, so it's easy."],
       ["민수","그럼 우리 같이 [부르]자.","Then let's sing it together."],
       ["지은","좋아. 그런데 여기는 조금 [더워].","Okay. But it's a little hot here."],
-      ["민수","응, 정말 [더워]. 문을 조금 열까?","Yes, it's really hot. Shall I open the door a little?"],
+      ["민수","응, 정말 [더워]. 에어컨을 켤까?","Yes, it's really hot. Shall I turn on the AC?"],
       ["지은","아니, 괜찮아. 우리 빨리 노래를 [부르]자.","No, it's fine. Let's sing quickly."]
     ],
     q:[

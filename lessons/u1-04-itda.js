@@ -76,7 +76,7 @@ LESSONS.push({
       {q:"What is on the desk?", c:["Only books","The wallet","The phone","The bag"], why:"책상 위에는 책만 있어: there are only books on the desk."},
       {q:"Where is Minsu's phone?", c:["Next to the computer","Under the chair","In the bag","On the desk"], why:"컴퓨터 옆에 있어: it's next to the computer."}
     ],
-    note:"책상 위에 없어? asks \"isn't it on the desk?\". The answer 응, 없어 means \"right, it isn't\": Korean 응 agrees with the question, even a negative one."
+    note:"책상 위에 없어? asks \"isn't it on the desk?\". 응, 없어 means \"right, it isn't there\": 응 agrees with the question, even a negative one. When a question like this is really a suggestion, you'll also hear 아니, 없어."
   },
   plan:[
     ["3","Warm-up","Ask about things you own: 차가 있어요? 고양이가 있어요? Answer with 있어요 or 없어요."],

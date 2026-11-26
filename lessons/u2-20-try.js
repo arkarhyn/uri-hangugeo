@@ -90,14 +90,14 @@ LESSONS.push({
       ["직원","네, 저쪽에서 [입어 보세요].","Yes, try them on over there."],
       ["지은","이 옷은 어때? 조금 커?","How are these clothes? Are they a little big?"],
       ["민수","응, 조금 커. 더 작은 옷을 [입어 봐].","Yes, they're a little big. Try on smaller ones."],
-      ["지은","더 작은 옷이 있어요?","Do you have a smaller size?","yo"],
+      ["지은","더 작은 옷이 있어요?","Do you have smaller ones?","yo"],
       ["직원","네, 여기 있어요. 이 옷도 한번 [입어 보세요].","Yes, here you are. Try these on too."],
       ["지은","이 옷은 딱 좋아!","These ones are just right!"]
     ],
     q:[
       {q:"Has Minsu been to this shop before?",c:["No, it's his first time","Yes, many times","Yes, once","He works there"],why:"아니, 처음: no, first time.",cwhy:"이 가게는 처음이야: it's my first time at this shop."},
       {q:"What's wrong with the first one Jieun tries on?",c:["It's a bit big","It's a bit small","It's too expensive","The colour is wrong"],why:"응, 좀 커: yeah, a bit big.",cwhy:"응, 조금 커: yes, it's a little big."},
-      {q:"What does Jieun ask the assistant for after that?",c:["A smaller one","A bigger one","A cheaper one","A different colour"],why:"더 작은 거 있어요?: do you have a smaller one?",cwhy:"더 작은 옷이 있어요?: do you have a smaller size?"}
+      {q:"What does Jieun ask the assistant for after that?",c:["A smaller one","A bigger one","A cheaper one","A different colour"],why:"더 작은 거 있어요?: do you have a smaller one?",cwhy:"더 작은 옷이 있어요?: do you have smaller ones?"}
     ]
   },
   plan:[
@@ -109,6 +109,6 @@ LESSONS.push({
     ["5","Say it","Say it tab, polite first, then a few in 반말."],
     ["5","Dialogue","Dialogue tab. Listen first, then Role-play it. One of you can take both the friend and the shop assistant."]
   ],
-  talk:[["제주도에 가 봤어요?","Have you been to Jeju?"],["한국 음식 중에서 뭐 먹어 봤어요?","Which Korean foods have you tried?"],["뭐 한번 해 보고 싶어요?","What would you like to try some time?"]],
+  talk:[["제주도에 가 봤어요?","Have you been to Jeju?"],["한국 음식 중에서 뭐 먹어 봤어요?","Which Korean foods have you tried?"],["한번 해 보고 싶은 거 있어요?","Is there something you'd like to try some time?"]],
   after:"HTSK Lesson 32 covers -아/어 보다 and 적, along with -(으)려고 and -(으)러."
 });

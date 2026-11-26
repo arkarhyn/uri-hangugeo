@@ -82,10 +82,10 @@ LESSONS.push({
     clean:[
       ["민수","지은아, 그 가방은 뭐야? 그 가방을 샀어?","Jieun, what is that bag? Did you buy it?"],
       ["지은","아니, 이 가방은 언니[한테서] 받았어.","No, I got this bag from my older sister."],
-      ["민수","그 가방은 정말 좋아. 그런데 다음 주는 우리 엄마 생일이야.","That bag is really nice. By the way, next week is my mom's birthday."],
+      ["민수","그 가방이 정말 좋아. 그런데 다음 주에 우리 엄마 생일이야.","That bag is really nice. By the way, next week is my mom's birthday."],
       ["지은","그럼 너는 엄마[한테] 뭐 줄 거야?","Then what are you going to give your mom?"],
       ["민수","나는 꽃을 줄 거야.","I'm going to give her flowers."],
-      ["지은","꽃은 좋아. 케이크도 줄 거야?","Flowers are good. Are you going to give her a cake, too?"],
+      ["지은","꽃이 좋아. 케이크도 줄 거야?","Flowers are good. Are you going to give her a cake, too?"],
       ["민수","응, 꽃[하고] 케이크를 줄 거야. 토요일에 나[랑] 같이 시장에 갈 수 있어?","Yes, I'm going to give her flowers and a cake. Can you go to the market with me on Saturday?"],
       ["지은","응, 토요일에 같이 가자.","Yes, let's go together on Saturday."]
     ],
