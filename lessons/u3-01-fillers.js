@@ -77,12 +77,23 @@ LESSONS.push({
       ["민수","[글쎄]... 내일은 수업이 좀 많아. [혹시] 토요일은 괜찮아?","Hmm... I've got kind of a lot of classes tomorrow. Is Saturday okay, by any chance?"],
       ["지은","토요일? 응, 좋아!","Saturday? Yeah, sounds good!"]
     ],
-    q:[
-      {q:"What is Jieun trying to remember?",c:["A restaurant near school","A song","Minsu's birthday","A teacher's name"],why:"그 식당... 학교 앞에: that restaurant, in front of school."},
-      {q:"Why can't Minsu go tonight?",c:["He's busy","He's sick","He already ate","The restaurant is closed"],why:"오늘은 좀 바빠: I'm kind of busy tonight."},
-      {q:"When do they decide to go?",c:["Saturday","Tonight","Tomorrow","Next week"],why:"혹시 토요일은 괜찮아? 응, 좋아!"}
+    clean:[
+      ["지은","민수야, 그 식당 이름이 뭐야?","Minsu, what's the name of that restaurant?"],
+      ["민수","어느 식당이야?","Which restaurant is it?"],
+      ["지은","학교 앞 식당이야. 거기는 김밥이 정말 맛있었어.","The restaurant in front of school. The gimbap there was really good."],
+      ["민수","그 식당 알아. 김밥이 정말 맛있었어.","I know that restaurant. The gimbap was really good."],
+      ["지은","오늘 저녁에 거기에 갈까?","Shall we go there tonight?"],
+      ["민수","오늘 저녁에는 바빠.","I'm busy tonight."],
+      ["지은","그럼 내일은 시간이 있어?","Then do you have time tomorrow?"],
+      ["민수","내일은 수업이 많아. 토요일은 괜찮아?","I have a lot of classes tomorrow. Is Saturday okay?"],
+      ["지은","응, 토요일은 좋아.","Yes, Saturday is good."]
     ],
-    note:"Notice how little of this is a full textbook sentence: 무슨 식당?, 그럼 내일은?, 토요일? Short pieces plus fillers is what real 반말 sounds like."
+    q:[
+      {q:"What is Jieun trying to remember?",c:["A restaurant near school","A song","Minsu's birthday","A teacher's name"],why:"그 식당... 학교 앞에: that restaurant, in front of school.",cwhy:"학교 앞 식당이야: the restaurant in front of school."},
+      {q:"Why can't Minsu go tonight?",c:["He's busy","He's sick","He already ate","The restaurant is closed"],why:"오늘은 좀 바빠: I'm kind of busy tonight.",cwhy:"오늘 저녁에는 바빠: I'm busy tonight."},
+      {q:"When do they decide to go?",c:["Saturday","Tonight","Tomorrow","Next week"],why:"혹시 토요일은 괜찮아? 응, 좋아!",cwhy:"토요일은 괜찮아? 응, 토요일은 좋아."}
+    ],
+    note:"Notice how little of this is a full textbook sentence: 무슨 식당?, 그럼 내일은?, 토요일? Short pieces plus fillers is what real 반말 sounds like. Switch between As spoken and Clean to compare it with the same scene in textbook sentences."
   },
   plan:[
     ["3","Warm-up","Each of you answers 주말에 뭐 했어요? twice: once as a clean textbook sentence, once with an echo, a pause and a 음. Hear the difference."],

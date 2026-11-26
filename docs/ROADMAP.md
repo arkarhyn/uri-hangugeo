@@ -127,7 +127,9 @@ The lesson plan becomes a set of steps you click through like the slides, not a 
 
 How this squares with §5b ("keep it plain"): the glue is fixed, very frequent chunks, which are low risk. The risk is in clever sentences, and the rule against those still stands. The naturalness reviewer carries more weight here than in grammar lessons. Its brief is to flag anything textbook-stiff as well as anything overdone.
 
-Open questions: whether the unit sits before or after the unit 2 lessons on the lessons page (it's after, for now); and whether a dialogue should keep its clean textbook version too, behind a **Clean / As spoken** switch. That would mean writing every dialogue twice, so it's not built.
+Open question: whether the unit sits before or after the unit 2 lessons on the lessons page (it's after, for now).
+
+**Clean / As spoken switch: decided yes (2026-11-25), built** on branch `dlg-clean`. Each dialogue keeps a clean textbook version (`dlg.clean`) next to the as-spoken one, and the Dialogue tab has a switch. Done for `past` and `fillers`. Every dialogue written from now on is written twice. `shopping` gets both when it's redone in the natural style. How-to: `docs/LESSONS.md`, "Dialogue".
 
 ### Later
 

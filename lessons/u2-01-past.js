@@ -85,12 +85,23 @@ LESSONS.push({
       ["민수","아니, 아직. 너는?","No, not yet. You?"],
       ["지은","나도 아직.","Me neither."]
     ],
-    q:[
-      {q:"What did Minsu do on Saturday?", c:["Watched a movie at home","Went to the market","Worked out","Studied Korean"], why:"토요일엔 그냥 집에서 영화 봤어: Saturday I just watched a movie at home."},
-      {q:"What did Jieun do on Sunday?", c:["Went to the market, then worked out","Watched a movie","Stayed home, tired","Studied Korean"], why:"시장 갔어. 그리고 운동도 하고."},
-      {q:"Who has had breakfast?", c:["Neither of them","Only Minsu","Only Jieun","Both of them"], why:"아니, 아직 (no, not yet), then 나도 아직 (me neither)."}
+    clean:[
+      ["지은","민수야, 주말에 뭐 [했어]?","Minsu, what did you do on the weekend?"],
+      ["민수","토요일에는 집에서 영화를 [봤어].","On Saturday I watched a movie at home."],
+      ["지은","영화가 재미있[었어]?","Was the movie good?"],
+      ["민수","응, 정말 재미있[었어]. 그런데 조금 길[었어]. 너는 주말에 뭐 [했어]?","Yes, it was really good. But it was a little long. What did you do on the weekend?"],
+      ["지은","나는 일요일에 시장에 [갔어]. 그리고 운동도 [했어].","On Sunday I went to the market. And I worked out, too."],
+      ["민수","나는 일요일에 집에 있[었어]. 너무 피곤[했어].","On Sunday I stayed home. I was very tired."],
+      ["지은","아침을 [먹었어]?","Did you eat breakfast?"],
+      ["민수","아니, 아직 안 [먹었어]. 너는 [먹었어]?","No, I haven't eaten yet. Did you?"],
+      ["지은","나도 아직 안 [먹었어].","I haven't eaten yet either."]
     ],
-    note:"See also: the 반말 lesson and Thinking out loud. Real speech drops what the listener already knows: 시장 갔어 (no 에), 아니, 아직 (no verb at all), 재밌었어 (short for 재미있었어). Asking a teacher, it would be 주말에 뭐 했어요?"
+    q:[
+      {q:"What did Minsu do on Saturday?", c:["Watched a movie at home","Went to the market","Worked out","Studied Korean"], why:"토요일엔 그냥 집에서 영화 봤어: Saturday I just watched a movie at home.", cwhy:"토요일에는 집에서 영화를 봤어: on Saturday I watched a movie at home."},
+      {q:"What did Jieun do on Sunday?", c:["Went to the market, then worked out","Watched a movie","Stayed home, tired","Studied Korean"], why:"시장 갔어. 그리고 운동도 하고.", cwhy:"일요일에 시장에 갔어. 그리고 운동도 했어."},
+      {q:"Who has had breakfast?", c:["Neither of them","Only Minsu","Only Jieun","Both of them"], why:"아니, 아직 (no, not yet), then 나도 아직 (me neither).", cwhy:"아직 안 먹었어 (I haven't eaten yet), then 나도 아직 안 먹었어 (I haven't either)."}
+    ],
+    note:"See also: the 반말 lesson and Thinking out loud. Real speech drops what the listener already knows: 시장 갔어 (no 에), 아니, 아직 (no verb at all), 재밌었어 (short for 재미있었어). Switch between As spoken and Clean to compare it with the full sentences. Asking a teacher, it would be 주말에 뭐 했어요?"
   },
   plan:[
     ["5","Warm-up","Ask each other 밥 먹었어요? and 어제 뭐 했어요? Answering in English is fine; the point is to hear the questions."],

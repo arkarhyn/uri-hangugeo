@@ -128,6 +128,7 @@ dlg:{
 - Same rules as Say it: only grammar already taught, everyday and generic, nothing personal. Watch for irregular verbs before `irregulars1`/`irregulars2` (고마워 is ㅂ-irregular; 잘 마실게 or 감사합니다 work earlier).
 - Add a "Dialogue" row to the lesson plan, or fold it into an existing role-play row.
 - The checker checks the shape and roughly checks each sentence's ending against its level; `tools/kiwi_check.py` checks dialogue lines with Kiwi as well.
+- **Clean / As spoken** (added 2026-11-25): `lines` is the As-spoken script (fillers, fragments, dropped particles; see ROADMAP 3.14). An optional `clean` array, in the same shape, is the same scene as textbook sentences, and a switch on the tab swaps which script Read, Role-play and Listen first use (stored in `uri-hangugeo.dlgStyle`, As spoken by default). Clean keeps the same speakers, speech level (반말 stays 반말), content and lesson highlights, with no fillers, full particles and subjects, and complete sentences. The questions must have the same answers in both. Where a `why` quotes the As-spoken script, add a `cwhy` quoting the clean one. Every new dialogue gets both scripts, and both go through the checker, Kiwi and the reviewers.
 
 ## Conventions
 

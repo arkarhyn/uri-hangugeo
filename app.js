@@ -566,7 +566,7 @@ function renderSayGym(){
 }
 
 /* ---------------- dialogue ---------------- */
-// One short scene per lesson: dlg:{scene, cast:[[name, "yo"|"ban", english?],...], lines:[[name, korean, english, level?],...], q:[mc items], note?}.
+// One short scene per lesson: dlg:{scene, cast:[[name, "yo"|"ban", english?],...], lines:[[name, korean, english, level?],...], clean?:[same shape], q:[mc items], note?}.
 // A line's level defaults to its speaker's; the 4th field marks a switch (지은 talks 반말 to 민수, then polite to the server).
 // Three modes: Read (the script, Play all), Role-play (your lines show English until you've said them) and
 // Listen first (Korean hidden, then the questions). Nothing here is scored or sent to the Sheet.
@@ -576,6 +576,9 @@ const lsGet=(k,d)=>{ try{ const v=localStorage.getItem(k); return v===null?d:v; 
 const lsSet=(k,v)=>{ try{ localStorage.setItem(k,v); }catch(e){} };
 let dlgMode=lsGet(DLGM_KEY,"read"), dlgEn=lsGet(DLGEN_KEY,"1")==="1", dlgAuto=lsGet(DLGAUTO_KEY,"1")==="1";
 if(!DLG_MODES.some(([k])=>k===dlgMode)) dlgMode="read";
+const DLGS_KEY="uri-hangugeo.dlgStyle", DLG_STYLES=[["spoken","As spoken"],["clean","Clean"]];
+let dlgStyle=lsGet(DLGS_KEY,"spoken");
+if(!DLG_STYLES.some(([k])=>k===dlgStyle)) dlgStyle="spoken";
 const dlgRole={};   // lesson id -> the speaker you're playing in Role-play
 const spkI = (D,who) => D.cast.findIndex(c=>c[0]===who);
 const lineLv = (D,l) => l[3] || D.cast[spkI(D,l[0])][1];
@@ -588,13 +591,19 @@ function dlgLineHTML(D,l,j,o){
     ${o.ko?sayBtn(l[1],i):""}
   </div>`;
 }
+// A dialogue with a clean field has two scripts: As spoken (lines: fillers, fragments, dropped particles)
+// and Clean (clean: the same scene in full textbook sentences). The switch swaps the script every mode uses,
+// and a question's cwhy (if any) replaces its why, so the explanation quotes the script on screen.
 function renderDlgTab(L,pane){
-  const D=L.dlg;
+  const D0=L.dlg, two=Array.isArray(D0.clean)&&D0.clean.length>0, clean=two&&dlgStyle==="clean";
+  const D = clean ? {...D0, lines:D0.clean, q:(D0.q||[]).map(x=>x.cwhy?{...x, why:x.cwhy}:x)} : D0;
   pane.innerHTML = `<p class="dscene">${hl(D.scene)}</p>
     <div class="dcast">${D.cast.map(([n,lv,en],i)=>`<span class="dchip spk${i}">${esc(n)}${en?` <span class="muted">${esc(en)}</span>`:""}<span class="lvtag">${LV[lv]}</span></span>`).join("")}</div>
-    <div class="modes" role="group" aria-label="How to use the dialogue">${DLG_MODES.map(([k,t])=>`<button data-dm="${k}" aria-pressed="${dlgMode===k}">${t}</button>`).join("")}</div>
+    <div class="dmodes"><div class="modes" role="group" aria-label="How to use the dialogue">${DLG_MODES.map(([k,t])=>`<button data-dm="${k}" aria-pressed="${dlgMode===k}">${t}</button>`).join("")}</div>
+    ${two?`<div class="modes dstyle" role="group" aria-label="Which version of the script">${DLG_STYLES.map(([k,t])=>`<button data-ds="${k}" aria-pressed="${(clean?"clean":"spoken")===k}">${t}</button>`).join("")}</div>`:""}</div>
     <div id="dbody"></div>`;
   $$("[data-dm]",pane).forEach(b=>b.onclick=()=>{ dlgMode=b.dataset.dm; lsSet(DLGM_KEY,dlgMode); renderDlgTab(L,pane); });
+  $$("[data-ds]",pane).forEach(b=>b.onclick=()=>{ dlgStyle=b.dataset.ds; lsSet(DLGS_KEY,dlgStyle); renderDlgTab(L,pane); });
   stopPlay(); keyHandler=null;
   const body=$("#dbody",pane);
   if(dlgMode==="role") dlgRolePlay(L,D,body); else if(dlgMode==="listen") dlgListen(L,D,body); else dlgRead(L,D,body);

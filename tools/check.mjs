@@ -115,13 +115,13 @@ for (const L of LESSONS) {
       [it.alt, it.banAlt].forEach(a => (a || []).forEach(x => { if (/[\[\]]/.test(x)) bad(L, `${tag}: alternatives are shown plain, so leave out [ ] markup`); }));
     });
   }
-  // Dialogue: {scene, cast:[[name, "yo"|"ban", english?]], lines:[[name, korean, english, level?]], q?:[mc], note?}.
+  // Dialogue: {scene, cast:[[name, "yo"|"ban", english?]], lines:[[name, korean, english, level?]], clean?:[same], q?:[mc + cwhy?], note?}.
   // Endings are checked roughly per sentence here; tools/kiwi_check.py does the real check.
   if (L.dlg !== undefined) {
     const D = L.dlg, tag = 'dlg';
     if (!D || typeof D !== 'object' || Array.isArray(D)) bad(L, 'dlg must be an object');
     else {
-      for (const k of Object.keys(D)) if (!['scene', 'cast', 'lines', 'q', 'note'].includes(k)) bad(L, `${tag}: unknown field "${k}"`);
+      for (const k of Object.keys(D)) if (!['scene', 'cast', 'lines', 'clean', 'q', 'note'].includes(k)) bad(L, `${tag}: unknown field "${k}"`);
       if (typeof D.scene !== 'string' || !D.scene.trim()) bad(L, `${tag}: missing scene`);
       markup(L, tag, D.scene);
       const cast = Array.isArray(D.cast) ? D.cast : [];
@@ -131,13 +131,16 @@ for (const L of LESSONS) {
         if (!Array.isArray(c) || typeof c[0] !== 'string' || !c[0] || !['yo', 'ban'].includes(c[1]) || c.length > 3) bad(L, `${tag}: cast ${i + 1} needs [name, "yo" or "ban", english?]`);
       });
       if (new Set(names).size !== names.length) bad(L, `${tag}: a name appears twice in cast`);
-      const lines = Array.isArray(D.lines) ? D.lines : [];
-      if (lines.length < 4) bad(L, `${tag}: needs at least 4 lines`);
-      if (lines.length && (lines.length < 6 || lines.length > 10)) warn(L, `${tag}: ${lines.length} lines (aim for 6 to 10)`);
       const end = s => s.replace(/[.?!…"'\s]+$/, '');
       const sentencesOf = s => strip(s).split(/(?<=[.?!…])\s+/).map(x => x.trim()).filter(Boolean);
+      // lines is the As-spoken script; clean (optional) is the same scene in full sentences. Both get the same checks.
+      if (D.clean !== undefined && (!Array.isArray(D.clean) || !D.clean.length)) bad(L, `${tag}: clean must be a non-empty array of lines`);
+      [['lines', D.lines], ...(Array.isArray(D.clean) && D.clean.length ? [['clean', D.clean]] : [])].forEach(([field, arr]) => {
+      const lines = Array.isArray(arr) ? arr : [], pre = field === 'clean' ? `${tag} clean` : tag;
+      if (lines.length < 4) bad(L, `${pre}: needs at least 4 lines`);
+      if (lines.length && (lines.length < 6 || lines.length > 10)) warn(L, `${pre}: ${lines.length} lines (aim for 6 to 10)`);
       lines.forEach((l, i) => {
-        const at = `${tag} line ${i + 1}`;
+        const at = `${pre} line ${i + 1}`;
         if (!Array.isArray(l) || l.length < 3 || l.length > 4) { bad(L, `${at}: needs [name, korean, english, level?]`); return; }
         const [who, ko, en, lv] = l;
         const c = cast.find(x => Array.isArray(x) && x[0] === who);
@@ -155,7 +158,8 @@ for (const L of LESSONS) {
         });
       });
       const spoke = new Set(lines.map(l => Array.isArray(l) && l[0]));
-      names.forEach(n => { if (n && !spoke.has(n)) bad(L, `${tag}: ${n} is in cast but has no lines`); });
+      names.forEach(n => { if (n && !spoke.has(n)) bad(L, `${pre}: ${n} is in cast but has no lines`); });
+      });
       if (D.q !== undefined) {
         if (!Array.isArray(D.q) || !D.q.length) bad(L, `${tag}: q must be a non-empty array`);
         (Array.isArray(D.q) ? D.q : []).forEach((x, i) => {
@@ -164,8 +168,10 @@ for (const L of LESSONS) {
           if (!Array.isArray(x.c) || x.c.length < 2) bad(L, `${at}: needs c with the right answer first`);
           else if (new Set(x.c).size !== x.c.length) bad(L, `${at}: duplicate choices`);
           if (!x.why) bad(L, `${at}: no why`);
-          for (const k of Object.keys(x)) if (!['q', 'c', 'why'].includes(k)) bad(L, `${at}: unknown field "${k}"`);
+          for (const k of Object.keys(x)) if (!['q', 'c', 'why', 'cwhy'].includes(k)) bad(L, `${at}: unknown field "${k}"`);
+          if (x.cwhy !== undefined && (typeof x.cwhy !== 'string' || !x.cwhy || D.clean === undefined)) bad(L, `${at}: cwhy must be a string, and only with a clean script`);
           markup(L, at, x.why);
+          if (typeof x.cwhy === 'string') markup(L, at, x.cwhy);
         });
       }
       if (D.note !== undefined) [].concat(D.note).forEach(n => { if (typeof n !== 'string' || !n) bad(L, `${tag}: note must be a string or an array of strings`); else markup(L, tag, n); });
@@ -180,9 +186,10 @@ if (process.argv.includes('--dump-say')) {
   process.stdout.write(JSON.stringify(LESSONS.flatMap(L => (L.say || []).map((it, i) => ({ lesson: L.id, n: i + 1, ...it, ko: strip(it.ko), ban: strip(it.ban) })))));
   process.exit(errs.length ? 1 : 0);
 }
-// --dump-dlg prints every dialogue line as JSON, with its speech level resolved.
+// --dump-dlg prints every dialogue line as JSON, with its speech level resolved. Clean-script lines have n like "c3".
 if (process.argv.includes('--dump-dlg')) {
-  process.stdout.write(JSON.stringify(LESSONS.flatMap(L => !L.dlg ? [] : L.dlg.lines.map((l, i) => ({ lesson: L.id, n: i + 1, who: l[0], ko: strip(l[1]), en: l[2], lv: l[3] || (L.dlg.cast.find(c => c[0] === l[0]) || [])[1] })))));
+  const rows = (L, arr, p) => (arr || []).map((l, i) => ({ lesson: L.id, n: p + (i + 1), who: l[0], ko: strip(l[1]), en: l[2], lv: l[3] || (L.dlg.cast.find(c => c[0] === l[0]) || [])[1] }));
+  process.stdout.write(JSON.stringify(LESSONS.flatMap(L => !L.dlg ? [] : [...rows(L, L.dlg.lines, ''), ...rows(L, L.dlg.clean, 'c')])));
   process.exit(errs.length ? 1 : 0);
 }
 if (warns.length && process.argv.includes('--style')) console.log(warns.map(w => 'style: ' + w).join('\n') + '\n');
