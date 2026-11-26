@@ -60,11 +60,44 @@ LESSONS.push({
     {en:"Shall we go get coffee?", ko:"커피 마시[러] 갈까요?", ban:"커피 마시[러] 갈까?", banAlt:["커피 마시러 가자."], hint:"in 반말, 갈까요 drops its 요"},
     {en:"If you have time this weekend, shall we go take pictures?", ko:"주말에 시간 있으면 사진 찍[으러] 갈까요?", ban:"주말에 시간 있으면 사진 찍[으러] 갈까?", alt:["주말에 시간 있으면 사진 찍으러 가요."], banAlt:["주말에 시간 있으면 사진 찍으러 가자."], hint:"if-clause first, then the purpose"}
   ],
+  dlg:{
+    scene:"Saturday on the street. 민수 runs into his teacher, and then 지은 shows up. Both speak politely to the teacher and use 반말 with each other.",
+    cast:[["민수","yo"],["지은","ban"],["선생님","yo","teacher"]],
+    lines:[
+      ["선생님","어, 민수 씨! 어디 가요?","Oh, Minsu! Where are you going?"],
+      ["민수","아, 선생님! 안녕하세요. 도서관에 공부하[러] 가요.","Oh, hello! I'm going to the library to study."],
+      ["선생님","주말에도 공부해요?","You study on weekends too?"],
+      ["민수","네... 월요일에 시험이 있어요. 선생님은 어디 가세요?","Yes... I have a test on Monday. Where are you going?"],
+      ["선생님","저는 장 보[러] 마트에 가요.","I'm going to the store to get groceries."],
+      ["지은","어, 선생님! 안녕하세요.","Oh, hello!","yo"],
+      ["지은","민수야, 점심 먹[으러] 가자.","Minsu, let's go get lunch."],
+      ["민수","점심? 음... 좋아. 그럼 밥 먹[고] 공부하[러] 갈 거야.","Lunch? Hmm... okay. Then I'll eat and then go study.","ban"],
+      ["선생님","그럼 월요일에 봐요.","Then see you on Monday."]
+    ],
+    clean:[
+      ["선생님","민수 씨, 어디에 가요?","Minsu, where are you going?"],
+      ["민수","선생님, 안녕하세요. 저는 도서관에 공부하[러] 가요.","Hello. I'm going to the library to study."],
+      ["선생님","민수 씨는 주말에도 공부해요?","Do you study on weekends too?"],
+      ["민수","네, 월요일에 시험이 있어요. 선생님은 어디에 가세요?","Yes, I have a test on Monday. Where are you going?"],
+      ["선생님","저는 장 보[러] 마트에 가요.","I'm going to the store to get groceries."],
+      ["지은","선생님, 안녕하세요.","Hello.","yo"],
+      ["지은","민수야, 우리 점심을 먹[으러] 가자.","Minsu, let's go eat lunch."],
+      ["민수","좋아. 그럼 나는 점심을 먹[고] 공부하[러] 갈 거야.","Okay. Then I'll eat lunch and then go study.","ban"],
+      ["선생님","그럼 월요일에 봐요.","Then see you on Monday."]
+    ],
+    q:[
+      {q:"Why is Minsu going to the library?",c:["To study","To meet Jieun","To borrow a book","To eat lunch"],why:"도서관에 공부하러 가요."},
+      {q:"Where is the teacher going, and what for?",c:["To the store, for groceries","To the library, to study","To school, to work","To a café, to meet a friend"],why:"장 보러 마트에 가요."},
+      {q:"What will Minsu do first after this?",c:["Eat lunch, then go study","Study, then eat lunch","Go grocery shopping","Go home"],why:"밥 먹고 공부하러 갈 거야: I'll eat, then go study.",cwhy:"점심을 먹고 공부하러 갈 거야: I'll eat lunch, then go study."}
+    ],
+    note:"Compare 공부하러 (the reason for going) with 밥 먹고 (what happens first). 어디 가요? is also a common friendly hello in passing."
+  },
   plan:[
-    ["5","Warm-up","Each person lists three places they went this week."],
-    ["10","Teach","Slides 1 to 3. Turn each place from the warm-up into a full sentence with a reason: 마트에 장 보러 갔어요."],
-    ["8","Invitations","Slides 4 and 5. Invite each other to do something this weekend with -(으)러 갈까요?, and accept or decline (미안해요, 바빠요)."],
-    ["5","Why go there?","One person names a place (공항, 병원, 도서관); the other says why people go there, with -(으)러 가요."],
+    ["4","Warm-up","Each person lists three places they went this week."],
+    ["9","Teach","Slides 1 to 3. Turn each place from the warm-up into a full sentence with a reason: 마트에 장 보러 갔어요."],
+    ["6","Invitations","Slides 4 and 5. Invite each other to do something this weekend with -(으)러 갈까요?, and accept or decline (미안해요, 바빠요)."],
+    ["4","Why go there?","One person names a place (공항, 병원, 도서관); the other says why people go there, with -(으)러 가요."],
+    ["5","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other takes 지은 and the teacher. Swap."],
     ["5","Check","Practice tab."],
     ["5","Say it","Say it tab, polite first. Say the place and the reason before the verb of going, then try a few in 반말 (갈까? and 가자)."]
   ],

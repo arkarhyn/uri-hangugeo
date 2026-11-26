@@ -63,11 +63,44 @@ LESSONS.push({
     {en:"Of all fruits, I like strawberries the most.", ko:"과일 [중에서] 딸기를 [제일] 좋아해요.", ban:"과일 [중에서] 딸기를 [제일] 좋아해.", hint:"among = 중에서"},
     {en:"Which do you like better, coffee or tea?", ko:"커피하고 차 [중에서] 뭐가 [더] 좋아요?", ban:"커피하고 차 [중에서] 뭐가 [더] 좋아?", alt:["커피하고 차 중에 뭐가 더 좋아요?"], banAlt:["커피하고 차 중에 뭐가 더 좋아?"], hint:"two choices: 중에서 and 더"}
   ],
+  dlg:{
+    scene:"At a shoe store. 지은 can't decide between two pairs. 민수 and 지은 talk to each other in 반말, and she speaks politely to the clerk.",
+    cast:[["민수","ban"],["지은","ban"],["직원","yo","store clerk"]],
+    lines:[
+      ["지은","민수야, 이거하고 저거 [중에서] 뭐가 [더] 예뻐?","Minsu, which is prettier, this one or that one?"],
+      ["민수","음... 저거? 저게 [더] 예뻐.","Hmm... that one? That one's prettier."],
+      ["지은","저기요, 이거하고 저거, 뭐가 [더] 싸요?","Excuse me, this one or that one, which is cheaper?","yo"],
+      ["직원","이게 [더] 싸요. 저건 이거[보다] 만 원 [더] 비싸요.","This one's cheaper. That one costs 10,000 won more than this one."],
+      ["지은","아... 만 원이요? 그럼 뭐가 [제일] 인기가 많아요?","Ah... 10,000 won? Then which one's the most popular?","yo"],
+      ["직원","이게 [제일] 인기가 많아요. [훨씬] 가벼워요.","This one's the most popular. It's much lighter."],
+      ["지은","민수야, 너는?","Minsu, what about you?"],
+      ["민수","음... 나는 이게 [더] 좋아. [덜] 비싸고.","Hmm... I like this one better. It's less expensive, too."],
+      ["지은","저기요, 이걸로 할게요.","Excuse me, I'll take this one.","yo"]
+    ],
+    clean:[
+      ["지은","민수야, 이거하고 저거 [중에서] 뭐가 [더] 예뻐?","Minsu, which is prettier, this one or that one?"],
+      ["민수","저게 [더] 예뻐.","That one is prettier."],
+      ["지은","이거하고 저거 [중에서] 뭐가 [더] 싸요?","Which is cheaper, this one or that one?","yo"],
+      ["직원","이게 [더] 싸요. 저 신발은 이 신발[보다] 만 원 [더] 비싸요.","This one is cheaper. Those shoes cost 10,000 won more than these shoes."],
+      ["지은","그럼 뭐가 [제일] 인기가 많아요?","Then which one is the most popular?","yo"],
+      ["직원","이 신발이 [제일] 인기가 많아요. 그리고 [훨씬] 가벼워요.","These shoes are the most popular. And they are much lighter."],
+      ["지은","민수야, 너는 뭐가 [더] 좋아?","Minsu, which do you like better?"],
+      ["민수","나는 이게 [더] 좋아. 그리고 [덜] 비싸.","I like this one better. And it's less expensive."],
+      ["지은","이걸로 할게요.","I'll take this one.","yo"]
+    ],
+    q:[
+      {q:"Which pair does Minsu think is prettier?",c:["That one","This one","Both the same","Neither"],why:"저게 더 예뻐: that one's prettier."},
+      {q:"How do the prices compare?",c:["That one costs 10,000 won more","This one costs 10,000 won more","They cost the same","That one costs 1,000 won more"],why:"저건 이거보다 만 원 더 비싸요: that one is 10,000 won more than this one.",cwhy:"저 신발은 이 신발보다 만 원 더 비싸요."},
+      {q:"Which does Jieun buy, and why might it be a good choice?",c:["This one: it's cheaper and more popular","That one: it's prettier","This one: it's prettier and bigger","That one: it's lighter"],why:"이게 더 싸요, 이게 제일 인기가 많아요, then 이걸로 할게요.",cwhy:"이게 더 싸요, 이 신발이 제일 인기가 많아요, then 이걸로 할게요."}
+    ],
+    note:"저건 is short for 저것은. In the last line, 지은 turns from 민수 back to the clerk, so she goes back to polite speech with 이걸로 할게요."
+  },
   plan:[
-    ["5","Warm-up","Compare two things in the room: 이 컵이 저 컵보다 커요."],
-    ["10","Teach","Slides 1 to 4. Make five 보다 sentences about food, cities and weather, then swap the winner and the loser."],
-    ["8","Rankings","Slides 5 to 7. Rank three foods, three cities and three people you both know with 중에서 … 제일."],
-    ["5","This or that","Ask each other A하고 B 중에서 뭐가 더 좋아요? and answer with a reason using -아서."],
+    ["4","Warm-up","Compare two things in the room: 이 컵이 저 컵보다 커요."],
+    ["9","Teach","Slides 1 to 4. Make five 보다 sentences about food, cities and weather, then swap the winner and the loser."],
+    ["7","Rankings","Slides 5 to 7. Rank three foods, three cities and three people you both know with 중에서 … 제일."],
+    ["3","This or that","Ask each other A하고 B 중에서 뭐가 더 좋아요? and answer with a reason using -아서."],
+    ["5","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 지은, the other takes 민수 and the clerk. Swap."],
     ["5","Check","Practice tab."],
     ["5","Say it","Say it tab, polite first. Check that 보다 lands on the thing being beaten, then try a few in 반말."]
   ],

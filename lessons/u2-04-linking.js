@@ -64,13 +64,48 @@ LESSONS.push({
     {en:"I like coffee, but my friend doesn't.", ko:"[c:저]는 커피를 좋아하[지만] 친구는 안 좋아해요.", ban:"[c:나]는 커피를 좋아하[지만] 친구는 안 좋아해.", alt:["커피를 좋아하지만 친구는 안 좋아해요."], banAlt:["커피를 좋아하지만 친구는 안 좋아해."]},
     {en:"Last weekend I met a friend and we watched a movie.", ko:"지난 주말에 친구를 만나[서] 영화를 봤어요.", ban:"지난 주말에 친구를 만나[서] 영화를 봤어.", hint:"meet and then do something together"}
   ],
+  dlg:{
+    scene:"Outside a movie theater. 민수 runs up late to meet 지은. They're friends the same age, so they talk in 반말.",
+    cast:[["민수","ban"],["지은","ban"]],
+    lines:[
+      ["민수","지은아! 아... 늦[어서] 미안해.","Jieun! Ah... sorry I'm late."],
+      ["지은","괜찮아. 근데 왜 늦었어?","It's okay. But why were you late?"],
+      ["민수","어... 어제 일이 많[아서] 늦게 잤어.","Uh... I had a lot of work yesterday, so I went to bed late."],
+      ["지은","아, 진짜? 그럼 지금 피곤해?","Oh, really? Then are you tired now?"],
+      ["민수","응, 좀 피곤하[지만] 괜찮아. 영화 시간은?","Yeah, I'm a bit tired, but I'm okay. What about the movie time?"],
+      ["지은","세 시 영화는 벌써 시작했어. 근데 다섯 시 영화도 있어.","The three o'clock one already started. But there's a five o'clock one, too."],
+      ["민수","그럼 밥 먹[고] 영화 볼까?","Then shall we eat and then watch the movie?"],
+      ["지은","좋아! 나 점심 안 먹었어.","Sounds good! I haven't had lunch."],
+      ["민수","그럼 김밥 먹을까? 싸[고] 맛있어.","Then shall we have gimbap? It's cheap and tasty."],
+      ["지은","응, 가자!","Yeah, let's go!"]
+    ],
+    clean:[
+      ["민수","지은아, 늦[어서] 미안해.","Jieun, sorry I'm late."],
+      ["지은","괜찮아. 그런데 왜 늦었어?","It's okay. But why were you late?"],
+      ["민수","어제 일이 많[아서] 늦게 잤어.","I had a lot of work yesterday, so I went to bed late."],
+      ["지은","그럼 지금 피곤해?","Then are you tired now?"],
+      ["민수","응, 조금 피곤하[지만] 괜찮아. 영화 시간은 괜찮아?","Yes, I'm a little tired, but I'm okay. Is the movie time okay?"],
+      ["지은","세 시 영화는 벌써 시작했어. 하지만 다섯 시 영화도 있어.","The three o'clock movie already started. But there is a five o'clock movie, too."],
+      ["민수","그럼 밥을 먹[고] 영화를 볼까?","Then shall we eat and then watch the movie?"],
+      ["지은","좋아. 나는 점심을 안 먹었어.","Sounds good. I haven't had lunch."],
+      ["민수","그럼 김밥을 먹을까? 김밥은 싸[고] 맛있어.","Then shall we have gimbap? Gimbap is cheap and tasty."],
+      ["지은","응, 가자.","Yes, let's go."]
+    ],
+    q:[
+      {q:"Why was Minsu late?", c:["He had a lot of work and went to bed late","The bus didn't come","He was having lunch","He went to the wrong theater"], why:"어제 일이 많아서 늦게 잤어: I had a lot of work yesterday, so I went to bed late."},
+      {q:"Which movie showing can they still catch?", c:["The five o'clock one","The three o'clock one","The seven o'clock one","None today"], why:"세 시 영화는 벌써 시작했어. 근데 다섯 시 영화도 있어.", cwhy:"세 시 영화는 벌써 시작했어. 하지만 다섯 시 영화도 있어."},
+      {q:"What does Minsu say about gimbap?", c:["It's cheap and tasty","It's tasty but expensive","He already had it","He doesn't like it"], why:"싸고 맛있어: it's cheap and tasty.", cwhy:"김밥은 싸고 맛있어: gimbap is cheap and tasty."}
+    ],
+    note:"All three links turn up here: 늦어서 and 많아서 (reason), 피곤하지만 (but), 먹고 and 싸고 (and). None of the 서 parts take the past, even when the reason happened yesterday."
+  },
   plan:[
-    ["5","Warm-up","Each person says two short sentences about today with 그리고 or 하지만 between them (오늘 바빠요. 하지만 행복해요.)."],
-    ["10","Teach","Slides 1 to 3. Take the warm-up sentences and glue them together with -고 and -지만 instead."],
-    ["8","Excuses game","Slides 4 and 5. One person invites (같이 영화 볼까요?). The other says no with a reason using -아서/어서 (미안해요, 피곤해서 못 가요). Keep going until someone runs out of excuses."],
-    ["5","Which one?","Slide 7. Describe a restaurant you both know three ways: with -고, with -지만 and with -아서."],
-    ["5","Check","Practice tab."],
-    ["5","Say it","Say it tab, polite first. Name the link word you used (-고, -지만 or -아서) before you reveal, then try a few in 반말."]
+    ["3","Warm-up","Each person says two short sentences about today with 그리고 or 하지만 between them (오늘 바빠요. 하지만 행복해요.)."],
+    ["9","Teach","Slides 1 to 3. Take the warm-up sentences and glue them together with -고 and -지만 instead."],
+    ["7","Excuses game","Slides 4 and 5. One person invites (같이 영화 볼까요?). The other says no with a reason using -아서/어서 (미안해요, 피곤해서 못 가요). Keep going until someone runs out of excuses."],
+    ["3","Which one?","Slide 7. Describe a restaurant you both know three ways: with -고, with -지만 and with -아서."],
+    ["4","Check","Practice tab."],
+    ["4","Say it","Say it tab, polite first. Name the link word you used (-고, -지만 or -아서) before you reveal, then try a few in 반말."],
+    ["4","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other 지은. Swap and go again."]
   ],
   talk:[["한국어 공부는 어때요?","How's studying Korean going?"],["어제 왜 늦게 잤어요?","Why did you go to bed late last night?"],["이 식당 어때요?","How's this restaurant?"]],
   after:"HTSK Lesson 17 covers -고, Lesson 47 covers -지만, and Lesson 37 covers -아서/어서."

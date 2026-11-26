@@ -64,11 +64,44 @@ LESSONS.push({
     {en:"When I'm tired, I drink coffee.", ko:"[c:저]는 피곤하[면] 커피를 마셔요.", ban:"[c:나]는 피곤하[면] 커피를 마셔.", alt:["피곤하면 커피를 마셔요."], banAlt:["피곤하면 커피를 마셔."], hint:"a present ending after 면 shows a habit"},
     {en:"I hope the weather's nice this weekend.", ko:"주말에 날씨가 좋[으면 좋겠어요].", ban:"주말에 날씨가 좋[으면 좋겠어].", hint:"좋다 + 으면, then 좋겠어요"}
   ],
+  dlg:{
+    scene:"Friday night, on the phone. 지은 and 민수 planned a picnic for tomorrow. They're friends the same age, so it's 반말 the whole way.",
+    cast:[["민수","ban"],["지은","ban"]],
+    lines:[
+      ["지은","민수야, 내일 비 오[면] 어떻게 해?","Minsu, what do we do if it rains tomorrow?"],
+      ["민수","비? 내일 비 와?","Rain? It's going to rain tomorrow?"],
+      ["지은","응. 아마 오후에 올 거야.","Yeah. It'll probably come in the afternoon."],
+      ["민수","음... 그럼 비 오[면] 그냥 우리 집에서 영화 보자.","Hmm... then if it rains, let's just watch a movie at my place."],
+      ["지은","좋아. 근데 나 내일 늦게 일어날 거야.","Okay. But I'm going to get up late tomorrow."],
+      ["민수","괜찮아. 일어나[면] 전화해.","That's fine. Call me when you get up."],
+      ["지은","응. 아, 그리고 시간 있[으면] 김밥 좀 사 와.","Okay. Oh, and if you have time, bring some gimbap."],
+      ["민수","알았어. 아... 비 안 오[면 좋겠어].","Got it. Ah... I hope it doesn't rain."],
+      ["지은","나도.","Me too."]
+    ],
+    clean:[
+      ["지은","민수야, 내일 비가 오[면] 어떻게 해?","Minsu, what do we do if it rains tomorrow?"],
+      ["민수","내일 비가 와?","Is it going to rain tomorrow?"],
+      ["지은","응. 아마 오후에 비가 올 거야.","Yes. It will probably rain in the afternoon."],
+      ["민수","그럼 비가 오[면] 우리 집에서 영화를 보자.","Then if it rains, let's watch a movie at my house."],
+      ["지은","좋아. 그런데 나는 내일 늦게 일어날 거야.","Good. But I'm going to get up late tomorrow."],
+      ["민수","괜찮아. 네가 일어나[면] 전화해.","That's fine. Call me when you get up."],
+      ["지은","응. 그리고 시간이 있[으면] 김밥을 좀 사 와.","Okay. And if you have time, buy some gimbap and bring it."],
+      ["민수","알았어. 내일 비가 안 오[면 좋겠어].","Okay. I hope it doesn't rain tomorrow."],
+      ["지은","나도 비가 안 오[면 좋겠어].","I hope it doesn't rain, too."]
+    ],
+    q:[
+      {q:"What will they do if it rains?",c:["Watch a movie at Minsu's place","Go to a café","Meet in the morning instead","Study at Jieun's place"],why:"비 오면 그냥 우리 집에서 영화 보자: if it rains, let's just watch a movie at my place.",cwhy:"비가 오면 우리 집에서 영화를 보자: if it rains, let's watch a movie at my house."},
+      {q:"When should Minsu get a call?",c:["When Jieun gets up","When it starts raining","When Jieun buys gimbap","Tonight"],why:"일어나면 전화해, said to Jieun: call when you get up.",cwhy:"네가 일어나면 전화해: call me when you get up."},
+      {q:"What is Minsu asked to bring, if he has time?",c:["Gimbap","A movie","An umbrella","Coffee"],why:"시간 있으면 김밥 좀 사 와.",cwhy:"시간이 있으면 김밥을 좀 사 와."}
+    ],
+    note:"면 covers both \"if\" (비 오면) and \"when\" (일어나면). 사 와 is 사다 and 오다 together: buy it and bring it."
+  },
   plan:[
-    ["5","Warm-up","Make -(으)면 forms of ten verbs from earlier lessons, including three irregulars."],
-    ["10","Teach","Slides 1 to 4. Finish each other's sentences: one says the 면 half (비가 오면…), the other adds the result."],
-    ["8","Habits","Slide 5. Each person says three things they do when they're tired, stressed or hungry."],
-    ["5","Hopes","Slide 7. Take turns saying three hopes for this month with -(으)면 좋겠어요."],
+    ["4","Warm-up","Make -(으)면 forms of ten verbs from earlier lessons, including three irregulars."],
+    ["9","Teach","Slides 1 to 4. Finish each other's sentences: one says the 면 half (비가 오면…), the other adds the result."],
+    ["6","Habits","Slide 5. Each person says three things they do when they're tired, stressed or hungry."],
+    ["4","Hopes","Slide 7. Take turns saying three hopes for this month with -(으)면 좋겠어요."],
+    ["5","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other 지은. Swap and go again."],
     ["5","Check","Practice tab."],
     ["5","Say it","Say it tab, polite first. Say the 면 half before you reveal, then try a few in 반말."]
   ],

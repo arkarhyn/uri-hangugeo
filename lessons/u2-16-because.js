@@ -1,0 +1,115 @@
+"use strict";
+LESSONS.push({
+  id:"because", unit:2, ko:"-(으)니까", title:"Because, so do this",
+  blurb:"Give the reason for a request or a suggestion with -(으)니까, and know when to keep using -아서.",
+  src:["L81","L37"],
+  goals:["Attach -(으)니까 to verbs, adjectives and nouns, including irregular stems","Give a reason, then ask or suggest something","Put the past on the reason with -았/었으니까","Choose between -(으)니까 and -아서/어서"],
+  slides:[
+    {h:"Making the form",
+     steps:[["[s:바쁘] + [e:니까]","[s:바쁘][e:니까]"],["[s:좋] + [e:으니까]","[s:좋][e:으니까]"]],
+     p:"Stem + 니까 after a vowel, stem + 으니까 after a consonant. The reason comes first and the result second.",
+     t:[["Word","Because …"],["가다","[s:가][e:니까]"],["하다","[s:하][e:니까]"],["먹다","[s:먹][e:으니까]"],["없다","[s:없][e:으니까]"],["주말 (a noun)","주말[e:이니까]"],["휴가 (a noun)","휴가[e:니까]"]]},
+    {h:"Irregulars with -(으)니까", p:"The 으 triggers the ㅂ and ㄷ changes, and the ㄴ makes a ㄹ stem drop its ㄹ.",
+     steps:[["[s:살] + [e:니까]","[s:사][x:ㄹ] + [e:니까]","[s:사][e:니까]"],["[s:춥] + [e:으니까]","[s:추][c:우][e:니까]"]],
+     t:[["Word","Because …"],["만들다","[s:만드][e:니까]"],["춥다","[s:추][c:우][e:니까]"],["듣다","[c:들][e:으니까]"],["바쁘다","[s:바쁘][e:니까]"],["모르다","[s:모르][e:니까]"]],
+     note:"Watch out: -(으)면 keeps a ㄹ (살면, 만들면), but -(으)니까 drops it (사니까, 만드니까)."},
+    {h:"Then ask or suggest", p:"This is the main reason to learn -(으)니까: the second half can be a request or a suggestion. -아서/어서 can't do that.",
+     ex:[["비가 오[니까] 우산을 가져가세요.","It's raining, so take an umbrella. ✓"],["비가 와서 우산을 가져가세요.","✗ No request after a -아서 reason."],["시간이 없[으니까] 택시를 탈까요?","We don't have time, so shall we take a taxi?"],["이건 매[c:우]니까 먹지 마세요.","This is spicy, so don't eat it."]],
+     note:"See also: the linking lesson said this was coming."},
+    {h:"The reason can be past",
+     steps:[["먹었어요","[s:먹었][e:으니까]"],["왔어요","[s:왔][e:으니까]"]],
+     p:"Unlike -아서, -(으)니까 can follow 았/었, and after 았/었 it's always 으니까. For a future reason, 거예요 becomes 거니까.",
+     ex:[["어제 많이 걸었[으니까] 오늘은 쉬세요.","You walked a lot yesterday, so rest today."],["아까 밥을 먹었[으니까] 커피를 마실까요?","We ate earlier, so shall we have coffee?"],["내일 일찍 일어날 거[니까] 지금 잘 거예요.","I'm getting up early tomorrow, so I'm going to bed now."]]},
+    {h:"Sorry and thanks keep -아서", p:"For the reason you're sorry, thankful or glad, use -아서/어서, not -(으)니까.",
+     ex:[["늦[어서] 미안해요.","Sorry I'm late. ✓"],["늦으니까 미안해요.","✗ An apology takes -아서."],["도와줘[서] 고마[c:워]요.","Thanks for helping me."],["만나[서] 반가[c:워]요.","Nice to meet you."]]},
+    {h:"Which one?", p:"-(으)니까 puts your reason forward as grounds for what comes next, while -아서/어서 simply links a cause to its result. When both fit an everyday statement, -아서/어서 usually sounds softer.",
+     t:[["You want to…","-아서/어서","-(으)니까"],["ask or suggest after the reason","✗","✓"],["put 았/었 on the reason","✗","✓"],["say sorry or thanks for something","✓","✗"],["say why you did something","✓ usual","possible"]],
+     ex:[["피곤[해서] 일찍 잤어요.","I was tired, so I went to bed early."],["피곤하[니까] 일찍 자요.","We're tired, so let's go to bed early."]]},
+    {h:"왜요? and 그러니까", p:"To start a new sentence with \"so\" before a request or suggestion, use 그러니까. As an answer to 왜?, a reason can end in -(으)니까요, but it can sound defensive.",
+     ex:[["비가 와요. 그[러니까] 우산을 가져가세요.","It's raining. So take an umbrella."],["왜 안 먹어요? 아까 먹었[으니까요].","Why aren't you eating? Because I ate earlier."],["왜 안 먹어요? 아까 먹었어요.","Why aren't you eating? I ate earlier. (softer)"]],
+     note:"그래서 works like -아서, so don't use it before a request. See also: the linking lesson for 그래서."},
+    {h:"In 반말", p:"-(으)니까 doesn't change in 반말. Only the end of the sentence does.",
+     t:[["Polite","반말"],["추[우니까] 닫아 [c:주세요]","추[우니까] 닫아 [c:줘]"],["비가 오[니까] [c:가져가세요]","비가 오[니까] [c:가져가]"],["바쁘[니까] 내일 [c:만나요]","바쁘[니까] 내일 [c:만나자]"],["매[우니까] 먹지 마[e:세요]","매[우니까] 먹지 마[x:세요]"],["먹었[으니까]요","먹었[으니까][x:요]"]],
+     ex:[["시간 없[으니까] 빨리 가자.","We don't have time, so let's hurry."],["밖은 추[c:우]니까 나가지 마.","It's cold out, so don't go outside."],["내가 했[으니까] 걱정하지 마.","I've done it, so don't worry."]]}
+  ],
+  vocab:[["우산","umbrella"],["가져가다","to take (a thing) with you"],["택시","taxi"],["타다","to ride, to get in"],["버스","bus"],["쉬다","to rest"],["빨리","quickly"],["일찍","early"],["맵다 → 매워요","to be spicy"],["춥다 → 추워요","to be cold (weather)"],["밖","outside"],["창문","window"],["월급날","payday"],["내다","to pay"],["왜","why"],["그러니까","so (before a request or suggestion)"],["반갑다 → 반가워요","to be glad to meet"],["돕다 → 도와요","to help"]],
+  ex:[
+    {k:"mc",q:"가다 + -(으)니까",c:["가니까","가으니까","가서니까","갈니까"],why:"Vowel stem, so just 니까."},
+    {k:"mc",q:"먹다 + -(으)니까",c:["먹으니까","먹니까","먹어니까","먹을니까"],why:"Consonant stem: [s:먹][e:으니까]."},
+    {k:"mc",q:"춥다 + -(으)니까",c:["추우니까","춥으니까","추워니까","춥니까"],why:"ㅂ becomes 우, which takes the place of 으: [s:추][c:우][e:니까]."},
+    {k:"mc",q:"만들다 + -(으)니까",c:["만드니까","만들니까","만들으니까","만들어니까"],why:"The ㄹ drops before ㄴ: [s:만드][e:니까]."},
+    {k:"mc",q:"듣다 + -(으)니까",c:["들으니까","듣으니까","드니까","듣니까"],why:"ㄷ becomes ㄹ before 으: [c:들][e:으니까]."},
+    {k:"mc",q:"먹었어요 as a reason with -(으)니까",c:["먹었으니까","먹었니까","먹으었니까","먹었어서"],why:"After 았/었 it's always 으니까: [s:먹었][e:으니까]."},
+    {k:"mc",q:"\"It's raining, so take an umbrella.\"",c:["비가 오니까 우산을 가져가세요.","비가 와서 우산을 가져가세요.","비가 오지만 우산을 가져가세요.","비가 왔어서 우산을 가져가세요."],why:"A request after the reason needs -(으)니까."},
+    {k:"mc",q:"\"We don't have time, so shall we take a taxi?\"",c:["시간이 없으니까 택시를 탈까요?","시간이 없어서 택시를 탈까요?","시간이 없니까 택시를 탈까요?","시간이 없지만 택시를 탈까요?"],why:"A suggestion needs -(으)니까, and 없다 takes 으."},
+    {k:"mc",q:"\"Sorry I'm late.\"",c:["늦어서 미안해요.","늦으니까 미안해요.","늦었으니까 미안해요.","늦었어서 미안해요."],why:"An apology takes -아서/어서, with no past before 서."},
+    {k:"mc",q:"Which sentence is wrong?",c:["피곤해서 쉬세요.","피곤하니까 쉬세요.","피곤해서 일찍 잤어요.","피곤하니까 쉴까요?"],why:"-아서 can't come before a request. Use 피곤하니까 쉬세요."},
+    {k:"mc",q:"\"You walked a lot yesterday, so rest today.\"",c:["어제 많이 걸었으니까 오늘은 쉬세요.","어제 많이 걸어서 오늘은 쉬세요.","어제 많이 걸었어서 오늘은 쉬세요.","어제 많이 걷었으니까 오늘은 쉬세요."],why:"A past reason plus a request: 걸었으니까 (걷다 is a ㄷ verb)."},
+    {k:"mc",q:"주말 + \"because it's …\"",c:["주말이니까","주말니까","주말으니까","주말에니까"],why:"A noun ending in a consonant takes 이니까."},
+    {k:"build",q:"It's cold, so please close the window.",ok:["추우니까 창문 닫아 주세요"],x:["추워서"]},
+    {k:"build",q:"I'm busy today, so let's meet tomorrow.",ok:["오늘은 바쁘니까 내일 만나요"],x:["바빠서"]}
+  ],
+  pool:[
+    {k:"mc",q:"살다 + -(으)니까",c:["사니까","살니까","살으니까","살아니까"],why:"The ㄹ drops before ㄴ: [s:사][e:니까]."},
+    {k:"mc",q:"맵다 + -(으)니까",c:["매우니까","맵으니까","매워니까","맵니까"],why:"ㅂ becomes 우: [s:매][c:우][e:니까]."},
+    {k:"mc",q:"모르다 + -(으)니까",c:["모르니까","몰라니까","모르으니까","몰르니까"],why:"The 르 only changes before 아/어. Here it's a vowel stem."},
+    {k:"mc",q:"휴가 + \"because it's …\"",c:["휴가니까","휴가으니까","휴가에니까","휴가서니까"],why:"A noun ending in a vowel can take just 니까."},
+    {k:"mc",q:"\"Nice to meet you.\"",c:["만나서 반가워요.","만나니까 반가워요.","만났으니까 반가워요.","만났어서 반가워요."],why:"The reason you're glad takes -아서."},
+    {k:"mc",q:"Which word means \"so\" before a request?",c:["그러니까","그래서","그리고","하지만"],why:"그러니까 can lead into a request. 그래서 can't."},
+    {k:"mc",q:"\"This is spicy, so don't eat it.\"",c:["이건 매우니까 먹지 마세요.","이건 매워서 먹지 마세요.","이건 맵으니까 먹지 마세요.","이건 매우지만 먹지 마세요."],why:"Before 먹지 마세요, the reason takes -(으)니까."},
+    {k:"mc",q:"왜 안 먹어요? Answer: \"Because I ate earlier.\"",c:["아까 먹었으니까요.","아까 먹었어서요.","아까 먹었니까요.","아까 먹었지만요."],why:"A past reason takes 었으니까. 아까 먹었어요 is a softer way to answer."}
+  ],
+  poolN:3,
+  say:[
+    {en:"It's cold, so please close the window.", ko:"추[우니까] 창문 닫아 주세요.", ban:"추[우니까] 창문 닫아 [c:줘].", alt:["추우니까 창문을 닫아 주세요."], banAlt:["추우니까 창문을 닫아 줘."], hint:"춥다: the 우 takes the place of 으"},
+    {en:"It's raining, so take an umbrella.", ko:"비가 오[니까] 우산 가져가세요.", ban:"비가 오[니까] 우산 [c:가져가].", alt:["비가 오니까 우산을 가져가세요."], banAlt:["비가 오니까 우산을 가져가."], hint:"umbrella = 우산, take with you = 가져가다"},
+    {en:"We don't have time, so shall we take a taxi?", ko:"시간이 없[으니까] 택시 탈까요?", ban:"시간이 없[으니까] 택시 탈까?", alt:["시간 없으니까 택시를 탈까요?"], banAlt:["시간 없으니까 택시 타자."], hint:"없다 ends in a consonant"},
+    {en:"I'm busy today, so let's meet tomorrow.", ko:"오늘은 바쁘[니까] 내일 만나요.", ban:"오늘은 바쁘[니까] 내일 [c:만나자].", hint:"the plain 해요 form can mean \"let's\"; in 반말 use -자"},
+    {en:"This is spicy, so don't eat it.", ko:"이건 매[우니까] 먹지 마세요.", ban:"이건 매[우니까] 먹지 [c:마].", alt:["이거 매우니까 먹지 마세요."], banAlt:["이거 매우니까 먹지 마."], hint:"맵다 is a ㅂ adjective"},
+    {en:"You walked a lot yesterday, so rest today.", ko:"어제 많이 걸었[으니까] 오늘은 쉬세요.", ban:"어제 많이 걸었[으니까] 오늘은 [c:쉬어].", hint:"past reason: 걷다 becomes 걸었-"},
+    {en:"It's the weekend, so there are going to be a lot of people.", ko:"주말[이니까] 사람이 많을 거예요.", ban:"주말[이니까] 사람이 많을 거[c:야].", hint:"noun + 이니까"},
+    {en:"It's raining, so after we eat, let's watch a movie at home.", ko:"비가 오[니까] 밥 먹은 후에 집에서 영화 봐요.", ban:"비가 오[니까] 밥 먹은 후에 집에서 영화 [c:보자].", alt:["비가 오니까 밥을 먹은 후에 집에서 영화를 봐요."], banAlt:["비가 오니까 밥을 먹은 후에 집에서 영화를 보자."], hint:"reason first, then \"after eating\""}
+  ],
+  dlg:{
+    scene:"At a bus stop. 민수 and 지은 are on their way to a movie. They're friends the same age, so they talk in 반말.",
+    cast:[["민수","ban"],["지은","ban"]],
+    lines:[
+      ["지은","아, 버스 진짜 안 와.","Ugh, the bus really isn't coming."],
+      ["민수","음... 영화 몇 시야?","Hmm... what time's the movie?"],
+      ["지은","세 시. 지금 두 시 사십 분이야.","Three. It's two forty now."],
+      ["민수","아, 그럼 시간 없[으니까] 택시 타자.","Oh, then we don't have time, so let's get a taxi."],
+      ["지은","택시? 근데 택시는 좀 비싸.","A taxi? But taxis are kind of expensive."],
+      ["민수","오늘 월급날이[니까] 내가 낼게.","It's payday, so I'll pay."],
+      ["지은","진짜? 그럼 영화 본 후에 커피는 내가 살게.","Really? Then after the movie, the coffee's on me."],
+      ["민수","좋아. 어, 저기 택시 와!","Sounds good. Oh, there's a taxi coming!"],
+      ["지은","비도 오[니까] 빨리 타자.","It's raining too, so let's hurry and get in."]
+    ],
+    clean:[
+      ["지은","버스가 정말 안 와.","The bus really isn't coming."],
+      ["민수","영화는 몇 시에 시작해?","What time does the movie start?"],
+      ["지은","영화는 세 시에 시작해. 지금은 두 시 사십 분이야.","The movie starts at three. It's two forty now."],
+      ["민수","그럼 시간이 없[으니까] 택시를 타자.","Then we don't have time, so let's get a taxi."],
+      ["지은","그런데 택시는 조금 비싸.","But taxis are a little expensive."],
+      ["민수","오늘은 월급날이[니까] 내가 낼게.","Today is payday, so I'll pay."],
+      ["지은","정말? 그럼 영화를 본 후에 내가 커피를 살게.","Really? Then I'll buy the coffee after we see the movie."],
+      ["민수","좋아. 저기에 택시가 와.","Sounds good. A taxi is coming over there."],
+      ["지은","비도 오[니까] 빨리 타자.","It's raining too, so let's get in quickly."]
+    ],
+    q:[
+      {q:"Why does Minsu want to take a taxi?",c:["They don't have much time","The bus is expensive","He's tired","It's cold"],why:"시간 없으니까 택시 타자: we don't have time, so let's get a taxi.",cwhy:"시간이 없으니까 택시를 타자: we don't have time, so let's get a taxi."},
+      {q:"Why does Minsu offer to pay?",c:["It's payday","It's Jieun's birthday","Jieun paid last time","He made them late"],why:"오늘 월급날이니까 내가 낼게: it's payday, so I'll pay.",cwhy:"오늘은 월급날이니까 내가 낼게: today is payday, so I'll pay."},
+      {q:"What will Jieun pay for?",c:["Coffee after the movie","The taxi","The movie tickets","Lunch before the movie"],why:"영화 본 후에 커피는 내가 살게: after the movie, the coffee's on me.",cwhy:"영화를 본 후에 내가 커피를 살게: I'll buy the coffee after the movie."}
+    ],
+    note:"낼게 and 살게 are \"I'll pay\" and \"I'll buy\", the same ending as 할게요 in the shopping lesson. See also: the before and after lesson for 본 후에."
+  },
+  plan:[
+    ["3","Warm-up","Take turns giving a reason with -아서: 피곤해서 일찍 잤어요."],
+    ["10","Teach","Slides 1 to 5. Turn each warm-up reason into advice with -(으)니까: 피곤하니까 일찍 자요."],
+    ["7","Advice game","One person states a problem (추워요, 배고파요, 시간이 없어요). The other answers with -(으)니까 plus a request or suggestion. Swap after five."],
+    ["4","Check","Practice tab."],
+    ["5","Say it","Say it tab, polite first. Decide whether the second half is a request or a suggestion before you reveal, then try a few in 반말."],
+    ["5","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other 지은. Swap and go again."]
+  ],
+  talk:[["오늘 날씨가 좋으니까 뭐 할까요?","The weather's nice today, so what shall we do?"],["내일 휴가니까 오늘 뭐 하고 싶어요?","You're off tomorrow, so what do you want to do today?"],["배고프니까 뭐 먹을까요?","I'm hungry, so what shall we eat?"]],
+  after:"HTSK Lesson 81 covers -(으)니까 and how it differs from -아서/어서, which is in Lesson 37."
+});

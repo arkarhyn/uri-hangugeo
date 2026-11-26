@@ -54,13 +54,48 @@ LESSONS.push({
     {en:"My friend is a doctor.", ko:"[c:제] 친구는 의사[예요].", ban:"[c:내] 친구는 의사[야].", alt:["제 친구는 의사입니다."], hint:"의사 ends in a vowel"},
     {en:"I learn Korean at the library.", ko:"도서관에서 한국어를 [배워요].", ban:"도서관에서 한국어를 [배워].", alt:["도서관에서 한국어를 배웁니다."], hint:"배우다: ㅜ + 어 merge"}
   ],
+  dlg:{
+    scene:"The first day of a Korean class. 민수 meets his new teacher. They're strangers, so they both speak politely.",
+    cast:[["선생님","yo","teacher"],["민수","yo"]],
+    lines:[
+      ["선생님","안녕하[세요]? 이름이 뭐[예요]?","Hello. What's your name?"],
+      ["민수","아, 안녕하[십니까]? 저는 김민수[입니다].","Oh, hello. I'm Minsu Kim."],
+      ["선생님","네, 민수 씨. 학생[이에요]?","Okay, Minsu. Are you a student?"],
+      ["민수","학생이요? 아니요, 회사원[이에요].","A student? No, I'm an office worker."],
+      ["선생님","아, 그럼 한국어는 매일 공부[해요]?","Oh, then do you study Korean every day?"],
+      ["민수","음... 매일은 [아니에요]. 그냥 주말에 [해요].","Hmm... not every day. I just do it on weekends."],
+      ["선생님","한국 드라마도 [봐요]?","Do you watch Korean dramas too?"],
+      ["민수","네, 많이 [봐요]. 진짜 재미있[어요].","Yes, a lot. They're really fun."],
+      ["선생님","저도 자주 [봐요].","I watch them often too."],
+      ["민수","아, 네, 잘 부탁[합니다]!","Oh, great, I look forward to your class!"]
+    ],
+    clean:[
+      ["선생님","안녕하[세요]? 이름이 뭐[예요]?","Hello. What is your name?"],
+      ["민수","안녕하[십니까]? 저는 김민수[입니다].","Hello. I am Minsu Kim."],
+      ["선생님","민수 씨는 학생[이에요]?","Minsu, are you a student?"],
+      ["민수","아니요, 저는 학생이 [아니에요]. 회사원[이에요].","No, I'm not a student. I'm an office worker."],
+      ["선생님","한국어를 매일 공부[해요]?","Do you study Korean every day?"],
+      ["민수","아니요, 저는 주말에 한국어를 공부[해요].","No, I study Korean on weekends."],
+      ["선생님","한국 드라마도 [봐요]?","Do you watch Korean dramas too?"],
+      ["민수","네, 한국 드라마를 많이 [봐요]. 정말 재미있[어요].","Yes, I watch a lot of Korean dramas. They are really fun."],
+      ["선생님","저도 한국 드라마를 자주 [봐요].","I often watch Korean dramas too."],
+      ["민수","네, 잘 부탁[합니다].","I look forward to your class."]
+    ],
+    q:[
+      {q:"What does Minsu do?", c:["He's an office worker","He's a student","He's a teacher","He's a doctor"], why:"아니요, 회사원이에요: no, I'm an office worker.", cwhy:"저는 학생이 아니에요. 회사원이에요: I'm not a student. I'm an office worker."},
+      {q:"When does Minsu study Korean?", c:["On weekends","Every day","In the morning","Every evening"], why:"매일은 아니에요. 그냥 주말에 해요: not every day, just on weekends.", cwhy:"저는 주말에 한국어를 공부해요: I study Korean on weekends."},
+      {q:"What do both of them watch?", c:["Korean dramas","Movies","The news","Sports"], why:"한국 드라마도 봐요? 네, 많이 봐요. Then the teacher says 저도 자주 봐요.", cwhy:"한국 드라마를 많이 봐요. Then the teacher says 저도 한국 드라마를 자주 봐요."}
+    ],
+    note:"Minsu introduces himself in the formal style (안녕하십니까, 입니다), then chats in 해요, and goes formal again for 잘 부탁합니다. Switch between As spoken and Clean to compare it with the full sentences."
+  },
   plan:[
-    ["5","Warm-up","Greet each other twice: once like a news anchor (안녕하십니까?), once like coworkers (안녕하세요?). Talk about what felt different."],
-    ["10","Teach","Slides 1 to 5. Write five verbs on paper and find each stem together before adding any ending."],
-    ["8","Ping-pong drill","One person says a dictionary form (먹다). The other answers in 해요 (먹어요), then 합니다 (먹습니다). Switch every five verbs. The Words tab has the list."],
-    ["5","Formal switch","Slide 6. Re-say three of your 해요 sentences in 합니다체 as if giving a briefing."],
-    ["5","Check","Do the Practice tab together. Read every explanation out loud, even for right answers."],
-    ["5","Say it","Say it tab, polite first. Do the 합니다 sentences twice, once in 합니다 and once in 해요."]
+    ["3","Warm-up","Greet each other twice: once like a news anchor (안녕하십니까?), once like coworkers (안녕하세요?). Talk about what felt different."],
+    ["8","Teach","Slides 1 to 5. Write five verbs on paper and find each stem together before adding any ending."],
+    ["6","Ping-pong drill","One person says a dictionary form (먹다). The other answers in 해요 (먹어요), then 합니다 (먹습니다). Switch every five verbs. The Words tab has the list."],
+    ["4","Formal switch","Slide 6. Re-say three of your 해요 sentences in 합니다체 as if giving a briefing."],
+    ["4","Check","Do the Practice tab together. Read every explanation out loud, even for right answers."],
+    ["5","Say it","Say it tab, polite first. Do the 합니다 sentences twice, once in 합니다 and once in 해요."],
+    ["5","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 선생님, the other 민수. Swap and go again."]
   ],
   talk:[["오늘 뭐 해요?","What are you doing today?"],["커피를 마셔요?","Do you drink coffee?"],["어디에 살아요?","Where do you live?"]],
   after:"Read HTSK Lesson 5 for more conjugation detail, then do the Practice tab once on your own."

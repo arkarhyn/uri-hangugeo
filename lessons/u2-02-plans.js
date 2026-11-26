@@ -65,13 +65,46 @@ LESSONS.push({
     {en:"Shall we meet at three?", ko:"세 시에 [만날까요]?", ban:"세 시에 [만날까]?", banAlt:["세 시에 만나자."], hint:"3 o'clock = native number + 시"},
     {en:"This weekend I'm going to meet a friend at home.", ko:"이번 주말에 집에서 친구를 [만날 거예요].", ban:"이번 주말에 집에서 친구를 [만날 거야].", alt:["이번 주말에 친구를 집에서 만날 거예요."], banAlt:["이번 주말에 친구를 집에서 만날 거야."], hint:"time first, then where with 에서"}
   ],
+  dlg:{
+    scene:"Friday evening, on the way home. 민수 and 지은 are friends the same age, so they talk in 반말.",
+    cast:[["민수","ban"],["지은","ban"]],
+    lines:[
+      ["민수","내일 토요일이야! 지은아, 뭐 [할 거야]?","It's Saturday tomorrow! Jieun, what are you going to do?"],
+      ["지은","내일? 음... 그냥 집에서 [쉴 거야]. 너는?","Tomorrow? Hmm... I'm just going to rest at home. You?"],
+      ["민수","나는 등산 [갈 거야]. 같이 [갈까]?","I'm going hiking. Shall we go together?"],
+      ["지은","등산? 어... 근데 내일 비 [올 거야].","Hiking? Uh... but it's going to rain tomorrow."],
+      ["민수","아, 진짜? 그럼... 영화 [볼까]?","Oh, really? Then... shall we see a movie?"],
+      ["지은","영화 좋아! 몇 시에 [만날까]?","A movie sounds good! What time shall we meet?"],
+      ["민수","음... 두 시?","Hmm... two?"],
+      ["지은","좋아. 점심도 같이 [먹을까]?","Okay. Shall we have lunch together, too?"],
+      ["민수","오, 좋아! 그럼 한 시에 [만나자].","Oh, sounds good! Then let's meet at one."]
+    ],
+    clean:[
+      ["민수","내일은 토요일이야. 지은아, 너는 내일 뭐 [할 거야]?","Tomorrow is Saturday. Jieun, what are you going to do tomorrow?"],
+      ["지은","나는 집에서 [쉴 거야]. 너는 뭐 [할 거야]?","I'm going to rest at home. What are you going to do?"],
+      ["민수","나는 등산을 [갈 거야]. 같이 [갈까]?","I'm going hiking. Shall we go together?"],
+      ["지은","그런데 내일은 비가 [올 거야].","But it's going to rain tomorrow."],
+      ["민수","그럼 같이 영화를 [볼까]?","Then shall we see a movie together?"],
+      ["지은","응, 영화 좋아. 몇 시에 [만날까]?","Yes, a movie sounds good. What time shall we meet?"],
+      ["민수","두 시에 [만날까]?","Shall we meet at two?"],
+      ["지은","좋아. 점심도 같이 [먹을까]?","Okay. Shall we have lunch together, too?"],
+      ["민수","좋아. 그럼 한 시에 [만나자].","Sounds good. Then let's meet at one."]
+    ],
+    q:[
+      {q:"What was Jieun going to do tomorrow?", c:["Rest at home","Go hiking","See a movie","Study"], why:"내일? 음... 그냥 집에서 쉴 거야: I'm just going to rest at home.", cwhy:"나는 집에서 쉴 거야: I'm going to rest at home."},
+      {q:"What's the problem with hiking?", c:["It's going to rain","Jieun is tired","It's too far","Minsu has to work"], why:"근데 내일 비 올 거야: but it's going to rain tomorrow.", cwhy:"그런데 내일은 비가 올 거야: but it's going to rain tomorrow."},
+      {q:"What time do they end up meeting?", c:["1:00","2:00","12:00","3:00"], why:"두 시 comes up first, but after lunch is added it's 한 시에 만나자: let's meet at one."}
+    ],
+    note:"거야 tells your own plan, and -(으)ㄹ까? asks what the other person thinks. As spoken, a suggestion can shrink to just 두 시? To someone older it would be 내일 뭐 할 거예요?"
+  },
   plan:[
-    ["5","Warm-up","Ask 어제 뭐 했어요? (last lesson), then 내일 뭐 할 거예요? Notice how the ending changes."],
+    ["3","Warm-up","Ask 어제 뭐 했어요? (last lesson), then 내일 뭐 할 거예요? Notice how the ending changes."],
     ["8","Teach","Slides 1 to 3. Take turns: one says a verb, the other says it with 거예요. Throw in ㄹ stems (만들다, 놀다, 살다)."],
-    ["10","Plan a date","Slides 4 and 5. Plan a real weekend together using only 까요? questions: 어디에 갈까요? 뭐 먹을까요? 몇 시에 만날까요? Answer with 좋아요 or a soft no."],
-    ["5","Plan or suggestion?","Slide 6. One person says a sentence with 거예요 or 까요?; the other says whether it's a plan or a suggestion."],
-    ["5","Check","Practice tab."],
-    ["5","Say it","Say it tab, polite first. Notice whether each sentence is a plan or a suggestion, then try a few in 반말."]
+    ["7","Plan a date","Slides 4 and 5. Plan a real weekend together using only 까요? questions: 어디에 갈까요? 뭐 먹을까요? 몇 시에 만날까요? Answer with 좋아요 or a soft no."],
+    ["3","Plan or suggestion?","Slide 6. One person says a sentence with 거예요 or 까요?; the other says whether it's a plan or a suggestion."],
+    ["4","Check","Practice tab."],
+    ["4","Say it","Say it tab, polite first. Notice whether each sentence is a plan or a suggestion, then try a few in 반말."],
+    ["4","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other 지은. Swap and go again."]
   ],
   talk:[["이번 주말에 뭐 할 거예요?","What are you going to do this weekend?"],["저녁에 뭐 먹을까요?","What shall we have for dinner?"],["다음 휴가에 어디에 갈 거예요?","Where are you going on your next vacation?"]],
   after:"HTSK Lesson 9 covers the future tense, and Lesson 44 covers more ways to suggest things."

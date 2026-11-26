@@ -70,13 +70,46 @@ LESSONS.push({
     {en:"Can I take a picture here?", ko:"여기서 사진 찍어[도 돼요]?", ban:"여기서 사진 찍어[도 돼]?"},
     {en:"Don't be late. You have to come early.", ko:"늦[으면 안 돼요]. 일찍 와[야 해요].", ban:"늦[으면 안 돼]. 일찍 와[야 해].", alt:["늦으면 안 돼요. 일찍 와야 돼요."], banAlt:["늦으면 안 돼. 일찍 와야 돼."], hint:"one mustn't, one have to"}
   ],
+  dlg:{
+    scene:"At a library. 민수 asks a staff member about a seat in polite speech, then talks with 지은 in 반말.",
+    cast:[["민수","ban"],["지은","ban"],["직원","yo","library staff"]],
+    lines:[
+      ["민수","저... 여기 앉아[도 돼요]?","Um... may I sit here?","yo"],
+      ["직원","네, 돼요. 근데 여기서 음식 먹[으면 안 돼요].","Yes, you may. But you can't eat food here."],
+      ["민수","아... 커피도 안 돼요?","Oh... is coffee not allowed either?","yo"],
+      ["직원","커피는 마셔[도 돼요].","Coffee is okay to drink."],
+      ["지은","민수야, 오늘 뭐 해[야 해]?","Minsu, what do you have to do today?"],
+      ["민수","음... 숙제 해[야 돼]. 내일 수업 있어.","Hmm... I have to do homework. I have class tomorrow."],
+      ["지은","아, 나는 네 시에 가[야 해]. 저녁에 약속 있어.","Oh, I have to leave at four. I've got plans this evening."],
+      ["민수","약속? 그럼 먼저 가[도 돼].","Plans? Then it's fine to go ahead of me."],
+      ["지은","응. 너무 늦게 자[면 안 돼]!","Okay. Don't stay up too late!"]
+    ],
+    clean:[
+      ["민수","저기요, 여기에 앉아[도 돼요]?","Excuse me, may I sit here?","yo"],
+      ["직원","네, 앉아[도 돼요]. 그런데 여기에서 음식을 먹[으면 안 돼요].","Yes, you may sit here. But you can't eat food here."],
+      ["민수","커피도 마시[면 안 돼요]?","Can't I drink coffee either?","yo"],
+      ["직원","커피는 마셔[도 돼요].","You may drink coffee."],
+      ["지은","민수야, 너는 오늘 뭐 해[야 해]?","Minsu, what do you have to do today?"],
+      ["민수","나는 숙제를 해[야 돼]. 내일 수업이 있어.","I have to do my homework. I have class tomorrow."],
+      ["지은","나는 네 시에 가[야 해]. 저녁에 약속이 있어.","I have to leave at four. I have plans this evening."],
+      ["민수","그럼 먼저 가[도 돼].","Then it's fine to go ahead of me."],
+      ["지은","응. 너는 너무 늦게 자[면 안 돼].","Okay. You mustn't go to bed too late."]
+    ],
+    q:[
+      {q:"What isn't allowed at the library?", c:["Eating food","Drinking coffee","Sitting there","Doing homework"], why:"여기서 음식 먹으면 안 돼요: you can't eat food here.", cwhy:"여기에서 음식을 먹으면 안 돼요: you can't eat food here."},
+      {q:"What does Minsu have to do today?", c:["Homework","Meet someone","Leave at four","Clean"], why:"숙제 해야 돼: I have to do homework.", cwhy:"나는 숙제를 해야 돼: I have to do my homework."},
+      {q:"Why does Jieun have to leave at four?", c:["She has plans in the evening","She has class","She has homework","The library closes"], why:"저녁에 약속 있어: I've got plans this evening.", cwhy:"저녁에 약속이 있어: I have plans this evening."}
+    ],
+    note:"해야 해 and 해야 돼 both mean have to, and both show up here. 약속 is any arrangement to meet someone."
+  },
   plan:[
-    ["5","Warm-up","Each person says one thing they have to do this week (이번 주에 … 해야 해요)."],
-    ["10","Teach","Slides 1 to 3. Turn ten verbs from the Words tab into the have-to and allowed-to forms, out loud."],
-    ["8","House rules","Slides 4 to 6. Write five house rules together using all four patterns (집에서 신발을 신으면 안 돼요, 설거지는 안 해도 돼요…)."],
-    ["5","May I?","Take turns asking permission for silly things (냉장고 열어도 돼요?). The other answers 네, 돼요, or 안 돼요 with a reason (-아서)."],
-    ["5","Check","Practice tab."],
-    ["5","Say it","Say it tab. Answer each one as a house rule in 반말, then turn every answer into a question with a rising voice."]
+    ["3","Warm-up","Each person says one thing they have to do this week (이번 주에 … 해야 해요)."],
+    ["9","Teach","Slides 1 to 3. Turn ten verbs from the Words tab into the have-to and allowed-to forms, out loud."],
+    ["7","House rules","Slides 4 to 6. Write five house rules together using all four patterns (집에서 신발을 신으면 안 돼요, 설거지는 안 해도 돼요…)."],
+    ["3","May I?","Take turns asking permission for silly things (냉장고 열어도 돼요?). The other answers 네, 돼요, or 안 돼요 with a reason (-아서)."],
+    ["4","Check","Practice tab."],
+    ["4","Say it","Say it tab. Answer each one as a house rule in 반말, then turn every answer into a question with a rising voice."],
+    ["4","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other 지은, and the site plays the staff. Swap and go again."]
   ],
   talk:[["이번 주에 뭐 해야 해요?","What do you have to do this week?"],["집에서 뭐 하면 안 돼요?","What isn't allowed at your place?"],["여기서 사진 찍어도 돼요?","Can I take pictures here?"]],
   after:"HTSK Lesson 46 covers -아/어야 하다, and Lesson 49 covers -아/어도 되다."

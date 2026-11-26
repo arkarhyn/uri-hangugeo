@@ -64,13 +64,46 @@ LESSONS.push({
     {en:"Don't go yet.", ko:"아직 가[지 마세요].", ban:"아직 가[지 마].", hint:"안 + -세요 would not work here"},
     {en:"Come quickly. Don't be late.", ko:"빨리 [오세요]. 늦[지 마세요].", ban:"빨리 [와]. 늦[지 마].", hint:"two requests, one do and one don't"}
   ],
+  dlg:{
+    scene:"In a museum. 민수 and 지은 talk to each other in 반말, and switch to polite speech with the museum staff.",
+    cast:[["민수","ban"],["지은","ban"],["직원","yo","museum staff"]],
+    lines:[
+      ["직원","저기요, 여기서 사진 찍[지 마세요].","Excuse me, no photos here, please."],
+      ["민수","네? 아, 사진이요? 죄송합니다.","Sorry? Oh, photos? I'm sorry.","yo"],
+      ["지은","민수야, 그거 만지[지 마]!","Minsu, don't touch that!"],
+      ["민수","어? 아, 미안, 미안.","Huh? Oh, sorry, sorry."],
+      ["지은","저... 화장실 어디에 있어요?","Um... where's the restroom?","yo"],
+      ["직원","화장실이요? 저쪽으로 [가세요].","The restroom? Go that way."],
+      ["지은","감사합니다.","Thank you.","yo"],
+      ["지은","민수야, 여기서 잠깐만 [기다려].","Minsu, wait here a moment."],
+      ["민수","응. 빨리 [와]!","Okay. Come back quickly!"]
+    ],
+    clean:[
+      ["직원","저기요, 여기에서 사진을 찍[지 마세요].","Excuse me, please don't take photos here."],
+      ["민수","네, 죄송합니다.","Yes, I'm sorry.","yo"],
+      ["지은","민수야, 그것을 만지[지 마].","Minsu, don't touch that."],
+      ["민수","응, 미안해.","Okay, I'm sorry."],
+      ["지은","저기요, 화장실이 어디에 있어요?","Excuse me, where is the restroom?","yo"],
+      ["직원","화장실은 저쪽에 있어요. 저쪽으로 [가세요].","The restroom is over there. Go that way."],
+      ["지은","감사합니다.","Thank you.","yo"],
+      ["지은","민수야, 여기에서 잠깐만 [기다려].","Minsu, wait here a moment."],
+      ["민수","응. 빨리 [와].","Okay. Come back quickly."]
+    ],
+    q:[
+      {q:"What does the staff member ask them not to do?", c:["Take photos","Touch anything","Run","Talk loudly"], why:"여기서 사진 찍지 마세요: no photos here.", cwhy:"여기에서 사진을 찍지 마세요: please don't take photos here."},
+      {q:"What does Jieun tell Minsu not to do?", c:["Touch something","Take photos","Go to the restroom","Worry"], why:"그거 만지지 마: don't touch that.", cwhy:"그것을 만지지 마: don't touch that."},
+      {q:"What does Jieun ask Minsu to do while she's gone?", c:["Wait there a moment","Come with her","Go that way","Take a photo"], why:"여기서 잠깐만 기다려: wait here a moment.", cwhy:"여기에서 잠깐만 기다려: wait here a moment."}
+    ],
+    note:"The staff use -지 마세요 and -(으)세요. Between friends, the same requests shrink to -지 마 and the plain form: 만지지 마, 기다려, 빨리 와."
+  },
   plan:[
-    ["5","Warm-up","Recap from Review 2: say 안녕히 가세요 and 안녕히 계세요, and explain which one goes to whom."],
-    ["10","Teach","Slides 1 to 4. One person names a verb from the Words tab; the other gives the -(으)세요 and the -지 마세요 forms."],
-    ["8","Simon says","Take turns giving each other instructions. -(으)세요 means do it, -지 마세요 means don't (앉으세요, 일어나세요, 웃지 마세요). Try to catch the other person out."],
-    ["5","Sign makers","Slide 5. Each person writes two signs for your home (냉장고 열지 마세요!) and reads them out."],
-    ["5","Check","Practice tab."],
-    ["5","Say it","Say it tab. Give each answer as a short order to your partner, who has to act it out (앉아! 늦지 마!). Then try the polite version."]
+    ["3","Warm-up","Recap from Review 2: say 안녕히 가세요 and 안녕히 계세요, and explain which one goes to whom."],
+    ["9","Teach","Slides 1 to 4. One person names a verb from the Words tab; the other gives the -(으)세요 and the -지 마세요 forms."],
+    ["6","Simon says","Take turns giving each other instructions. -(으)세요 means do it, -지 마세요 means don't (앉으세요, 일어나세요, 웃지 마세요). Try to catch the other person out."],
+    ["4","Sign makers","Slide 5. Each person writes two signs for your home (냉장고 열지 마세요!) and reads them out."],
+    ["4","Check","Practice tab."],
+    ["4","Say it","Say it tab. Give each answer as a short order to your partner, who has to act it out (앉아! 늦지 마!). Then try the polite version."],
+    ["4","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other 지은, and the site plays the staff. Swap and go again."]
   ],
   talk:[["한국어로 천천히 말해 주세요.","Please speak slowly in Korean."],["걱정하지 마세요. 괜찮아요.","Don't worry. It's fine."],["다시 한번 말해 주세요.","Please say that one more time."]],
   after:"HTSK Lesson 40 covers commands, including negative ones, and Lesson 41 covers -아/어 주다."

@@ -60,13 +60,46 @@ LESSONS.push({
     {en:"I call my grandmother.", ko:"할머니께 전화를 [드려요].", ban:"할머니께 전화를 [드려].", hint:"humble 드리다 and 께 stay, even in 반말"},
     {en:"My grandmother lives in Busan.", ko:"[c:저희] 할머니는 부산에 [사세요].", ban:"[c:우리] 할머니는 부산에 [사셔].", hint:"저희 becomes 우리 in 반말; 살다 drops its ㄹ before 시"}
   ],
+  dlg:{
+    scene:"민수 visits 지은's home and meets her mom for the first time. He's polite with her mom. 지은 uses 반말 with 민수 and polite speech with her mom.",
+    cast:[["지은 어머니","yo","Jieun's mom"],["민수","yo"],["지은","ban"]],
+    lines:[
+      ["지은 어머니","어서 [오세요].","Come on in."],
+      ["민수","아, 안녕하[세요]! 처음 [뵙겠습니다]. [저] 지은이 친구 민수예요.","Oh, hello! Nice to meet you. I'm Jieun's friend Minsu."],
+      ["지은 어머니","아, 민수 씨! 여기 [앉으세요].","Oh, Minsu! Sit here, please."],
+      ["민수","네, 감사합니다. 저... 할머니도 집에 [계세요]?","Yes, thank you. Um... is Grandmother home too?"],
+      ["지은 어머니","할머니요? 네, [계세요]. 근데 지금 [주무세요].","Grandmother? Yes, she's here. But she's sleeping now."],
+      ["지은","[c:우리] 할머니는 이 시간에 자주 주무[c:셔].","My grandma often sleeps around this time."],
+      ["지은 어머니","민수 씨, 커피 [드세요]?","Minsu, do you drink coffee?"],
+      ["민수","커피요? 네, 좋아요. 감사합니다.","Coffee? Yes, that sounds good. Thank you."],
+      ["지은","엄마, [저]도 커피 주[세요].","Mom, coffee for me too, please.","yo"]
+    ],
+    clean:[
+      ["지은 어머니","어서 [오세요].","Please come in."],
+      ["민수","안녕하[세요]? 처음 [뵙겠습니다]. [저]는 지은이 친구 민수예요.","Hello. Nice to meet you. I am Jieun's friend Minsu."],
+      ["지은 어머니","민수 씨, 여기 [앉으세요].","Minsu, please sit here."],
+      ["민수","네, 감사합니다. 할머니도 집에 [계세요]?","Yes, thank you. Is Grandmother at home too?"],
+      ["지은 어머니","네, 할머니도 집에 [계세요]. 그런데 지금 [주무세요].","Yes, Grandmother is at home too. But she is sleeping now."],
+      ["지은","[c:우리] 할머니는 이 시간에 자주 주무[c:셔].","My grandmother often sleeps at this time."],
+      ["지은 어머니","민수 씨, 커피를 [드세요]?","Minsu, do you drink coffee?"],
+      ["민수","네, 커피 좋아요. 감사합니다.","Yes, coffee sounds good. Thank you."],
+      ["지은","엄마, [저]도 커피를 주[세요].","Mom, please give me coffee too.","yo"]
+    ],
+    q:[
+      {q:"What is Grandmother doing?", c:["Sleeping","Eating","Drinking coffee","She isn't home"], why:"지금 주무세요: she's sleeping now."},
+      {q:"What does Jieun's mom ask Minsu to do when he comes in?", c:["Sit here","Wait a moment","Eat lunch","Meet Grandmother"], why:"여기 앉으세요: sit here, please."},
+      {q:"What does Jieun ask her mom for?", c:["Coffee for herself too","Water","Lunch","A seat"], why:"엄마, 저도 커피 주세요: coffee for me too, please.", cwhy:"엄마, 저도 커피를 주세요: please give me coffee too."}
+    ],
+    note:"Watch who gets raised: Grandmother gets 계세요 and 주무세요, and Minsu lowers himself with 저. When 지은 turns from 민수 to her mom, she switches to polite speech and calls herself 저."
+  },
   plan:[
-    ["5","Warm-up","Act out meeting a friend's grandmother: 처음 뵙겠습니다. 저는 ___입니다."],
-    ["10","Teach","Slides 1 to 4. Stress the two directions: lower yourself (저, 제, 저희), raise them (-(으)시-)."],
-    ["7","Swap game","Slides 5 to 7. One person says a plain word (자다, 이름, 주다), the other gives the honorific or humble version (주무시다, 성함, 드리다). Keep score."],
-    ["5","Family talk","Each person describes one older relative with honorifics: 할머니께서 ___에 사세요. ___을/를 좋아하세요."],
-    ["5","Check","Practice tab. Watch for the trap: honorifics never go on yourself."],
-    ["5","Say it","Say it tab, polite first. In 반말, notice what stays (the honorific words for the elder) and what changes (only the ending toward your friend)."]
+    ["3","Warm-up","Act out meeting a friend's grandmother: 처음 뵙겠습니다. 저는 ___입니다."],
+    ["9","Teach","Slides 1 to 4. Stress the two directions: lower yourself (저, 제, 저희), raise them (-(으)시-)."],
+    ["6","Swap game","Slides 5 to 7. One person says a plain word (자다, 이름, 주다), the other gives the honorific or humble version (주무시다, 성함, 드리다). Keep score."],
+    ["4","Family talk","Each person describes one older relative with honorifics: 할머니께서 ___에 사세요. ___을/를 좋아하세요."],
+    ["4","Check","Practice tab. Watch for the trap: honorifics never go on yourself."],
+    ["5","Say it","Say it tab, polite first. In 반말, notice what stays (the honorific words for the elder) and what changes (only the ending toward your friend)."],
+    ["5","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other plays 지은 and her mom. Swap and go again."]
   ],
   talk:[["부모님은 어디에 사세요?","Where do your parents live?"],["할머니께서는 연세가 어떻게 되세요?","How old is your grandmother?"],["주말에 뭐 하세요?","What do you do on weekends?"]],
   after:"HTSK Lesson 6 covers speech levels. Lesson 39 goes deeper into -시- and the special honorific words."

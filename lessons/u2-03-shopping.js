@@ -69,34 +69,46 @@ LESSONS.push({
     {en:"One iced Americano, to go, please.", ko:"아이스 아메리카노 한 잔 [포장해 주세요].", ban:"아이스 아메리카노 한 잔 [포장해] [c:줘].", alt:["아이스 아메리카노 한 잔, 포장해 주세요."], hint:"item, number and counter, then the request", note:"Ordering, you always use 주세요. The 반말 version is telling a friend what to order for you."}
   ],
   dlg:{
-    scene:"At a café. 민수 and 지은 talk to each other in 반말, and switch to polite speech when they speak to the staff.",
-    cast:[["민수","ban"],["지은","ban"],["직원","yo","café staff"]],
+    scene:"At a small bakery. 민수 and 지은 talk to each other in 반말, and switch to polite speech when they speak to the clerk.",
+    cast:[["민수","ban"],["지은","ban"],["직원","yo","bakery clerk"]],
     lines:[
       ["직원","어서 오세요!","Welcome!"],
-      ["지은","민수야, 뭐 마실 거야?","Minsu, what are you going to drink?"],
-      ["민수","나는 아이스 아메리카노. 너는?","An iced Americano for me. You?"],
-      ["지은","나도.","Me too."],
-      ["지은","아이스 아메리카노 두 잔 [주세요].","Two iced Americanos, please.","yo"],
-      ["직원","드시고 가세요?","For here?"],
-      ["민수","아니요, [포장해 주세요].","No, to go, please.","yo"],
-      ["직원","만 원입니다.","That's 10,000 won."],
-      ["민수","[카드로 할게요].","I'll pay by card.","yo"],
-      ["지은","민수야, 잘 [마실게]! 다음엔 내가 [살게].","Thanks for the coffee, Minsu! Next time it's on me."]
+      ["지은","민수야, [이거] 뭐야? 맛있어?","Minsu, what's this? Is it good?"],
+      ["민수","[그거]? 음... 치즈빵. 진짜 맛있어.","That? Hmm... cheese bread. It's really good."],
+      ["지은","저기요, [이거] 얼마예요?","Excuse me, how much is this?","yo"],
+      ["직원","이천 원이에요.","It's 2,000 won."],
+      ["지은","그럼 [이거] 두 개하고 [저거] 하나 [주세요].","Then two of these and one of those, please.","yo"],
+      ["직원","네. 봉투 필요하세요?","Sure. Do you need a bag?"],
+      ["민수","어... 봉투요? 네, [넣어 주세요].","Uh... a bag? Yes, please put them in one.","yo"],
+      ["직원","다 해서 칠천 원이에요.","That's 7,000 won altogether."],
+      ["민수","[카드로 할게요].","I'll pay by card.","yo"]
+    ],
+    clean:[
+      ["직원","어서 오세요.","Welcome."],
+      ["지은","민수야, [이거]는 뭐야? 맛있어?","Minsu, what is this? Is it good?"],
+      ["민수","[그거]는 치즈빵이야. 정말 맛있어.","That is cheese bread. It's really good."],
+      ["지은","저기요, [이거]는 얼마예요?","Excuse me, how much is this?","yo"],
+      ["직원","그 빵은 이천 원이에요.","That bread is 2,000 won."],
+      ["지은","그럼 [이거] 두 개하고 [저거] 하나를 [주세요].","Then please give me two of these and one of those.","yo"],
+      ["직원","네. 봉투가 필요하세요?","Sure. Do you need a bag?"],
+      ["민수","네, 빵을 봉투에 [넣어 주세요].","Yes, please put the bread in a bag.","yo"],
+      ["직원","다 해서 칠천 원이에요.","That's 7,000 won altogether."],
+      ["민수","[카드로 할게요].","I'll pay by card.","yo"]
     ],
     q:[
-      {q:"What do they order?", c:["Two iced Americanos","An iced Americano and a tea","Two hot Americanos","Two iced Americanos and a cake"], why:"아이스 아메리카노 두 잔: two iced Americanos."},
-      {q:"Are they drinking it at the café?", c:["No, they take it to go","Yes, they stay","Only Jieun stays","The staff don't ask"], why:"드시고 가세요? (for here?) 아니요, 포장해 주세요: no, to go, please."},
-      {q:"Who pays, and how?", c:["Minsu, by card","Jieun, by card","Minsu, in cash","They split it"], why:"민수 says 카드로 할게요. 지은 thanks him with 잘 마실게 (literally \"I'll drink it well\") and 다음엔 내가 살게 (next time it's on me)."}
+      {q:"How much is the cheese bread Jieun asks about?", c:["2,000 won","7,000 won","1,000 won","20,000 won"], why:"저기요, 이거 얼마예요? 이천 원이에요: it's 2,000 won.", cwhy:"그 빵은 이천 원이에요: that bread is 2,000 won."},
+      {q:"Do they want a bag?", c:["Yes, they ask the clerk to put the bread in one","No, they brought their own","No, they're eating there","The clerk doesn't ask"], why:"봉투요? 네, 넣어 주세요: a bag? Yes, please put them in.", cwhy:"네, 빵을 봉투에 넣어 주세요: yes, please put the bread in a bag."},
+      {q:"How does Minsu pay?", c:["By card","In cash","Jieun pays","With a coupon"], why:"카드로 할게요: I'll pay by card."}
     ],
-    note:"The lines tagged 해요 are where 민수 or 지은 turn to the staff and switch to polite speech. With each other, they stay in 반말."
+    note:"The lines tagged 해요 are where 민수 or 지은 turn to the clerk and switch to polite speech. With each other, they stay in 반말. 봉투요? is the clerk's word said back to buy a second."
   },
   plan:[
-    ["5","Warm-up","Put three things around the room: one near each of you and one far away. Point and say 이거, 그거, 저거."],
-    ["10","Teach","Slides 1 to 4. Turn five verbs into requests: say the 해요 form first, then drop 요 and add 주세요."],
-    ["10","Café role-play","Slides 5 and 6, then the Dialogue tab: in Role-play, tap both 민수 and 지은, one each, and the site plays the staff. Then make your own: one person runs a café with a written menu and prices. The customer orders two things, asks the price, picks eat-in or takeout, and pays by card. Then swap."],
-    ["3","Real-world mission","Pick one sentence to use the next time you're at a Korean restaurant or market, and say it out loud now."],
-    ["5","Check","Practice tab."],
-    ["5","Say it","Say it tab, polite first, as if you were at the counter. Then try a few in 반말, as if shopping with a friend."]
+    ["4","Warm-up","Put three things around the room: one near each of you and one far away. Point and say 이거, 그거, 저거."],
+    ["9","Teach","Slides 1 to 4. Turn five verbs into requests: say the 해요 form first, then drop 요 and add 주세요."],
+    ["10","Bakery role-play","Slides 5 and 6, then the Dialogue tab: Listen first, then in Role-play tap both 민수 and 지은, one each, and the site plays the clerk. Then make your own: one person runs a shop with written prices. The customer asks the price, orders two things, asks for something with 주세요, and pays by card. Then swap."],
+    ["2","Real-world mission","Pick one sentence to use the next time you're at a Korean restaurant or market, and say it out loud now."],
+    ["4","Check","Practice tab."],
+    ["4","Say it","Say it tab, polite first, as if you were at the counter. Then try a few in 반말, as if shopping with a friend."]
   ],
   talk:[["이거 얼마예요?","How much is this?"],["뭐 마실 거예요?","What are you going to drink?"],["카드 돼요?","Do you take card?"]],
   after:"HTSK Lesson 41 covers 주다 and -아/어 주다, and Lesson 40 covers -세요 requests."

@@ -49,13 +49,46 @@ LESSONS.push({
     {en:"I go to the airport by taxi.", ko:"공항[에] 택시[로] 가요.", ban:"공항[에] 택시[로] 가.", alt:["택시로 공항에 가요."], banAlt:["택시로 공항에 가."]},
     {en:"I go from home to work by subway.", ko:"집[에서] 회사[까지] 지하철[로] 가요.", ban:"집[에서] 회사[까지] 지하철[로] 가.", hint:"start 에서, end 까지, then the means"}
   ],
+  dlg:{
+    scene:"In a taxi. 지은 is taking a trip to Busan, and 민수 rides with her to Seoul Station. The friends use 반말 with each other and polite speech with the driver.",
+    cast:[["기사님","yo","taxi driver"],["지은","ban"],["민수","ban"]],
+    lines:[
+      ["기사님","어서 오세요. 어디[로] 가세요?","Welcome. Where are you headed?"],
+      ["지은","서울역[으로] 가 주세요.","To Seoul Station, please.","yo"],
+      ["지은","저... 여기[에서] 서울역[까지] 시간 많이 걸려요?","Um... does it take long from here to Seoul Station?","yo"],
+      ["기사님","아니요, 이십 분 걸려요.","No, it takes twenty minutes."],
+      ["민수","근데 서울역[에서] 부산[까지] 뭐[로] 가?","So how are you getting from Seoul Station to Busan?"],
+      ["지은","부산? 기차[로] 가. 너는 집[에] 가?","Busan? By train. Are you going home?"],
+      ["민수","응, 지하철[로] 가.","Yeah, I'm going by subway."],
+      ["기사님","자, 서울역이에요.","Here we are, Seoul Station."],
+      ["지은","아, 네, 감사합니다.","Oh, okay, thank you.","yo"]
+    ],
+    clean:[
+      ["기사님","어서 오세요. 어디[로] 가세요?","Welcome. Where are you going?"],
+      ["지은","서울역[으로] 가 주세요.","Please go to Seoul Station.","yo"],
+      ["지은","여기[에서] 서울역[까지] 시간이 많이 걸려요?","Does it take a long time from here to Seoul Station?","yo"],
+      ["기사님","아니요, 이십 분 걸려요.","No, it takes twenty minutes."],
+      ["민수","그런데 너는 서울역[에서] 부산[까지] 뭐[로] 가?","By the way, how are you going from Seoul Station to Busan?"],
+      ["지은","나는 부산[까지] 기차[로] 가. 너는 집[에] 가?","I'm going to Busan by train. Are you going home?"],
+      ["민수","응, 나는 지하철[로] 집[에] 가.","Yes, I'm going home by subway."],
+      ["기사님","여기가 서울역이에요.","This is Seoul Station."],
+      ["지은","네, 감사합니다.","Okay, thank you.","yo"]
+    ],
+    q:[
+      {q:"How long does the taxi ride take?", c:["20 minutes","10 minutes","30 minutes","2 hours"], why:"아니요, 이십 분 걸려요: no, it takes twenty minutes."},
+      {q:"How is Jieun getting to Busan?", c:["By train","By bus","By plane","By taxi"], why:"부산? 기차로 가: to Busan, by train.", cwhy:"나는 부산까지 기차로 가: I'm going to Busan by train."},
+      {q:"How is Minsu getting home?", c:["By subway","By taxi","On foot","By train"], why:"응, 지하철로 가: yes, by subway.", cwhy:"나는 지하철로 집에 가: I'm going home by subway."}
+    ],
+    note:"서울역으로 가 주세요 is the set phrase for any taxi: swap in your own destination. 기사님 is what you call a driver."
+  },
   plan:[
-    ["5","Warm-up","Ask 내일 어디에 가요? Answer with a real place."],
+    ["3","Warm-up","Ask 내일 어디에 가요? Answer with a real place."],
     ["8","Teach","Slides 1 to 3. Practise the 로 / 으로 rule on ten nouns, including some ending in ㄹ."],
-    ["8","Taxi role-play","One person is the driver. The passenger gives a destination (서울역으로 가 주세요) and turns (오른쪽으로 가세요). Swap roles."],
-    ["6","How do you get there?","Slides 4 and 5. Describe your commute: 집에서 ___까지 ___로 가요."],
-    ["5","Check","Practice tab."],
-    ["5","Say it","Say it tab, polite first. For each one, decide between 에, (으)로 and 에서…까지 before you reveal."]
+    ["6","Taxi role-play","One person is the driver. The passenger gives a destination (서울역으로 가 주세요) and turns (오른쪽으로 가세요). Swap roles."],
+    ["5","How do you get there?","Slides 4 and 5. Describe your commute: 집에서 ___까지 ___로 가요."],
+    ["4","Check","Practice tab."],
+    ["5","Say it","Say it tab, polite first. For each one, decide between 에, (으)로 and 에서…까지 before you reveal."],
+    ["5","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: take 지은 in one run and the driver and 민수 in the other. Swap and go again."]
   ],
   talk:[["집에서 회사까지 뭐로 가요?","How do you get from home to work?"],["이번 주말에 어디에 가요?","Where are you going this weekend?"],["한국어로 말해 주세요.","Please say it in Korean."]],
   after:"HTSK Lesson 12, the section on (으)로."

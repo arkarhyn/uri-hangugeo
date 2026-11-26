@@ -49,13 +49,44 @@ LESSONS.push({
     {en:"Where do you usually meet friends?", ko:"보통 어디[서] 친구를 만나요?", ban:"보통 어디[서] 친구를 만나?", alt:["보통 어디에서 친구를 만나요?"], banAlt:["보통 어디에서 친구를 만나?"], hint:"time word first"},
     {en:"Jieun is at the library. I study at the library.", ko:"지은이는 도서관[에] 있어요. [c:저]는 도서관[에서] 공부해요.", ban:"지은이는 도서관[에] 있어. [c:나]는 도서관[에서] 공부해.", hint:"being somewhere takes 에; doing something takes 에서"}
   ],
+  dlg:{
+    scene:"A Saturday phone call. 민수 wants to know where 지은 is. They're friends the same age, so it's 반말 the whole way.",
+    cast:[["민수","ban"],["지은","ban"]],
+    lines:[
+      ["민수","지은아, 지금 집[에] 있어?","Jieun, are you home right now?"],
+      ["지은","집? 아니, 카페[에] 있어.","Home? No, I'm at a café."],
+      ["민수","카페? 거기[서] 뭐 해?","A café? What are you doing there?"],
+      ["지은","음... 그냥 공부해. 너는?","Hmm... just studying. You?"],
+      ["민수","나? 체육관[에서] 운동해. 근데 점심 어디[서] 먹어?","Me? I'm working out at the gym. Where are you having lunch, though?"],
+      ["지은","점심? 음... 시장[에서] 먹어. 너도 와.","Lunch? Hmm... I'm eating at the market. You come too."],
+      ["민수","시장? 좋아! 나도 지금 시장[에] 가.","The market? Great! I'm heading to the market now too."],
+      ["지은","응, 빨리 와.","Okay, come quick."]
+    ],
+    clean:[
+      ["민수","지은아, 지금 집[에] 있어?","Jieun, are you at home now?"],
+      ["지은","아니, 지금 카페[에] 있어.","No, I'm at a café now."],
+      ["민수","거기[에서] 뭐 해?","What are you doing there?"],
+      ["지은","나는 카페[에서] 공부해. 너는 지금 뭐 해?","I'm studying at the café. What are you doing now?"],
+      ["민수","나는 체육관[에서] 운동해. 너는 어디[에서] 점심을 먹어?","I'm working out at the gym. Where are you having lunch?"],
+      ["지은","나는 시장[에서] 점심을 먹어. 너도 시장[에] 와.","I'm having lunch at the market. You come to the market too."],
+      ["민수","좋아! 나도 지금 시장[에] 가.","Great! I'm going to the market now too."],
+      ["지은","응, 빨리 와.","Okay, come quickly."]
+    ],
+    q:[
+      {q:"Where is Jieun when Minsu calls?", c:["At a café","At home","At the gym","At the market"], why:"아니, 카페에 있어: no, I'm at a café.", cwhy:"아니, 지금 카페에 있어: no, I'm at a café now."},
+      {q:"What is Minsu doing?", c:["Working out at the gym","Studying at a café","Resting at home","Shopping at the market"], why:"체육관에서 운동해: I'm working out at the gym."},
+      {q:"Where is Jieun having lunch?", c:["At the market","At the café","At home","At the gym"], why:"시장에서 먹어: I'm eating at the market.", cwhy:"나는 시장에서 점심을 먹어: I'm having lunch at the market."}
+    ],
+    note:"Listen for the pair: 카페에 있어 and 시장에 가 (being and going) against 체육관에서 운동해 and 시장에서 먹어 (doing). In speech, 거기에서 often shrinks to 거기서."
+  },
   plan:[
-    ["5","Warm-up","Name five places in your town in Korean (도서관, 카페, 체육관 and so on)."],
+    ["3","Warm-up","Name five places in your town in Korean (도서관, 카페, 체육관 and so on)."],
     ["8","Teach","Slides 1 to 3. Draw two columns on paper: 에 (be, go) and 에서 (do)."],
-    ["8","Where do you…?","Take turns asking 어디에서 ___해요? (공부해요, 운동해요, 커피를 마셔요) and answering with a real place."],
-    ["5","Edge cases","Slides 4 to 6: 앉다 and 도착하다 take 에, and 에서 can also mean \"from\"."],
-    ["6","Check","Practice tab. Say each finished sentence out loud before moving on."],
-    ["5","Say it","Say it tab, polite first. Before revealing each one, say out loud whether it needs 에 or 에서."]
+    ["6","Where do you…?","Take turns asking 어디에서 ___해요? (공부해요, 운동해요, 커피를 마셔요) and answering with a real place."],
+    ["4","Edge cases","Slides 4 to 6: 앉다 and 도착하다 take 에, and 에서 can also mean \"from\"."],
+    ["4","Check","Practice tab. Say each finished sentence out loud before moving on."],
+    ["5","Say it","Say it tab, polite first. Before revealing each one, say out loud whether it needs 에 or 에서."],
+    ["5","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other 지은. Swap and go again."]
   ],
   talk:[["보통 어디에서 공부해요?","Where do you usually study?"],["주말에 어디에서 친구를 만나요?","Where do you meet friends on weekends?"],["어디에서 오셨어요?","Where are you from?"]],
   after:"HTSK Lesson 12 has a section on 에서, along with 부터, 까지 and (으)로."

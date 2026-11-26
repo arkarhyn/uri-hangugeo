@@ -52,13 +52,46 @@ LESSONS.push({
     {en:"I drink two cups of coffee every day.", ko:"매일 커피를 [두 잔] 마셔요.", ban:"매일 커피를 [두 잔] 마셔.", hint:"cups = 잔"},
     {en:"At home there are two cats and one dog.", ko:"집에 고양이가 [두 마리], 강아지가 [한 마리] 있어요.", ban:"집에 고양이가 [두 마리], 강아지가 [한 마리] 있어.", hint:"animals = 마리"}
   ],
+  dlg:{
+    scene:"지은 is having friends over on Saturday, and 민수 helps her get ready. They're friends the same age, so it's 반말 the whole way.",
+    cast:[["민수","ban"],["지은","ban"]],
+    lines:[
+      ["민수","지은아, 토요일에 친구 [몇 명] 와?","Jieun, how many friends are coming on Saturday?"],
+      ["지은","친구? 음... [네 명] 와.","Friends? Hmm... four are coming."],
+      ["민수","[네 명]? 의자는 [몇 개] 있어?","Four? How many chairs do you have?"],
+      ["지은","의자? 하나, 둘... [세 개]만 있어.","Chairs? One, two... only three."],
+      ["민수","아, 우리 집에 [두 개] 있어. 근데 주스는 있어?","Oh, I've got two at my place. Is there juice, though?"],
+      ["지은","응, 주스는 [세 병] 있어. 근데 물은 없어.","Yeah, there are three bottles of juice. No water, though."],
+      ["민수","그럼 물 [네 병]은 내가 사.","Then I'll get four bottles of water."],
+      ["지은","오, 좋아. 토요일 [다섯 시]에 와.","Oh, great. Come at five on Saturday."],
+      ["민수","[다섯 시]? 응, 좋아.","Five? Yeah, sounds good."]
+    ],
+    clean:[
+      ["민수","지은아, 토요일에 친구가 [몇 명] 와?","Jieun, how many friends are coming on Saturday?"],
+      ["지은","친구가 [네 명] 와.","Four friends are coming."],
+      ["민수","집에 의자가 [몇 개] 있어?","How many chairs are there at your house?"],
+      ["지은","집에 의자가 [세 개]만 있어.","There are only three chairs at my house."],
+      ["민수","우리 집에 의자가 [두 개] 있어. 그런데 주스는 있어?","There are two chairs at my house. By the way, is there juice?"],
+      ["지은","응, 주스는 [세 병] 있어. 그런데 물은 없어.","Yes, there are three bottles of juice. But there is no water."],
+      ["민수","그럼 물 [네 병]은 내가 사.","Then I'll buy four bottles of water."],
+      ["지은","좋아. 토요일 [다섯 시]에 우리 집에 와.","Good. Come to my house at five on Saturday."],
+      ["민수","응, [다섯 시] 좋아.","Yes, five is good."]
+    ],
+    q:[
+      {q:"How many friends are coming?", c:["4","3","2","5"], why:"친구? 음... 네 명 와: four friends are coming.", cwhy:"친구가 네 명 와: four friends are coming."},
+      {q:"What will Minsu buy?", c:["Four bottles of water","Three bottles of juice","Two bottles of water","Two chairs"], why:"물 네 병은 내가 사: I'll get four bottles of water.", cwhy:"물 네 병은 내가 사: I'll buy four bottles of water."},
+      {q:"What time should Minsu come?", c:["5:00","4:00","3:00","2:00"], why:"토요일 다섯 시에 와: come at five on Saturday.", cwhy:"토요일 다섯 시에 우리 집에 와: come to my house at five on Saturday."}
+    ],
+    note:"The shortened forms come fast here: 네 명, 세 개, 두 개, 세 병, 네 병. Counting out loud with no counter stays full: 하나, 둘. The plain present can cover something coming up, as in 친구가 네 명 와."
+  },
   plan:[
-    ["5","Warm-up","Count things in the room in native numbers: 의자 하나, 둘, 셋…"],
-    ["10","Teach","Slides 1 to 4. Drill the shortened forms (한, 두, 세, 네, 스무) until they come without thinking."],
-    ["8","Café role-play","Slide 7. One person runs a café; the other orders for a group (아메리카노 두 잔, 케이크 한 개 주세요). The café asks 몇 분이세요? first."],
-    ["5","Clock drill","Number Gym, Time mode. Say each answer out loud before tapping."],
+    ["3","Warm-up","Count things in the room in native numbers: 의자 하나, 둘, 셋…"],
+    ["9","Teach","Slides 1 to 4. Drill the shortened forms (한, 두, 세, 네, 스무) until they come without thinking."],
+    ["6","Café role-play","Slide 7. One person runs a café; the other orders for a group (아메리카노 두 잔, 케이크 한 개 주세요). The café asks 몇 분이세요? first."],
+    ["4","Clock drill","Number Gym, Time mode. Say each answer out loud before tapping."],
     ["4","Check","Practice tab."],
-    ["5","Say it","Say it tab, polite first. Say each counter out loud, then try a few in 반말."]
+    ["5","Say it","Say it tab, polite first. Say each counter out loud, then try a few in 반말."],
+    ["5","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other 지은. Swap and go again."]
   ],
   talk:[["몇 살이에요?","How old are you?"],["지금 몇 시예요?","What time is it now?"],["고양이가 몇 마리 있어요?","How many cats do you have?"]],
   after:"HTSK Lesson 10 lists the common counters, and Lesson 11 covers time."

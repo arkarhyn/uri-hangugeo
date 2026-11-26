@@ -66,13 +66,44 @@ LESSONS.push({
     {en:"I got a text from a friend.", ko:"친구[한테서] 문자를 받았어요.", ban:"친구[한테서] 문자를 받았어.", alt:["친구한테 문자를 받았어요."], banAlt:["친구한테 문자를 받았어."], hint:"from a person: 한테 + 서"},
     {en:"On the weekend I ate with a friend and called Mom.", ko:"주말에 친구[하고] 밥을 먹고 엄마[한테] 전화했어요.", ban:"주말에 친구[하고] 밥을 먹고 엄마[한테] 전화했어.", alt:["주말에 친구랑 밥을 먹고 엄마한테 전화했어요."], banAlt:["주말에 친구랑 밥을 먹고 엄마한테 전화했어."], hint:"join the two actions with -고"}
   ],
+  dlg:{
+    scene:"On a bench in the park. 민수 notices 지은's new bag. They're friends the same age, so they talk in 반말.",
+    cast:[["민수","ban"],["지은","ban"]],
+    lines:[
+      ["민수","어? 그 가방 뭐야? 샀어?","Huh? What's that bag? Did you buy it?"],
+      ["지은","아, 이거? 아니, 언니[한테서] 받았어.","Oh, this? No, I got it from my older sister."],
+      ["민수","오, 진짜 좋다. 아, 맞다! 다음 주에 우리 엄마 생일이야.","Ooh, it's really nice. Oh, right! It's my mom's birthday next week."],
+      ["지은","진짜? 그럼 엄마[한테] 뭐 줄 거야?","Really? Then what are you going to give your mom?"],
+      ["민수","글쎄... 꽃?","Hmm... flowers?"],
+      ["지은","꽃 좋아. 케이크는?","Flowers are good. What about a cake?"],
+      ["민수","응, 꽃[하고] 케이크 줄 거야. 토요일에 나[랑] 같이 시장에 갈 수 있어?","Yeah, I'll give her flowers and a cake. Can you go to the market with me on Saturday?"],
+      ["지은","토요일? 응, 같이 가자!","Saturday? Yeah, let's go together!"]
+    ],
+    clean:[
+      ["민수","지은아, 그 가방은 뭐야? 그 가방을 샀어?","Jieun, what is that bag? Did you buy it?"],
+      ["지은","아니, 이 가방은 언니[한테서] 받았어.","No, I got this bag from my older sister."],
+      ["민수","그 가방은 정말 좋아. 그런데 다음 주는 우리 엄마 생일이야.","That bag is really nice. By the way, next week is my mom's birthday."],
+      ["지은","그럼 너는 엄마[한테] 뭐 줄 거야?","Then what are you going to give your mom?"],
+      ["민수","나는 꽃을 줄 거야.","I'm going to give her flowers."],
+      ["지은","꽃은 좋아. 케이크도 줄 거야?","Flowers are good. Are you going to give her a cake, too?"],
+      ["민수","응, 꽃[하고] 케이크를 줄 거야. 토요일에 나[랑] 같이 시장에 갈 수 있어?","Yes, I'm going to give her flowers and a cake. Can you go to the market with me on Saturday?"],
+      ["지은","응, 토요일에 같이 가자.","Yes, let's go together on Saturday."]
+    ],
+    q:[
+      {q:"Who did Jieun get the bag from?", c:["Her older sister","Her mom","A friend","Nobody, she bought it"], why:"아니, 언니한테서 받았어: no, I got it from my older sister.", cwhy:"이 가방은 언니한테서 받았어: I got this bag from my older sister."},
+      {q:"What is Minsu going to give his mom?", c:["Flowers and a cake","A bag","Only flowers","Only a cake"], why:"꽃하고 케이크 줄 거야: I'll give her flowers and a cake.", cwhy:"꽃하고 케이크를 줄 거야: I'm going to give her flowers and a cake."},
+      {q:"What does Minsu ask Jieun to do on Saturday?", c:["Go to the market with him","Call his mom","Lend him her bag","Make a cake with him"], why:"토요일에 나랑 같이 시장에 갈 수 있어?"}
+    ],
+    note:"Three links to a person show up: 언니한테서 (from), 엄마한테 (to), 나랑 (with). 꽃하고 케이크 uses 하고 to join two things."
+  },
   plan:[
-    ["5","Warm-up","Each person says what they had at their last meal, joining the foods with 하고 (밥하고 김치하고 계란을 먹었어요)."],
-    ["10","Teach","Slides 1 to 3. Say who you did three things with this week (친구랑 커피를 마셨어요)."],
-    ["8","Who to?","Slides 4 to 6. Check your phones: who did you last call, last text, and last get a text from? Say each one (엄마한테 전화했어요, 친구한테서 문자를 받았어요)."],
-    ["5","Gift list","Plan presents for three people (엄마한테 꽃을 줄 거예요)."],
-    ["5","Check","Practice tab."],
-    ["5","Say it","Say it tab. Add the name of someone real to each sentence (동생이랑… becomes 지은이랑…) and say it again."]
+    ["3","Warm-up","Each person says what they had at their last meal, joining the foods with 하고 (밥하고 김치하고 계란을 먹었어요)."],
+    ["9","Teach","Slides 1 to 3. Say who you did three things with this week (친구랑 커피를 마셨어요)."],
+    ["7","Who to?","Slides 4 to 6. Check your phones: who did you last call, last text, and last get a text from? Say each one (엄마한테 전화했어요, 친구한테서 문자를 받았어요)."],
+    ["3","Gift list","Plan presents for three people (엄마한테 꽃을 줄 거예요)."],
+    ["4","Check","Practice tab."],
+    ["4","Say it","Say it tab. Add the name of someone real to each sentence (동생이랑… becomes 지은이랑…) and say it again."],
+    ["4","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other 지은. Swap and go again."]
   ],
   talk:[["주말에 누구랑 시간을 보냈어요?","Who did you spend the weekend with?"],["오늘 누구한테 문자를 보냈어요?","Who did you text today?"],["누구하고 같이 살아요?","Who do you live with?"]],
   after:"HTSK Lesson 13 covers 와/과, (이)랑, 하고, 에게/한테/께 and more."

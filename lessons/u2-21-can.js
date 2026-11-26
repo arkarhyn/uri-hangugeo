@@ -1,0 +1,118 @@
+"use strict";
+LESSONS.push({
+  id:"can", unit:2, ko:"갈 수 없어요", title:"Can, can't and how well",
+  blurb:"Build on -(으)ㄹ 수 있어요: say what you can't do, choose between 못 and 안, and say you're not very good at something.",
+  src:["L45"],
+  goals:["Say what you can and can't do with -(으)ㄹ 수 있어요 and 없어요, including verbs that change shape","Put the past and future on 있다 and 없다","Choose between 못 (can't) and 안 (don't, won't)","Say how well you do something: 잘해요, 잘 못해요, 못해요"],
+  slides:[
+    {h:"Can and can't: -(으)ㄹ 수 있어요 / 없어요", steps:[["[s:가] + [e:ㄹ 수 있어요]","[c:갈] [e:수 있어요]"],["[s:먹] + [e:을 수 없어요]","[s:먹][e:을 수 없어요]"]],
+     p:"You know -(으)ㄹ 수 있어요 from class. To say you can't, swap 있어요 for 없어요.",
+     t:[["Verb","Can","Can't"],["가다","[c:갈] 수 [e:있어요]","[c:갈] 수 [e:없어요]"],["하다","[c:할] 수 [e:있어요]","[c:할] 수 [e:없어요]"],["먹다","먹[e:을] 수 [e:있어요]","먹[e:을] 수 [e:없어요]"],["읽다","읽[e:을] 수 [e:있어요]","읽[e:을] 수 [e:없어요]"]],
+     ex:[["여기에서 사진 찍[을 수 있어요]?","Can we take pictures here?"],["오늘은 만날 [수 없어요].","I can't meet today."]],
+     note:"수 sounds like [쑤] here. Write it with a space on both sides."},
+    {h:"Stems that change shape", steps:[["[s:듣] + [e:을 수]","[c:들][e:을 수]"],["[s:돕] + [e:을 수]","[s:도][c:울] [e:수]"]],
+     p:"The ending starts like -(으)ㄹ 거예요, so stems change the same way. A ㄹ stem adds nothing, and ㅡ and 르 stems just take ㄹ.",
+     t:[["Verb","-(으)ㄹ 수 있어요"],["만들다","[s:만들] 수 있어요"],["듣다","[c:들][e:을] 수 있어요"],["걷다","[c:걸][e:을] 수 있어요"],["돕다","[s:도][c:울] 수 있어요"],["쓰다","[c:쓸] 수 있어요"],["부르다","[c:부를] 수 있어요"]],
+     note:"See also: the two lessons on verbs that change shape. 받다 is regular: 받을 수 있어요."},
+    {h:"Tense goes on 있다 / 없다", p:"The first part stays the same. Put the past, the future and linking endings on 있다 or 없다.",
+     t:[["Korean","Meaning"],["갈 수 [e:있었어요]","I was able to go"],["갈 수 [e:없었어요]","I couldn't go"],["갈 수 [e:있을 거예요]","I'll be able to go"],["갈 수 [e:있으면]","if you can go"],["갈 수 [e:없어서]","because I can't go"]],
+     ex:[["도와줄 [수 있어요]?","Can you help me?"],["내일 올 [수 있으면] 전화해 주세요.","If you can come tomorrow, please call me."]],
+     note:"도와줄 수 있어요? is an easy, polite way to ask a favour."},
+    {h:"못 is the short way", p:"못 goes right before the verb and means you can't. In everyday talk it's often shorter and more common than -(으)ㄹ 수 없어요.",
+     t:[["Long","Short"],["갈 수 없어요","[못] 가요"],["먹을 수 없어요","[못] 먹어요"],["잘 수 없었어요","[못] 잤어요"],["운동할 수 없어요","운동 [못] 해요"]],
+     note:["Watch out: with noun + 하다, 못 goes in the middle: 운동 못 해요, 요리 못 해요.","못 해요 sounds like [모태요], and 못 가요 like [몯까요]."]},
+    {h:"못 or 안?", p:"안 means you don't or won't do it, and often it's your choice. 못 means something stops you, or you don't know how.",
+     t:[["Korean","Meaning"],["[안] 가요.","I'm not going."],["[못] 가요.","I can't go."],["술을 [안] 마셔요.","I don't drink."],["술을 [못] 마셔요.","I can't drink."]],
+     ex:[["바빠서 [못] 갔어요.","I was busy, so I couldn't go."],["피곤해서 [안] 갔어요.","I was tired, so I didn't go (I chose not to)."]],
+     note:"Watch out: don't put 못 before describing words like 예쁘다 or 춥다. Use 안: 안 추워요."},
+    {h:"How well? 잘 and 못", p:"잘해요 means you're good at it. 잘 못해요 means you're not very good, and 못해요 alone is stronger: you're bad at it, or you can't.",
+     t:[["Korean","Meaning"],["노래를 [잘]해요.","I sing well."],["노래를 [잘 못]해요.","I'm not very good at singing."],["노래를 [못]해요.","I'm bad at singing."]],
+     ex:[["저는 요리를 [잘 못] 해요.","I'm not much of a cook."],["어제는 [잘 못] 잤어요.","I didn't sleep well yesterday."],["술을 [잘 못] 마셔요.","I can't drink much."]],
+     note:"You'll see both 못해요 and 못 해요 in writing. They sound the same."},
+    {h:"Which one do I use?", p:"For a skill or a free evening, both ways often work. To ask, the long form is a safe choice.",
+     ex:[["운전할 [수 있어요]?","Can you drive?"],["아니요, [못] 해요.","No, I can't."],["조금 할 [수 있어요].","I can a little."],["한글은 읽을 [수 있지만] 말은 [잘 못] 해요.","I can read Hangul, but I can't speak very well."]]},
+    {h:"In 반말", p:"있어요 and 없어요 lose their 요. 못 and 안 don't change at all.",
+     t:[["Polite","반말"],["할 수 있어[e:요]?","할 수 있어[x:요]?"],["갈 수 없어[e:요]","갈 수 없어[x:요]"],["[못] 가[e:요]","[못] 가[x:요]"],["[잘 못] 해[e:요]","[잘 못] 해[x:요]"]],
+     ex:[["너 운전할 [수 있어]?","Can you drive?"],["미안, 오늘은 [못] 가.","Sorry, I can't go today."],["나 노래 [잘 못] 해.","I'm not much of a singer."]]}
+  ],
+  vocab:[["수영하다","to swim"],["운전하다","to drive"],["요리하다","to cook"],["사진 찍다","to take a picture"],["돕다 → 도와요","to help"],["도와주다","to help (someone)"],["걷다 → 걸어요","to walk"],["듣다 → 들어요","to listen, to hear"],["부르다 → 불러요","to sing; to call"],["물","water"],["한글","Hangul, the Korean alphabet"],["말","speech, speaking"],["잘","well"],["조금","a little"],["못","can't"],["전화하다","to call, to phone"]],
+  ex:[
+    {k:"mc",q:"가다 → \"can't go\"",c:["갈 수 없어요","가을 수 없어요","가 수 없어요","갈 수 안 있어요"],why:"Vowel stem takes ㄹ, then 수 [e:없어요]."},
+    {k:"mc",q:"먹다 → \"can eat\"",c:["먹을 수 있어요","먹 수 있어요","먹ㄹ 수 있어요","먹어 수 있어요"],why:"Consonant stem takes 을: 먹[e:을] 수 있어요."},
+    {k:"mc",q:"만들다 + -(으)ㄹ 수 있어요",c:["만들 수 있어요","만들을 수 있어요","만드를 수 있어요","만들일 수 있어요"],why:"The stem already ends in ㄹ, so nothing is added."},
+    {k:"mc",q:"듣다 + -(으)ㄹ 수 없어요",c:["들을 수 없어요","듣을 수 없어요","들 수 없어요","드를 수 없어요"],why:"ㄷ → ㄹ before 으: [c:들][e:을] 수. 들 수 is from 들다 (to carry)."},
+    {k:"mc",q:"돕다 + -(으)ㄹ 수 있어요",c:["도울 수 있어요","돕을 수 있어요","도올 수 있어요","도와 수 있어요"],why:"ㅂ → 우: [s:도][c:울] 수."},
+    {k:"mc",q:"\"I couldn't go.\"",c:["갈 수 없었어요.","갔을 수 없어요.","갈 수 없어요.","갔을 수 없었어요."],why:"The past goes on 없다 only: 갈 수 [e:없었어요]."},
+    {k:"mc",q:"\"Can you help me?\"",c:["도와줄 수 있어요?","도와주 수 있어요?","도와줄 수 없어요.","도와줬을 수 있어요?"],why:"도와주 + ㄹ 수 있어요?"},
+    {k:"mc",q:"You've decided not to go to a party. Which fits?",c:["안 가요.","못 가요.","갈 수 없어요.","잘 못 가요."],why:"안 is your choice. 못 and 수 없어요 say something stops you."},
+    {k:"mc",q:"\"I can't work out.\" (with 못)",c:["운동 못 해요.","못 운동해요.","운동해요 못.","운동 해 못요."],why:"With noun + 하다, 못 goes in the middle."},
+    {k:"mc",q:"\"I'm not very good at singing.\"",c:["노래를 잘 못해요.","노래를 못 잘해요.","노래를 잘해요.","노래를 안 불렀어요."],why:"[잘 못] = not very well, in that order."},
+    {k:"mc",q:"Which sentence is wrong?",c:["오늘은 못 추워요.","오늘은 안 추워요.","오늘은 못 가요.","오늘은 안 가요."],why:"못 doesn't go before a describing word like 춥다."},
+    {k:"mc",q:"술을 잘 못 마셔요 means…",c:["I can't drink much.","I drink really well.","I'm not going to drink today.","I didn't drink."],why:"잘 못 = not very well, not much."},
+    {k:"build",q:"I can't meet today.",ok:["오늘은 만날 수 없어요"],x:["만나"]},
+    {k:"build",q:"I can read Hangul, but I can't speak very well.",ok:["한글은 읽을 수 있지만 말은 잘 못 해요"],x:["안"]}
+  ],
+  pool:[
+    {k:"mc",q:"걷다 + -(으)ㄹ 수 있어요",c:["걸을 수 있어요","걷을 수 있어요","걸 수 있어요","거를 수 있어요"],why:"ㄷ → ㄹ before 으: [c:걸][e:을] 수."},
+    {k:"mc",q:"쓰다 + -(으)ㄹ 수 있어요",c:["쓸 수 있어요","쓰을 수 있어요","써 수 있어요","썰 수 있어요"],why:"Just add ㄹ: [c:쓸] 수."},
+    {k:"mc",q:"부르다 + -(으)ㄹ 수 있어요",c:["부를 수 있어요","불를 수 있어요","불러 수 있어요","부르을 수 있어요"],why:"르 stems change only before 아/어."},
+    {k:"mc",q:"\"I couldn't sleep last night.\" (short way)",c:["어젯밤에 못 잤어요.","어젯밤에 안 잤어요.","어젯밤에 못 자요.","어젯밤에 잤어요 못."],why:"못 says you were unable to."},
+    {k:"mc",q:"\"I'll be able to go tomorrow.\"",c:["내일은 갈 수 있을 거예요.","내일은 갈 수 있었어요.","내일은 갈 거 있어요.","내일은 가을 수 있을 거예요."],why:"The future goes on 있다: 갈 수 [e:있을 거예요]."},
+    {k:"mc",q:"\"If you can come, please call me.\"",c:["올 수 있으면 전화해 주세요.","올 수 있어서 전화해 주세요.","오면 수 있어 전화해 주세요.","올 수 있지만 전화해 주세요."],why:"-(으)면 goes on 있다: 올 수 [e:있으면]."},
+    {k:"mc",q:"\"I'm good at cooking.\"",c:["요리를 잘해요.","요리를 잘 못해요.","요리를 못해요.","요리를 안 해요."],why:"[잘]해요 = do it well."}
+  ],
+  poolN:3,
+  say:[
+    {en:"I can't go.", ko:"갈 [수 없어요].", ban:"갈 [수 없어].", alt:["못 가요."], banAlt:["못 가."], hint:"vowel stem: add ㄹ, then 수 and \"not exist\""},
+    {en:"Can you drive?", ko:"운전할 [수 있어요]?", ban:"운전할 [수 있어]?", hint:"운전하다"},
+    {en:"I can't cook.", ko:"요리 [못] 해요.", ban:"요리 [못] 해.", alt:["요리를 못해요.","요리할 수 없어요."], banAlt:["요리를 못해.","요리할 수 없어."], hint:"noun + 하다: the short word goes in the middle"},
+    {en:"I'm not very good at singing.", ko:"노래를 [잘 못]해요.", ban:"노래를 [잘 못]해.", alt:["노래 잘 못 불러요."], banAlt:["노래 잘 못 불러."], hint:"\"well\" comes before \"can't\""},
+    {en:"Can you help me?", ko:"좀 도와줄 [수 있어요]?", ban:"좀 도와줄 [수 있어]?", alt:["도와줄 수 있어요?"], banAlt:["도와줄 수 있어?"], hint:"the stem is 도와주", note:"A friendly way to ask a favour at either level."},
+    {en:"I was busy, so I couldn't call.", ko:"바빠서 전화할 [수 없었어요].", ban:"바빠서 전화할 [수 없었어].", alt:["바빠서 전화 못 했어요."], banAlt:["바빠서 전화 못 했어."], hint:"the past goes on the last part"},
+    {en:"I can read Hangul, but I can't speak very well.", ko:"한글은 읽을 [수 있지만] 말은 [잘 못] 해요.", ban:"한글은 읽을 [수 있지만] 말은 [잘 못] 해.", alt:["한글은 읽을 수 있는데 말은 잘 못해요."], banAlt:["한글은 읽을 수 있는데 말은 잘 못해."], hint:"\"but\" goes on the first half"},
+    {en:"If you can come on Saturday, shall we cook together?", ko:"토요일에 올 [수 있으면] 같이 요리할까요?", ban:"토요일에 올 [수 있으면] 같이 요리할까?", alt:["토요일에 올 수 있으면 같이 요리해요."], banAlt:["토요일에 올 수 있으면 같이 요리하자."], hint:"the if-ending goes on the \"can\" part"}
+  ],
+  dlg:{
+    scene:"A phone call on Thursday evening. 지은 wants to go swimming with 민수. They're friends the same age, so it's 반말 the whole way.",
+    cast:[["민수","ban"],["지은","ban"]],
+    lines:[
+      ["지은","민수야, 너 수영[할 수 있어]?","Minsu, can you swim?"],
+      ["민수","수영? 음... 아니, [잘 못] 해.","Swim? Hmm... no, not very well."],
+      ["지은","그럼 조금은 [할 수 있어]?","So can you a little?"],
+      ["민수","어... 물에서 걸[을 수는 있어].","Uh... I can walk in the water, at least."],
+      ["지은","아, 괜찮아! 내가 [도와줄 수 있어]. 토요일에 시간 있어?","Ah, that's fine! I can help you. Are you free on Saturday?"],
+      ["민수","토요일? 토요일은 [못] 가. 일해야 돼.","Saturday? I can't go Saturday. I have to work."],
+      ["지은","그럼 일요일은?","Then how about Sunday?"],
+      ["민수","일요일은 [갈 수 있어].","I can go on Sunday."],
+      ["지은","좋아! 그럼 일요일 두 시에 보자.","Great! See you Sunday at two, then."]
+    ],
+    clean:[
+      ["지은","민수야, 너는 수영[할 수 있어]?","Minsu, can you swim?"],
+      ["민수","아니, 나는 수영을 [잘 못] 해.","No, I can't swim very well."],
+      ["지은","그럼 수영을 조금은 [할 수 있어]?","Then can you swim a little?"],
+      ["민수","나는 물에서 걸[을 수는 있어].","I can walk in the water, at least."],
+      ["지은","괜찮아. 내가 너를 [도와줄 수 있어]. 토요일에 시간이 있어?","That's all right. I can help you. Do you have time on Saturday?"],
+      ["민수","토요일에는 [못] 가. 나는 일해야 돼.","I can't go on Saturday. I have to work."],
+      ["지은","그럼 일요일은 어때?","Then how about Sunday?"],
+      ["민수","일요일에는 [갈 수 있어].","I can go on Sunday."],
+      ["지은","좋아. 그럼 일요일 두 시에 보자.","Good. Then see you on Sunday at two."]
+    ],
+    q:[
+      {q:"How well can Minsu swim?",c:["Not very well","Very well","He swims every day","Better than Jieun"],why:"아니, 잘 못 해: no, not very well.",cwhy:"나는 수영을 잘 못 해: I can't swim very well."},
+      {q:"Why can't Minsu go on Saturday?",c:["He has to work","He's sick","The pool is closed","He's meeting another friend"],why:"토요일은 못 가. 일해야 돼: I can't go Saturday, I have to work.",cwhy:"토요일에는 못 가. 나는 일해야 돼: I can't go on Saturday, I have to work."},
+      {q:"When will they meet?",c:["Sunday at two","Saturday at two","Sunday at ten","Thursday evening"],why:"그럼 일요일 두 시에 보자: see you Sunday at two."}
+    ],
+    note:"걸을 수는 있어: adding 는 to 수 means \"that much I can do\", and hints there's not much more."
+  },
+  plan:[
+    ["3","Warm-up","Ask each other 뭐 할 수 있어요? and name two things you can do, using the pattern from class."],
+    ["8","Teach","Slides 1 to 3. Take verbs from the Words tab: say \"can\", \"can't\" and \"couldn't\"."],
+    ["5","못 or 안?","Slides 4 and 5. One gives a situation in English (you're too busy, you don't feel like it); the other answers with 못 or 안."],
+    ["5","How good are you?","Slides 6 to 8. Interview each other about singing, cooking, driving and swimming. Answer with 잘해요, 잘 못해요 or 못해요."],
+    ["4","Check","Practice tab."],
+    ["5","Say it","Say it tab, polite first, then a few in 반말."],
+    ["5","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it as a phone call and swap parts."]
+  ],
+  talk:[["운전할 수 있어요?","Can you drive?"],["무슨 요리를 할 수 있어요?","What can you cook?"],["뭐를 잘 못해요?","What aren't you very good at?"]],
+  after:"HTSK Lesson 45 covers -(으)ㄹ 수 있다 and 없다 in more detail, including the past and future."
+});

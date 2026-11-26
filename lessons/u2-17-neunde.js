@@ -1,0 +1,118 @@
+"use strict";
+LESSONS.push({
+  id:"neunde", unit:2, ko:"-는데 -(으)ㄴ데", title:"Setting the scene",
+  blurb:"Give the background first with -는데 or -(으)ㄴ데, then ask, suggest, or say what's different: 비가 오는데 우산 있어요?",
+  src:["L76"],
+  goals:["Choose -는데 or -(으)ㄴ데 by the kind of word","Say it about the past with -았는데 / -었는데","Give some background before a question, request or suggestion","Contrast two things with -(으)ㄴ데 or -는데"],
+  slides:[
+    {h:"Verbs: stem + [-는데]",
+     steps:[["[s:가] + [e:는데]","[s:가][e:는데]"],["[s:먹] + [e:는데]","[s:먹][e:는데]"],["[s:살] + [e:는데]","[s:사][x:ㄹ] + [e:는데]","[s:사][e:는데]"]],
+     p:"-는데 joins two parts: the first gives the background, and the second is what you want to say. On a verb it attaches straight to the stem, with a vowel or a consonant.",
+     t:[["Verb","-는데"],["오다","[s:오][e:는데]"],["읽다","[s:읽][e:는데]"],["공부하다","[s:공부하][e:는데]"],["듣다","[s:듣][e:는데]"],["만들다","[s:만드][e:는데]"]],
+     note:"Watch out: a ㄹ stem drops its ㄹ before ㄴ (사는데, 만드는데). ㄷ verbs don't change, because -는데 starts with a consonant: 듣는데."},
+    {h:"Adjectives: stem + [-(으)ㄴ데]",
+     steps:[["[s:바쁘] + [e:ㄴ데]","[s:바][c:쁜][e:데]"],["[s:좋] + [e:은데]","[s:좋][e:은데]"],["[s:춥] + [e:은데]","[s:추][c:운][e:데]"]],
+     p:"Adjectives take ㄴ데 after a vowel and 은데 after a consonant. With a noun, 이다 becomes 인데.",
+     t:[["Word","Form"],["크다","[c:큰][e:데]"],["작다","[s:작][e:은데]"],["길다","[c:긴][e:데]"],["어렵다","[s:어려][c:운][e:데]"],["있다 / 없다","[s:있][e:는데] / [s:없][e:는데]"],["학생 + 이다","학생[e:인데]"]],
+     note:"Watch out: 있다 and 없다 take -는데, and so do words built on them: 재미있는데, 맛없는데. -고 싶다 acts like an adjective: 가고 싶[은데]."},
+    {h:"Past: [-았는데] / [-었는데]",
+     steps:[["[s:가] + [e:았] + [e:는데]","[c:갔][e:는데]"],["[s:좋] + [e:았는데]","[s:좋][e:았는데]"]],
+     p:"In the past, verbs and adjectives all work the same way: make the past stem, then add 는데.",
+     t:[["Word","Now","Past"],["먹다","먹는데","먹[e:었는데]"],["하다","하는데","[c:했][e:는데]"],["바쁘다","바쁜데","[c:바빴][e:는데]"],["춥다","추운데","추[c:웠][e:는데]"],["있다","있는데","있[e:었는데]"],["학생","학생인데","학생[e:이었는데]"]],
+     note:["After a vowel, a noun takes 였는데: 휴가였는데.","For a plan, -(으)ㄹ 거예요 becomes -(으)ㄹ 건데: 시장에 갈 건데 뭐 필요해요?"]},
+    {h:"Background, then the news", p:"The -는데 part sets the scene, and the second part tells what happened or what you found. In English it's often just \"and\", \"so\" or a full stop.",
+     ex:[["어제 백화점에 갔[는데] 사람이 정말 많았어요.","I went to the department store yesterday, and there were really a lot of people."],["친구가 한 명 있[는데] 요리를 정말 좋아해요.","I have a friend who really likes cooking."],["어제 영화를 봤[는데] 정말 재미있었어요.","I watched a movie yesterday, and it was really fun."],["저는 서울에 사[는데] 회사는 부산에 있어요.","I live in Seoul, and my company is in Busan."]]},
+    {h:"Before a question, request or suggestion", p:"Say the situation with -는데, then ask, request or suggest. It tells the listener why you're bringing it up, and it sounds less sudden.",
+     ex:[["비가 오[는데] 우산 있어요?","It's raining. Do you have an umbrella?"],["지금 바[c:쁜]데 나중에 전화해 주세요.","I'm busy right now, so please call me later."],["날씨가 좋[은데] 산책할까요?","The weather's nice. Shall we take a walk?"],["✗ 지금 바빠서 나중에 전화해 주세요.","✗ -아서 can't lead into a request."]],
+     note:"See also: -(으)니까 also works before a request. It pushes the first part as the reason, while -는데 just puts the situation on the table."},
+    {h:"Contrast: [-는데] as \"but\"", p:"When the two parts pull in different directions, -는데 means \"but\". It's lighter than -지만, and 은/는 often marks the two things you're comparing.",
+     ex:[["이 식당은 비[c:싼]데 정말 맛있어요.","This restaurant is expensive, but it's really good."],["평일은 바[c:쁜]데 주말은 괜찮아요.","Weekdays are busy, but the weekend is fine."],["어제 전화했[는데] 안 받았어요.","I called yesterday, but they didn't pick up."],["공부했[는데] 시험이 어려웠어요.","I studied, but the test was hard."]],
+     note:"See also: the Talk lesson \"Endings that do the talking\" covers stopping a sentence on -는데... and letting the listener fill in the rest."},
+    {h:"-는데, -지만 or -(으)니까?", p:"The first half can be the same; the link says how it connects to the second half.",
+     t:[["Link","What it does"],["-(으)ㄴ데 / -는데","background, or a light \"but\""],["-지만","a clear \"but\""],["-(으)니까","gives the reason"]],
+     ex:[["비가 오[는데] 어디 가요?","It's raining. Where are you going?"],["비가 오지만 갈 거예요.","It's raining, but I'm going."],["비가 오니까 우산 가져가세요.","It's raining, so take an umbrella."]]},
+    {h:"In 반말", p:"-는데 and -(으)ㄴ데 stay exactly the same in 반말. Only the ending of the second part changes.",
+     t:[["Polite","반말"],["비가 오[는데] 우산 있어[e:요]?","비가 오[는데] 우산 있어[x:요]?"],["바[c:쁜]데 나중에 전화해 [c:주세요]","바[c:쁜]데 나중에 전화해 [c:줘]"],["좋[은데] 산책[c:할까요]?","좋[은데] 산책[c:할까]?"],["[c:저]는 학생[인데] 일도 해[e:요]","[c:나]는 학생[인데] 일도 해[x:요]"]],
+     ex:[["시장에 가[는데] 뭐 필요해?","I'm going to the market. Do you need anything?"],["날씨가 좋[은데] 산책하자.","The weather's nice. Let's take a walk."],["어제 전화했[는데] 안 받았어.","I called yesterday, but you didn't pick up."]]}
+  ],
+  vocab:[["-는데","background or \"but\" (verbs, 있다, 없다)"],["-(으)ㄴ데","background or \"but\" (adjectives)"],["-인데","it's ..., and / but"],["그런데","but, by the way"],["우산","umbrella"],["산책하다","to take a walk"],["필요하다","to be needed"],["나중에","later"],["평일","weekday"],["주말","weekend"],["공원","park"],["쉬다","to rest"],["먼저","first"],["배고프다 → 배고픈데","to be hungry"],["춥다 → 추운데","to be cold (weather)"],["살다 → 사는데","to live"],["사람","person, people"]],
+  ex:[
+    {k:"mc",q:"먹다 + -는데 / -(으)ㄴ데",c:["먹는데","먹은데","먹어는데","먹ㄴ데"],why:"A verb in the present takes 는데: [s:먹][e:는데]."},
+    {k:"mc",q:"좋다 + -는데 / -(으)ㄴ데",c:["좋은데","좋는데","좋ㄴ데","좋아는데"],why:"An adjective with a final consonant takes 은데: [s:좋][e:은데]."},
+    {k:"mc",q:"바쁘다 + -는데 / -(으)ㄴ데",c:["바쁜데","바쁘는데","바쁘은데","바빠는데"],why:"An adjective ending in a vowel takes ㄴ데: [s:바][c:쁜][e:데]."},
+    {k:"mc",q:"살다 + -는데 (to live)",c:["사는데","살는데","살은데","사은데"],why:"The ㄹ drops before ㄴ: [s:사][e:는데]."},
+    {k:"mc",q:"춥다 + -(으)ㄴ데",c:["추운데","춥은데","춥는데","추워는데"],why:"ㅂ becomes 우, then ㄴ: [s:추][c:운][e:데]."},
+    {k:"mc",q:"재미있다 + -는데 / -(으)ㄴ데",c:["재미있는데","재미있은데","재미인데","재미있어는데"],why:"Anything built on 있다 or 없다 takes 는데."},
+    {k:"mc",q:"어제 백화점에 ___ 사람이 정말 많았어요. (가다)",c:["갔는데","갔은데","가었는데","간데"],why:"Past stem plus 는데: [c:갔][e:는데]."},
+    {k:"mc",q:"오늘 토요일___ 일해요? (이다)",c:["인데","는데","은데","이는데"],why:"이다 becomes 인데: 토요일[e:인데]."},
+    {k:"mc",q:"\"I'm busy right now, so please call me later.\"",c:["지금 바쁜데 나중에 전화해 주세요.","지금 바빠서 나중에 전화해 주세요.","지금 바쁘는데 나중에 전화해 주세요.","지금 바쁘면 나중에 전화했어요."],why:"[바쁜데] sets up the request. -아서 can't lead into a request."},
+    {k:"mc",q:"\"It's raining. Do you have an umbrella?\"",c:["비가 오는데 우산 있어요?","비가 온데 우산 있어요?","비가 와서 우산 있어요?","비가 오면데 우산 있어요?"],why:"[오는데] gives the background for the question."},
+    {k:"mc",q:"날씨가 좋은데 산책할까요? What is 좋은데 doing?",c:["Giving the background for a suggestion","Saying the weather is bad","Asking if the weather is nice","Saying \"if the weather is nice\""],why:"The nice weather is the background, and 산책할까요 is the suggestion."},
+    {k:"mc",q:"이 식당은 비싼데 정말 맛있어요. means…",c:["This restaurant is expensive, but it's really good.","This restaurant is expensive because it's good.","If this restaurant is expensive, it's good.","This restaurant is cheap and good."],why:"The two parts pull in different directions, so -(으)ㄴ데 reads as \"but\"."},
+    {k:"build",q:"I called yesterday, but they didn't pick up.",ok:["어제 전화했는데 안 받았어요"],x:["전화하는데"]},
+    {k:"build",q:"The weather's nice. Shall we take a walk?",ok:["날씨가 좋은데 산책할까요?"],x:["좋는데"]}
+  ],
+  pool:[
+    {k:"mc",q:"만들다 + -는데",c:["만드는데","만들는데","만든데","만들은데"],why:"The ㄹ drops before ㄴ: [s:만드][e:는데]."},
+    {k:"mc",q:"듣다 + -는데",c:["듣는데","들는데","들은데","듣은데"],why:"-는데 starts with a consonant, so ㄷ doesn't change."},
+    {k:"mc",q:"없다 + -는데 / -(으)ㄴ데 (시간이 ___)",c:["없는데","없은데","없ㄴ데","없인데"],why:"있다 and 없다 take 는데."},
+    {k:"mc",q:"크다 + -(으)ㄴ데",c:["큰데","크는데","크은데","커는데"],why:"A vowel-stem adjective takes ㄴ데: 큰데."},
+    {k:"mc",q:"어렵다 in the past + 는데",c:["어려웠는데","어렵었는데","어려운았는데","어렵는데"],why:"Make the past stem first: 어려웠 + 는데."},
+    {k:"mc",q:"휴가 + 이다, past + 는데",c:["휴가였는데","휴가이었은데","휴가인었는데","휴가었는데"],why:"After a vowel, 이었 shortens to 였: 휴가였는데."},
+    {k:"mc",q:"시장에 갈 건데 뭐 필요해요? 갈 건데 comes from…",c:["갈 거예요 + -ㄴ데","갔어요 + -는데","가요 + -지만","가면 + -ㄴ데"],why:"[갈 건데] is the plan 갈 거예요 turned into background."},
+    {k:"mc",q:"\"I'd like to go, but I'm busy.\"",c:["가고 싶은데 바빠요.","가고 싶는데 바빠요.","가고 싶어데 바빠요.","가고 싶으면 바빠요."],why:"-고 싶다 acts like an adjective: 싶은데."}
+  ],
+  poolN:3,
+  say:[
+    {en:"It's raining. Do you have an umbrella?", ko:"비가 오[는데] 우산 있어요?", ban:"비가 오[는데] 우산 있어?", hint:"a verb takes 는데"},
+    {en:"I'm busy right now, so please call me later.", ko:"지금 바[c:쁜]데 나중에 전화해 주세요.", ban:"지금 바[c:쁜]데 나중에 전화해 줘.", hint:"an adjective: ㄴ goes under 쁘"},
+    {en:"The weather's nice. Shall we take a walk?", ko:"날씨가 좋[은데] 산책할까요?", ban:"날씨가 좋[은데] 산책할까?", banAlt:["날씨가 좋은데 산책하자."], hint:"adjective with a final consonant"},
+    {en:"It's Saturday today. Are you working?", ko:"오늘 토요일[인데] 일해요?", ban:"오늘 토요일[인데] 일해?", hint:"noun + 인데"},
+    {en:"This restaurant is expensive, but it's really good.", ko:"이 식당은 비[c:싼]데 정말 맛있어요.", ban:"이 식당은 비[c:싼]데 정말 맛있어.", alt:["이 식당은 비싸지만 정말 맛있어요."], banAlt:["이 식당은 비싸지만 정말 맛있어."]},
+    {en:"I'm going to the market. Do you need anything?", ko:"시장에 가[는데] 뭐 필요해요?", ban:"시장에 가[는데] 뭐 필요해?", alt:["시장에 갈 건데 뭐 필요해요?"], banAlt:["시장에 갈 건데 뭐 필요해?"], hint:"need = 필요하다"},
+    {en:"I called yesterday, but you didn't pick up.", ko:"어제 전화했[는데] 안 받았어요.", ban:"어제 전화했[는데] 안 받았어.", alt:["어제 전화했지만 안 받았어요."], banAlt:["어제 전화했지만 안 받았어."], hint:"past stem + 는데"},
+    {en:"I went to the department store to buy clothes, and there were really a lot of people.", ko:"백화점에 옷 사러 갔[는데] 사람이 정말 많았어요.", ban:"백화점에 옷 사러 갔[는데] 사람이 정말 많았어.", alt:["옷 사러 백화점에 갔는데 사람이 정말 많았어요."], banAlt:["옷 사러 백화점에 갔는데 사람이 정말 많았어."], hint:"-(으)러 first, then 갔는데"}
+  ],
+  dlg:{
+    scene:"Saturday, late morning. 민수 calls 지은. They're friends the same age, so they talk in 반말.",
+    cast:[["민수","ban"],["지은","ban"]],
+    lines:[
+      ["민수","지은아, 지금 뭐 해?","Jieun, what are you doing right now?"],
+      ["지은","음... 그냥 집에서 쉬어. 왜?","Hmm... just resting at home. Why?"],
+      ["민수","날씨 진짜 좋[은데] 공원 갈까?","The weather's really nice. Shall we go to the park?"],
+      ["지은","공원? 좋아. 근데 나 아직 아침 안 먹었[는데] 밥 먼저 먹자.","The park? Sure. But I haven't eaten yet, so let's eat first."],
+      ["민수","어, 나도 배고[픈데] 잘됐다.","Oh, I'm hungry too, so that works out."],
+      ["민수","공원 앞에 김밥집 있[는데], 거기 어때?","There's a gimbap place in front of the park. How about there?"],
+      ["지은","아, 거기? 거기 맛있[는데] 사람이 좀 많아.","Oh, that place? It's good, but it gets kind of crowded."],
+      ["민수","지금 열한 시[인데] 괜찮아.","It's only eleven now, so it'll be fine."],
+      ["지은","그래? 그럼 열두 시에 거기서 만나자.","Really? Then let's meet there at twelve."]
+    ],
+    clean:[
+      ["민수","지은아, 지금 뭐 해?","Jieun, what are you doing right now?"],
+      ["지은","나는 집에서 쉬고 있어. 왜?","I'm resting at home. Why?"],
+      ["민수","날씨가 정말 좋[은데] 공원에 갈까?","The weather is really nice. Shall we go to the park?"],
+      ["지은","좋아. 그런데 나는 아직 아침을 안 먹었[는데] 밥을 먼저 먹자.","Sure. But I haven't eaten yet, so let's eat first."],
+      ["민수","나도 배가 고[픈데] 잘됐어.","I'm hungry too, so that works out."],
+      ["민수","공원 앞에 김밥집이 있[는데], 거기는 어때?","There is a gimbap restaurant in front of the park. How about that place?"],
+      ["지은","그 식당은 맛있[는데] 사람이 조금 많아.","That restaurant is good, but there are quite a few people."],
+      ["민수","지금은 열한 시[인데] 괜찮을 거야.","It is eleven o'clock now, so it will be fine."],
+      ["지은","그럼 열두 시에 거기에서 만나자.","Then let's meet there at twelve."]
+    ],
+    q:[
+      {q:"What is Jieun doing when Minsu calls?",c:["Resting at home","Eating lunch","Walking in the park","Working"],why:"그냥 집에서 쉬어: just resting at home.",cwhy:"나는 집에서 쉬고 있어: I'm resting at home."},
+      {q:"What's the one problem with the gimbap place?",c:["It gets kind of crowded","The food isn't good","It's expensive","It's far from the park"],why:"거기 맛있는데 사람이 좀 많아: it's good, but there are a lot of people.",cwhy:"그 식당은 맛있는데 사람이 조금 많아: it's good, but there are quite a few people."},
+      {q:"When and where do they meet?",c:["At twelve, at the gimbap place","At eleven, at the park","At twelve, at Jieun's home","At one, at the park"],why:"그럼 열두 시에 거기서 만나자: let's meet there at twelve.",cwhy:"그럼 열두 시에 거기에서 만나자: let's meet there at twelve."}
+    ],
+    note:"Every highlighted ending sets something up: the nice weather before a suggestion, 아직 아침 안 먹었는데 before \"let's eat first\", 맛있는데 before the downside. Switch between As spoken and Clean to compare."
+  },
+  plan:[
+    ["3","Warm-up","Each person says two facts about today that lead to a question (비가 와요. 우산 있어요?). Keep them; you'll join them later."],
+    ["8","Teach the forms","Slides 1 to 3. One says a word, the other says it with -는데 or -(으)ㄴ데, then in the past."],
+    ["6","Teach the uses","Slides 4 to 7. Join the warm-up pairs, then take turns: one gives the background (날씨가 좋은데…), the other finishes with a question or suggestion."],
+    ["5","Check","Practice tab."],
+    ["4","Say it","Say it tab, polite first. Decide verb or adjective before you reveal, then try a few in 반말."],
+    ["5","Dialogue","Listen first and answer the questions, then Role-play it. Swap parts and go again."]
+  ],
+  talk:[["오늘 날씨가 좋은데 뭐 할까요?","The weather's nice today. What shall we do?"],["한국어 공부는 재미있는데 뭐가 어려워요?","Studying Korean is fun, but what's hard about it?"],["주말에 시간이 있는데 어디에 갈까요?","I have time this weekend. Where shall we go?"]],
+  after:"HTSK Lesson 76 covers -는데 and -(으)ㄴ데, and how they differ from 는 데 with a space, which is about a place."
+});

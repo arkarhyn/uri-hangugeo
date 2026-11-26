@@ -23,7 +23,12 @@ const SRC = {
   L7:{n:"Lesson 7",t:"Irregulars",u:HT+"/?page_id=294"},
   L19:{n:"Lesson 19",t:"더, 보다, 가장/제일",u:HT+"/?page_id=1357"},
   L43:{n:"Lesson 43",t:"~(으)면",u:HT+"/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-43/"},
-  L32:{n:"Lesson 32",t:"~(으)려고 and ~(으)러",u:HT+"/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/"}
+  L32:{n:"Lesson 32",t:"~(으)려고 and ~(으)러",u:HT+"/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-32/"},
+  L24:{n:"Lesson 24",t:"전 and 후",u:HT+"/unit1/unit-1-lessons-17-25-2/lesson-24/"},
+  L26:{n:"Lesson 26",t:"Describing nouns with -는 것",u:HT+"/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-26-33/lesson-26/"},
+  L45:{n:"Lesson 45",t:"~(으)ㄹ 수 있다/없다",u:HT+"/unit-2-lower-intermediate-korean-grammar/unit-2-lessons-42-50/lesson-45/"},
+  L76:{n:"Lesson 76",t:"~는데",u:HT+"/upper-intermediate-korean-grammar/unit-4-lessons-76-83/lesson-76/"},
+  L81:{n:"Lesson 81",t:"~(으)니까",u:HT+"/upper-intermediate-korean-grammar/unit-4-lessons-76-83/lesson-81/"}
 };
 
 const LESSONS = [];

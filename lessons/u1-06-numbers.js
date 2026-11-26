@@ -50,13 +50,46 @@ LESSONS.push({
     {en:"My phone number is 010-1234-5678.", ko:"제 전화번호는 [공일공에 일이삼사에 오육칠팔]이에요.", ban:"[c:내] 전화번호는 [공일공에 일이삼사에 오육칠팔]이야.", hint:"digit by digit; 0 is 공 and the dash is 에"},
     {en:"I eat dinner at six o'clock at the café on the second floor.", ko:"[이] 층 카페에서 [여섯] 시에 저녁을 먹어요.", ban:"[이] 층 카페에서 [여섯] 시에 저녁을 먹어.", hint:"floor = Sino, o'clock = native"}
   ],
+  dlg:{
+    scene:"At the front desk of a community center. 지은 is signing up for a Korean class. She and the staff member are strangers, so they both speak politely.",
+    cast:[["직원","yo","front desk staff"],["지은","yo"]],
+    lines:[
+      ["지은","저기요, 한국어 교실 몇 층이에요?","Excuse me, what floor is the Korean classroom on?"],
+      ["직원","한국어 교실이요? [삼] 층 [삼백이] 호예요.","The Korean classroom? Third floor, room 302."],
+      ["지은","아, 네, 수업은 몇 시예요?","Oh, okay, what time is the class?"],
+      ["직원","저녁 [일곱] 시예요.","It's at seven in the evening."],
+      ["지은","일곱 시요? 음... 그리고 얼마예요?","Seven? Hmm... and how much is it?"],
+      ["직원","[오만] 원이에요. 전화번호가 어떻게 되세요?","It's 50,000 won. What's your phone number?"],
+      ["지은","[공일공에 일이삼사에 오육칠팔]이에요.","It's 010-1234-5678."],
+      ["직원","네. 첫 수업은 [유월 십 일]이에요.","Okay. The first class is June 10th."],
+      ["지은","[유월 십 일]이요? 네, 감사합니다.","June 10th? Okay, thank you."]
+    ],
+    clean:[
+      ["지은","저기요, 한국어 교실이 몇 층에 있어요?","Excuse me, what floor is the Korean classroom on?"],
+      ["직원","한국어 교실은 [삼] 층에 있어요. [삼백이] 호예요.","The Korean classroom is on the third floor. It's room 302."],
+      ["지은","수업은 몇 시예요?","What time is the class?"],
+      ["직원","수업은 저녁 [일곱] 시예요.","The class is at seven in the evening."],
+      ["지은","수업은 얼마예요?","How much is the class?"],
+      ["직원","수업은 [오만] 원이에요. 전화번호가 어떻게 되세요?","The class is 50,000 won. What is your phone number?"],
+      ["지은","제 전화번호는 [공일공에 일이삼사에 오육칠팔]이에요.","My phone number is 010-1234-5678."],
+      ["직원","첫 수업은 [유월 십 일]이에요.","The first class is June 10th."],
+      ["지은","네, 감사합니다.","Okay, thank you."]
+    ],
+    q:[
+      {q:"Which floor is the Korean classroom on?", c:["3rd","2nd","4th","7th"], why:"삼 층 삼백이 호예요: third floor, room 302.", cwhy:"한국어 교실은 삼 층에 있어요: it's on the third floor."},
+      {q:"How much is the class?", c:["50,000 won","5,000 won","15,000 won","500,000 won"], why:"오만 원이에요: it's 50,000 won.", cwhy:"수업은 오만 원이에요: the class is 50,000 won."},
+      {q:"When is the first class?", c:["June 10","October 10","June 7","July 10"], why:"첫 수업은 유월 십 일이에요: the first class is June 10th."}
+    ],
+    note:"Both systems show up here: 삼 층, 삼백이 호, 오만 원 and 유월 십 일 are Sino, but 일곱 시 is native."
+  },
   plan:[
-    ["5","Warm-up","Count 1 to 10 together in both systems, then backward."],
-    ["10","Teach","Slides 1 to 5. Make the \"which system?\" chart on paper and keep it out for the rest of the session."],
-    ["8","Number Gym","Open Number Gym, Sino mode then Native mode. Race to a streak of 5."],
-    ["5","Dates and phones","Slides 6 and 7. Say your birthdays and phone numbers to each other."],
+    ["3","Warm-up","Count 1 to 10 together in both systems, then backward."],
+    ["9","Teach","Slides 1 to 5. Make the \"which system?\" chart on paper and keep it out for the rest of the session."],
+    ["6","Number Gym","Open Number Gym, Sino mode then Native mode. Race to a streak of 5."],
+    ["4","Dates and phones","Slides 6 and 7. Say your birthdays and phone numbers to each other."],
     ["4","Check","Practice tab."],
-    ["5","Say it","Say it tab, polite first. Say each number out loud before you reveal the answer, then try a few in 반말."]
+    ["5","Say it","Say it tab, polite first. Say each number out loud before you reveal the answer, then try a few in 반말."],
+    ["5","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 지은, the other the front desk. Swap and go again."]
   ],
   talk:[["생일이 언제예요?","When is your birthday?"],["전화번호가 뭐예요?","What is your phone number?"],["몇 층에 살아요?","Which floor do you live on?"]],
   after:"HTSK Lesson 10 (numbers) and Lesson 11 (time words, and which system goes with each)."

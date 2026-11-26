@@ -68,13 +68,46 @@ LESSONS.push({
     {en:"What should we eat?", ko:"뭐 먹을까요?", ban:"뭐 먹을[까]?", hint:"-(으)ㄹ까요 loses its 요"},
     {en:"Minsu, shall we see a movie this weekend?", ko:"민수 씨, 주말에 영화 볼까요?", ban:"민수[야], 주말에 영화 볼[까]?", hint:"name + 야 after a vowel"}
   ],
+  dlg:{
+    scene:"Lunchtime at 지은's home. 민수 visits for the first time and meets her mom. He's polite with her mom, and uses 반말 with 지은.",
+    cast:[["민수","ban"],["지은","ban"],["지은 어머니","yo","Jieun's mom"]],
+    lines:[
+      ["민수","아, 안녕하세요! 저는 지은이 친구 민수예요.","Oh, hello! I'm Jieun's friend Minsu.","yo"],
+      ["지은 어머니","아, 민수 씨? 어서 오세요. 밥 먹었어요?","Ah, Minsu? Come in. Have you eaten?"],
+      ["민수","밥이요? 어... 아직이요.","Food? Uh... not yet.","yo"],
+      ["지은 어머니","그럼 같이 먹어요.","Then eat with us."],
+      ["지은","민수[야], 왔어?","Minsu, you're here?"],
+      ["민수","[응]. 근데 점심 뭐[야]?","Yeah. So what's for lunch?"],
+      ["지은","김치찌개[야]. [너] 그거 좋아해?","Kimchi stew. Do you like it?"],
+      ["민수","[응], 진짜 좋아해!","Yeah, I really like it!"],
+      ["지은","그럼 빨리 먹[자]!","Then let's hurry up and eat!"]
+    ],
+    clean:[
+      ["민수","안녕하세요. 저는 지은이 친구 민수예요.","Hello. I'm Jieun's friend Minsu.","yo"],
+      ["지은 어머니","민수 씨예요? 어서 오세요. 밥은 먹었어요?","Are you Minsu? Come in. Have you eaten?"],
+      ["민수","아니요, 아직 안 먹었어요.","No, I haven't eaten yet.","yo"],
+      ["지은 어머니","그럼 같이 먹어요.","Then eat with us."],
+      ["지은","민수[야], 왔어?","Minsu, you're here?"],
+      ["민수","[응], 왔어. 그런데 오늘 점심은 뭐[야]?","Yes, I'm here. So what's for lunch today?"],
+      ["지은","점심은 김치찌개[야]. [너]는 김치찌개를 좋아해?","Lunch is kimchi stew. Do you like kimchi stew?"],
+      ["민수","[응], [나]는 김치찌개를 정말 좋아해.","Yes, I really like kimchi stew."],
+      ["지은","그럼 빨리 먹[자].","Then let's hurry up and eat."]
+    ],
+    q:[
+      {q:"Has Minsu eaten yet?", c:["No, not yet","Yes, at home","Yes, just now","He doesn't say"], why:"밥이요? 어... 아직이요: food? Not yet.", cwhy:"아니요, 아직 안 먹었어요: no, I haven't eaten yet."},
+      {q:"What's for lunch?", c:["Kimchi stew","Gimbap","Bibimbap","Chicken"], why:"김치찌개야: it's kimchi stew.", cwhy:"점심은 김치찌개야: lunch is kimchi stew."},
+      {q:"Who does Minsu speak politely to?", c:["Only Jieun's mom","Only Jieun","Both of them","Neither of them"], why:"To her mom he says 안녕하세요 and 아직이요. To 지은 he says 응.", cwhy:"To her mom he says 안녕하세요 and 아직 안 먹었어요. To 지은 he says 응, 왔어."}
+    ],
+    note:"Watch the level change: 민수 is polite with 지은's mom, then drops the 요 the moment he turns to 지은. 지은이 친구 has the extra 이 that a name ending in a consonant usually picks up."
+  },
   plan:[
     ["3","Agree on it","Decide together that you'll use 반말 with each other for this lesson."],
-    ["10","Teach","Slides 1 to 4. Take five 해요 sentences from earlier lessons and drop the 요."],
-    ["8","Text chat","Slides 5 to 7. Text each other a short casual chat: call the other by name (지은아!), ask 뭐 해?, suggest something with -자 or -(으)ㄹ까?, and answer with 응 or 아니."],
-    ["5","Switch","One person says a 반말 sentence; the other says it back in 해요. Then swap."],
+    ["8","Teach","Slides 1 to 4. Take five 해요 sentences from earlier lessons and drop the 요."],
+    ["7","Text chat","Slides 5 to 7. Text each other a short casual chat: call the other by name (지은아!), ask 뭐 해?, suggest something with -자 or -(으)ㄹ까?, and answer with 응 or 아니."],
+    ["4","Switch","One person says a 반말 sentence; the other says it back in 해요. Then swap."],
     ["4","Check","Practice tab."],
-    ["5","Say it","Say it tab with the 반말 switch on from the start, so the casual answer is the one you give. Then flip the switch and say the same sentence in 해요."]
+    ["4","Say it","Say it tab with the 반말 switch on from the start, so the casual answer is the one you give. Then flip the switch and say the same sentence in 해요."],
+    ["4","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other 지은, and the site plays her mom. Swap and go again."]
   ],
   talk:[["지금 뭐 해?","What are you doing now?"],["주말에 뭐 했어?","What did you do on the weekend?"],["오늘 저녁에 뭐 먹을까?","What should we eat tonight?"]],
   after:"HTSK Lesson 6 covers speech levels, including how casual forms are made."

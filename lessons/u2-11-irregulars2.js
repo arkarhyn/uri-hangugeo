@@ -76,11 +76,44 @@ LESSONS.push({
     {en:"I walk to school every day.", ko:"매일 학교에 [c:걸]어서 가요.", ban:"매일 학교에 [c:걸]어서 가.", alt:["매일 걸어서 학교에 가요."], banAlt:["매일 걸어서 학교에 가."], hint:"on foot = 걷다 + 어서"},
     {en:"It was cold, so I couldn't sleep.", ko:"추[c:워]서 못 잤어요.", ban:"추[c:워]서 못 잤어.", alt:["추워서 잠을 못 잤어요."], banAlt:["추워서 잠을 못 잤어."], hint:"춥다 + \"so\", then 못 before the verb"}
   ],
+  dlg:{
+    scene:"In a karaoke room. 민수 and 지은 are friends the same age, so it's 반말 the whole way.",
+    cast:[["민수","ban"],["지은","ban"]],
+    lines:[
+      ["지은","민수야, 노래 하나 [골라]. 너 먼저 해.","Minsu, pick a song. You go first."],
+      ["민수","나? 음... 요즘 노래 잘 [몰라].","Me? Hmm... I don't really know new songs."],
+      ["지은","그럼 이 노래는? 이거 알아?","Then how about this song? Do you know it?"],
+      ["민수","아, 이거! 매일 [들어]. 근데 좀... [어려워].","Oh, this one! I listen to it every day. But it's kind of... hard."],
+      ["지은","어려워? 안 [빨라]서 [쉬워].","Hard? It's not fast, so it's easy."],
+      ["민수","그럼 같이 [부르]자.","Then let's sing it together."],
+      ["지은","좋아! 아, 근데 여기 좀 [더워].","Okay! Oh, but it's kind of hot in here."],
+      ["민수","응, 진짜 [더워]. 문 좀 열까?","Yeah, it's really hot. Should I open the door a bit?"],
+      ["지은","아니, 괜찮아. 그냥 빨리 [부르]자.","No, it's fine. Let's just hurry up and sing."]
+    ],
+    clean:[
+      ["지은","민수야, 노래를 하나 [골라]. 네가 먼저 해.","Minsu, pick a song. You go first."],
+      ["민수","나는 요즘 노래를 잘 [몰라].","I don't really know recent songs."],
+      ["지은","그럼 이 노래는 어때? 이 노래를 알아?","Then how about this song? Do you know it?"],
+      ["민수","응, 이 노래를 매일 [들어]. 그런데 이 노래는 조금 [어려워].","Yes, I listen to this song every day. But it's a little hard."],
+      ["지은","이 노래는 안 [빨라]서 [쉬워].","This song isn't fast, so it's easy."],
+      ["민수","그럼 우리 같이 [부르]자.","Then let's sing it together."],
+      ["지은","좋아. 그런데 여기는 조금 [더워].","Okay. But it's a little hot here."],
+      ["민수","응, 정말 [더워]. 문을 조금 열까?","Yes, it's really hot. Shall I open the door a little?"],
+      ["지은","아니, 괜찮아. 우리 빨리 노래를 [부르]자.","No, it's fine. Let's sing quickly."]
+    ],
+    q:[
+      {q:"What is Minsu's trouble with picking a song?",c:["He doesn't know recent songs","He doesn't like singing","His throat hurts","He can't find his glasses"],why:"요즘 노래 잘 몰라: I don't really know recent songs.",cwhy:"요즘 노래를 잘 몰라: I don't really know recent songs."},
+      {q:"What does Minsu say about the song Jieun suggests?",c:["He listens to it every day, but it's hard","He has never heard it","It's too fast","It's easy"],why:"매일 들어. 근데 좀... 어려워.",cwhy:"이 노래를 매일 들어. 그런데 이 노래는 조금 어려워."},
+      {q:"What is the room like?",c:["Hot","Cold","Loud","Small"],why:"여기 좀 더워, then 진짜 더워.",cwhy:"여기는 조금 더워, then 정말 더워."}
+    ],
+    note:"몰라, 들어, 어려워, 쉬워, 더워, 골라 and 빨라서 all change before 아/어. In 부르자, the ending starts with a consonant, so 부르 stays as it is."
+  },
   plan:[
-    ["5","Warm-up","Talk about today's weather and the last thing you ate with 추워요, 더워요 and 매워요."],
-    ["10","Teach","Slides 1 to 3. Put every ㅂ adjective in the 해요 form, the past, and with -(으)면."],
-    ["8","Teach","Slides 4 to 6. Say 듣다, 걷다, 모르다 and 부르다 in three forms each."],
-    ["5","Sort it","Slide 7. One person says a dictionary form from either irregulars lesson; the other names its group and gives the 해요 form."],
+    ["3","Warm-up","Talk about today's weather and the last thing you ate with 추워요, 더워요 and 매워요."],
+    ["9","Teach","Slides 1 to 3. Put every ㅂ adjective in the 해요 form, the past, and with -(으)면."],
+    ["7","Teach","Slides 4 to 6. Say 듣다, 걷다, 모르다 and 부르다 in three forms each."],
+    ["3","Sort it","Slide 7. One person says a dictionary form from either irregulars lesson; the other names its group and gives the 해요 form."],
+    ["5","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other 지은. Swap and go again."],
     ["5","Check","Practice tab."],
     ["5","Say it","Say it tab, polite first. Before each reveal, name the group (ㅂ, ㄷ or 르), then try a few in 반말."]
   ],

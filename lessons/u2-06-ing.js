@@ -64,13 +64,46 @@ LESSONS.push({
     {en:"I was sleeping.", ko:"아까 [자고 있었어요].", ban:"아까 [자고 있었어].", hint:"the past tense goes on 있다 only"},
     {en:"I was in the shower, so I couldn't answer the phone.", ko:"샤워하[고 있어서] 전화를 못 받았어요.", ban:"샤워하[고 있어서] 전화를 못 받았어.", alt:["샤워하고 있어서 전화 못 받았어요."], banAlt:["샤워하고 있어서 전화 못 받았어."], hint:"no past tense before -어서; 못 goes before the verb"}
   ],
+  dlg:{
+    scene:"A Saturday phone call. 지은 is at a café and 민수 is at home. They're friends the same age, so they talk in 반말.",
+    cast:[["민수","ban"],["지은","ban"]],
+    lines:[
+      ["지은","여보세요, 민수야? 지금 뭐 [하고 있어]?","Hello, Minsu? What are you doing right now?"],
+      ["민수","지금? 어... 그냥 청소[하고 있어]. 왜?","Right now? Uh... just cleaning. Why?"],
+      ["지은","나 지금 카페에서 한국어 공부[하고 있어].","I'm studying Korean at a café right now."],
+      ["민수","와, 진짜? 요즘 한국어 열심히 공부해?","Wow, really? You're studying Korean hard these days?"],
+      ["지은","응, 요즘 매일 [하고 있어]. 근데 아까 전화 왜 안 받았어?","Yeah, I've been doing it every day lately. But why didn't you pick up earlier?"],
+      ["민수","아, 아까? 샤워[하고 있었어]. 미안.","Oh, earlier? I was in the shower. Sorry."],
+      ["지은","괜찮아. 청소하고 여기 올 거야?","It's okay. Are you coming here after you clean?"],
+      ["민수","응! 청소하고 갈 거야.","Yeah! I'll clean and then come."],
+      ["지은","좋아. 그럼 이따가 보자!","Good. See you later, then!"]
+    ],
+    clean:[
+      ["지은","여보세요, 민수야? 너는 지금 뭐 [하고 있어]?","Hello, Minsu? What are you doing right now?"],
+      ["민수","나는 지금 청소[하고 있어]. 왜 전화했어?","I'm cleaning right now. Why did you call?"],
+      ["지은","나는 지금 카페에서 한국어를 공부[하고 있어].","I'm studying Korean at a café right now."],
+      ["민수","요즘 한국어를 열심히 공부해?","Are you studying Korean hard these days?"],
+      ["지은","응, 요즘 매일 공부[하고 있어]. 그런데 아까 전화를 왜 안 받았어?","Yes, I've been studying every day lately. But why didn't you answer the phone earlier?"],
+      ["민수","미안해. 아까는 샤워[하고 있었어].","I'm sorry. I was in the shower earlier."],
+      ["지은","괜찮아. 청소하고 여기에 올 거야?","It's okay. Are you coming here after you clean?"],
+      ["민수","응, 청소하고 갈 거야.","Yes, I'll clean and then come."],
+      ["지은","좋아. 그럼 이따가 보자.","Good. See you later, then."]
+    ],
+    q:[
+      {q:"What is Minsu doing when Jieun calls?", c:["Cleaning","Taking a shower","Studying Korean","Sleeping"], why:"그냥 청소하고 있어: just cleaning.", cwhy:"나는 지금 청소하고 있어: I'm cleaning right now."},
+      {q:"Why didn't Minsu pick up earlier?", c:["He was in the shower","He was cleaning","He was asleep","He was at a café"], why:"샤워하고 있었어: I was in the shower.", cwhy:"아까는 샤워하고 있었어: I was in the shower earlier."},
+      {q:"What is Jieun doing?", c:["Studying Korean at a café","Cleaning at home","Watching a movie","Working at a café"], why:"카페에서 한국어 공부하고 있어: studying Korean at a café.", cwhy:"카페에서 한국어를 공부하고 있어: studying Korean at a café."}
+    ],
+    note:"Koreans answer the phone with 여보세요. 지금 and 요즘 show the two uses: right now, and these days. 갈 거야 uses 가다 because 민수 is going from where he is now."
+  },
   plan:[
-    ["5","Warm-up","Ask each other 지금 뭐 해요? and answer with something true (한국어 공부해요!)."],
-    ["10","Teach","Slides 1 to 4. One person mimes an action; the other says what they're doing (책을 읽고 있어요)."],
-    ["5","These days","Slide 3. Each person says three things they're doing these days (요즘 … 고 있어요)."],
-    ["5","What are they wearing?","Slide 6. Describe what each of you is wearing right now, head to toe."],
-    ["5","Check","Practice tab."],
-    ["5","Say it","Say it tab. After each answer, ask the same thing back with 지금 뭐 하고 있어요? Then try a few in 반말."]
+    ["3","Warm-up","Ask each other 지금 뭐 해요? and answer with something true (한국어 공부해요!)."],
+    ["9","Teach","Slides 1 to 4. One person mimes an action; the other says what they're doing (책을 읽고 있어요)."],
+    ["4","These days","Slide 3. Each person says three things they're doing these days (요즘 … 고 있어요)."],
+    ["4","What are they wearing?","Slide 6. Describe what each of you is wearing right now, head to toe."],
+    ["4","Check","Practice tab."],
+    ["4","Say it","Say it tab. After each answer, ask the same thing back with 지금 뭐 하고 있어요? Then try a few in 반말."],
+    ["4","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it back to back, like a real phone call. Swap and go again."]
   ],
   talk:[["요즘 뭐 배우고 있어요?","What are you learning these days?"],["요즘 무슨 드라마 보고 있어요?","What drama are you watching these days?"],["오늘 뭐 입고 있어요?","What are you wearing today?"]],
   after:"HTSK Lesson 18 covers -고 있다, plus -아/어지다 (getting more ___)."

@@ -63,7 +63,8 @@ LESSONS.push({
     {en:"Uh... what do you call it? You know, that thing.", ko:"[어]... [뭐라고 하지]? [그거 있잖아요].", ban:"[어]... [뭐라고 하지]? [그거 있잖아].", hint:"the question to yourself stays 반말 at both levels"},
     {en:"The weekend? Hmm... I just stayed home. I was tired.", ko:"[주말에요]? [음]... 그냥 집에 있었어요. 피곤했어요.", ban:"[주말]? [음]... 그냥 집에 있었어. 피곤했어.", hint:"echo, think, then answer"}
   ],
-  dlg:{
+  dlg:[{
+    title:"The forgotten restaurant",
     scene:"After class. 지은 is trying to remember a restaurant. They're friends the same age, so it's 반말 the whole way.",
     cast:[["민수","ban"],["지은","ban"]],
     lines:[
@@ -95,13 +96,114 @@ LESSONS.push({
     ],
     note:"Notice how little of this is a full textbook sentence: 무슨 식당?, 그럼 내일은?, 토요일? Short pieces plus fillers is what real 반말 sounds like. Switch between As spoken and Clean to compare it with the same scene in textbook sentences."
   },
+  {
+    title:"At the store",
+    scene:"At a convenience store. 지은 needs something but the word won't come. She and the clerk are strangers, so both speak politely.",
+    cast:[["지은","yo"],["직원","yo","store clerk"]],
+    lines:[
+      ["지은","[저기요]... [저]... [혹시] 여기 그거 있어요?","Excuse me... um... do you have that thing here, by any chance?"],
+      ["직원","네? 뭐요?","Sorry? What thing?"],
+      ["지은","[어]... [뭐라고 하지], [그거 있잖아요]. 핸드폰 배터리가 없어요. 그래서...","Uh... what do you call it? You know, that thing. My phone's out of battery. So..."],
+      ["직원","아, 충전기요?","Oh, a charger?"],
+      ["지은","[아, 맞다], 충전기요! 네, 있어요?","Oh, right! A charger! Yes, do you have one?"],
+      ["직원","[잠깐만요]. [음]... 네, 여기 있어요.","Hang on. Hmm... yes, here it is."],
+      ["지은","[저]... 이거 얼마예요?","Um... how much is this?"],
+      ["직원","만 오천 원이에요.","It's 15,000 won."],
+      ["지은","[만 오천 원이요]? [음]... 네, 이걸로 할게요.","15,000 won? Hmm... okay, I'll take this one."]
+    ],
+    clean:[
+      ["지은","실례합니다. 여기에 이 물건이 있어요?","Excuse me. Do you have this item here?"],
+      ["직원","어떤 물건이에요?","What item is it?"],
+      ["지은","저는 그 물건의 이름을 몰라요. 핸드폰 배터리가 없어요.","I don't know the name of the item. My phone has no battery."],
+      ["직원","충전기예요?","Is it a charger?"],
+      ["지은","네, 맞아요. 충전기가 있어요?","Yes, that's right. Do you have a charger?"],
+      ["직원","네, 충전기는 여기에 있어요.","Yes, the chargers are here."],
+      ["지은","이 충전기는 얼마예요?","How much is this charger?"],
+      ["직원","만 오천 원이에요.","It's 15,000 won."],
+      ["지은","네, 이걸로 할게요.","Okay, I'll take this one."]
+    ],
+    q:[
+      {q:"What is Jieun looking for?",c:["A phone charger","A new phone","An umbrella","A bag"],why:"The word is 충전기. She gets there through 핸드폰 배터리가 없어요.",cwhy:"충전기가 있어요? She is asking for a charger."},
+      {q:"What is Jieun's trouble at first?",c:["She can't think of the word","She can't find the store","She doesn't have enough money","Her bag is missing"],why:"뭐라고 하지, 그거 있잖아요: what do you call it? You know, that thing.",cwhy:"그 물건의 이름을 몰라요: she doesn't know the item's name."},
+      {q:"How much is it?",c:["15,000 won","5,000 won","50,000 won","1,500 won"],why:"만 오천 원이에요."}
+    ],
+    note:"저기요 gets the clerk's attention, and 저... softens the question. 뭐라고 하지? is said to herself, so it has no 요, but 그거 있잖아요 is said to the clerk, so it does. After a consonant, the polite echo takes 이요: 만 오천 원이요?"
+  },
+  {
+    title:"Calling Jieun's house",
+    scene:"On the phone. 민수 calls 지은 and her mother answers. 민수 speaks politely to her, and she uses 반말 with him.",
+    cast:[["민수","yo"],["지은 어머니","ban","Jieun's mom"]],
+    lines:[
+      ["민수","여보세요? [저]... 안녕하세요. 저 민수예요. [혹시] 지은이 있어요?","Hello? Um... hi. It's Minsu. Is Jieun there, by any chance?"],
+      ["지은 어머니","아, 민수? 지은이 지금 씻고 있어. 민수는 밥 먹었어?","Oh, Minsu? Jieun's washing up right now. Have you eaten?"],
+      ["민수","[저요]? [음]... 아니요, 아직이요.","Me? Hmm... no, not yet."],
+      ["지은 어머니","그럼 우리 집에 밥 먹으러 와.","Then come over to our place to eat."],
+      ["민수","[지금이요]? [음]... [잠깐만요]. 네, 괜찮아요!","Now? Hmm... hang on. Yes, that works!"],
+      ["지은 어머니","좋아. 뭐 먹고 싶어?","Good. What would you like to eat?"],
+      ["민수","[글쎄요]... [어]... 그 찌개, [뭐지], [그거 있잖아요]. 지난번에 먹었어요.","Well... uh... that stew... what is it? You know the one. I had it last time."],
+      ["지은 어머니","김치찌개?","Kimchi stew?"],
+      ["민수","[아, 맞다], 김치찌개요! 감사합니다.","Oh, right! Kimchi stew! Thank you."]
+    ],
+    clean:[
+      ["민수","여보세요? 안녕하세요. 저는 민수예요. 지은이 있어요?","Hello? Hi. This is Minsu. Is Jieun there?"],
+      ["지은 어머니","아, 민수야? 지은이는 지금 씻고 있어. 민수는 밥을 먹었어?","Oh, Minsu? Jieun is washing up now. Have you eaten?"],
+      ["민수","아니요, 아직 안 먹었어요.","No, I haven't eaten yet."],
+      ["지은 어머니","그럼 우리 집에 밥을 먹으러 와.","Then come to our house to eat."],
+      ["민수","네, 지금 괜찮아요.","Yes, now is fine."],
+      ["지은 어머니","좋아. 뭐를 먹고 싶어?","Good. What do you want to eat?"],
+      ["민수","저는 그 찌개의 이름을 몰라요. 지난번에 그 찌개를 먹었어요.","I don't know the name of that stew. I ate it last time."],
+      ["지은 어머니","김치찌개야?","Is it kimchi stew?"],
+      ["민수","네, 맞아요. 김치찌개예요. 감사합니다.","Yes, that's right. It's kimchi stew. Thank you."]
+    ],
+    q:[
+      {q:"Why doesn't Jieun come to the phone?",c:["She's washing up","She's sleeping","She's out","She's eating"],why:"지은이 지금 씻고 있어.",cwhy:"지은이는 지금 씻고 있어."},
+      {q:"Has Minsu eaten?",c:["Not yet","Yes, just now","Yes, he had kimchi stew today","He isn't hungry"],why:"아니요, 아직이요: no, not yet.",cwhy:"아니요, 아직 안 먹었어요."},
+      {q:"Which food was Minsu trying to name?",c:["Kimchi stew","Gimbap","Ramen","Bulgogi"],why:"그 찌개, 뭐지, then 김치찌개요!",cwhy:"그 찌개의 이름을 몰라요. Then 김치찌개예요."}
+    ],
+    note:"The 저 in 저... is a hesitation, but the 저 in 저 민수예요 means \"I\". Even while speaking politely, 민수 asks himself 뭐지 with no 요, then turns back to her with 그거 있잖아요."
+  },
+  {
+    title:"A birthday present",
+    scene:"On the way home. 지은 needs a present for her mom. 민수 and 지은 are friends the same age, so it's 반말 the whole way.",
+    cast:[["민수","ban"],["지은","ban"]],
+    lines:[
+      ["지은","[야], [있잖아]. 내일이 우리 엄마 생일이야.","Hey, you know what? Tomorrow's my mom's birthday."],
+      ["민수","[내일]? 선물은 샀어?","Tomorrow? Did you get a present?"],
+      ["지은","아니, 아직. [음]... 뭐가 좋을까?","No, not yet. Hmm... what would be good?"],
+      ["민수","[글쎄]... 꽃은 어때?","Well... how about flowers?"],
+      ["지은","꽃? [음]... 꽃은 [별로]야. 작년에도 샀어.","Flowers? Hmm... not flowers. I bought those last year too."],
+      ["민수","그럼 [그거 있잖아]. 겨울에 손에... [어]... [뭐라고 하지]?","Then you know, that thing. In winter, on your hands... uh... what do you call it?"],
+      ["지은","핸드크림?","Hand cream?"],
+      ["민수","[아, 맞다]! 핸드크림!","Oh, right! Hand cream!"],
+      ["지은","오, 좋아! 그리고... [뭐지]? [아, 맞다]. 너 내일 시간 있어? 같이 사러 가자.","Oh, nice! And... what was it? Oh, right. Are you free tomorrow? Let's go buy it together."],
+      ["민수","[나]? [잠깐만]... 응, 있어. 같이 가자.","Me? Hang on... yeah, I'm free. Let's go together."]
+    ],
+    clean:[
+      ["지은","민수야, 내일은 우리 엄마 생일이야.","Minsu, tomorrow is my mom's birthday."],
+      ["민수","선물은 샀어?","Did you buy a present?"],
+      ["지은","아니, 아직 안 샀어. 어떤 선물이 좋을까?","No, I haven't bought one yet. What present would be good?"],
+      ["민수","꽃은 어때?","How about flowers?"],
+      ["지은","꽃은 안 좋아. 작년에도 꽃을 샀어.","Flowers aren't good. I bought flowers last year too."],
+      ["민수","그럼 핸드크림은 어때?","Then how about hand cream?"],
+      ["지은","핸드크림이 좋을까?","Would hand cream be good?"],
+      ["민수","응, 겨울에 핸드크림을 쓰면 좋아.","Yes, it's good to use hand cream in winter."],
+      ["지은","좋아! 너는 내일 시간이 있어? 우리 같이 사러 가자.","Good! Are you free tomorrow? Let's go buy it together."],
+      ["민수","응, 나는 내일 시간이 있어. 같이 가자.","Yes, I'm free tomorrow. Let's go together."]
+    ],
+    q:[
+      {q:"Whose birthday is tomorrow?",c:["Jieun's mom's","Jieun's","Minsu's","Minsu's mom's"],why:"내일이 우리 엄마 생일이야.",cwhy:"내일은 우리 엄마 생일이야."},
+      {q:"Why doesn't Jieun go with flowers?",c:["She's not keen; she bought them last year too","They're too expensive","The flower shop is closed","Her mom is sick"],why:"꽃은 별로야. 작년에도 샀어.",cwhy:"꽃은 안 좋아. 작년에도 꽃을 샀어."},
+      {q:"What present does Minsu come up with after flowers?",c:["Hand cream","A bag","A cake","Shoes"],why:"Minsu can't find the word (뭐라고 하지?), Jieun guesses 핸드크림?, and he says 아, 맞다!",cwhy:"그럼 핸드크림은 어때?"}
+    ],
+    note:"있잖아 opens a new topic, like \"you know what?\". 그거 있잖아 is different: it asks the listener to help you find the thing. 별로야 is a soft \"not really\", gentler than saying something is bad."
+  }],
   plan:[
     ["3","Warm-up","Each of you answers 주말에 뭐 했어요? twice: once as a clean textbook sentence, once with an echo, a pause and a 음. Hear the difference."],
-    ["10","Teach","Slides 1 to 4. Say every filler out loud, stretched the way it's written."],
-    ["8","Word hunt","One person thinks of an everyday thing and describes it without the word, starting with 그거 있잖아... The other guesses. Use 뭐지? and 아, 맞다! along the way. Swap."],
+    ["8","Teach","Slides 1 to 4. Say every filler out loud, stretched the way it's written."],
+    ["6","Word hunt","One person thinks of an everyday thing and describes it without the word, starting with 그거 있잖아... The other guesses. Use 뭐지? and 아, 맞다! along the way. Swap."],
     ["4","Check","Practice tab."],
     ["5","Say it","Say it tab, 해요 first, then flip to 반말."],
-    ["5","Dialogue","Listen first, then Role-play it. Overdo the pauses; they're the point."]
+    ["8","Dialogue","Dialogue tab. Pick one or two scenes: Listen first, then Role-play. Overdo the pauses; they're the point. Save the other scenes for another day."]
   ],
   talk:[["주말에 뭐 했어요?","What did you do on the weekend? (start with an echo and a 음)"],["요즘 뭐가 재미있어요?","What's fun for you these days?"],["어제 저녁에 뭐 먹었어요?","What did you have for dinner yesterday?"]],
   after:"HTSK Lesson 6 covers the speech levels these fillers move between. HTSK doesn't cover fillers as a topic. The best source is listening: Korean vlogs and variety shows are full of 음, 그거 있잖아 and 아 맞다."

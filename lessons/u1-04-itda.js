@@ -46,13 +46,46 @@ LESSONS.push({
     {en:"The teacher is in the classroom.", ko:"선생님이 교실에 [계세요].", ban:"선생님이 교실에 [계셔].", hint:"있다 for a respected person"},
     {en:"The cat is under the chair. The dog isn't there.", ko:"고양이는 의자 [밑에] 있어요. 강아지는 거기에 [없어요].", ban:"고양이는 의자 [밑에] 있어. 강아지는 거기에 [없어].", alt:["고양이는 의자 아래에 있어요. 강아지는 거기에 없어요."], banAlt:["고양이는 의자 아래에 있어. 강아지는 거기에 없어."]}
   ],
+  dlg:{
+    scene:"지은 can't find her wallet in the study room, and 민수 helps her look. They're friends the same age, so it's 반말 the whole way.",
+    cast:[["민수","ban"],["지은","ban"]],
+    lines:[
+      ["지은","어? 민수야, 내 지갑 어디 [있어]?","Huh? Minsu, where's my wallet?"],
+      ["민수","지갑? 음... 책상 [위에] [없어]?","Your wallet? Hmm... isn't it on the desk?"],
+      ["지은","응, [없어]. 책상 [위에]는 책만 [있어].","No, it's not. There are only books on the desk."],
+      ["민수","그럼 의자 [밑에]는?","Then under the chair?"],
+      ["지은","의자 [밑]? 음... 거기도 [없어].","Under the chair? Hmm... it's not there either."],
+      ["민수","가방 [안에]는?","In your bag?"],
+      ["지은","가방? 아, 여기 [있어]! 책 [사이에].","My bag? Oh, here it is! Between the books."],
+      ["민수","근데 내 휴대폰은 어디 [있어]?","But where's my phone?"],
+      ["지은","네 휴대폰? 저기, 컴퓨터 [옆에] [있어].","Your phone? Over there, next to the computer."]
+    ],
+    clean:[
+      ["지은","민수야, 내 지갑이 어디에 [있어]?","Minsu, where is my wallet?"],
+      ["민수","지갑이 책상 [위에] [없어]?","Isn't your wallet on the desk?"],
+      ["지은","응, 책상 [위에]는 [없어]. 책상 [위에]는 책만 [있어].","No, it isn't on the desk. There are only books on the desk."],
+      ["민수","그럼 의자 [밑에]는 [있어]?","Then is it under the chair?"],
+      ["지은","아니, 의자 [밑에]도 [없어].","No, it isn't under the chair either."],
+      ["민수","가방 [안에]는 [있어]?","Is it in your bag?"],
+      ["지은","아, 여기 [있어]! 지갑이 가방 [안에] [있어]. 책 [사이에] [있어].","Oh, here it is! The wallet is in the bag. It's between the books."],
+      ["민수","그런데 내 휴대폰은 어디에 [있어]?","But where is my phone?"],
+      ["지은","네 휴대폰은 저기에 [있어]. 컴퓨터 [옆에] [있어].","Your phone is over there. It's next to the computer."]
+    ],
+    q:[
+      {q:"Where does Jieun find her wallet?", c:["In her bag, between the books","On the desk","Under the chair","Next to the computer"], why:"가방? 아, 여기 있어! 책 사이에: in the bag, between the books.", cwhy:"지갑이 가방 안에 있어. 책 사이에 있어: the wallet is in the bag, between the books."},
+      {q:"What is on the desk?", c:["Only books","The wallet","The phone","The bag"], why:"책상 위에는 책만 있어: there are only books on the desk."},
+      {q:"Where is Minsu's phone?", c:["Next to the computer","Under the chair","In the bag","On the desk"], why:"컴퓨터 옆에 있어: it's next to the computer."}
+    ],
+    note:"책상 위에 없어? asks \"isn't it on the desk?\". The answer 응, 없어 means \"right, it isn't\": Korean 응 agrees with the question, even a negative one."
+  },
   plan:[
-    ["5","Warm-up","Ask about things you own: 차가 있어요? 고양이가 있어요? Answer with 있어요 or 없어요."],
-    ["10","Teach","Slides 1 to 4. Put a real object on, under and next to a real table while you say each sentence."],
-    ["8","Hide and find","One person hides an object in the room. The other asks yes/no questions (책상 위에 있어요?) until they find it."],
-    ["4","Here and there","Slides 5 to 7: 여기, 거기, 저기 and 계세요."],
-    ["5","Check","Practice tab. The picture questions change each time, so run it twice."],
-    ["5","Say it","Say it tab, polite first. Look around the room and say where three real things are before you reveal."]
+    ["3","Warm-up","Ask about things you own: 차가 있어요? 고양이가 있어요? Answer with 있어요 or 없어요."],
+    ["9","Teach","Slides 1 to 4. Put a real object on, under and next to a real table while you say each sentence."],
+    ["6","Hide and find","One person hides an object in the room. The other asks yes/no questions (책상 위에 있어요?) until they find it."],
+    ["3","Here and there","Slides 5 to 7: 여기, 거기, 저기 and 계세요."],
+    ["4","Check","Practice tab. The picture questions change each time, so run it twice."],
+    ["5","Say it","Say it tab, polite first. Look around the room and say where three real things are before you reveal."],
+    ["5","Dialogue","Dialogue tab. Listen first and answer the questions, then Role-play it: one of you is 민수, the other 지은. Swap and go again."]
   ],
   talk:[["집 근처에 뭐가 있어요?","What is near your house?"],["가방 안에 뭐가 있어요?","What is in your bag?"],["지금 어디에 있어요?","Where are you right now?"]],
   after:"HTSK Lesson 2 covers 있다 as \"be at\" and \"have\", with the position words."
