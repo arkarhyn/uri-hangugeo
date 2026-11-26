@@ -566,7 +566,7 @@ function renderSayGym(){
 }
 
 /* ---------------- dialogue ---------------- */
-// One short scene per lesson: dlg:{scene, cast:[[name, "yo"|"ban", english?],...], lines:[[name, korean, english, level?],...], clean?:[same shape], q:[mc items], note?}.
+// One or more short scenes per lesson: dlg is one scene, or an array of scenes that each have a title. A scene is {scene, cast:[[name, "yo"|"ban", english?],...], lines:[[name, korean, english, level?],...], clean?:[same shape], q:[mc items], note?}.
 // A line's level defaults to its speaker's; the 4th field marks a switch (지은 talks 반말 to 민수, then polite to the server).
 // Three modes: Read (the script, Play all), Role-play (your lines show English until you've said them) and
 // Listen first (Korean hidden, then the questions). Nothing here is scored or sent to the Sheet.
@@ -579,7 +579,9 @@ if(!DLG_MODES.some(([k])=>k===dlgMode)) dlgMode="read";
 const DLGS_KEY="uri-hangugeo.dlgStyle", DLG_STYLES=[["spoken","As spoken"],["clean","Clean"]];
 let dlgStyle=lsGet(DLGS_KEY,"spoken");
 if(!DLG_STYLES.some(([k])=>k===dlgStyle)) dlgStyle="spoken";
-const dlgRole={};   // lesson id -> the speaker you're playing in Role-play
+const dlgRole={};   // lesson id + scene number -> the speakers you're playing in Role-play
+const dlgScene={};  // lesson id -> which scene is open
+const dlgList = L => [].concat(L.dlg||[]);
 const spkI = (D,who) => D.cast.findIndex(c=>c[0]===who);
 const lineLv = (D,l) => l[3] || D.cast[spkI(D,l[0])][1];
 // o.ko: show the Korean; o.en: show the English; o.cls: extra classes ("cur", "mine").
@@ -595,13 +597,15 @@ function dlgLineHTML(D,l,j,o){
 // and Clean (clean: the same scene in full textbook sentences). The switch swaps the script every mode uses,
 // and a question's cwhy (if any) replaces its why, so the explanation quotes the script on screen.
 function renderDlgTab(L,pane){
-  const D0=L.dlg, two=Array.isArray(D0.clean)&&D0.clean.length>0, clean=two&&dlgStyle==="clean";
+  const scenes=dlgList(L), at=Math.min(dlgScene[L.id]||0, scenes.length-1);
+  const D0=scenes[at], two=Array.isArray(D0.clean)&&D0.clean.length>0, clean=two&&dlgStyle==="clean";
   const D = clean ? {...D0, lines:D0.clean, q:(D0.q||[]).map(x=>x.cwhy?{...x, why:x.cwhy}:x)} : D0;
-  pane.innerHTML = `<p class="dscene">${hl(D.scene)}</p>
+  pane.innerHTML = `${scenes.length>1?`<div class="modes dscenes" role="group" aria-label="Which scene">${scenes.map((s,i)=>`<button data-sc="${i}" aria-pressed="${i===at}">${i+1}. ${esc(s.title||"Scene")}</button>`).join("")}</div>`:""}<p class="dscene">${hl(D.scene)}</p>
     <div class="dcast">${D.cast.map(([n,lv,en],i)=>`<span class="dchip spk${i}">${esc(n)}${en?` <span class="muted">${esc(en)}</span>`:""}<span class="lvtag">${LV[lv]}</span></span>`).join("")}</div>
     <div class="dmodes"><div class="modes" role="group" aria-label="How to use the dialogue">${DLG_MODES.map(([k,t])=>`<button data-dm="${k}" aria-pressed="${dlgMode===k}">${t}</button>`).join("")}</div>
     ${two?`<div class="modes dstyle" role="group" aria-label="Which version of the script">${DLG_STYLES.map(([k,t])=>`<button data-ds="${k}" aria-pressed="${(clean?"clean":"spoken")===k}">${t}</button>`).join("")}</div>`:""}</div>
     <div id="dbody"></div>`;
+  $$("[data-sc]",pane).forEach(b=>b.onclick=()=>{ dlgScene[L.id]=+b.dataset.sc; renderDlgTab(L,pane); });
   $$("[data-dm]",pane).forEach(b=>b.onclick=()=>{ dlgMode=b.dataset.dm; lsSet(DLGM_KEY,dlgMode); renderDlgTab(L,pane); });
   $$("[data-ds]",pane).forEach(b=>b.onclick=()=>{ dlgStyle=b.dataset.ds; lsSet(DLGS_KEY,dlgStyle); renderDlgTab(L,pane); });
   stopPlay(); keyHandler=null;
@@ -634,9 +638,10 @@ function dlgRead(L,D,body){
 // you're together, so each of you answers for one and the site plays the third (a shop clerk, say).
 function dlgRolePlay(L,D,body){
   const names=D.cast.map(c=>c[0]);
-  const me=new Set((dlgRole[L.id]||[names[1]]).filter(n=>names.includes(n)));
+  const rk=L.id+":"+(dlgScene[L.id]||0);
+  const me=new Set((dlgRole[rk]||[names[1]]).filter(n=>names.includes(n)));
   if(!me.size) me.add(names[1]);
-  const keep=()=>{ dlgRole[L.id]=[...me]; };
+  const keep=()=>{ dlgRole[rk]=[...me]; };
   const one=()=>me.size===1 ? [...me][0] : null, nextOf=n=>names[(names.indexOf(n)+1)%names.length];
   let k=0, shown=false;
   const draw=()=>{

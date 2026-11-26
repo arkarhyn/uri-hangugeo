@@ -118,10 +118,14 @@ for (const L of LESSONS) {
   // Dialogue: {scene, cast:[[name, "yo"|"ban", english?]], lines:[[name, korean, english, level?]], clean?:[same], q?:[mc + cwhy?], note?}.
   // Endings are checked roughly per sentence here; tools/kiwi_check.py does the real check.
   if (L.dlg !== undefined) {
-    const D = L.dlg, tag = 'dlg';
+    const scenes = [].concat(L.dlg);
+    if (!scenes.length) bad(L, 'dlg: no scenes');
+    scenes.forEach((D, si) => {
+    const tag = scenes.length > 1 ? `dlg scene ${si + 1}` : 'dlg';
+    if (scenes.length > 1 && !(D && typeof D.title === 'string' && D.title.trim())) bad(L, `${tag}: needs a title when a lesson has more than one scene`);
     if (!D || typeof D !== 'object' || Array.isArray(D)) bad(L, 'dlg must be an object');
     else {
-      for (const k of Object.keys(D)) if (!['scene', 'cast', 'lines', 'clean', 'q', 'note'].includes(k)) bad(L, `${tag}: unknown field "${k}"`);
+      for (const k of Object.keys(D)) if (!['title', 'scene', 'cast', 'lines', 'clean', 'q', 'note'].includes(k)) bad(L, `${tag}: unknown field "${k}"`);
       if (typeof D.scene !== 'string' || !D.scene.trim()) bad(L, `${tag}: missing scene`);
       markup(L, tag, D.scene);
       const cast = Array.isArray(D.cast) ? D.cast : [];
@@ -176,6 +180,7 @@ for (const L of LESSONS) {
       }
       if (D.note !== undefined) [].concat(D.note).forEach(n => { if (typeof n !== 'string' || !n) bad(L, `${tag}: note must be a string or an array of strings`); else markup(L, tag, n); });
     }
+    });
   }
   (L.goals || []).forEach(g => markup(L, 'goals', g));
   (L.plan || []).forEach(p => markup(L, 'plan', p[2]));
@@ -188,11 +193,12 @@ if (process.argv.includes('--dump-say')) {
 }
 // --dump-dlg prints every dialogue line as JSON, with its speech level resolved. Clean-script lines have n like "c3".
 if (process.argv.includes('--dump-dlg')) {
-  const rows = (L, arr, p) => (arr || []).map((l, i) => ({ lesson: L.id, n: p + (i + 1), who: l[0], ko: strip(l[1]), en: l[2], lv: l[3] || (L.dlg.cast.find(c => c[0] === l[0]) || [])[1] }));
-  process.stdout.write(JSON.stringify(LESSONS.flatMap(L => !L.dlg ? [] : [...rows(L, L.dlg.lines, ''), ...rows(L, L.dlg.clean, 'c')])));
+// Lines from the second scene on have n like "s2-3" or "s2-c3".
+  const rows = (L, D, arr, p) => (arr || []).map((l, i) => ({ lesson: L.id, n: p + (i + 1), who: l[0], ko: strip(l[1]), en: l[2], lv: l[3] || (D.cast.find(c => c[0] === l[0]) || [])[1] }));
+  process.stdout.write(JSON.stringify(LESSONS.flatMap(L => [].concat(L.dlg || []).flatMap((D, si) => { const s = si ? `s${si + 1}-` : ''; return [...rows(L, D, D.lines, s), ...rows(L, D, D.clean, s + 'c')]; }))));
   process.exit(errs.length ? 1 : 0);
 }
 if (warns.length && process.argv.includes('--style')) console.log(warns.map(w => 'style: ' + w).join('\n') + '\n');
 else if (warns.length) console.log(`${warns.length} style note(s); run with --style to list them.`);
 if (errs.length) { console.error(errs.join('\n')); console.error(`\n${errs.length} problem(s).`); process.exit(1); }
-console.log(`OK: ${LESSONS.length} lessons, ${LESSONS.reduce((n, L) => n + L.ex.length + (L.pool || []).length, 0)} practice items, ${LESSONS.reduce((n, L) => n + (L.say || []).length, 0)} say-it sentences, ${LESSONS.filter(L => L.dlg).length} dialogues.`);
+console.log(`OK: ${LESSONS.length} lessons, ${LESSONS.reduce((n, L) => n + L.ex.length + (L.pool || []).length, 0)} practice items, ${LESSONS.reduce((n, L) => n + (L.say || []).length, 0)} say-it sentences, ${LESSONS.reduce((n, L) => n + [].concat(L.dlg || []).length, 0)} dialogue scenes.`);

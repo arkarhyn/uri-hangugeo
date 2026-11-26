@@ -104,7 +104,9 @@ say:[
 
 ### Dialogue
 
-The Dialogue tab shows one short scene that uses the lesson's grammar the way people actually talk. It has three modes. **Read** shows the script, with Play all reading every line in each speaker's voice. **Role-play** shows the lines of the parts you pick as English only, until you've said them and pressed Show; pick both 민수 and 지은 when you're together. **Listen first** hides the Korean, plays it, then asks the questions. Nothing is scored or sent to the Sheet.
+The Dialogue tab shows one or more short scenes that use the lesson's grammar the way people actually talk. It has three modes. **Read** shows the script, with Play all reading every line in each speaker's voice. **Role-play** shows the lines of the parts you pick as English only, until you've said them and pressed Show; pick both 민수 and 지은 when you're together. **Listen first** hides the Korean, plays it, then asks the questions. Nothing is scored or sent to the Sheet.
+
+A lesson with one scene sets `dlg` to that object. For several, set `dlg` to an array of them and give each a `title` (2 to 4 words in English); the tab then shows a scene picker. Array order is the picker order.
 
 ```js
 dlg:{
