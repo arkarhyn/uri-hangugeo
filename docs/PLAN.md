@@ -100,7 +100,7 @@ E:\Study\Korean\
 - **Unit 2, batch 1 (built 2026-11-22):** past tense (`past`), future and -(으)ㄹ까요 (`plans`), ordering and shopping (`shopping`, Austin's pick), -고 / -지만 / -아서 (`linking`).
 - **Unit 2, batch 2 (built 2026-11-22):** 반말 (`banmal`), -고 있어요 (`ing`), -(으)세요 / -지 마세요 (`requests`), 하고 / (이)랑 / 한테 (`with`), -아/어야 해요 / -아/어도 돼요 / -(으)면 안 돼요 (`must`). How-to guide: `docs/LESSONS.md`; checker: `tools/check.mjs`.
 - **Unit 2, batch 3 (built 2026-11-22):** irregulars in two lessons, ㅡ and ㄹ (`irregulars1`) then ㅂ, ㄷ and 르 (`irregulars2`); 보다 / 더 / 제일 (`compare`); -(으)면 and -(으)면 좋겠어요 (`if`); -(으)러 가요 / 와요 (`purpose`). Drills from here on may use irregular verbs.
-- **Batch 4 candidates, in order:** -기 전에 / -(으)ㄴ 후에; -(으)니까; -는데; noun modifiers (-(으)ㄴ / -는 / -(으)ㄹ); -(으)려고; -아/어 보다; -(으)ㄹ 수 있다 / 없다 and 못.
+- **Unit 2, batch 4 (built 2026-11-26):** -기 전에 / -(으)ㄴ 후에 (`beforeafter`); -(으)니까 (`because`); -는데 (`neunde`); noun modifiers (`modifiers`); -(으)려고 (`intend`); -아/어 보다 (`try`); -(으)ㄹ 수 있다 / 없다 and 못 (`can`).
 - Ad-hoc "notes" lessons: vocab and examples from something he picked up elsewhere, with practice optional and no lesson plan needed.
 
 ### 6.2 Routine for one new lesson
